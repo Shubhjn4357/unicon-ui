@@ -5,7 +5,7 @@ import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface AlertProps extends HTMLMotionProps<"div"> {
-  variant?: "default" | "destructive" | "success" | "warning"
+  variant?: "default" | "destructive" | "success" | "warning" | "glass"
   dismissible?: boolean
   onDismiss?: () => void
   icon?: React.ReactNode
@@ -32,6 +32,8 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
         "bg-green-50 text-green-900 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800",
       warning:
         "bg-yellow-50 text-yellow-900 border-yellow-200 dark:bg-yellow-900/20 dark:text-yellow-400 dark:border-yellow-800",
+      glass:
+        "backdrop-blur-xl bg-white/10 dark:bg-black/10 border-white/20 dark:border-white/10 shadow-lg",
     }
 
     return (

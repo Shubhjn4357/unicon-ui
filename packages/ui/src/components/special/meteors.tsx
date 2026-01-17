@@ -21,19 +21,24 @@ export const Meteors = React.forwardRef<HTMLDivElement, MeteorsProps>(
         {meteors.map((_, idx) => (
           <motion.span
             key={idx}
-            className="absolute left-1/2 top-0 h-0.5 w-0.5 rotate-215 animate-meteor rounded-full bg-slate-500 shadow-[0_0_0_1px_#ffffff10]"
+            className="absolute left-1/2 top-0 h-0.5 w-0.5 rounded-full bg-slate-500 shadow-[0_0_0_1px_#ffffff10]"
             style={{
-              top: `${Math.random() * 100}%`,
+              top: 0,
               left: `${Math.random() * 100}%`,
+              rotate: "135deg", // Changed from rotate-215 to 135deg for downward fall
               animationDelay: `${Math.random() * (0.8 - 0.2) + 0.2}s`,
               animationDuration: `${Math.floor(Math.random() * (10 - 2) + 2)}s`,
             }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 0] }}
+            initial={{ opacity: 0, y: 0 }}
+            animate={{
+              opacity: [0, 1, 0],
+              y: [0, typeof window !== "undefined" ? window.innerHeight : 1000],
+            }}
             transition={{
               duration: Math.random() * 10 + 5,
-              repeat: Number.POSITIVE_INFINITY,
+              repeat: Infinity,
               delay: Math.random() * 10,
+              ease: "linear",
             }}
           >
             <div className="pointer-events-none absolute top-1/2 h-px w-[50px] -translate-y-1/2 bg-linear-to-r from-slate-500 to-transparent" />

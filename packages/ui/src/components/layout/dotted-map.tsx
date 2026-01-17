@@ -1,52 +1,123 @@
 "use client"
 
 import * as React from "react"
+import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface DottedMapProps extends React.HTMLAttributes<HTMLDivElement> {
-  color?: string
+  dots?: Array<{ lat: number; lng: number; label?: string }>
+  dotColor?: string
+  dotSize?: number
+  gridSize?: number
 }
 
 /**
- * Native DottedMap - SVG dot map of world
+ * Dotted Map - World map visualization with dots
  */
 export const DottedMap = React.forwardRef<HTMLDivElement, DottedMapProps>(
-  ({ color = "currentColor", className, ...props }, ref) => {
+  (
+    {
+      dots = [],
+      dotColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.6)",
+      dotSize = 4,
+      gridSize = 20,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    // Simple world map outline using dots
+    const mapDots = React.useMemo(() => {
+      const result: Array<{ x: number; y: number }> = []
+
+      // Create a dotted grid representing continents (simplified)
+      const continents = [
+        // North America
+        { startX: 0.15, endX: 0.35, startY: 0.2, endY: 0.45 },
+        // South America
+        { startX: 0.2, endX: 0.35, startY: 0.45, endY: 0.75 },
+        // Europe
+        { startX: 0.45, endX: 0.6, startY: 0.15, endY: 0.4 },
+        // Africa
+        { startX: 0.45, endX: 0.65, startY: 0.35, endY: 0.7 },
+        // Asia
+        { startX: 0.55, endX: 0.85, startY: 0.1, endY: 0.5 },
+        // Australia
+        { startX: 0.75, endX: 0.9, startY: 0.55, endY: 0.75 },
+      ]
+
+      continents.forEach((continent) => {
+        for (let x = continent.startX; x <= continent.endX; x += 0.02) {
+          for (let y = continent.startY; y <= continent.endY; y += 0.02) {
+            if (Math.random() > 0.3) {
+              result.push({ x, y })
+            }
+          }
+        }
+      })
+
+      return result
+    }, [])
+
+    // Convert lat/lng to x/y coordinates
+    const convertCoords = (lat: number, lng: number) => {
+      const x = ((lng + 180) / 360) * 100
+      const y = ((90 - lat) / 180) * 100
+      return { x, y }
+    }
+
     return (
-      <div ref={ref} className={cn("relative w-full opacity-50", className)} {...props}>
-        <svg viewBox="0 0 1000 500" className="h-full w-full" style={{ color }}>
-          {/* Simplified world map dot pattern - normally would contain many circle elements */}
-          {/* Using a pattern fill for simulation as generating 1000s of dots manually is too large */}
-          <defs>
-            <pattern
-              id="dot-pattern"
-              x="0"
-              y="0"
-              width="10"
-              height="10"
-              patternUnits="userSpaceOnUse"
-            >
-              <circle cx="2" cy="2" r="1.5" fill={color} />
-            </pattern>
-            <mask id="world-mask">
-              <rect width="100%" height="100%" fill="black" />
-              {/* Simplified Continents paths - rough approximation */}
-              <path
-                d="M150,150 Q300,50 400,150 T800,150"
-                stroke="white"
-                strokeWidth="100"
-                fill="none"
-              />
-              <path
-                d="M200,350 Q400,450 600,350 T900,350"
-                stroke="white"
-                strokeWidth="80"
-                fill="none"
-              />
-              {/* Real implementations use a heavy SVG path for the mask */}
-            </mask>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dot-pattern)" mask="url(#world-mask)" />
+      <div
+        ref={ref}
+        className={cn("relative h-full w-full overflow-hidden rounded-lg bg-surface", className)}
+        {...props}
+      >
+        {/* World map dots */}
+        <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+          {mapDots.map((dot, idx) => (
+            <circle
+              key={idx}
+              cx={dot.x}
+              cy={dot.y}
+              r={0.15}
+              fill="rgba(var(--color-foreground-rgb, 0, 0, 0), 0.2)"
+              className="transition-opacity hover:opacity-100"
+            />
+          ))}
+
+          {/* User-provided dots */}
+          {dots.map((dot, idx) => {
+            const coords = convertCoords(dot.lat, dot.lng)
+            return (
+              <g key={`marker-${idx}`}>
+                <motion.circle
+                  cx={coords.x}
+                  cy={coords.y}
+                  r={0.5}
+                  fill={dotColor}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: [1, 1.5, 1] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: idx * 0.2,
+                  }}
+                />
+                {dot.label && (
+                  <text
+                    x={coords.x}
+                    y={coords.y - 1}
+                    fontSize="2"
+                    fill="currentColor"
+                    textAnchor="middle"
+                    className="text-xs"
+                  >
+                    {dot.label}
+                  </text>
+                )}
+              </g>
+            )
+          })}
         </svg>
       </div>
     )

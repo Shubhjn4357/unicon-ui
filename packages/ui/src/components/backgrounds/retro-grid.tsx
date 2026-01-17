@@ -6,14 +6,15 @@ import { cn } from "../../lib/utils"
 
 export interface RetroGridProps extends React.HTMLAttributes<HTMLDivElement> {
   angle?: number
+  speed?: number
 }
 
 /**
- * Native RetroGrid - 3D perspective grid background
- * Pure CSS perspective transform
+ * Native RetroGrid - Animated 3D perspective grid background
+ * Pure CSS perspective transform with wave animation
  */
 export const RetroGrid = React.forwardRef<HTMLDivElement, RetroGridProps>(
-  ({ angle = 65, className, ...props }, ref) => {
+  ({ angle = 65, speed = 20, className, ...props }, ref) => {
     return (
       <div
         ref={ref}
@@ -32,13 +33,14 @@ export const RetroGrid = React.forwardRef<HTMLDivElement, RetroGridProps>(
           }
         >
           <div
-            className="animate-retro-grid bg-repeat bg-size-[60px_60px] h-[300vh] inset-[0%_0px] ml-[-50%] origin-[100%_0_0] w-[600vw]"
+            className="bg-repeat bg-size-[60px_60px] h-[300vh] inset-[0%_0px] ml-[-50%] origin-[100%_0_0] w-[600vw]"
             style={{
               backgroundImage: `
                   linear-gradient(to right, rgba(var(--color-brand-rgb, 99, 102, 241), 0.3) 1px, transparent 0),
                   linear-gradient(to bottom, rgba(var(--color-brand-rgb, 99, 102, 241), 0.3) 1px, transparent 0)
                  
 `,
+              animation: `retro-grid-wave ${speed}s linear infinite`,
             }}
           />
         </div>

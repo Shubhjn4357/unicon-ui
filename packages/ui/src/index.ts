@@ -58,10 +58,9 @@ export { Progress } from "./components/core/progress"
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/core/tabs"
 export { Alert, AlertTitle, AlertDescription } from "./components/core/alert"
 export { Button, buttonVariants, type ButtonProps } from "./components/core/button"
-export { CommandMenu } from "./components/feedback/command-menu"
 export { SmartInput } from "./components/feedback/smart-input"
 export { ThemeToggle } from "./components/feedback/theme-toggle"
-export { AnimatedThemeToggler } from "./components/feedback/animated-theme-toggler"
+
 
 // Animation Components
 export { FadeIn } from "./components/animation/fade-in"
@@ -135,6 +134,15 @@ export { FollowerPointer } from "./components/misc/follower-pointer"
 export { CardStack } from "./components/misc/card-stack"
 export { PixelTrail } from "./components/misc/pixel-trail"
 export { ConfettiSideCannons } from "./components/misc/confetti-side-cannons"
+export { CustomPointer } from "./components/misc/custom-pointer"
+export { ProgressiveBlur as ProgressiveBlurMisc } from "./components/misc/progressive-blur"
+export { SpotlightCard as SpotlightCardSpecial } from "./components/special/spotlight-card"
+
+// New complex implementations
+export { CommandMenu } from "./components/feedback/command-menu"
+export { AnimatedThemeToggler } from "./components/feedback/animated-theme-toggler"
+export { DottedMap as DottedMapNew } from "./components/layout/dotted-map"
+export { IonCloud as IconCloudNew } from "./components/layout/ion-cloud"
 
 export { SafariMockup, iPhoneMockup, AndroidMockup } from "./components/misc/device-mockups"
 // Aliases for common usage

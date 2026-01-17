@@ -16,7 +16,7 @@ export interface SparklesTextProps extends React.HTMLAttributes<HTMLSpanElement>
 export const SparklesText = React.forwardRef<HTMLSpanElement, SparklesTextProps>(
   (
     {
-      text,
+      children, // Changed from 'text' to 'children'
       colors = { first: "#9E7AFF", second: "#FE8BBB" },
       sparklesCount = 10,
       className,
@@ -24,34 +24,46 @@ export const SparklesText = React.forwardRef<HTMLSpanElement, SparklesTextProps>
     },
     ref
   ) => {
+    const [sparkles, setSparkles] = React.useState<Array<{ id: number; x: number; y: number; color: string; delay: number; duration: number }>>([])
+
+    React.useEffect(() => {
+      const newSparkles = Array.from({ length: sparklesCount }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        color: Math.random() > 0.5 ? colors.first : colors.second,
+        delay: Math.random() * 2,
+        duration: 1 + Math.random() * 2,
+      }))
+      setSparkles(newSparkles)
+    }, [sparklesCount, colors])
+
     return (
       <span ref={ref} className={cn("relative inline-block", className)} {...props}>
-        {Array.from({ length: sparklesCount }).map((_, i) => (
+        <span className="relative z-10">{children}</span>
+        {sparkles.map((sparkle) => (
           <motion.span
-            key={i}
-            className="absolute text-xl"
+            key={sparkle.id}
+            className="absolute h-1 w-1 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              color: i % 2 === 0 ? colors.first : colors.second,
+              left: `${sparkle.x}%`,
+              top: `${sparkle.y}%`,
+              backgroundColor: sparkle.color,
+              boxShadow: `0 0 10px ${sparkle.color}`,
             }}
             initial={{ opacity: 0, scale: 0 }}
             animate={{
               opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-              rotate: [0, 180, 360],
+              scale: [0, 1.5, 0],
             }}
             transition={{
-              duration: 2,
-              delay: i * 0.1,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatDelay: 1,
+              duration: sparkle.duration,
+              repeat: Infinity,
+              delay: sparkle.delay,
+              ease: "easeInOut",
             }}
-          >
-            ✨
-          </motion.span>
+          />
         ))}
-        <span className="relative z-10">{text}</span>
       </span>
     )
   }

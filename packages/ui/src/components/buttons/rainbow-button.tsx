@@ -15,13 +15,24 @@ export const RainbowButton = React.forwardRef<HTMLButtonElement, RainbowButtonPr
       <button
         ref={ref}
         className={cn(
-          "group relative inline-flex h-11 items-center justify-center rounded-xl bg-white px-8 font-medium text-neutral-900 transition-transform duration-200 active:scale-95",
+          "group relative inline-flex h-11 items-center justify-center rounded-xl bg-white px-8 font-medium text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 transition-transform duration-200 active:scale-95",
           className
         )}
         {...props}
       >
-        <span className="absolute inset-0 -m-0.5 animate-rainbow rounded-xl bg-[conic-gradient(from_var(--shimmer-angle),var(--color-red-500),var(--color-yellow-500),var(--color-green-500),var(--color-cyan-500),var(--color-blue-500),var(--color-purple-500),var(--color-red-500))] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        <span className="relative z-10 flex items-center gap-2">{children}</span>
+        <span
+          className="absolute inset-0 -m-[2px] animate-rainbow rounded-xl"
+          style={{
+            background:
+              "conic-gradient(from var(--shimmer-angle, 0deg), #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000)",
+            backgroundSize: "200% 200%",
+            opacity: 1,
+            animation: "rainbow 3s linear infinite",
+          }}
+        />
+        <span className="relative z-10 flex items-center gap-2 bg-white dark:bg-neutral-900 rounded-[10px] py-2 px-8">
+          {children}
+        </span>
       </button>
     )
   }

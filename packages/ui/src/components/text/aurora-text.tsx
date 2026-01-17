@@ -17,7 +17,7 @@ export const AuroraText = React.forwardRef<HTMLSpanElement, AuroraTextProps>(
       <motion.span
         ref={ref}
         className={cn(
-          "inline-block bg-linear-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent",
+          "inline-block bg-clip-text text-transparent",
           className
         )}
         animate={{
@@ -25,10 +25,11 @@ export const AuroraText = React.forwardRef<HTMLSpanElement, AuroraTextProps>(
         }}
         transition={{
           duration: 5,
-          repeat: Number.POSITIVE_INFINITY,
+          repeat: Infinity,
           ease: "linear",
         }}
         style={{
+          backgroundImage: "linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6)",
           backgroundSize: "200% auto",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",

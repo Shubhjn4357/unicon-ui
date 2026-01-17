@@ -72,10 +72,11 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
               style={{
                 width: ripple.size,
                 height: ripple.size,
-                top: ripple.y,
                 left: ripple.x,
+                top: ripple.y,
                 backgroundColor: rippleColor,
                 transform: "scale(0)",
+                transformOrigin: "center",
                 animationDuration: duration,
               }}
             />

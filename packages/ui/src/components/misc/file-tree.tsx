@@ -1,28 +1,98 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
+import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 
-interface FileNode {
+export interface FileNode {
   name: string
-  isFolder?: boolean
+  type: "file" | "folder"
   children?: FileNode[]
 }
 
 export interface FileTreeProps extends React.HTMLAttributes<HTMLDivElement> {
   data: FileNode[]
+  onFileClick?: (file: FileNode) => void
+}
+
+interface FileTreeItemProps {
+  node: FileNode
+  level: number
+  onFileClick?: (file: FileNode) => void
+}
+
+const FileTreeItem: React.FC<FileTreeItemProps> = ({ node, level, onFileClick }) => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const isFolder = node.type === "folder"
+
+  return (
+    <div className="select-none">
+      <motion.div
+        className={cn(
+          "flex items-center gap-2 rounded px-2 py-1 hover:bg-surface-elevated cursor-pointer",
+          level > 0 && "ml-4"
+        )}
+        onClick={() => {
+          if (isFolder) {
+            setIsOpen(!isOpen)
+          } else {
+            onFileClick?.(node)
+          }
+        }}
+        whileHover={{ x: 2 }}
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: level * 0.05 }}
+      >
+        {isFolder && (
+          <motion.span
+            className="text-foreground-secondary"
+            animate={{ rotate: isOpen ? 90 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            ▶
+          </motion.span>
+        )}
+        {!isFolder && <span className="w-3" />}
+        <span className={cn(isFolder ? "font-medium text-brand" : "text-foreground")}>
+          {node.name}
+        </span>
+      </motion.div>
+
+      {isFolder && isOpen && node.children && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {node.children.map((child, idx) => (
+            <FileTreeItem
+              key={`${child.name}-${idx}`}
+              node={child}
+              level={level + 1}
+              onFileClick={onFileClick}
+            />
+          ))}
+        </motion.div>
+      )}
+    </div>
+  )
 }
 
 /**
- * Native FileTree - Collapsible file tree structure
+ * File Tree - Collapsible file/folder tree structure
  */
 export const FileTree = React.forwardRef<HTMLDivElement, FileTreeProps>(
-  ({ data, className, ...props }, ref) => {
+  ({ data, onFileClick, className, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("font-mono text-sm", className)} {...props}>
-        {data.map((node, i) => (
-          <FileTreeNode key={i} node={node} depth={0} />
+      <div
+        ref={ref}
+        className={cn("rounded-lg border border-border bg-surface p-4", className)}
+        {...props}
+      >
+        {data.map((node, idx) => (
+          <FileTreeItem key={`${node.name}-${idx}`} node={node} level={0} onFileClick={onFileClick} />
         ))}
       </div>
     )
@@ -30,44 +100,3 @@ export const FileTree = React.forwardRef<HTMLDivElement, FileTreeProps>(
 )
 
 FileTree.displayName = "FileTree"
-
-function FileTreeNode({ node, depth }: { node: FileNode; depth: number }) {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const hasChildren = node.children && node.children.length > 0
-
-  return (
-    <div>
-      <div
-        className={cn(
-          "flex items-center gap-2 py-1 hover:bg-surface-elevated",
-          hasChildren && "cursor-pointer"
-        )}
-        style={{ paddingLeft: `${depth * 20}px` }}
-        onClick={() => hasChildren && setIsOpen(!isOpen)}
-      >
-        {hasChildren && (
-          <motion.span animate={{ rotate: isOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
-            ▶
-          </motion.span>
-        )}
-        <span className="flex items-center gap-2">
-          {node.isFolder ? "📁" : "📄"} {node.name}
-        </span>
-      </div>
-      <AnimatePresence>
-        {isOpen && hasChildren && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {node.children?.map((child, i) => (
-              <FileTreeNode key={i} node={child} depth={depth + 1} />
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}

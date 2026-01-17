@@ -13,11 +13,13 @@ export function ComicText({ children, className }: ComicTextProps) {
   return (
     <span
       className={cn(
-        "relative inline-block font-black uppercase text-foreground transition-transform hover:-translate-y-1 hover:translate-x-1",
-        "before:absolute before:inset-0 before:-z-10 before:translate-x-1 before:translate-y-1 before:bg-black before:transition-transform hover:before:translate-x-2 hover:before:translate-y-2",
-        "after:absolute after:inset-0 after:-z-20 after:translate-x-2 after:translate-y-2 after:bg-primary after:transition-transform hover:after:translate-x-3 hover:after:translate-y-3",
+        "relative inline-block font-black uppercase text-foreground transition-all duration-300 hover:-translate-y-1 hover:translate-x-1",
         className
       )}
+      style={{
+        filter: "drop-shadow(3px 3px 0 black) drop-shadow(6px 6px 0 var(--color-brand, #3b82f6))",
+        transition: "filter 0.3s ease, transform 0.3s ease",
+      }}
     >
       {children}
     </span>

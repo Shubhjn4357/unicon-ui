@@ -7,13 +7,17 @@ import { cn } from "../../lib/utils"
 export interface WarpBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   perspective?: number
   beamColor?: string
+  lineCount?: number
 }
 
 /**
- * Native WarpBackground - Star wars hyperspace effect
+ * Native WarpBackground - Star wars hyperspace warp tunnel effect
  */
 export const WarpBackground = React.forwardRef<HTMLDivElement, WarpBackgroundProps>(
-  ({ perspective = 100, beamColor = "rgba(255, 255, 255, 0.5)", className, ...props }, ref) => {
+  (
+    { perspective = 100, beamColor = "rgba(255, 255, 255, 0.5)", lineCount = 30, className, ...props },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -21,6 +25,36 @@ export const WarpBackground = React.forwardRef<HTMLDivElement, WarpBackgroundPro
         style={{ perspective: `${perspective}px` }}
         {...props}
       >
+        {/* Radial warp lines */}
+        <div className="absolute inset-0">
+          {[...Array(lineCount)].map((_, i) => {
+            const angle = (360 / lineCount) * i
+            return (
+              <motion.div
+                key={`line-${i}`}
+                className="absolute top-1/2 left-1/2 origin-left h-0.5"
+                style={{
+                  background: `linear-gradient(to right, transparent, ${beamColor})`,
+                  transformOrigin: "0 50%",
+                  transform: `rotate(${angle}deg)`,
+                  width: "50%",
+                }}
+                animate={{
+                  scaleX: [1, 1.5, 1],
+                  opacity: [0.3, 0.8, 0.3],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: (i / lineCount) * 2,
+                }}
+              />
+            )
+          })}
+        </div>
+
+        {/* Star particles */}
         <div
           className="absolute inset-0"
           style={{
@@ -28,10 +62,10 @@ export const WarpBackground = React.forwardRef<HTMLDivElement, WarpBackgroundPro
             transform: "translateZ(0)",
           }}
         >
-          {[...Array(20)].map((_, i) => (
+          {[...Array(50)].map((_, i) => (
             <motion.div
-              key={i}
-              className="absolute top-1/2 left-1/2 h-0.5 w-0.5 rounded-full"
+              key={`star-${i}`}
+              className="absolute top-1/2 left-1/2 h-1 w-1 rounded-full"
               style={{
                 background: beamColor,
                 boxShadow: `0 0 10px 2px ${beamColor}`,
@@ -44,15 +78,15 @@ export const WarpBackground = React.forwardRef<HTMLDivElement, WarpBackgroundPro
                 scale: 0.5,
               }}
               animate={{
-                z: [0, 1000],
+                z: [0, perspective * 15],
                 opacity: [0, 1, 0],
-                scale: [0.5, 5],
+                scale: [0.5, 10],
               }}
               transition={{
-                duration: Math.random() * 2 + 1,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
-                delay: Math.random() * 2,
+                duration: Math.random() * 3 + 2,
+                repeat: Infinity,
+                ease: "easeIn",
+                delay: Math.random() * 3,
               }}
             />
           ))}

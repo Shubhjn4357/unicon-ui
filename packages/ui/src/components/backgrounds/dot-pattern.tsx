@@ -12,10 +12,12 @@ export interface DotPatternProps extends React.HTMLAttributes<HTMLDivElement> {
   cy?: number
   cr?: number
   dotColor?: string
+  interactive?: boolean
+  maxDistance?: number
 }
 
 /**
- * Native DotPattern - SVG dot background pattern
+ * Native DotPattern - SVG dot background pattern with optional mouse interaction
  */
 export const DotPattern = React.forwardRef<HTMLDivElement, DotPatternProps>(
   (
@@ -28,15 +30,48 @@ export const DotPattern = React.forwardRef<HTMLDivElement, DotPatternProps>(
       cy = 0.5,
       cr = 0.5,
       dotColor = "currentColor",
+      interactive = true,
+      maxDistance = 150,
       className,
       ...props
     },
     ref
   ) => {
     const id = React.useId()
+    const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 })
+    const containerRef = React.useRef<HTMLDivElement>(null)
+
+    React.useEffect(() => {
+      if (!interactive) return undefined
+
+      const onMouseMove = (e: MouseEvent) => {
+        if (!containerRef.current) return
+        const rect = containerRef.current.getBoundingClientRect()
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        })
+      }
+
+      const container = containerRef.current
+      if (container) {
+        container.addEventListener("mousemove", onMouseMove)
+        return () => container.removeEventListener("mousemove", onMouseMove)
+      }
+
+      return undefined
+    }, [interactive])
 
     return (
-      <div ref={ref} className={cn("pointer-events-none absolute inset-0", className)} {...props}>
+      <div
+        ref={(node) => {
+          containerRef.current = node
+          if (typeof ref === "function") ref(node)
+          else if (ref) ref.current = node
+        }}
+        className={cn("pointer-events-auto absolute inset-0", className)}
+        {...props}
+      >
         <svg className="h-full w-full">
           <defs>
             <pattern
@@ -50,8 +85,30 @@ export const DotPattern = React.forwardRef<HTMLDivElement, DotPatternProps>(
             >
               <circle cx={width * cx} cy={height * cy} r={cr} fill={dotColor} />
             </pattern>
+            {interactive && (
+              <filter id={`${id}-glow`}>
+                <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            )}
           </defs>
           <rect width="100%" height="100%" fill={`url(#${id})`} />
+          {interactive && (
+            <circle
+              cx={mousePosition.x}
+              cy={mousePosition.y}
+              r={maxDistance}
+              fill={dotColor}
+              opacity="0.15"
+              filter={`url(#${id}-glow)`}
+              style={{
+                transition: "cx 0.1s ease-out, cy 0.1s ease-out",
+              }}
+            />
+          )}
         </svg>
       </div>
     )

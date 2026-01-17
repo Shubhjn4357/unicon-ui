@@ -63,8 +63,6 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               className
             )}
             onClick={() => document.getElementById(switchId)?.click()}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             <motion.div
               className={cn(
@@ -76,7 +74,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                   ? `calc(${config.width.replace("w-", "")} * 0.25rem - ${config.thumb.split(" ")[1].replace("w-", "")} * 0.25rem - 0.125rem)`
                   : 0,
               }}
-              transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              transition={{ type: "spring", stiffness: 400, damping: 35, mass: 0.8 }}
             />
           </motion.div>
         </div>

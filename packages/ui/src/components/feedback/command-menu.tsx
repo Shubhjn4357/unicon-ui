@@ -1,193 +1,188 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import type React from "react"
-import { type ReactNode, useEffect, useRef, useState } from "react"
+import * as React from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "../../lib/utils"
 
-interface CommandItem {
-  id: string
-  label: string
-  group?: string
-  onSelect: () => void
-  icon?: ReactNode
-  shortcut?: string
-}
-
-interface CommandMenuProps {
-  items: CommandItem[]
+export interface CommandMenuProps {
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
   placeholder?: string
-  onClose?: () => void
-  className?: string
+  commands: Array<{
+    id: string
+    label: string
+    icon?: React.ReactNode
+    shortcut?: string[]
+    onSelect: () => void
+    group?: string
+  }>
 }
 
 /**
- * Command Menu (Cmd+K interface) using native Dialog
- * Features keyboard navigation, fuzzy search, and grouped commands
+ * Command Menu - Cmd+K style command palette
  */
-export function CommandMenu({
-  items,
-  placeholder = "Search...",
-  onClose,
-  className,
-}: CommandMenuProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [search, setSearch] = useState("")
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const dialogRef = useRef<HTMLDialogElement>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
+export const CommandMenu = React.forwardRef<HTMLDivElement, CommandMenuProps>(
+  ({ open: controlledOpen, onOpenChange, placeholder = "Type a command...", commands }, ref) => {
+    const [isOpen, setIsOpen] = React.useState<boolean>(false)
+    const [search, setSearch] = React.useState("")
+    const [selectedIndex, setSelectedIndex] = React.useState(0)
 
-  // Filter items based on search
-  const filteredItems = items.filter((item) =>
-    item.label.toLowerCase().includes(search.toLowerCase())
-  )
-
-  // Group filtered items
-  const groupedItems = filteredItems.reduce(
-    (acc, item) => {
-      const group = item.group || "Commands"
-      if (!acc[group]) acc[group] = []
-      acc[group].push(item)
-      return acc
-    },
-    {} as Record<string, CommandItem[]>
-  )
-
-  // Handle keyboard shortcuts
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Open with Cmd+K or Ctrl+K
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault()
-        setIsOpen(true)
-      }
+    const open = controlledOpen ?? isOpen
+    const setOpen = (value: boolean) => {
+      setIsOpen(value)
+      onOpenChange?.(value)
     }
 
-    document.addEventListener("keydown", handleKeyDown)
-    return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [])
+    // Group commands
+    const groupedCommands = React.useMemo(() => {
+      const filtered = commands.filter((cmd) =>
+        cmd.label.toLowerCase().includes(search.toLowerCase())
+      )
 
-  // Manage dialog state
-  useEffect(() => {
-    const dialog = dialogRef.current
-    if (!dialog) return
+      const groups: Record<string, typeof commands> = {}
+      filtered.forEach((cmd) => {
+        const group = cmd.group || "Commands"
+        if (!groups[group]) groups[group] = []
+        groups[group].push(cmd)
+      })
 
-    if (isOpen) {
-      dialog.showModal()
-      inputRef.current?.focus()
-    } else {
-      dialog.close()
-      setSearch("")
+      return groups
+    }, [commands, search])
+
+    const flatCommands = React.useMemo(() => {
+      return Object.values(groupedCommands).flat()
+    }, [groupedCommands])
+
+    // Keyboard shortcuts
+    React.useEffect(() => {
+      const down = (e: KeyboardEvent) => {
+        if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+          e.preventDefault()
+          setOpen(!open)
+        }
+
+        if (!open) return
+
+        if (e.key === "Escape") {
+          setOpen(false)
+        } else if (e.key === "ArrowDown") {
+          e.preventDefault()
+          setSelectedIndex((prev) => (prev + 1) % flatCommands.length)
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault()
+          setSelectedIndex((prev) => (prev - 1 + flatCommands.length) % flatCommands.length)
+        } else if (e.key === "Enter" && flatCommands[selectedIndex]) {
+          e.preventDefault()
+          flatCommands[selectedIndex].onSelect()
+          setOpen(false)
+          setSearch("")
+        }
+      }
+
+      document.addEventListener("keydown", down)
+      return () => document.removeEventListener("keydown", down)
+    }, [open, setOpen, selectedIndex, flatCommands])
+
+    // Reset selection when search changes
+    React.useEffect(() => {
       setSelectedIndex(0)
-    }
-  }, [isOpen])
+    }, [search])
 
-  // Handle keyboard navigation
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowDown") {
-      e.preventDefault()
-      setSelectedIndex((prev) => Math.min(prev + 1, filteredItems.length - 1))
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault()
-      setSelectedIndex((prev) => Math.max(prev - 1, 0))
-    } else if (e.key === "Enter") {
-      e.preventDefault()
-      if (filteredItems[selectedIndex]) {
-        filteredItems[selectedIndex].onSelect()
-        setIsOpen(false)
-        onClose?.()
-      }
-    } else if (e.key === "Escape") {
-      setIsOpen(false)
-      onClose?.()
-    }
-  }
+    return (
+      <AnimatePresence>
+        {open && (
+          <div
+            ref={ref}
+            className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh]"
+            onClick={() => setOpen(false)}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
 
-  const handleClose = () => {
-    setIsOpen(false)
-    onClose?.()
-  }
+            {/* Command palette */}
+            <motion.div
+              className="relative w-full max-w-2xl rounded-lg border border-border bg-surface shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Search input */}
+              <div className="border-b border-border p-4">
+                <input
+                  type="text"
+                  placeholder={placeholder}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full bg-transparent text-lg outline-none placeholder:text-foreground-muted"
+                  autoFocus
+                />
+              </div>
 
-  return (
-    <dialog
-      ref={dialogRef}
-      onClose={handleClose}
-      className={cn(
-        "w-full max-w-2xl",
-        "rounded-2xl",
-        "border border-border",
-        "bg-surface-elevated",
-        "p-0",
-        "shadow-xl",
-        "backdrop:bg-black/50 backdrop:backdrop-blur-sm",
-        className
-      )}
-    >
-      {/* Search Input */}
-      <div className="border-b border-border p-4">
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder={placeholder}
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value)
-            setSelectedIndex(0)
-          }}
-          onKeyDown={handleKeyDown}
-          className={cn(
-            "w-full",
-            "bg-transparent",
-            "text-lg text-foreground",
-            "placeholder:text-foreground-muted",
-            "outline-none"
-          )}
-        />
-      </div>
+              {/* Results */}
+              <div className="max-h-96 overflow-y-auto p-2">
+                {Object.keys(groupedCommands).length === 0 ? (
+                  <div className="py-8 text-center text-foreground-muted">No results found</div>
+                ) : (
+                  Object.entries(groupedCommands).map(([group, cmds]) => (
+                    <div key={group} className="mb-4">
+                      <div className="mb-2 px-2 text-xs font-medium text-foreground-muted">{group}</div>
+                      {cmds.map((cmd) => {
+                        const globalIdx = flatCommands.findIndex((c) => c.id === cmd.id)
+                        return (
+                          <motion.button
+                            key={cmd.id}
+                            className={cn(
+                              "flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-sm transition-colors",
+                              globalIdx === selectedIndex
+                                ? "bg-brand text-white"
+                                : "hover:bg-surface-elevated"
+                            )}
+                            onClick={() => {
+                              cmd.onSelect()
+                              setOpen(false)
+                              setSearch("")
+                            }}
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
+                          >
+                            {cmd.icon && <span className="shrink-0">{cmd.icon}</span>}
+                            <span className="flex-1">{cmd.label}</span>
+                            {cmd.shortcut && (
+                              <span className="flex gap-1">
+                                {cmd.shortcut.map((key) => (
+                                  <kbd
+                                    key={key}
+                                    className="rounded bg-surface-elevated px-1.5 py-0.5 text-xs font-mono"
+                                  >
+                                    {key}
+                                  </kbd>
+                                ))}
+                              </span>
+                            )}
+                          </motion.button>
+                        )
+                      })}
+                    </div>
+                  ))
+                )}
+              </div>
 
-      {/* Results */}
-      <div className="max-h-96 overflow-y-auto p-2">
-        {Object.entries(groupedItems).map(([group, groupItems]) => (
-          <div key={group} className="mb-4">
-            <div className="px-2 py-1 text-xs font-semibold uppercase text-foreground-muted">
-              {group}
-            </div>
-            {groupItems.map((item) => {
-              const globalIndex = filteredItems.indexOf(item)
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    item.onSelect()
-                    setIsOpen(false)
-                    onClose?.()
-                  }}
-                  className={cn(
-                    "flex w-full items-center justify-between gap-3",
-                    "rounded-lg px-3 py-2",
-                    "text-left text-sm",
-                    "transition-colors duration-fast",
-                    globalIndex === selectedIndex
-                      ? "bg-brand text-white"
-                      : "text-foreground hover:bg-surface"
-                  )}
-                >
-                  <div className="flex items-center gap-3">
-                    {item.icon && <span className="shrink-0">{item.icon}</span>}
-                    <span>{item.label}</span>
-                  </div>
-                  {item.shortcut && (
-                    <kbd className="rounded bg-surface px-2 py-1 text-xs">{item.shortcut}</kbd>
-                  )}
-                </button>
-              )
-            })}
+              {/* Footer hint */}
+              <div className="border-t border-border px-4 py-2 text-xs text-foreground-muted">
+                Navigate with ↑↓, select with Enter, close with Esc
+              </div>
+            </motion.div>
           </div>
-        ))}
-
-        {filteredItems.length === 0 && (
-          <div className="py-12 text-center text-sm text-foreground-muted">No results found</div>
         )}
-      </div>
-    </dialog>
-  )
-}
+      </AnimatePresence>
+    )
+  }
+)
+
+CommandMenu.displayName = "CommandMenu"

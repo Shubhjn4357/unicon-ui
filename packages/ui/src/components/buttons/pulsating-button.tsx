@@ -37,6 +37,7 @@ export const PulsatingButton = React.forwardRef<HTMLButtonElement, PulsatingButt
         {...props}
       >
         <span className="relative z-10">{children}</span>
+        {/* Auto-pulsing effect always active */}
         <motion.div
           className="absolute inset-0 rounded-lg"
           style={{
@@ -46,8 +47,8 @@ export const PulsatingButton = React.forwardRef<HTMLButtonElement, PulsatingButt
             boxShadow: [`0 0 0 0 ${pulseColor}`, `0 0 0 20px rgba(0, 0, 0, 0)`],
           }}
           transition={{
-            duration: Number.parseFloat(duration),
-            repeat: Number.POSITIVE_INFINITY,
+            duration: parseFloat(duration),
+            repeat: Infinity,
             ease: "easeOut",
           }}
         />

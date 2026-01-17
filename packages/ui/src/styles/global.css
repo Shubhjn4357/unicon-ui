@@ -540,3 +540,56 @@ dialog::backdrop {
 .dark .glass-button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* Shine Pulse Animation for Shine Border */
+@keyframes shine-pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animate-shine-pulse {
+  animation: shine-pulse var(--shine-pulse-duration, 2s) ease-in-out infinite;
+}
+
+/* Striped Move Animation */
+@keyframes striped-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Retro Grid Wave Animation */
+@keyframes retro-grid-wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Enhanced Ripple Animation */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 600ms ease-out;
+}
