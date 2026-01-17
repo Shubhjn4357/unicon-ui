@@ -6,7 +6,7 @@ import {
     SpotlightCard,
     NeonGradientCard,
     MagicCard,
-    DirectionAwareHover,
+    Card,
     Badge,
     GridPattern
 } from "@unicorn-ui/ui"

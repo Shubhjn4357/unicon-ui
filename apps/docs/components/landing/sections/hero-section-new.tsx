@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Badge, AnimatedGradientText, GridPattern, RainbowButton, HeroVideoDialog, ChevronRight } from "@unicorn-ui/ui"
+import { Button, Badge, AnimatedGradientText, GridPattern, RainbowButton, HeroVideoDialog } from "@unicorn-ui/ui"
 import { cn } from "@/lib/utils"
 
 export function HeroSectionNew() {
@@ -10,7 +10,7 @@ export function HeroSectionNew() {
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <GridPattern
                     className={cn(
-                        "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]",
+                        "mask-[radial-gradient(900px_circle_at_center,white,transparent)]",
                         "opacity-40 animate-in fade-in duration-1000"
                     )}
                 />
@@ -26,7 +26,7 @@ export function HeroSectionNew() {
                     <div className="mb-8 animate-in slide-in-from-bottom-4 duration-700 fade-in">
                         <AnimatedGradientText className="px-6 py-2 rounded-full border border-brand/20 bg-surface/50 backdrop-blur-sm cursor-pointer hover:scale-105 transition-transform">
                             <span className="flex items-center gap-2 text-sm font-medium">
-                                ✨ <span className="inline-block bg-gradient-to-r from-brand to-accent bg-clip-text text-transparent">v2.0 is now available</span>
+                                ✨ <span className="inline-block bg-linear-to-r from-brand to-accent bg-clip-text text-transparent">v2.0 is now available</span>
                                 <span className="text-foreground-secondary mx-2">|</span>
                                 <span className="flex items-center text-foreground-secondary hover:text-foreground">Explore <span className="ml-1">→</span></span>
                             </span>
@@ -36,7 +36,7 @@ export function HeroSectionNew() {
                     {/* Main Headline */}
                     <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-balance max-w-5xl animate-in slide-in-from-bottom-8 duration-1000 fade-in fill-mode-both delay-100">
                         The Ultimate
-                        <span className="block mt-2 bg-gradient-to-r from-foreground via-foreground/80 to-foreground/50 bg-clip-text text-transparent">
+                        <span className="block mt-2 bg-linear-to-r from-foreground via-foreground/80 to-foreground/50 bg-clip-text text-transparent">
                             UI Kit for React
                         </span>
                     </h1>
@@ -63,7 +63,7 @@ export function HeroSectionNew() {
                     {/* Hero Video/Visual */}
                     <div className="mt-20 w-full max-w-6xl mx-auto animate-in slide-in-from-bottom-12 duration-1000 fade-in fill-mode-both delay-500">
                         <div className="relative rounded-xl border border-border bg-surface shadow-2xl overflow-hidden aspect-video group">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-brand/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-linear-to-tr from-brand/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <HeroVideoDialog
                                 videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ?si=4Pj3Xz2s3Q9y-7z_"
                                 thumbnailSrc="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=3840&q=75"

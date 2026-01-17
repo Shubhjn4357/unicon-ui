@@ -42,7 +42,7 @@ export function TestimonialsSection() {
                             <Quote className="h-8 w-8 text-brand/30 mb-4" />
                             <p className="text-foreground mb-6 leading-relaxed">{testimonial.quote}</p>
                             <div className="flex items-center gap-3">
-                                <Avatar>
+                                <Avatar >
                                     <div className="h-full w-full bg-brand/10 flex items-center justify-center text-brand font-semibold">
                                         {testimonial.avatar}
                                     </div>
