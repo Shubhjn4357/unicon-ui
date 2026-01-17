@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface CodeComparisonProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,7 +12,7 @@ export interface CodeComparisonProps extends React.HTMLAttributes<HTMLDivElement
 
 /**
  * Native CodeComparison - Side-by-side code diff
-*/
+ */
 export const CodeComparison = React.forwardRef<HTMLDivElement, CodeComparisonProps>(
   ({ beforeCode, afterCode, language = "typescript", className, ...props }, ref) => {
     return (

@@ -1,3 +1,5 @@
+"use client";
+
 // Configuration & Theme
 export { UnicornProvider, useUnicornConfig } from "./providers/unicorn-provider"
 export { resolveConfig, generateCSSVariables, defaultConfig } from "./config"
@@ -39,7 +41,14 @@ export { ResizablePanel } from "./components/layout/resizable-panel"
 // Feedback Components
 export { Badge, badgeVariants } from "./components/core/badge"
 export { Checkbox } from "./components/core/checkbox"
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "./components/core/card"
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "./components/core/card"
 export { Avatar, AvatarImage, AvatarFallback } from "./components/core/avatar"
 export { Slider } from "./components/core/slider"
 export { RadioGroup, RadioGroupItem } from "./components/core/radio-group"
@@ -129,7 +138,11 @@ export { ConfettiSideCannons } from "./components/misc/confetti-side-cannons"
 
 export { SafariMockup, iPhoneMockup, AndroidMockup } from "./components/misc/device-mockups"
 // Aliases for common usage
-export { SafariMockup as Safari, iPhoneMockup as Iphone15Pro, AndroidMockup as Android } from "./components/misc/device-mockups"
+export {
+  SafariMockup as Safari,
+  iPhoneMockup as Iphone15Pro,
+  AndroidMockup as Android,
+} from "./components/misc/device-mockups"
 
 // Additional Special Effects
 export { ParticleImage } from "./components/special/particle-image"

@@ -1,12 +1,13 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { Button, Popover, PopoverContent, PopoverTrigger, Slider } from "@unicorn-ui/ui"
-import { Droplets, Moon, Palette, RotateCcw, Square, Sun } from "lucide-react"
+import { Button, Modal, Slider } from "@unicorn-ui/ui"
+import { Droplets, Moon, Palette, RotateCcw, Square, Sun, X } from "lucide-react"
 import * as React from "react"
 
 export function ThemeCustomizer() {
   const [mounted, setMounted] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
   const [theme, setTheme] = React.useState<"light" | "dark" | "system">("system")
 
   const [radius, setRadius] = React.useState(0.5)
@@ -151,258 +152,277 @@ export function ThemeCustomizer() {
   ]
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <Popover>
-
-      <PopoverTrigger
-        data-target-id="theme-customizer-popover"
-        className="h-12 w-12 rounded-full shadow-lg border border-border bg-surface-elevated hover:bg-surface-elevated/90 p-0"
+    <>
+      {/* Floating Button */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-4 right-4 z-50 h-12 w-12 rounded-full shadow-lg border border-border bg-surface-elevated hover:bg-surface-elevated/90 flex items-center justify-center transition-transform hover:scale-105"
         aria-label="Customize Theme"
       >
         <Palette className="h-6 w-6 text-foreground" />
-      </PopoverTrigger>
+      </button>
 
-      <PopoverContent
-        id="theme-customizer-popover"
-        className="w-80 p-0 mr-4 mb-2 right-4 bottom-20 fixed m-0"
+      {/* Drawer Modal */}
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        className="ml-auto mr-0 my-0 h-full max-h-screen w-full max-w-md rounded-none border-l border-border shadow-2xl animate-in slide-in-from-right duration-300"
       >
-        <div className="space-y-6 max-h-[80vh] overflow-y-auto p-6">
-          <div className="flex items-center justify-between">
-            <div className="flex gap-2">
-              <Button
-                variant={tab === "customize" ? "secondary" : "ghost"}
-                size="sm"
-                onClick={() => setTab("customize")}
-                className="h-8"
-              >
-                Customize
-              </Button>
-              <Button
-                variant={tab === "code" ? "secondary" : "ghost"}
-                size="sm"
-                onClick={() => setTab("code")}
-                className="h-8"
-              >
-                Code
-              </Button>
+        <div className="flex flex-col h-full">
+          {/* Fixed Header */}
+          <div className="flex-shrink-0 border-b border-border bg-surface-elevated/95 backdrop-blur-sm sticky top-0 z-10">
+            <div className="p-6 pb-4">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-foreground">Theme Customizer</h2>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="h-8 w-8 rounded-lg hover:bg-surface-elevated flex items-center justify-center transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="flex gap-2">
+                  <Button
+                    variant={tab === "customize" ? "secondary" : "ghost"}
+                    size="sm"
+                    onClick={() => setTab("customize")}
+                    className="h-8"
+                  >
+                    Customize
+                  </Button>
+                  <Button
+                    variant={tab === "code" ? "secondary" : "ghost"}
+                    size="sm"
+                    onClick={() => setTab("code")}
+                    className="h-8"
+                  >
+                    Code
+                  </Button>
+                </div>
+                <Button
+                  variant="ghost"
+                  className="h-8 w-8 p-0"
+                  onClick={() => {
+                    updateBrandColor(210)
+                    updateRadius(0.5)
+                    updateScaling(1)
+                    updateStyleMode("basic")
+                    toggleTheme("light")
+                  }}
+                >
+                  <RotateCcw className="h-4 w-4" />
+                </Button>
+              </div>
             </div>
-            <Button
-              variant="ghost"
-              className="h-8 w-8"
-              onClick={() => {
-                updateBrandColor(210)
-                updateRadius(0.5)
-                updateScaling(1)
-                updateStyleMode("basic")
-                toggleTheme("light")
-              }}
-            >
-              <RotateCcw className="h-4 w-4" />
-            </Button>
           </div>
 
-          {tab === "customize" ? (
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                  Mode
-                </label>
-                <div className="grid grid-cols-3 gap-2">
-                  <Button
-                    variant={theme === "light" ? "default" : "outline"}
-                    size="sm"
-                    className="gap-1.5"
-                    onClick={() => toggleTheme("light")}
-                  >
-                    <Sun className="h-4 w-4" /> Light
-                  </Button>
-                  <Button
-                    variant={theme === "dark" ? "default" : "outline"}
-                    size="sm"
-                    className="gap-1.5"
-                    onClick={() => toggleTheme("dark")}
-                  >
-                    <Moon className="h-4 w-4" /> Dark
-                  </Button>
-                  <Button
-                    variant={theme === "system" ? "default" : "outline"}
-                    size="sm"
-                    className="gap-1.5"
-                    onClick={() => toggleTheme("system")}
-                  >
-                    System
-                  </Button>
-                </div>
-              </div>
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto overscroll-contain">
+            <div className="p-6 space-y-6">
+              {tab === "customize" ? (
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                      Mode
+                    </label>
+                    <div className="grid grid-cols-3 gap-2">
+                      <Button
+                        variant={theme === "light" ? "default" : "outline"}
+                        size="sm"
+                        className="gap-1.5"
+                        onClick={() => toggleTheme("light")}
+                      >
+                        <Sun className="h-4 w-4" /> Light
+                      </Button>
+                      <Button
+                        variant={theme === "dark" ? "default" : "outline"}
+                        size="sm"
+                        className="gap-1.5"
+                        onClick={() => toggleTheme("dark")}
+                      >
+                        <Moon className="h-4 w-4" /> Dark
+                      </Button>
+                      <Button
+                        variant={theme === "system" ? "default" : "outline"}
+                        size="sm"
+                        className="gap-1.5"
+                        onClick={() => toggleTheme("system")}
+                      >
+                        System
+                      </Button>
+                    </div>
+                  </div>
 
-              {/* Style Mode (Basic/Glass) */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium leading-none">
-                  Style
-                </label>
-                <div className="grid grid-cols-2 gap-2">
-                  <Button
-                    variant={styleMode === "basic" ? "default" : "outline"}
-                    size="sm"
-                    className="gap-1.5"
-                    onClick={() => updateStyleMode("basic")}
-                  >
-                    <Square className="h-4 w-4" /> Basic
-                  </Button>
-                  <Button
-                    variant={styleMode === "glass" ? "default" : "outline"}
-                    size="sm"
-                    className="gap-1.5"
-                    onClick={() => updateStyleMode("glass")}
-                  >
-                    <Droplets className="h-4 w-4" /> Glass
-                  </Button>
-                </div>
-              </div>
+                  {/* Style Mode (Basic/Glass) */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium leading-none">
+                      Style
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <Button
+                        variant={styleMode === "basic" ? "default" : "outline"}
+                        size="sm"
+                        className="gap-1.5"
+                        onClick={() => updateStyleMode("basic")}
+                      >
+                        <Square className="h-4 w-4" /> Basic
+                      </Button>
+                      <Button
+                        variant={styleMode === "glass" ? "default" : "outline"}
+                        size="sm"
+                        className="gap-1.5"
+                        onClick={() => updateStyleMode("glass")}
+                      >
+                        <Droplets className="h-4 w-4" /> Glass
+                      </Button>
+                    </div>
+                  </div>
 
-              {/* Brand Color (Primary) */}
-
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Brand Color
-                  </label>
-                  <span className="text-xs text-foreground-secondary">{brandColor}°</span>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {presets.map((preset) => (
-                    <button
-                      key={preset.name}
-                      className={cn(
-                        "h-6 w-6 rounded-full border border-border transition-all hover:scale-110",
-                        preset.color,
-                        brandColor === preset.hue &&
-                        "ring-2 ring-primary ring-offset-2 ring-offset-background"
-                      )}
-                      onClick={() => updateBrandColor(preset.hue)}
-                      title={preset.name}
+                  {/* Brand Color (Primary) */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        Brand Color
+                      </label>
+                      <span className="text-xs text-foreground-secondary">{brandColor}°</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {presets.map((preset) => (
+                        <button
+                          key={preset.name}
+                          className={cn(
+                            "h-6 w-6 rounded-full border border-border transition-all hover:scale-110",
+                            preset.color,
+                            brandColor === preset.hue &&
+                            "ring-2 ring-primary ring-offset-2 ring-offset-background"
+                          )}
+                          onClick={() => updateBrandColor(preset.hue)}
+                          title={preset.name}
+                        />
+                      ))}
+                    </div>
+                    <Slider
+                      defaultValue={[brandColor]}
+                      min={0}
+                      max={360}
+                      step={1}
+                      value={[brandColor]}
+                      onValueChange={(vals: number[]) => updateBrandColor(vals[0])}
+                      className="py-4"
                     />
-                  ))}
-                </div>
-                <Slider
-                  defaultValue={[brandColor]}
-                  min={0}
-                  max={360}
-                  step={1}
-                  value={[brandColor]}
-                  onValueChange={(vals: number[]) => updateBrandColor(vals[0])}
-                  className="py-4"
-                  />
-              </div>
+                  </div>
 
-              {/* Radius Slider */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium leading-none">Radius</label>
-                  <span className="text-xs text-foreground-secondary">
-                    {radius === 999 ? "full" : `${radius.toFixed(2)}rem`}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-xs">0</span>
-                  <Slider
-                    value={[radius === 999 ? 2 : radius]}
-                    min={0}
-                    max={2}
-                    step={0.05}
-                    onValueChange={(vals: number[]) => updateRadius(vals[0])}
-                    className="flex-1"
+                  {/* Radius Slider */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium leading-none">Radius</label>
+                      <span className="text-xs text-foreground-secondary">
+                        {radius === 999 ? "full" : `${radius.toFixed(2)}rem`}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs">0</span>
+                      <Slider
+                        value={[radius === 999 ? 2 : radius]}
+                        min={0}
+                        max={2}
+                        step={0.05}
+                        onValueChange={(vals: number[]) => updateRadius(vals[0])}
+                        className="flex-1"
+                      />
+                      <Button
+                        variant={radius === 999 ? "default" : "outline"}
+                        size="sm"
+                        className="h-7 px-2 text-xs"
+                        onClick={() => updateRadius(999)}
+                      >
+                        Full
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Secondary Color */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium leading-none">
+                        Secondary Color
+                      </label>
+                      <span className="text-xs text-foreground-secondary">{secondaryColor}°</span>
+                    </div>
+                    <Slider
+                      value={[secondaryColor]}
+                      min={0}
+                      max={360}
+                      step={1}
+                      onValueChange={(vals: number[]) => updateSecondaryColor(vals[0])}
+                      className="py-2"
                     />
-                  <Button
-                    variant={radius === 999 ? "default" : "outline"}
-                    size="sm"
-                    className="h-7 px-2 text-xs"
-                    onClick={() => updateRadius(999)}
-                  >
-                    Full
-                  </Button>
-                </div>
-              </div>
+                  </div>
 
-              {/* Secondary Color */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium leading-none">
-                    Secondary Color
-                  </label>
-                  <span className="text-xs text-foreground-secondary">{secondaryColor}°</span>
-                </div>
-                <Slider
-                  value={[secondaryColor]}
-                  min={0}
-                  max={360}
-                  step={1}
-                  onValueChange={(vals: number[]) => updateSecondaryColor(vals[0])}
-                  className="py-2"
-                />
-              </div>
+                  {/* Accent Color */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium leading-none">
+                        Accent Color
+                      </label>
+                      <span className="text-xs text-foreground-secondary">{accentColor}°</span>
+                    </div>
+                    <Slider
+                      value={[accentColor]}
+                      min={0}
+                      max={360}
+                      step={1}
+                      onValueChange={(vals: number[]) => updateAccentColor(vals[0])}
+                      className="py-2"
+                    />
+                  </div>
 
-              {/* Accent Color */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium leading-none">
-                    Accent Color
-                  </label>
-                  <span className="text-xs text-foreground-secondary">{accentColor}°</span>
+                  {/* Scaling */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium leading-none">Scale</label>
+                      <span className="text-xs text-foreground-secondary">{Math.round(scaling * 100)}%</span>
+                    </div>
+                    <div className="flex gap-2 items-center">
+                      <span className="text-xs">A</span>
+                      <Slider
+                        defaultValue={[scaling]}
+                        min={0.80}
+                        max={1.15}
+                        step={0.01}
+                        value={[scaling]}
+                        onValueChange={(vals: number[]) => updateScaling(vals[0])}
+                        className="py-4 flex-1"
+                      />
+                      <span className="text-lg">A</span>
+                    </div>
+                  </div>
                 </div>
-                <Slider
-                  value={[accentColor]}
-                  min={0}
-                  max={360}
-                  step={1}
-                  onValueChange={(vals: number[]) => updateAccentColor(vals[0])}
-                  className="py-2"
-                />
-              </div>
-
-              {/* Scaling */}
-
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium leading-none">Scale</label>
-                  <span className="text-xs text-foreground-secondary">{Math.round(scaling * 100)}%</span>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <span className="text-xs">A</span>
-                  <Slider
-                    defaultValue={[scaling]}
-                    min={0.80}
-                    max={1.15}
-                    step={0.01}
-                    value={[scaling]}
-                    onValueChange={(vals: number[]) => updateScaling(vals[0])}
-                    className="py-4 flex-1"
-                  />
-                  <span className="text-lg">A</span>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              <div className="rounded-lg border border-border bg-surface p-4 overflow-hidden">
-                <pre className="text-xs font-mono text-foreground-secondary whitespace-pre-wrap break-all">
-                  {`export const theme = {
+              ) : (
+                <div className="space-y-4">
+                  <div className="rounded-lg border border-border bg-surface p-4 overflow-hidden">
+                    <pre className="text-xs font-mono text-foreground-secondary whitespace-pre-wrap break-all">
+                      {`export const theme = {
   colors: {
     brand: "hsl(${brandColor} 100% 50%)",
   },
   radius: "${radius}rem",
   // scaling: ${scaling}, // Applied to html font-size
 }`}
-                </pre>
-              </div>
-              <Button className="w-full" onClick={copyConfig}>
-                Copy Configuration
-              </Button>
+                    </pre>
+                  </div>
+                  <Button className="w-full" onClick={copyConfig}>
+                    Copy Configuration
+                  </Button>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
-      </PopoverContent>
-    </Popover>
-    </div>
+      </Modal>
+    </>
   )
 }

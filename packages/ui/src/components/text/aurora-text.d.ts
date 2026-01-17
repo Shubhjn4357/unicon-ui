@@ -1,10 +1,12 @@
-import * as React from "react";
-import { type HTMLMotionProps } from "framer-motion";
+import type { HTMLMotionProps } from "framer-motion"
+import type * as React from "react"
 export interface AuroraTextProps extends HTMLMotionProps<"span"> {
-    children: React.ReactNode;
+  children: React.ReactNode
 }
 /**
  * Native AuroraText - Aurora borealis gradient effect
  */
-export declare const AuroraText: React.ForwardRefExoticComponent<Omit<AuroraTextProps, "ref"> & React.RefAttributes<HTMLSpanElement>>;
+export declare const AuroraText: React.ForwardRefExoticComponent<
+  Omit<AuroraTextProps, "ref"> & React.RefAttributes<HTMLSpanElement>
+>
 //# sourceMappingURL=aurora-text.d.ts.map

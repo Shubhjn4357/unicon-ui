@@ -1,10 +1,11 @@
 "use client"
 
+import { motion, type HTMLMotionProps, useMotionTemplate, useMotionValue } from "framer-motion"
 import * as React from "react"
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import { cn } from "../../lib/utils"
 
-export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface MagicCardProps extends HTMLMotionProps<"div"> {
+  children?: React.ReactNode
   gradientSize?: number
   gradientColor?: string
   gradientOpacity?: number
@@ -14,14 +15,17 @@ export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * Native MagicCard - Mouse-following gradient highlight
  */
 export const MagicCard = React.forwardRef<HTMLDivElement, MagicCardProps>(
-  ({
-    children,
-    gradientSize = 200,
-    gradientColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.2)",
-    gradientOpacity = 0.8,
-    className,
-    ...props
-  }, ref) => {
+  (
+    {
+      children,
+      gradientSize = 200,
+      gradientColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.2)",
+      gradientOpacity = 0.8,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     const mouseX = useMotionValue(0)
     const mouseY = useMotionValue(0)
 

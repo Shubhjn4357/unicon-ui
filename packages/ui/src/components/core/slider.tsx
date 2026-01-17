@@ -1,10 +1,10 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
-export interface SliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+export interface SliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange" | "value" | "defaultValue"> {
   value?: number[]
   onValueChange?: (value: number[]) => void
   defaultValue?: number[]
@@ -16,18 +16,21 @@ export interface SliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
 }
 
 export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
-  ({
-    value: controlledValue,
-    onValueChange,
-    defaultValue = [50],
-    min = 0,
-    max = 100,
-    step = 1,
-    disabled = false,
-    showValue = false,
-    className,
-    ...props
-  }, ref) => {
+  (
+    {
+      value: controlledValue,
+      onValueChange,
+      defaultValue = [50],
+      min = 0,
+      max = 100,
+      step = 1,
+      disabled = false,
+      showValue = false,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     const [internalValue, setInternalValue] = React.useState(defaultValue)
     const sliderRef = React.useRef<HTMLDivElement>(null)
     const [isDragging, setIsDragging] = React.useState(false)
@@ -99,9 +102,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           />
         </div>
         {showValue && (
-          <div className="mt-2 text-center text-sm text-foreground-secondary">
-            {value[0]}
-          </div>
+          <div className="mt-2 text-center text-sm text-foreground-secondary">{value[0]}</div>
         )}
       </div>
     )

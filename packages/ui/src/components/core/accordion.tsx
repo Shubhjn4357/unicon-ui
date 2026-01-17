@@ -1,7 +1,7 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface AccordionItem {
@@ -64,7 +64,12 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
                   animate={{ rotate: isOpen ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </motion.svg>
               </button>
               <AnimatePresence initial={false}>

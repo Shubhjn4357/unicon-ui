@@ -10,7 +10,16 @@ export interface StripedPatternProps extends React.HTMLAttributes<HTMLDivElement
 }
 
 export const StripedPattern = React.forwardRef<HTMLDivElement, StripedPatternProps>(
-  ({ stripeWidth = 40, stripeColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.05)", angle = 45, className, ...props }, ref) => {
+  (
+    {
+      stripeWidth = 40,
+      stripeColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.05)",
+      angle = 45,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}

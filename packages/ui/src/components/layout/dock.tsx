@@ -1,10 +1,14 @@
 "use client"
 
-import * as React from "react"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
-export interface DockProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"> {
+export interface DockProps
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
+  > {
   magnification?: number
   distance?: number
 }
@@ -15,13 +19,13 @@ export interface DockProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "o
  */
 export const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   ({ children, magnification = 60, distance = 140, className, ...props }, ref) => {
-    const mouseX = useMotionValue(Infinity)
+    const mouseX = useMotionValue(Number.POSITIVE_INFINITY)
 
     return (
       <motion.div
         ref={ref}
         onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
+        onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
         className={cn(
           "mx-auto flex h-16 items-end gap-4 rounded-2xl border border-border bg-surface/80 px-4 pb-3 backdrop-blur-md",
           className
@@ -55,7 +59,11 @@ function DockIcon({ mouseX, children, magnification, distance }: DockIconProps) 
     return val - bounds.x - bounds.width / 2
   })
 
-  const widthSync = useTransform(distanceFromMouse, [-distance, 0, distance], [40, magnification, 40])
+  const widthSync = useTransform(
+    distanceFromMouse,
+    [-distance, 0, distance],
+    [40, magnification, 40]
+  )
   const width = useSpring(widthSync, {
     mass: 0.1,
     stiffness: 300,

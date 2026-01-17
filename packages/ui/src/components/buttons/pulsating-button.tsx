@@ -1,10 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 
-export interface PulsatingButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+import { type HTMLMotionProps, motion } from "framer-motion"
+
+export interface PulsatingButtonProps extends HTMLMotionProps<"button"> {
+  children?: React.ReactNode
   pulseColor?: string
   duration?: string
 }
@@ -13,7 +15,16 @@ export interface PulsatingButtonProps extends React.ButtonHTMLAttributes<HTMLBut
  * Native PulsatingButton - Pulsing/ripple ring effect
  */
 export const PulsatingButton = React.forwardRef<HTMLButtonElement, PulsatingButtonProps>(
-  ({ children, className, pulseColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.7)", duration = "1.5s", ...props }, ref) => {
+  (
+    {
+      children,
+      className,
+      pulseColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.7)",
+      duration = "1.5s",
+      ...props
+    },
+    ref
+  ) => {
     return (
       <motion.button
         ref={ref}
@@ -35,8 +46,8 @@ export const PulsatingButton = React.forwardRef<HTMLButtonElement, PulsatingButt
             boxShadow: [`0 0 0 0 ${pulseColor}`, `0 0 0 20px rgba(0, 0, 0, 0)`],
           }}
           transition={{
-            duration: parseFloat(duration),
-            repeat: Infinity,
+            duration: Number.parseFloat(duration),
+            repeat: Number.POSITIVE_INFINITY,
             ease: "easeOut",
           }}
         />
@@ -47,7 +58,9 @@ export const PulsatingButton = React.forwardRef<HTMLButtonElement, PulsatingButt
 
 PulsatingButton.displayName = "PulsatingButton"
 
-export interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
+export interface RippleButtonProps extends HTMLMotionProps<"button"> {
+  children?: React.ReactNode
+}
 
 export const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
   ({ children, className, ...props }, ref) => {

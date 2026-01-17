@@ -8,7 +8,7 @@ import { cn } from "../../lib/utils"
 interface PopoverContextValue {
   open: boolean
   setOpen: (open: boolean) => void
-  triggerRef: React.RefObject<HTMLElement>
+  triggerRef: React.MutableRefObject<HTMLElement | null>
 }
 
 const PopoverContext = React.createContext<PopoverContextValue | null>(null)
@@ -20,7 +20,12 @@ export interface PopoverProps {
   defaultOpen?: boolean
 }
 
-export const Popover: React.FC<PopoverProps> = ({ children, open: controlledOpen, onOpenChange, defaultOpen = false }) => {
+export const Popover: React.FC<PopoverProps> = ({
+  children,
+  open: controlledOpen,
+  onOpenChange,
+  defaultOpen = false,
+}) => {
   const [internalOpen, setInternalOpen] = React.useState(defaultOpen)
   const triggerRef = React.useRef<HTMLElement>(null)
 
@@ -41,39 +46,40 @@ export const Popover: React.FC<PopoverProps> = ({ children, open: controlledOpen
   )
 }
 
-export const PopoverTrigger = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  ({ children, onClick, ...props }, ref) => {
-    const context = React.useContext(PopoverContext)
-    if (!context) throw new Error("PopoverTrigger must be used within Popover")
+export const PopoverTrigger = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ children, onClick, ...props }, ref) => {
+  const context = React.useContext(PopoverContext)
+  if (!context) throw new Error("PopoverTrigger must be used within Popover")
 
-    const combinedRef = React.useCallback(
-      (node: HTMLButtonElement) => {
-        ; (context.triggerRef as React.MutableRefObject<HTMLButtonElement | null>).current = node
-        if (typeof ref === "function") ref(node)
-        else if (ref) ref.current = node
-      },
-      [context.triggerRef, ref]
-    )
+  const combinedRef = React.useCallback(
+    (node: HTMLButtonElement) => {
+      ; (context.triggerRef as React.MutableRefObject<HTMLButtonElement | null>).current = node
+      if (typeof ref === "function") ref(node)
+      else if (ref) ref.current = node
+    },
+    [context.triggerRef, ref]
+  )
 
-    return (
-      <button
-        ref={combinedRef}
-        onClick={(e) => {
-          context.setOpen(!context.open)
-          onClick?.(e)
-        }}
-        aria-expanded={context.open}
-        {...props}
-      >
-        {children}
-      </button>
-    )
-  }
-)
+  return (
+    <button
+      ref={combinedRef}
+      onClick={(e) => {
+        context.setOpen(!context.open)
+        onClick?.(e)
+      }}
+      aria-expanded={context.open}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+})
 
 PopoverTrigger.displayName = "PopoverTrigger"
 
-import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion"
+import { AnimatePresence, type HTMLMotionProps, motion } from "framer-motion"
 
 export interface PopoverContentProps extends HTMLMotionProps<"div"> {
   align?: "start" | "center" | "end"
@@ -147,7 +153,12 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
       const handleClickOutside = (e: MouseEvent) => {
         if (!context?.open) return
         const target = e.target as Node
-        if (contentRef.current && !contentRef.current.contains(target) && context.triggerRef.current && !context.triggerRef.current.contains(target)) {
+        if (
+          contentRef.current &&
+          !contentRef.current.contains(target) &&
+          context.triggerRef.current &&
+          !context.triggerRef.current.contains(target)
+        ) {
           context.setOpen(false)
         }
       }

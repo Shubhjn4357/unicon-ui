@@ -18,18 +18,21 @@ export interface DotPatternProps extends React.HTMLAttributes<HTMLDivElement> {
  * Native DotPattern - SVG dot background pattern
  */
 export const DotPattern = React.forwardRef<HTMLDivElement, DotPatternProps>(
-  ({
-    width = 16,
-    height = 16,
-    x = 0,
-    y = 0,
-    cx = 0.5,
-    cy = 0.5,
-    cr = 0.5,
-    dotColor = "currentColor",
-    className,
-    ...props
-  }, ref) => {
+  (
+    {
+      width = 16,
+      height = 16,
+      x = 0,
+      y = 0,
+      cx = 0.5,
+      cy = 0.5,
+      cr = 0.5,
+      dotColor = "currentColor",
+      className,
+      ...props
+    },
+    ref
+  ) => {
     const id = React.useId()
 
     return (

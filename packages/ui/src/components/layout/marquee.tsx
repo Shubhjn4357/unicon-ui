@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn, prefersReducedMotion } from "../../lib/utils"
 
 export interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -17,7 +17,19 @@ export interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
  * Pure CSS + Framer Motion, no dependencies
  */
 export const Marquee = React.forwardRef<HTMLDivElement, MarqueeProps>(
-  ({ children, pauseOnHover = false, reverse = false, fade = false, speed = "normal", repeat = 2, className, ...props }, ref) => {
+  (
+    {
+      children,
+      pauseOnHover = false,
+      reverse = false,
+      fade = false,
+      speed = "normal",
+      repeat = 2,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     const prefersReduced = prefersReducedMotion()
 
     const speedConfig = {
@@ -42,12 +54,16 @@ export const Marquee = React.forwardRef<HTMLDivElement, MarqueeProps>(
           <motion.div
             key={i}
             className="flex min-w-full shrink-0 items-center justify-around gap-4"
-            animate={prefersReduced ? {} : {
-              x: reverse ? ["0%", "100%"] : ["0%", "-100%"],
-            }}
+            animate={
+              prefersReduced
+                ? {}
+                : {
+                    x: reverse ? ["0%", "100%"] : ["0%", "-100%"],
+                  }
+            }
             transition={{
               x: {
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 repeatType: "loop",
                 duration,
                 ease: "linear",

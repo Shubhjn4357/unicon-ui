@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion, useMotionValue, useSpring } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface SmoothCursorProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -43,9 +43,7 @@ export const SmoothCursor: React.FC<SmoothCursorProps> = ({ texture }) => {
         y: "-50%",
       }}
     >
-      {texture && (
-        <img src={texture} alt="cursor" className="h-full w-full object-cover" />
-      )}
+      {texture && <img src={texture} alt="cursor" className="h-full w-full object-cover" />}
     </motion.div>
   )
 }

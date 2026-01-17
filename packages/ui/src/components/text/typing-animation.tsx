@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface TypingAnimationProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -20,12 +20,15 @@ export const TypingAnimation = React.forwardRef<HTMLSpanElement, TypingAnimation
     const [currentIndex, setCurrentIndex] = React.useState(0)
 
     React.useEffect(() => {
-      const timeout = setTimeout(() => {
-        if (currentIndex < text.length) {
-          setDisplayedText((prev) => prev + text[currentIndex])
-          setCurrentIndex((prev) => prev + 1)
-        }
-      }, delay + (duration / text.length))
+      const timeout = setTimeout(
+        () => {
+          if (currentIndex < text.length) {
+            setDisplayedText((prev) => prev + text[currentIndex])
+            setCurrentIndex((prev) => prev + 1)
+          }
+        },
+        delay + duration / text.length
+      )
 
       return () => clearTimeout(timeout)
     }, [currentIndex, text, duration, delay])
@@ -36,7 +39,7 @@ export const TypingAnimation = React.forwardRef<HTMLSpanElement, TypingAnimation
         {cursor && currentIndex < text.length && (
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.8, repeat: Infinity }}
+            transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
             className="inline-block w-0.5 h-5 bg-brand ml-1"
           />
         )}

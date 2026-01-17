@@ -3,15 +3,15 @@ import { ArrowRight } from "lucide-react"
 
 export function CTASection() {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-32 md:py-40 lg:py-48 min-h-[600px] relative overflow-hidden bg-surface flex items-center">
             {/* Background gradient */}
             <div className="absolute inset-0 opacity-20"
                 style={{ background: 'radial-gradient(ellipse at center, var(--color-brand) 0%, transparent 70%)' }} />
 
-            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center w-full">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
                     Ready to build something{" "}
-                    <span className="bg-gradient-to-r from-brand via-brand-hover to-brand bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-brand via-brand-hover to-brand bg-clip-text text-transparent">
                         magical
                     </span>
                     ?

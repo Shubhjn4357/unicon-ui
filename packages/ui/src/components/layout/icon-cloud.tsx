@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface IconCloudProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -23,7 +23,7 @@ export const IconCloud = React.forwardRef<HTMLDivElement, IconCloudProps>(
         <motion.div
           className="relative h-full w-full"
           animate={{ rotateY: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
           style={{ transformStyle: "preserve-3d" }}
         >
           {icons.map((icon, i) => {

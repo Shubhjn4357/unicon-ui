@@ -1,10 +1,14 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
-export interface TweetCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"> {
+export interface TweetCardProps
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
+  > {
   author?: string
   username?: string
   avatar?: string
@@ -17,17 +21,20 @@ export interface TweetCardProps extends Omit<React.HTMLAttributes<HTMLDivElement
  * Native TweetCard -  Tweet-style card component
  */
 export const TweetCard = React.forwardRef<HTMLDivElement, TweetCardProps>(
-  ({
-    author = "John Doe",
-    username = "johndoe",
-    avatar,
-    verified = false,
-    timestamp = "2h",
-    text,
-    children,
-    className,
-    ...props
-  }, ref) => {
+  (
+    {
+      author = "John Doe",
+      username = "johndoe",
+      avatar,
+      verified = false,
+      timestamp = "2h",
+      text,
+      children,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <motion.div
         ref={ref}

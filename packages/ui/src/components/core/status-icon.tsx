@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { CheckIcon } from "lucide-react"
+import * as React from "react"
 
 export interface StatusIconProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   status: "success" | "warning" | "error" | "info"

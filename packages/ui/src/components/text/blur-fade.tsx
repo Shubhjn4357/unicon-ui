@@ -1,10 +1,14 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
-export interface BlurFadeProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"> {
+export interface BlurFadeProps
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
+  > {
   children: React.ReactNode
   delay?: number
   duration?: number
@@ -16,7 +20,10 @@ export interface BlurFadeProps extends Omit<React.HTMLAttributes<HTMLDivElement>
  * Native BlurFade - Blur fade-in animation
  */
 export const BlurFade = React.forwardRef<HTMLDivElement, BlurFadeProps>(
-  ({ children, delay = 0, duration = 0.4, yOffset = 6, blur = "6px", className, ...props }, ref) => {
+  (
+    { children, delay = 0, duration = 0.4, yOffset = 6, blur = "6px", className, ...props },
+    ref
+  ) => {
     return (
       <motion.div
         ref={ref}

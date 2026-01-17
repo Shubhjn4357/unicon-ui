@@ -7,15 +7,15 @@ const stats = [
 
 export function StatsSection() {
     return (
-        <section className="py-24">
+        <section className="py-24 bg-surface">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     {stats.map((stat) => (
                         <div key={stat.label} className="text-center">
-                            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-brand via-brand-hover to-brand bg-clip-text text-transparent mb-2">
+                            <div className="text-4xl md:text-5xl font-bold text-brand mb-2">
                                 {stat.value}
                             </div>
-                            <div className="text-foreground-secondary">{stat.label}</div>
+                            <div className="text-foreground-secondary text-sm md:text-base">{stat.label}</div>
                         </div>
                     ))}
                 </div>

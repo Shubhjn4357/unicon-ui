@@ -1,7 +1,7 @@
 "use client"
 
+import { type HTMLMotionProps, motion } from "framer-motion"
 import * as React from "react"
-import { motion, type HTMLMotionProps } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface BadgeProps extends HTMLMotionProps<"div"> {
@@ -19,14 +19,14 @@ export const badgeVariants = {
   default: "bg-brand/10 text-brand border-brand/20",
   secondary: "bg-surface-elevated text-foreground border-border",
   outline: "bg-transparent text-foreground border-border",
-  destructive: "bg-red-100 text-red-700 border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800",
-  success: "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800",
+  destructive:
+    "bg-red-100 text-red-700 border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800",
+  success:
+    "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800",
 }
 
 export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
   ({ children, variant = "default", size = "md", dot = false, className, ...props }, ref) => {
-
-
     const sizeStyles = {
       sm: "px-2 py-0.5 text-xs",
       md: "px-2.5 py-1 text-sm",
@@ -56,7 +56,7 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
             })}
             initial={{ scale: 0.8, opacity: 0.8 }}
             animate={{ scale: [0.8, 1, 0.8], opacity: [0.8, 1, 0.8] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           />
         )}
         {children}
@@ -66,5 +66,3 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
 )
 
 Badge.displayName = "Badge"
-
-

@@ -1,7 +1,7 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 interface FileNode {
@@ -46,10 +46,7 @@ function FileTreeNode({ node, depth }: { node: FileNode; depth: number }) {
         onClick={() => hasChildren && setIsOpen(!isOpen)}
       >
         {hasChildren && (
-          <motion.span
-            animate={{ rotate: isOpen ? 90 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
+          <motion.span animate={{ rotate: isOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
             ▶
           </motion.span>
         )}

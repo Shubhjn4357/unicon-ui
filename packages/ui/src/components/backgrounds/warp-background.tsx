@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface WarpBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -25,7 +25,7 @@ export const WarpBackground = React.forwardRef<HTMLDivElement, WarpBackgroundPro
           className="absolute inset-0"
           style={{
             transformStyle: "preserve-3d",
-            transform: "translateZ(0)"
+            transform: "translateZ(0)",
           }}
         >
           {[...Array(20)].map((_, i) => (
@@ -41,18 +41,18 @@ export const WarpBackground = React.forwardRef<HTMLDivElement, WarpBackgroundPro
                 y: (Math.random() - 0.5) * window.innerHeight,
                 z: 0,
                 opacity: 0,
-                scale: 0.5
+                scale: 0.5,
               }}
               animate={{
                 z: [0, 1000],
                 opacity: [0, 1, 0],
-                scale: [0.5, 5]
+                scale: [0.5, 5],
               }}
               transition={{
                 duration: Math.random() * 2 + 1,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
-                delay: Math.random() * 2
+                delay: Math.random() * 2,
               }}
             />
           ))}

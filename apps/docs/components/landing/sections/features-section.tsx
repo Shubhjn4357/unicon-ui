@@ -7,7 +7,8 @@ import {
     CommandMenu,
     AnimatedList,
     Particles,
-    BorderBeam
+    BorderBeam,
+    OrbitingCircles
 } from "@unicorn-ui/ui"
 import {
     Zap,
@@ -20,7 +21,7 @@ import {
 
 export function FeaturesSection() {
     return (
-        <section className="py-24 px-4 md:px-8 relative" id="features">
+        <section className="py-24 px-4 md:px-8 relative bg-surface-elevated/30" id="features">
             <div className="mx-auto max-w-7xl">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -35,7 +36,7 @@ export function FeaturesSection() {
                     <BentoCard
                         name="Global Scale"
                         description="Built-in localization and CDN support."
-                        href="#"
+                        href="/docs"
                         cta="Learn more"
                         className="lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3"
                         background={<div className="absolute inset-0 flex items-center justify-center opacity-50"><Globe className="h-[400px]" /></div>}
@@ -44,7 +45,7 @@ export function FeaturesSection() {
                     <BentoCard
                         name="Blazing Fast"
                         description="Optimized for speed with zero runtime overhead."
-                        href="#"
+                        href="/docs"
                         cta="View benchmarks"
                         className="lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3"
                         background={<div className="absolute inset-0 bg-gradient-to-br from-brand/20 to-transparent" />}
@@ -53,25 +54,33 @@ export function FeaturesSection() {
                     <BentoCard
                         name="Theming"
                         description="Full customizable themes with CSS variables."
-                        href="#"
+                        href="/docs/theming"
                         cta="Explore themes"
                         className="lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4"
                         background={<Particles className="absolute inset-0 opacity-50" quantity={30} />}
                         Icon={Palette}
                     />
                     <BentoCard
-                        name="Command Menu"
-                        description="Powerful command palette for your apps."
-                        href="#"
-                        cta="Try interactive"
+                        name="Integrations"
+                        description="Works with your favorite libraries."
+                        href="/docs"
+                        cta="View integrations"
                         className="lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2"
-                        background={<div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4"><div className="w-full h-full border rounded-md bg-surface-elevated/50" /></div>}
+                        background={
+                            <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                                <OrbitingCircles iconSize={30} radius={60} reverse speed={1}>
+                                    <span className="i-lucide-figma text-2xl" />
+                                    <span className="i-lucide-github text-2xl" />
+                                    <span className="i-lucide-slack text-2xl" />
+                                </OrbitingCircles>
+                            </div>
+                        }
                         Icon={Terminal}
                     />
                     <BentoCard
                         name="Animations"
                         description="Smooth, 60fps animations powered by Framer Motion."
-                        href="#"
+                        href="/docs/components"
                         cta="See showcase"
                         className="lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4"
                         background={<div className="absolute inset-0 flex items-center justify-center"><BorderBeam size={150} duration={6} /></div>}

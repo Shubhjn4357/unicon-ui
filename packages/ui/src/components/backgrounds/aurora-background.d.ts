@@ -1,9 +1,11 @@
-import * as React from "react";
+import type * as React from "react"
 export interface AuroraBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
-    showRadialGradient?: boolean;
+  showRadialGradient?: boolean
 }
 /**
  * Native AuroraBackground - Animated aurora gradients
  */
-export declare const AuroraBackground: React.ForwardRefExoticComponent<AuroraBackgroundProps & React.RefAttributes<HTMLDivElement>>;
+export declare const AuroraBackground: React.ForwardRefExoticComponent<
+  AuroraBackgroundProps & React.RefAttributes<HTMLDivElement>
+>
 //# sourceMappingURL=aurora-background.d.ts.map

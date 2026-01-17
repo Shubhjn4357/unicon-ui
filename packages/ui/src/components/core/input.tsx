@@ -1,7 +1,7 @@
 "use client"
 
+import { type HTMLMotionProps, motion } from "framer-motion"
 import * as React from "react"
-import { motion, type HTMLMotionProps } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface InputProps extends Omit<HTMLMotionProps<"input">, "size"> {

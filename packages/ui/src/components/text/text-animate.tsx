@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface TextAnimateProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -16,7 +16,10 @@ export interface TextAnimateProps extends React.HTMLAttributes<HTMLDivElement> {
  * Native TextAnimate - Various text entrance animations
  */
 export const TextAnimate = React.forwardRef<HTMLDivElement, TextAnimateProps>(
-  ({ text, type = "popIn", by = "character", duration = 0.5, delay = 0, className, ...props }, ref) => {
+  (
+    { text, type = "popIn", by = "character", duration = 0.5, delay = 0, className, ...props },
+    ref
+  ) => {
     const items = by === "character" ? text.split("") : text.split(" ")
 
     const variants = {

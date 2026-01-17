@@ -1,7 +1,7 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { createPortal } from "react-dom"
 import { cn } from "../../lib/utils"
 
@@ -83,19 +83,17 @@ export const Modal: React.FC<ModalProps> = ({
                   className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100"
                   aria-label="Close"
                 >
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               )}
-              {title && (
-                <h2 className="mb-2 text-lg font-semibold text-foreground">{title}</h2>
-              )}
+              {title && <h2 className="mb-2 text-lg font-semibold text-foreground">{title}</h2>}
               {description && (
                 <p className="mb-4 text-sm text-foreground-secondary">{description}</p>
               )}

@@ -1,7 +1,7 @@
 "use client"
 
+import { motion } from "framer-motion"
 import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn, generateId } from "../../lib/utils"
 
 export interface RadioGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
@@ -18,7 +18,10 @@ const RadioGroupContext = React.createContext<{
 } | null>(null)
 
 export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ value: controlledValue, onValueChange, defaultValue, name, children, className, ...props }, ref) => {
+  (
+    { value: controlledValue, onValueChange, defaultValue, name, children, className, ...props },
+    ref
+  ) => {
     const [internalValue, setInternalValue] = React.useState(defaultValue || "")
     const generatedName = React.useId()
 
@@ -33,7 +36,9 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
     }
 
     return (
-      <RadioGroupContext.Provider value={{ value, onValueChange: handleValueChange, name: name || generatedName }}>
+      <RadioGroupContext.Provider
+        value={{ value, onValueChange: handleValueChange, name: name || generatedName }}
+      >
         <div ref={ref} role="radiogroup" className={cn("space-y-2", className)} {...props}>
           {children}
         </div>
@@ -44,7 +49,8 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
 
 RadioGroup.displayName = "RadioGroup"
 
-export interface RadioGroupItemProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
+export interface RadioGroupItemProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
   value: string
   label?: string
 }

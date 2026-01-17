@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface GlobeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,7 +24,7 @@ export const Globe = React.forwardRef<HTMLDivElement, GlobeProps>(
           className="absolute rounded-full border-2 border-brand/20"
           style={{ width: size, height: size }}
           animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         >
           {[...Array(8)].map((_, i) => (
             <div

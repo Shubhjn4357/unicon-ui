@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface MeteorsProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -32,7 +32,7 @@ export const Meteors = React.forwardRef<HTMLDivElement, MeteorsProps>(
             animate={{ opacity: [0, 1, 0] }}
             transition={{
               duration: Math.random() * 10 + 5,
-              repeat: Infinity,
+              repeat: Number.POSITIVE_INFINITY,
               delay: Math.random() * 10,
             }}
           >

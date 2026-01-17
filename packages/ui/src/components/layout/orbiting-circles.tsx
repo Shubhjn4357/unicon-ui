@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface OrbitingCirclesProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -17,7 +17,19 @@ export interface OrbitingCirclesProps extends React.HTMLAttributes<HTMLDivElemen
  * Pure CSS animations + Framer Motion
  */
 export const OrbitingCircles = React.forwardRef<HTMLDivElement, OrbitingCirclesProps>(
-  ({ radius = 100, duration = 20, delay = 0, reverse = false, icons = [], className, children, ...props }, ref) => {
+  (
+    {
+      radius = 100,
+      duration = 20,
+      delay = 0,
+      reverse = false,
+      icons = [],
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const content = icons.length > 0 ? icons : React.Children.toArray(children)
 
     return (
@@ -49,7 +61,7 @@ export const OrbitingCircles = React.forwardRef<HTMLDivElement, OrbitingCirclesP
               transition={{
                 duration,
                 delay: delayCalc,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
               }}
               initial={{

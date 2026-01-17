@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion, useMotionValue, useSpring } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -13,7 +13,15 @@ export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement>
  * Using Framer Motion's useMotionValue for smooth tracking
  */
 export const SpotlightCard = React.forwardRef<HTMLDivElement, SpotlightCardProps>(
-  ({ children, spotlightColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.15)", className, ...props }, _ref) => {
+  (
+    {
+      children,
+      spotlightColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.15)",
+      className,
+      ...props
+    },
+    _ref
+  ) => {
     const cardRef = React.useRef<HTMLDivElement>(null)
     const mouseX = useMotionValue(0)
     const mouseY = useMotionValue(0)

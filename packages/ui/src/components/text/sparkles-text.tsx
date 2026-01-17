@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface SparklesTextProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -14,13 +14,16 @@ export interface SparklesTextProps extends React.HTMLAttributes<HTMLSpanElement>
  * Native SparklesText - Animated sparkles around text
  */
 export const SparklesText = React.forwardRef<HTMLSpanElement, SparklesTextProps>(
-  ({
-    text,
-    colors = { first: "#9E7AFF", second: "#FE8BBB" },
-    sparklesCount = 10,
-    className,
-    ...props
-  }, ref) => {
+  (
+    {
+      text,
+      colors = { first: "#9E7AFF", second: "#FE8BBB" },
+      sparklesCount = 10,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <span ref={ref} className={cn("relative inline-block", className)} {...props}>
         {Array.from({ length: sparklesCount }).map((_, i) => (
@@ -41,7 +44,7 @@ export const SparklesText = React.forwardRef<HTMLSpanElement, SparklesTextProps>
             transition={{
               duration: 2,
               delay: i * 0.1,
-              repeat: Infinity,
+              repeat: Number.POSITIVE_INFINITY,
               repeatDelay: 1,
             }}
           >

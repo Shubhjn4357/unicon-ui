@@ -1,10 +1,14 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../../lib/utils"
 
-export interface CollapsibleSidebarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"> {
+export interface CollapsibleSidebarProps
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
+  > {
   icon?: React.ReactNode
   title?: string
   defaultCollapsed?: boolean
@@ -20,10 +24,7 @@ export const CollapsibleSidebar = React.forwardRef<HTMLDivElement, CollapsibleSi
     return (
       <motion.div
         ref={ref}
-        className={cn(
-          "flex flex-col border-r border-border bg-surface h-full",
-          className
-        )}
+        className={cn("flex flex-col border-r border-border bg-surface h-full", className)}
         animate={{ width: isCollapsed ? 64 : 240 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
         {...props}
@@ -35,7 +36,12 @@ export const CollapsibleSidebar = React.forwardRef<HTMLDivElement, CollapsibleSi
           >
             {icon || (
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
@@ -52,9 +58,7 @@ export const CollapsibleSidebar = React.forwardRef<HTMLDivElement, CollapsibleSi
             )}
           </AnimatePresence>
         </div>
-        <div className="flex-1 overflow-y-auto p-2">
-          {children}
-        </div>
+        <div className="flex-1 overflow-y-auto p-2">{children}</div>
       </motion.div>
     )
   }

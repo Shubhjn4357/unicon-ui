@@ -16,16 +16,19 @@ export interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement
  * Native FlickeringGrid - Randomized flickering grid squares
  */
 export const FlickeringGrid = React.forwardRef<HTMLDivElement, FlickeringGridProps>(
-  ({
-    squareSize = 4,
-    gridGap = 6,
-    flickerChance = 0.3,
-    color = "rgb(var(--color-brand-rgb, 99, 102, 241))",
-    maxOpacity = 0.3,
-    className,
-    ...props
-    // @ts-ignore
-  }, fwRef) => {
+  (
+    {
+      squareSize = 4,
+      gridGap = 6,
+      flickerChance = 0.3,
+      color = "rgb(var(--color-brand-rgb, 99, 102, 241))",
+      maxOpacity = 0.3,
+      className,
+      ...props
+      // @ts-ignore
+    },
+    fwRef
+  ) => {
     const [squares, setSquares] = React.useState<Array<{ id: number; opacity: number }>>([])
 
     React.useEffect(() => {
@@ -51,7 +54,9 @@ export const FlickeringGrid = React.forwardRef<HTMLDivElement, FlickeringGridPro
       setSquares(newSquares)
     }, [squareSize, gridGap, maxOpacity])
 
-    const cols = Math.floor((typeof window !== "undefined" ? window.innerWidth : 1000) / (squareSize + gridGap))
+    const cols = Math.floor(
+      (typeof window !== "undefined" ? window.innerWidth : 1000) / (squareSize + gridGap)
+    )
 
     return (
       <div

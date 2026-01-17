@@ -1,8 +1,10 @@
-import React from "react";
+import type React from "react"
 interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    rippleColor?: string;
-    duration?: string;
+  rippleColor?: string
+  duration?: string
 }
-declare const RippleButton: React.ForwardRefExoticComponent<RippleButtonProps & React.RefAttributes<HTMLButtonElement>>;
-export { RippleButton };
+declare const RippleButton: React.ForwardRefExoticComponent<
+  RippleButtonProps & React.RefAttributes<HTMLButtonElement>
+>
+export { RippleButton }
 //# sourceMappingURL=ripple-button.d.ts.map

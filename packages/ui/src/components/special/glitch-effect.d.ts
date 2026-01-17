@@ -1,9 +1,11 @@
-import * as React from "react";
+import type * as React from "react"
 export interface GlitchEffectProps extends React.HTMLAttributes<HTMLDivElement> {
-    text: string;
+  text: string
 }
 /**
  * Native GlitchEffect - Cyberpunk text glitch
  */
-export declare const GlitchEffect: React.ForwardRefExoticComponent<GlitchEffectProps & React.RefAttributes<HTMLDivElement>>;
+export declare const GlitchEffect: React.ForwardRefExoticComponent<
+  GlitchEffectProps & React.RefAttributes<HTMLDivElement>
+>
 //# sourceMappingURL=glitch-effect.d.ts.map

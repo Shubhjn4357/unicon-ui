@@ -17,17 +17,20 @@ export interface GridPatternProps extends React.HTMLAttributes<HTMLDivElement> {
  * Native GridPattern - SVG grid background pattern
  */
 export const GridPattern = React.forwardRef<HTMLDivElement, GridPatternProps>(
-  ({
-    width = 40,
-    height = 40,
-    x = -1,
-    y = -1,
-    strokeDasharray = "0",
-    strokeWidth = 1,
-    strokeColor = "currentColor",
-    className,
-    ...props
-  }, ref) => {
+  (
+    {
+      width = 40,
+      height = 40,
+      x = -1,
+      y = -1,
+      strokeDasharray = "0",
+      strokeWidth = 1,
+      strokeColor = "currentColor",
+      className,
+      ...props
+    },
+    ref
+  ) => {
     const id = React.useId()
 
     return (

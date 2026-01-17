@@ -1,7 +1,7 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface WordRotateProps extends React.HTMLAttributes<HTMLDivElement> {

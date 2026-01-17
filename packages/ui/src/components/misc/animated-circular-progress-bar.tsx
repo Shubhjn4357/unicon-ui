@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface AnimatedCircularProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,15 +12,25 @@ export interface AnimatedCircularProgressBarProps extends React.HTMLAttributes<H
   showValue?: boolean
 }
 
-export const AnimatedCircularProgressBar = React.forwardRef<HTMLDivElement, AnimatedCircularProgressBarProps>(
-  ({ value, max = 100, size = 120, strokeWidth = 10, showValue = true, className, ...props }, ref) => {
+export const AnimatedCircularProgressBar = React.forwardRef<
+  HTMLDivElement,
+  AnimatedCircularProgressBarProps
+>(
+  (
+    { value, max = 100, size = 120, strokeWidth = 10, showValue = true, className, ...props },
+    ref
+  ) => {
     const radius = (size - strokeWidth) / 2
     const circumference = radius * 2 * Math.PI
     const percentage = (value / max) * 100
     const offset = circumference - (percentage / 100) * circumference
 
     return (
-      <div ref={ref} className={cn("relative inline-flex items-center justify-center", className)} {...props}>
+      <div
+        ref={ref}
+        className={cn("relative inline-flex items-center justify-center", className)}
+        {...props}
+      >
         <svg width={size} height={size} className="-rotate-90">
           <circle
             cx={size / 2}

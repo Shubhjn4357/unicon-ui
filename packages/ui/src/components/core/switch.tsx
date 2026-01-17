@@ -1,10 +1,11 @@
 "use client"
 
-import * as React from "react"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
-export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
+export interface SwitchProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
   checked?: boolean
   onCheckedChange?: (checked: boolean) => void
   size?: "sm" | "md" | "lg"
@@ -12,7 +13,7 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
 }
 
 /**
- * Native Switch Component  
+ * Native Switch Component
  * Built without shadcn/Radix - pure CSS with Framer Motion animation
  */
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
@@ -71,7 +72,9 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                 config.thumb
               )}
               animate={{
-                x: isChecked ? `calc(${config.width.replace("w-", "")} * 0.25rem - ${config.thumb.split(" ")[1].replace("w-", "")} * 0.25rem - 0.125rem)` : 0,
+                x: isChecked
+                  ? `calc(${config.width.replace("w-", "")} * 0.25rem - ${config.thumb.split(" ")[1].replace("w-", "")} * 0.25rem - 0.125rem)`
+                  : 0,
               }}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             />

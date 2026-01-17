@@ -1,7 +1,7 @@
 "use client"
 
+import { type HTMLMotionProps, motion } from "framer-motion"
 import * as React from "react"
-import { motion, type HTMLMotionProps } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
@@ -44,8 +44,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const baseStyles =
       "inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-
-
 
     const sizeStyles = {
       sm: "h-8 px-3 text-sm rounded-[calc(var(--radius)*0.75)]",
@@ -103,5 +101,3 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 
 Button.displayName = "Button"
-
-

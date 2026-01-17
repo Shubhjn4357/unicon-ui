@@ -1,7 +1,7 @@
 "use client"
 
+import { type HTMLMotionProps, motion } from "framer-motion"
 import * as React from "react"
-import { motion, type HTMLMotionProps } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface CheckboxProps extends Omit<HTMLMotionProps<"input">, "type" | "size"> {
@@ -40,7 +40,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     return (
       <div className="flex items-center gap-2">
         <div className="relative inline-block">
-          <input
+          <motion.input
             ref={ref}
             type="checkbox"
             id={checkboxId}

@@ -1,10 +1,11 @@
 "use client"
 
+import { type HTMLMotionProps, motion } from "framer-motion"
 import * as React from "react"
-import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 
-export interface ShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ShimmerButtonProps extends HTMLMotionProps<"button"> {
+  children?: React.ReactNode
   shimmerColor?: string
   shimmerSize?: string
 }
@@ -46,7 +47,7 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
           }}
           transition={{
             duration: 1.5,
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
         />

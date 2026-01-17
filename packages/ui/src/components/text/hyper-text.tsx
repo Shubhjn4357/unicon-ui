@@ -1,7 +1,7 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../../lib/utils"
 
 export interface HyperTextProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -27,23 +27,26 @@ export const HyperText = React.forwardRef<HTMLSpanElement, HyperTextProps>(
         // setIsAnimating(true)
         iterations.current = 0
 
-        const interval = setInterval(() => {
-          setDisplayText((prev) =>
-            prev.map((_, index) => {
-              if (index < iterations.current) {
-                return text[index]
-              }
-              return CHARS[Math.floor(Math.random() * CHARS.length)]
-            })
-          )
+        const interval = setInterval(
+          () => {
+            setDisplayText((prev) =>
+              prev.map((_, index) => {
+                if (index < iterations.current) {
+                  return text[index]
+                }
+                return CHARS[Math.floor(Math.random() * CHARS.length)]
+              })
+            )
 
-          if (iterations.current >= text.length) {
-            clearInterval(interval)
-            // setIsAnimating(false)
-          }
+            if (iterations.current >= text.length) {
+              clearInterval(interval)
+              // setIsAnimating(false)
+            }
 
-          iterations.current += 1 / 3
-        }, duration / text.length / 3)
+            iterations.current += 1 / 3
+          },
+          duration / text.length / 3
+        )
 
         return () => clearInterval(interval)
       }, delay)

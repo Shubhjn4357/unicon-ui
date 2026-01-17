@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
-import { motion, type HTMLMotionProps } from "framer-motion"
+import { type HTMLMotionProps, motion } from "framer-motion"
 import { ArrowRight, type LucideIcon } from "lucide-react"
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
 export interface BentoGridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -48,7 +48,22 @@ export interface BentoCardProps extends HTMLMotionProps<"div"> {
 }
 
 export const BentoCard = React.forwardRef<HTMLDivElement, BentoCardProps>(
-  ({ Icon, name, title, description, href, cta, background, featured, className, children, ...props }, ref) => {
+  (
+    {
+      Icon,
+      name,
+      title,
+      description,
+      href,
+      cta,
+      background,
+      featured,
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const content = (
       <motion.div
         ref={ref}
@@ -69,20 +84,16 @@ export const BentoCard = React.forwardRef<HTMLDivElement, BentoCardProps>(
         <div className="relative z-10">
           {Icon && <Icon className="mb-4 h-8 w-8 text-brand" />}
           {(name || title) && (
-            <h3 className="mb-2 text-xl font-semibold text-foreground">
-              {name || title}
-            </h3>
+            <h3 className="mb-2 text-xl font-semibold text-foreground">{name || title}</h3>
           )}
-          {description && (
-            <p className="mb-4 text-sm text-foreground-secondary">{description}</p>
-          )}
+          {description && <p className="mb-4 text-sm text-foreground-secondary">{description}</p>}
           {children}
           {cta && (
             <div className="mt-4 flex items-center gap-2 text-sm font-medium text-brand">
               {cta}
               <motion.div
                 animate={{ x: [0, 4, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
+                transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
               >
                 <ArrowRight className="h-4 w-4" />
               </motion.div>

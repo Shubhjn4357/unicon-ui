@@ -4,7 +4,7 @@ import * as React from "react"
 // import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 
-export interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
+export interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 /**
  * Native RainbowButton - Animated rainbow gradient border

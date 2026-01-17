@@ -31,7 +31,8 @@ export const RetroGrid = React.forwardRef<HTMLDivElement, RetroGridProps>(
             } as React.CSSProperties
           }
         >
-          <div className="animate-retro-grid bg-repeat bg-size-[60px_60px] h-[300vh] inset-[0%_0px] ml-[-50%] origin-[100%_0_0] w-[600vw]"
+          <div
+            className="animate-retro-grid bg-repeat bg-size-[60px_60px] h-[300vh] inset-[0%_0px] ml-[-50%] origin-[100%_0_0] w-[600vw]"
             style={{
               backgroundImage: `
                   linear-gradient(to right, rgba(var(--color-brand-rgb, 99, 102, 241), 0.3) 1px, transparent 0),
