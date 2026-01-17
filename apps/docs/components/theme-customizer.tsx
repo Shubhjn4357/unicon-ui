@@ -188,7 +188,6 @@ export function ThemeCustomizer() {
             </div>
             <Button
               variant="ghost"
-              className="h-10 w-10"
               className="h-8 w-8"
               onClick={() => {
                 updateBrandColor(210)
