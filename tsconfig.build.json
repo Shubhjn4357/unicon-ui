@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "rootDir": "src",
+    "composite": false,
+    "tsBuildInfoFile": null
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "app", "**/*.test.ts", "**/*.spec.ts", "next.config.mjs"]
+}

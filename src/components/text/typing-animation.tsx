@@ -1,0 +1,42 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import { cn } from "../../lib/utils"
+
+export interface TypingAnimationProps {
+  text: string
+  duration?: number
+  className?: string
+}
+
+export const TypingAnimation = ({ text, duration = 200, className }: TypingAnimationProps) => {
+  const [displayedText, setDisplayedText] = useState("")
+  const [i, setI] = useState(0)
+
+  useEffect(() => {
+    const typingEffect = setInterval(() => {
+      if (i < text.length) {
+        setDisplayedText((prevState) => prevState + text.charAt(i))
+        setI(i + 1)
+      } else {
+        clearInterval(typingEffect)
+      }
+    }, duration)
+
+    return () => {
+      clearInterval(typingEffect)
+    }
+  }, [duration, i, text])
+
+  return (
+    <h1
+      className={cn(
+        "font-display text-center text-4xl font-bold leading-20 tracking-[-0.02em] drop-shadow-sm",
+        className
+      )}
+    >
+      {displayedText}
+      <span className="inline-block w-0.5 h-6 bg-primary ml-1 animate-pulse align-middle" />
+    </h1>
+  )
+}
