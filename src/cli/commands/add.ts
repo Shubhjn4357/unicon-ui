@@ -1,5 +1,5 @@
-import { promises as fs, existsSync } from "fs"
-import path from "path"
+import { promises as fs, existsSync } from "node:fs"
+import path from "node:path"
 import chalk from "chalk"
 import { Command } from "commander"
 import ora from "ora"
@@ -67,7 +67,6 @@ export const add = new Command()
           } catch (err) {
             spinner.fail(`Failed to install ${componentName}`)
             console.error(err)
-            continue
           }
         }
 

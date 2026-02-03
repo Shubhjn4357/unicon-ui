@@ -22,7 +22,9 @@ export function MagneticWrapper({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e
-    const { left, top, width, height } = ref.current!.getBoundingClientRect()
+    const rect = ref.current?.getBoundingClientRect()
+    if (!rect) return
+    const { left, top, width, height } = rect
 
     // Calculate center of element
     const centerX = left + width / 2

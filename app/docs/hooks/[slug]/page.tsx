@@ -30,7 +30,7 @@ export default async function HookPage(props: HookPageProps) {
   const { data } = hook
 
   // Inject the real demo component
-  const examples = data.examples.map((example: any) => ({
+  const examples = data.examples.map((example) => ({
     ...example,
     preview: DEMO_MAP[params.slug] || (
       <div className="p-4 text-muted-foreground">Demo not available</div>

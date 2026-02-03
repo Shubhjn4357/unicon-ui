@@ -70,7 +70,7 @@ async function verify() {
   checkFileExists("package.json", "Check package.json exists")
   checkFileExists("tsconfig.json", "Check tsconfig.json exists")
   checkFileExists("src/index.ts", "Check entry point exists")
-  checkFileExists("src/styles/global.css", "Check global styles exist")
+  checkFileExists("src/app/globals.css", "Check global styles exist")
 
   // TypeScript type checking
   runCommand("pnpm tsc --noEmit", "TypeScript type checking")
@@ -82,7 +82,7 @@ async function verify() {
   checkFileExists("dist/index.js", "Check CJS build output")
   checkFileExists("dist/index.mjs", "Check ESM build output")
   checkFileExists("dist/index.d.ts", "Check TypeScript declarations")
-  checkFileExists("dist/global.css", "Check CSS output")
+  checkFileExists("dist/styles.css", "Check CSS output")
 
   // Lint check (if available)
   const packageJson = JSON.parse(

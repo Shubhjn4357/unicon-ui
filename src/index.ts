@@ -3,47 +3,44 @@
 
 // Utilities
 export { cn, getCSSVariable, prefersReducedMotion, generateId } from "./lib/utils"
-// New Utils
 export { InView } from "./components/utils/in-view"
 
 // Hooks
 export * from "./hooks"
 
 // Core Components
-export * from "./components/core/accordion"
+export { Accordion } from "./components/core/accordion"
+export { Badge } from "./components/core/badge"
+export { Button } from "./components/core/button"
+export { Input } from "./components/core/input"
+export { Label } from "./components/core/label"
+export { Modal } from "./components/core/modal"
+export { Popover } from "./components/core/popover"
+export { Progress } from "./components/core/progress"
+export { Slider } from "./components/core/slider"
+export { StatusIcon } from "./components/core/status-icon"
+export { Switch } from "./components/core/switch"
+export { Textarea } from "./components/core/textarea"
 export { Alert, AlertTitle, AlertDescription } from "./components/core/alert"
-export * from "./components/core/avatar"
-export * from "./components/core/badge"
-export * from "./components/core/button"
-export * from "./components/core/card"
-export * from "./components/core/checkbox"
-export * from "./components/core/dialog"
-export * from "./components/core/input"
-export * from "./components/core/label"
-export * from "./components/core/modal"
-export * from "./components/core/popover"
-export * from "./components/core/progress"
-export * from "./components/core/radio-group"
-export * from "./components/core/select"
-export * from "./components/core/slider"
-export * from "./components/core/status-icon"
-export * from "./components/core/switch"
-export * from "./components/core/tabs"
-export * from "./components/core/textarea"
-export * from "./components/core/unicorn-provider"
+export { Avatar, AvatarImage, AvatarFallback } from "./components/core/avatar"
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "./components/core/card"
+export { Checkbox } from "./components/core/checkbox"
+export { Dialog, DialogContent, DialogDescription, DialogHeader, DialogFooter, DialogTitle, DialogTrigger } from "./components/core/dialog"
+export { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "./components/core/dropdown-menu"
+export { RadioGroup, RadioGroupItem } from "./components/core/radio-group"
+export { Select, SelectGroup, SelectValue, SelectTrigger, SelectContent, SelectLabel, SelectItem } from "./components/core/select"
+export { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./components/core/sheet"
+export { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption } from "./components/core/table"
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/core/tabs"
+export { ToastProvider, useToast } from "./components/core/toast"
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "./components/core/tooltip"
+export { UnicornProvider } from "./components/core/unicorn-provider"
 
 // Layout Components
 export { AnimatedList } from "./components/layout/animated-list"
 export { AvatarCircles } from "./components/layout/avatar-circles"
-export { BentoGrid, BentoCard } from "./components/layout/bento-grid"
 export { CollapsibleSidebar } from "./components/layout/collapsible-sidebar"
-export {
-  CollapsibleSidebar as CollapsibleSidebarNew,
-  SidebarHeader,
-  SidebarSection,
-  SidebarItem,
-} from "./components/layout/collapsible-sidebar-new"
-export { Dock, DockIcon } from "./components/layout/dock"
+export { DocsLayout } from "./components/layout/docs-layout"
 export { DottedMap } from "./components/layout/dotted-map"
 export { ExpandableBentoCard } from "./components/layout/expandable-bento-card"
 export { GlassDock } from "./components/layout/glass-dock"
@@ -61,8 +58,6 @@ export { PixelImage } from "./components/layout/pixel-image"
 export { Pointer } from "./components/layout/pointer"
 export { ProgressiveBlur } from "./components/layout/progressive-blur"
 export { ReorderableList } from "./components/layout/reorderable-list"
-export { ResizablePanel } from "./components/layout/resizable-panel"
-export { Sidebar } from "./components/layout/sidebar"
 export { SmoothCursor } from "./components/layout/smooth-cursor"
 export { SpotlightCard } from "./components/layout/spotlight-card"
 export { StaggeredGrid } from "./components/layout/staggered-grid"
@@ -71,6 +66,11 @@ export { Timeline } from "./components/layout/timeline"
 export { TopNav } from "./components/layout/top-nav"
 export { TracingBeam } from "./components/layout/tracing-beam"
 export { TweetCard } from "./components/layout/tweet-card"
+export { BentoCard, BentoGrid } from "./components/layout/bento-grid"
+export { Dock, DockIcon } from "./components/layout/dock"
+export { ResizablePanel } from "./components/layout/resizable-panel"
+export { Sidebar, SidebarItem } from "./components/layout/sidebar"
+export { SidebarHeader, SidebarSection } from "./components/layout/collapsible-sidebar-new"
 
 // Feedback Components
 export { AnimatedThemeToggler } from "./components/feedback/animated-theme-toggler"
@@ -87,6 +87,11 @@ export { HoverRevealCard } from "./components/interaction/hover-reveal-card"
 export { MagneticWrapper } from "./components/interaction/magnetic-wrapper"
 
 // Animation Components
+export { FadeIn } from "./components/animation/fade-in"
+export { OrbitingDots } from "./components/animation/orbiting-dots"
+export { Snow } from "./components/animation/snow"
+
+// Special Effects Components
 export { ThreeDCard } from "./components/special/3d-card"
 export { AnimatedBeam } from "./components/special/animated-beam"
 export { BorderBeam } from "./components/special/border-beam"
@@ -110,7 +115,7 @@ export { Spotlight } from "./components/special/spotlight"
 // Background Components
 export { AnimatedGridPattern } from "./components/backgrounds/animated-grid-pattern"
 export { AuroraBackground } from "./components/backgrounds/aurora-background"
-export { BackgroundBeams } from "./components/backgrounds/beams"
+export { BackgroundBeams } from "./components/backgrounds/background-beams"
 export { DotPattern } from "./components/backgrounds/dot-pattern"
 export { FlickeringGrid } from "./components/backgrounds/flickering-grid"
 export { GridPattern } from "./components/backgrounds/grid-pattern"
@@ -174,31 +179,36 @@ export { CodeComparison } from "./components/misc/code-comparison"
 export { ConfettiSideCannons } from "./components/misc/confetti-side-cannons"
 export { CoolMode } from "./components/misc/cool-mode"
 export { CustomPointer } from "./components/misc/custom-pointer"
-export { IPhoneMockup, MacBookMockup } from "./components/misc/device-mockups"
 export { FileTree } from "./components/misc/file-tree"
 export { FollowerPointer } from "./components/misc/follower-pointer"
 export { NeonGradientCard } from "./components/misc/neon-gradient-card"
 export { PixelTrail } from "./components/misc/pixel-trail"
 export { ScrollProgress } from "./components/misc/scroll-progress"
+export { ScrollProgressiveBlur } from "./components/misc/scroll-progressive-blur"
 export { SmoothScroll } from "./components/misc/smooth-scroll"
+export { IPhoneMockup, MacBookMockup } from "./components/misc/device-mockups"
+
+// Mock Components
+export { Android } from "./components/mocks/android"
+export { Iphone15Pro as Iphone } from "./components/mocks/iphone"
+export { Safari } from "./components/mocks/safari"
+
+// Skeleton Components
+export { ComponentPageSkeleton } from "./components/skeletons/component-page-skeleton"
 
 // Types
 export type { AsyncState } from "./hooks/use-async"
 export type { Theme, ThemeContextType } from "./hooks/use-theme"
 export type { DesignStyle } from "./hooks/use-design-style"
+export type { UserConfig } from "./components/core/unicorn-provider"
 
 // Design Style Hook
 export { useDesignStyle, DesignStyleProvider } from "./hooks/use-design-style"
-
-// New Core Components
-export * from "./components/core/tooltip"
-export * from "./components/core/dropdown-menu"
-export * from "./components/core/sheet"
-export * from "./components/core/table"
-export * from "./components/core/toast"
 
 // New Hooks
 export { useClipboard } from "./hooks/use-clipboard"
 export { useClickOutside } from "./hooks/use-click-outside"
 export { useMouse } from "./hooks/use-mouse"
 export { useScrollProgress } from "./hooks/use-scroll-progress"
+// Theme Generator
+export { useThemeGenerator } from "./hooks/use-theme-generator"

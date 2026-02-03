@@ -1,0 +1,1530 @@
+[
+  {
+    "name": "accordion",
+    "path": "core/accordion",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\accordion.tsx",
+    "exports": [
+      "accordion"
+    ]
+  },
+  {
+    "name": "badge",
+    "path": "core/badge",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\badge.tsx",
+    "exports": [
+      "badge"
+    ]
+  },
+  {
+    "name": "button",
+    "path": "core/button",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\button.tsx",
+    "exports": [
+      "button"
+    ]
+  },
+  {
+    "name": "input",
+    "path": "core/input",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\input.tsx",
+    "exports": [
+      "input"
+    ]
+  },
+  {
+    "name": "label",
+    "path": "core/label",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\label.tsx",
+    "exports": [
+      "label"
+    ]
+  },
+  {
+    "name": "modal",
+    "path": "core/modal",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\modal.tsx",
+    "exports": [
+      "modal"
+    ]
+  },
+  {
+    "name": "popover",
+    "path": "core/popover",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\popover.tsx",
+    "exports": [
+      "popover"
+    ]
+  },
+  {
+    "name": "progress",
+    "path": "core/progress",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\progress.tsx",
+    "exports": [
+      "progress"
+    ]
+  },
+  {
+    "name": "slider",
+    "path": "core/slider",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\slider.tsx",
+    "exports": [
+      "slider"
+    ]
+  },
+  {
+    "name": "status-icon",
+    "path": "core/status-icon",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\status-icon.tsx",
+    "exports": [
+      "status-icon"
+    ]
+  },
+  {
+    "name": "switch",
+    "path": "core/switch",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\switch.tsx",
+    "exports": [
+      "switch"
+    ]
+  },
+  {
+    "name": "textarea",
+    "path": "core/textarea",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\textarea.tsx",
+    "exports": [
+      "textarea"
+    ]
+  },
+  {
+    "name": "animated-list",
+    "path": "layout/animated-list",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\animated-list.tsx",
+    "exports": [
+      "animated-list"
+    ]
+  },
+  {
+    "name": "avatar-circles",
+    "path": "layout/avatar-circles",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\avatar-circles.tsx",
+    "exports": [
+      "avatar-circles"
+    ]
+  },
+  {
+    "name": "collapsible-sidebar",
+    "path": "layout/collapsible-sidebar",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\collapsible-sidebar.tsx",
+    "exports": [
+      "collapsible-sidebar"
+    ]
+  },
+  {
+    "name": "docs-layout",
+    "path": "layout/docs-layout",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\docs-layout.tsx",
+    "exports": [
+      "docs-layout"
+    ]
+  },
+  {
+    "name": "dotted-map",
+    "path": "layout/dotted-map",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\dotted-map.tsx",
+    "exports": [
+      "dotted-map"
+    ]
+  },
+  {
+    "name": "expandable-bento-card",
+    "path": "layout/expandable-bento-card",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\expandable-bento-card.tsx",
+    "exports": [
+      "expandable-bento-card"
+    ]
+  },
+  {
+    "name": "glass-dock",
+    "path": "layout/glass-dock",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\glass-dock.tsx",
+    "exports": [
+      "glass-dock"
+    ]
+  },
+  {
+    "name": "globe",
+    "path": "layout/globe",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\globe.tsx",
+    "exports": [
+      "globe"
+    ]
+  },
+  {
+    "name": "glow-border-card",
+    "path": "layout/glow-border-card",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\glow-border-card.tsx",
+    "exports": [
+      "glow-border-card"
+    ]
+  },
+  {
+    "name": "hero-video-dialog",
+    "path": "layout/hero-video-dialog",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\hero-video-dialog.tsx",
+    "exports": [
+      "hero-video-dialog"
+    ]
+  },
+  {
+    "name": "horizontal-scroll",
+    "path": "layout/horizontal-scroll",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\horizontal-scroll.tsx",
+    "exports": [
+      "horizontal-scroll"
+    ]
+  },
+  {
+    "name": "icon-cloud",
+    "path": "layout/icon-cloud",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\icon-cloud.tsx",
+    "exports": [
+      "icon-cloud"
+    ]
+  },
+  {
+    "name": "ion-cloud",
+    "path": "layout/ion-cloud",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\ion-cloud.tsx",
+    "exports": [
+      "ion-cloud"
+    ]
+  },
+  {
+    "name": "lens",
+    "path": "layout/lens",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\lens.tsx",
+    "exports": [
+      "lens"
+    ]
+  },
+  {
+    "name": "marquee",
+    "path": "layout/marquee",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\marquee.tsx",
+    "exports": [
+      "marquee"
+    ]
+  },
+  {
+    "name": "orbiting-circles",
+    "path": "layout/orbiting-circles",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\orbiting-circles.tsx",
+    "exports": [
+      "orbiting-circles"
+    ]
+  },
+  {
+    "name": "perspective-menu",
+    "path": "layout/perspective-menu",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\perspective-menu.tsx",
+    "exports": [
+      "perspective-menu"
+    ]
+  },
+  {
+    "name": "pixel-image",
+    "path": "layout/pixel-image",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\pixel-image.tsx",
+    "exports": [
+      "pixel-image"
+    ]
+  },
+  {
+    "name": "pointer",
+    "path": "layout/pointer",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\pointer.tsx",
+    "exports": [
+      "pointer"
+    ]
+  },
+  {
+    "name": "progressive-blur",
+    "path": "layout/progressive-blur",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\progressive-blur.tsx",
+    "exports": [
+      "progressive-blur"
+    ]
+  },
+  {
+    "name": "reorderable-list",
+    "path": "layout/reorderable-list",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\reorderable-list.tsx",
+    "exports": [
+      "reorderable-list"
+    ]
+  },
+  {
+    "name": "smooth-cursor",
+    "path": "layout/smooth-cursor",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\smooth-cursor.tsx",
+    "exports": [
+      "smooth-cursor"
+    ]
+  },
+  {
+    "name": "spotlight-card",
+    "path": "layout/spotlight-card",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\spotlight-card.tsx",
+    "exports": [
+      "spotlight-card"
+    ]
+  },
+  {
+    "name": "staggered-grid",
+    "path": "layout/staggered-grid",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\staggered-grid.tsx",
+    "exports": [
+      "staggered-grid"
+    ]
+  },
+  {
+    "name": "terminal",
+    "path": "layout/terminal",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\terminal.tsx",
+    "exports": [
+      "terminal"
+    ]
+  },
+  {
+    "name": "timeline",
+    "path": "layout/timeline",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\timeline.tsx",
+    "exports": [
+      "timeline"
+    ]
+  },
+  {
+    "name": "top-nav",
+    "path": "layout/top-nav",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\top-nav.tsx",
+    "exports": [
+      "top-nav"
+    ]
+  },
+  {
+    "name": "tracing-beam",
+    "path": "layout/tracing-beam",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\tracing-beam.tsx",
+    "exports": [
+      "tracing-beam"
+    ]
+  },
+  {
+    "name": "tweet-card",
+    "path": "layout/tweet-card",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\tweet-card.tsx",
+    "exports": [
+      "tweet-card"
+    ]
+  },
+  {
+    "name": "3d-card",
+    "path": "special/3d-card",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\3d-card.tsx",
+    "exports": [
+      "3d-card"
+    ]
+  },
+  {
+    "name": "animated-beam",
+    "path": "special/animated-beam",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\animated-beam.tsx",
+    "exports": [
+      "animated-beam"
+    ]
+  },
+  {
+    "name": "border-beam",
+    "path": "special/border-beam",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\border-beam.tsx",
+    "exports": [
+      "border-beam"
+    ]
+  },
+  {
+    "name": "canvas-smudge",
+    "path": "special/canvas-smudge",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\canvas-smudge.tsx",
+    "exports": [
+      "canvas-smudge"
+    ]
+  },
+  {
+    "name": "confetti",
+    "path": "special/confetti",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\confetti.tsx",
+    "exports": [
+      "confetti"
+    ]
+  },
+  {
+    "name": "glitch-effect",
+    "path": "special/glitch-effect",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\glitch-effect.tsx",
+    "exports": [
+      "glitch-effect"
+    ]
+  },
+  {
+    "name": "gravity",
+    "path": "special/gravity",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\gravity.tsx",
+    "exports": [
+      "gravity"
+    ]
+  },
+  {
+    "name": "magic-card",
+    "path": "special/magic-card",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\magic-card.tsx",
+    "exports": [
+      "magic-card"
+    ]
+  },
+  {
+    "name": "magnifier",
+    "path": "special/magnifier",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\magnifier.tsx",
+    "exports": [
+      "magnifier"
+    ]
+  },
+  {
+    "name": "meteors",
+    "path": "special/meteors",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\meteors.tsx",
+    "exports": [
+      "meteors"
+    ]
+  },
+  {
+    "name": "noise-overlay",
+    "path": "special/noise-overlay",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\noise-overlay.tsx",
+    "exports": [
+      "noise-overlay"
+    ]
+  },
+  {
+    "name": "parallax-image",
+    "path": "special/parallax-image",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\parallax-image.tsx",
+    "exports": [
+      "parallax-image"
+    ]
+  },
+  {
+    "name": "particle-image",
+    "path": "special/particle-image",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\particle-image.tsx",
+    "exports": [
+      "particle-image"
+    ]
+  },
+  {
+    "name": "particles",
+    "path": "special/particles",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\particles.tsx",
+    "exports": [
+      "particles"
+    ]
+  },
+  {
+    "name": "ripple-effect",
+    "path": "special/ripple-effect",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\ripple-effect.tsx",
+    "exports": [
+      "ripple-effect"
+    ]
+  },
+  {
+    "name": "scene-3d",
+    "path": "special/scene-3d",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\scene-3d.tsx",
+    "exports": [
+      "scene-3d"
+    ]
+  },
+  {
+    "name": "shine-border",
+    "path": "special/shine-border",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\shine-border.tsx",
+    "exports": [
+      "shine-border"
+    ]
+  },
+  {
+    "name": "spotlight-new",
+    "path": "special/spotlight-new",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\spotlight-new.tsx",
+    "exports": [
+      "spotlight-new"
+    ]
+  },
+  {
+    "name": "spotlight",
+    "path": "special/spotlight",
+    "category": "special",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\spotlight.tsx",
+    "exports": [
+      "spotlight"
+    ]
+  },
+  {
+    "name": "animated-grid-pattern",
+    "path": "backgrounds/animated-grid-pattern",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\animated-grid-pattern.tsx",
+    "exports": [
+      "animated-grid-pattern"
+    ]
+  },
+  {
+    "name": "aurora-background",
+    "path": "backgrounds/aurora-background",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\aurora-background.tsx",
+    "exports": [
+      "aurora-background"
+    ]
+  },
+  {
+    "name": "background-beams",
+    "path": "backgrounds/background-beams",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\background-beams.tsx",
+    "exports": [
+      "background-beams"
+    ]
+  },
+  {
+    "name": "dot-pattern",
+    "path": "backgrounds/dot-pattern",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\dot-pattern.tsx",
+    "exports": [
+      "dot-pattern"
+    ]
+  },
+  {
+    "name": "flickering-grid",
+    "path": "backgrounds/flickering-grid",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\flickering-grid.tsx",
+    "exports": [
+      "flickering-grid"
+    ]
+  },
+  {
+    "name": "grid-pattern",
+    "path": "backgrounds/grid-pattern",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\grid-pattern.tsx",
+    "exports": [
+      "grid-pattern"
+    ]
+  },
+  {
+    "name": "interactive-grid-pattern",
+    "path": "backgrounds/interactive-grid-pattern",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\interactive-grid-pattern.tsx",
+    "exports": [
+      "interactive-grid-pattern"
+    ]
+  },
+  {
+    "name": "retro-grid",
+    "path": "backgrounds/retro-grid",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\retro-grid.tsx",
+    "exports": [
+      "retro-grid"
+    ]
+  },
+  {
+    "name": "ripple",
+    "path": "backgrounds/ripple",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\ripple.tsx",
+    "exports": [
+      "ripple"
+    ]
+  },
+  {
+    "name": "shooting-stars",
+    "path": "backgrounds/shooting-stars",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\shooting-stars.tsx",
+    "exports": [
+      "shooting-stars"
+    ]
+  },
+  {
+    "name": "stars",
+    "path": "backgrounds/stars",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\stars.tsx",
+    "exports": [
+      "stars"
+    ]
+  },
+  {
+    "name": "striped-pattern",
+    "path": "backgrounds/striped-pattern",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\striped-pattern.tsx",
+    "exports": [
+      "striped-pattern"
+    ]
+  },
+  {
+    "name": "warp-background",
+    "path": "backgrounds/warp-background",
+    "category": "backgrounds",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\warp-background.tsx",
+    "exports": [
+      "warp-background"
+    ]
+  },
+  {
+    "name": "animated-gradient-text",
+    "path": "text/animated-gradient-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\animated-gradient-text.tsx",
+    "exports": [
+      "animated-gradient-text"
+    ]
+  },
+  {
+    "name": "animated-number",
+    "path": "text/animated-number",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\animated-number.tsx",
+    "exports": [
+      "animated-number"
+    ]
+  },
+  {
+    "name": "animated-shiny-text",
+    "path": "text/animated-shiny-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\animated-shiny-text.tsx",
+    "exports": [
+      "animated-shiny-text"
+    ]
+  },
+  {
+    "name": "aurora-text",
+    "path": "text/aurora-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\aurora-text.tsx",
+    "exports": [
+      "aurora-text"
+    ]
+  },
+  {
+    "name": "blur-fade",
+    "path": "text/blur-fade",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\blur-fade.tsx",
+    "exports": [
+      "blur-fade"
+    ]
+  },
+  {
+    "name": "box-reveal",
+    "path": "text/box-reveal",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\box-reveal.tsx",
+    "exports": [
+      "box-reveal"
+    ]
+  },
+  {
+    "name": "comic-text",
+    "path": "text/comic-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\comic-text.tsx",
+    "exports": [
+      "comic-text"
+    ]
+  },
+  {
+    "name": "fade-text",
+    "path": "text/fade-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\fade-text.tsx",
+    "exports": [
+      "fade-text"
+    ]
+  },
+  {
+    "name": "flip-text-3d",
+    "path": "text/flip-text-3d",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\flip-text-3d.tsx",
+    "exports": [
+      "flip-text-3d"
+    ]
+  },
+  {
+    "name": "flip-text",
+    "path": "text/flip-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\flip-text.tsx",
+    "exports": [
+      "flip-text"
+    ]
+  },
+  {
+    "name": "gradual-spacing",
+    "path": "text/gradual-spacing",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\gradual-spacing.tsx",
+    "exports": [
+      "gradual-spacing"
+    ]
+  },
+  {
+    "name": "hyper-text",
+    "path": "text/hyper-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\hyper-text.tsx",
+    "exports": [
+      "hyper-text"
+    ]
+  },
+  {
+    "name": "letter-pullup",
+    "path": "text/letter-pullup",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\letter-pullup.tsx",
+    "exports": [
+      "letter-pullup"
+    ]
+  },
+  {
+    "name": "line-shadow-text",
+    "path": "text/line-shadow-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\line-shadow-text.tsx",
+    "exports": [
+      "line-shadow-text"
+    ]
+  },
+  {
+    "name": "morphing-text",
+    "path": "text/morphing-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\morphing-text.tsx",
+    "exports": [
+      "morphing-text"
+    ]
+  },
+  {
+    "name": "number-ticker",
+    "path": "text/number-ticker",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\number-ticker.tsx",
+    "exports": [
+      "number-ticker"
+    ]
+  },
+  {
+    "name": "rotate-text",
+    "path": "text/rotate-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\rotate-text.tsx",
+    "exports": [
+      "rotate-text"
+    ]
+  },
+  {
+    "name": "scroll-based-velocity",
+    "path": "text/scroll-based-velocity",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\scroll-based-velocity.tsx",
+    "exports": [
+      "scroll-based-velocity"
+    ]
+  },
+  {
+    "name": "separate-away",
+    "path": "text/separate-away",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\separate-away.tsx",
+    "exports": [
+      "separate-away"
+    ]
+  },
+  {
+    "name": "sparkles-text",
+    "path": "text/sparkles-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\sparkles-text.tsx",
+    "exports": [
+      "sparkles-text"
+    ]
+  },
+  {
+    "name": "spinning-text",
+    "path": "text/spinning-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\spinning-text.tsx",
+    "exports": [
+      "spinning-text"
+    ]
+  },
+  {
+    "name": "text-animate",
+    "path": "text/text-animate",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\text-animate.tsx",
+    "exports": [
+      "text-animate"
+    ]
+  },
+  {
+    "name": "text-highlighter",
+    "path": "text/text-highlighter",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\text-highlighter.tsx",
+    "exports": [
+      "text-highlighter"
+    ]
+  },
+  {
+    "name": "text-reveal",
+    "path": "text/text-reveal",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\text-reveal.tsx",
+    "exports": [
+      "text-reveal"
+    ]
+  },
+  {
+    "name": "typing-animation",
+    "path": "text/typing-animation",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\typing-animation.tsx",
+    "exports": [
+      "typing-animation"
+    ]
+  },
+  {
+    "name": "velocity-scroll",
+    "path": "text/velocity-scroll",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\velocity-scroll.tsx",
+    "exports": [
+      "velocity-scroll"
+    ]
+  },
+  {
+    "name": "video-text",
+    "path": "text/video-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\video-text.tsx",
+    "exports": [
+      "video-text"
+    ]
+  },
+  {
+    "name": "wavy-text",
+    "path": "text/wavy-text",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\wavy-text.tsx",
+    "exports": [
+      "wavy-text"
+    ]
+  },
+  {
+    "name": "word-rotate",
+    "path": "text/word-rotate",
+    "category": "text",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\word-rotate.tsx",
+    "exports": [
+      "word-rotate"
+    ]
+  },
+  {
+    "name": "animated-button",
+    "path": "buttons/animated-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\animated-button.tsx",
+    "exports": [
+      "animated-button"
+    ]
+  },
+  {
+    "name": "creepy-button",
+    "path": "buttons/creepy-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\creepy-button.tsx",
+    "exports": [
+      "creepy-button"
+    ]
+  },
+  {
+    "name": "glow-button",
+    "path": "buttons/glow-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\glow-button.tsx",
+    "exports": [
+      "glow-button"
+    ]
+  },
+  {
+    "name": "gooey-button",
+    "path": "buttons/gooey-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\gooey-button.tsx",
+    "exports": [
+      "gooey-button"
+    ]
+  },
+  {
+    "name": "interactive-hover-button",
+    "path": "buttons/interactive-hover-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\interactive-hover-button.tsx",
+    "exports": [
+      "interactive-hover-button"
+    ]
+  },
+  {
+    "name": "magnetic-button",
+    "path": "buttons/magnetic-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\magnetic-button.tsx",
+    "exports": [
+      "magnetic-button"
+    ]
+  },
+  {
+    "name": "pulsating-button",
+    "path": "buttons/pulsating-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\pulsating-button.tsx",
+    "exports": [
+      "pulsating-button"
+    ]
+  },
+  {
+    "name": "rainbow-button",
+    "path": "buttons/rainbow-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\rainbow-button.tsx",
+    "exports": [
+      "rainbow-button"
+    ]
+  },
+  {
+    "name": "ripple-button",
+    "path": "buttons/ripple-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\ripple-button.tsx",
+    "exports": [
+      "ripple-button"
+    ]
+  },
+  {
+    "name": "shimmer-button",
+    "path": "buttons/shimmer-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\shimmer-button.tsx",
+    "exports": [
+      "shimmer-button"
+    ]
+  },
+  {
+    "name": "shiny-button",
+    "path": "buttons/shiny-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\shiny-button.tsx",
+    "exports": [
+      "shiny-button"
+    ]
+  },
+  {
+    "name": "social-flip-button",
+    "path": "buttons/social-flip-button",
+    "category": "buttons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\social-flip-button.tsx",
+    "exports": [
+      "social-flip-button"
+    ]
+  },
+  {
+    "name": "animated-circular-progress-bar",
+    "path": "misc/animated-circular-progress-bar",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\animated-circular-progress-bar.tsx",
+    "exports": [
+      "animated-circular-progress-bar"
+    ]
+  },
+  {
+    "name": "card-stack",
+    "path": "misc/card-stack",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\card-stack.tsx",
+    "exports": [
+      "card-stack"
+    ]
+  },
+  {
+    "name": "code-comparison",
+    "path": "misc/code-comparison",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\code-comparison.tsx",
+    "exports": [
+      "code-comparison"
+    ]
+  },
+  {
+    "name": "confetti-side-cannons",
+    "path": "misc/confetti-side-cannons",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\confetti-side-cannons.tsx",
+    "exports": [
+      "confetti-side-cannons"
+    ]
+  },
+  {
+    "name": "cool-mode",
+    "path": "misc/cool-mode",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\cool-mode.tsx",
+    "exports": [
+      "cool-mode"
+    ]
+  },
+  {
+    "name": "custom-pointer",
+    "path": "misc/custom-pointer",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\custom-pointer.tsx",
+    "exports": [
+      "custom-pointer"
+    ]
+  },
+  {
+    "name": "file-tree",
+    "path": "misc/file-tree",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\file-tree.tsx",
+    "exports": [
+      "file-tree"
+    ]
+  },
+  {
+    "name": "follower-pointer",
+    "path": "misc/follower-pointer",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\follower-pointer.tsx",
+    "exports": [
+      "follower-pointer"
+    ]
+  },
+  {
+    "name": "neon-gradient-card",
+    "path": "misc/neon-gradient-card",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\neon-gradient-card.tsx",
+    "exports": [
+      "neon-gradient-card"
+    ]
+  },
+  {
+    "name": "pixel-trail",
+    "path": "misc/pixel-trail",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\pixel-trail.tsx",
+    "exports": [
+      "pixel-trail"
+    ]
+  },
+  {
+    "name": "scroll-progress",
+    "path": "misc/scroll-progress",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\scroll-progress.tsx",
+    "exports": [
+      "scroll-progress"
+    ]
+  },
+  {
+    "name": "scroll-progressive-blur",
+    "path": "misc/scroll-progressive-blur",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\scroll-progressive-blur.tsx",
+    "exports": [
+      "scroll-progressive-blur"
+    ]
+  },
+  {
+    "name": "smooth-scroll",
+    "path": "misc/smooth-scroll",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\smooth-scroll.tsx",
+    "exports": [
+      "smooth-scroll"
+    ]
+  },
+  {
+    "name": "animated-theme-toggler",
+    "path": "feedback/animated-theme-toggler",
+    "category": "feedback",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\animated-theme-toggler.tsx",
+    "exports": [
+      "animated-theme-toggler"
+    ]
+  },
+  {
+    "name": "command-menu",
+    "path": "feedback/command-menu",
+    "category": "feedback",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\command-menu.tsx",
+    "exports": [
+      "command-menu"
+    ]
+  },
+  {
+    "name": "percent-loader",
+    "path": "feedback/percent-loader",
+    "category": "feedback",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\percent-loader.tsx",
+    "exports": [
+      "percent-loader"
+    ]
+  },
+  {
+    "name": "reveal-loader",
+    "path": "feedback/reveal-loader",
+    "category": "feedback",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\reveal-loader.tsx",
+    "exports": [
+      "reveal-loader"
+    ]
+  },
+  {
+    "name": "skeleton",
+    "path": "feedback/skeleton",
+    "category": "feedback",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\skeleton.tsx",
+    "exports": [
+      "skeleton"
+    ]
+  },
+  {
+    "name": "smart-input",
+    "path": "feedback/smart-input",
+    "category": "feedback",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\smart-input.tsx",
+    "exports": [
+      "smart-input"
+    ]
+  },
+  {
+    "name": "theme-toggle",
+    "path": "feedback/theme-toggle",
+    "category": "feedback",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\theme-toggle.tsx",
+    "exports": [
+      "theme-toggle"
+    ]
+  },
+  {
+    "name": "custom-cursor",
+    "path": "interaction/custom-cursor",
+    "category": "interaction",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\interaction\\custom-cursor.tsx",
+    "exports": [
+      "custom-cursor"
+    ]
+  },
+  {
+    "name": "hover-reveal-card",
+    "path": "interaction/hover-reveal-card",
+    "category": "interaction",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\interaction\\hover-reveal-card.tsx",
+    "exports": [
+      "hover-reveal-card"
+    ]
+  },
+  {
+    "name": "magnetic-wrapper",
+    "path": "interaction/magnetic-wrapper",
+    "category": "interaction",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\interaction\\magnetic-wrapper.tsx",
+    "exports": [
+      "magnetic-wrapper"
+    ]
+  },
+  {
+    "name": "fade-in",
+    "path": "animation/fade-in",
+    "category": "animation",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\animation\\fade-in.tsx",
+    "exports": [
+      "fade-in"
+    ]
+  },
+  {
+    "name": "orbiting-dots",
+    "path": "animation/orbiting-dots",
+    "category": "animation",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\animation\\orbiting-dots.tsx",
+    "exports": [
+      "orbiting-dots"
+    ]
+  },
+  {
+    "name": "snow",
+    "path": "animation/snow",
+    "category": "animation",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\animation\\snow.tsx",
+    "exports": [
+      "snow"
+    ]
+  },
+  {
+    "name": "android",
+    "path": "mocks/android",
+    "category": "mocks",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\mocks\\android.tsx",
+    "exports": [
+      "android"
+    ]
+  },
+  {
+    "name": "iphone",
+    "path": "mocks/iphone",
+    "category": "mocks",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\mocks\\iphone.tsx",
+    "exports": [
+      "iphone"
+    ]
+  },
+  {
+    "name": "safari",
+    "path": "mocks/safari",
+    "category": "mocks",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\mocks\\safari.tsx",
+    "exports": [
+      "safari"
+    ]
+  },
+  {
+    "name": "component-page-skeleton",
+    "path": "skeletons/component-page-skeleton",
+    "category": "skeletons",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\skeletons\\component-page-skeleton.tsx",
+    "exports": [
+      "component-page-skeleton"
+    ]
+  },
+  {
+    "name": "utils",
+    "path": "components/utils/in-view",
+    "category": "components",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\components\\utils\\in-view.tsx",
+    "exports": [
+      "InView"
+    ]
+  },
+  {
+    "name": "alert",
+    "path": "core/alert",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\alert.tsx",
+    "exports": [
+      "AlertTitle",
+      "AlertDescription"
+    ]
+  },
+  {
+    "name": "avatar",
+    "path": "core/avatar",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\avatar.tsx",
+    "exports": [
+      "AvatarImage",
+      "AvatarFallback"
+    ]
+  },
+  {
+    "name": "card",
+    "path": "core/card",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\card.tsx",
+    "exports": [
+      "CardHeader",
+      "CardFooter",
+      "CardTitle",
+      "CardDescription",
+      "CardContent"
+    ]
+  },
+  {
+    "name": "checkbox",
+    "path": "core/checkbox",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\checkbox.tsx",
+    "exports": [
+      "CheckboxIndicator"
+    ]
+  },
+  {
+    "name": "dialog",
+    "path": "core/dialog",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\dialog.tsx",
+    "exports": [
+      "DialogContent",
+      "DialogDescription",
+      "DialogHeader",
+      "DialogFooter",
+      "DialogTitle",
+      "DialogTrigger"
+    ]
+  },
+  {
+    "name": "dropdown-menu",
+    "path": "core/dropdown-menu",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\dropdown-menu.tsx",
+    "exports": [
+      "DropdownMenuTrigger",
+      "DropdownMenuContent",
+      "DropdownMenuItem",
+      "DropdownMenuLabel",
+      "DropdownMenuSeparator"
+    ]
+  },
+  {
+    "name": "radio-group",
+    "path": "core/radio-group",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\radio-group.tsx",
+    "exports": [
+      "RadioGroupItem"
+    ]
+  },
+  {
+    "name": "select",
+    "path": "core/select",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\select.tsx",
+    "exports": [
+      "SelectGroup",
+      "SelectValue",
+      "SelectTrigger",
+      "SelectContent",
+      "SelectLabel",
+      "SelectItem"
+    ]
+  },
+  {
+    "name": "sheet",
+    "path": "core/sheet",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\sheet.tsx",
+    "exports": [
+      "SheetContent",
+      "SheetDescription",
+      "SheetHeader",
+      "SheetTitle",
+      "SheetTrigger"
+    ]
+  },
+  {
+    "name": "table",
+    "path": "core/table",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\table.tsx",
+    "exports": [
+      "TableHeader",
+      "TableBody",
+      "TableFooter",
+      "TableRow",
+      "TableHead",
+      "TableCell",
+      "TableCaption"
+    ]
+  },
+  {
+    "name": "tabs",
+    "path": "core/tabs",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\tabs.tsx",
+    "exports": [
+      "TabsList",
+      "TabsTrigger",
+      "TabsContent"
+    ]
+  },
+  {
+    "name": "toast",
+    "path": "core/toast",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\toast.tsx",
+    "exports": [
+      "ToastProvider",
+      "ToastViewport",
+      "ToastTitle",
+      "ToastDescription",
+      "ToastAction",
+      "ToastClose",
+      "useToast"
+    ]
+  },
+  {
+    "name": "tooltip",
+    "path": "core/tooltip",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\tooltip.tsx",
+    "exports": [
+      "TooltipTrigger",
+      "TooltipContent",
+      "TooltipProvider"
+    ]
+  },
+  {
+    "name": "unicorn-provider",
+    "path": "core/unicorn-provider",
+    "category": "core",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\unicorn-provider.tsx",
+    "exports": [
+      "UnicornThemeProvider"
+    ]
+  },
+  {
+    "name": "bento-grid",
+    "path": "layout/bento-grid",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\bento-grid.tsx",
+    "exports": [
+      "BentoCard"
+    ]
+  },
+  {
+    "name": "dock",
+    "path": "layout/dock",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\dock.tsx",
+    "exports": [
+      "DockIcon"
+    ]
+  },
+  {
+    "name": "resizable-panel",
+    "path": "layout/resizable-panel",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\resizable-panel.tsx",
+    "exports": [
+      "ResizablePanel",
+      "ResizableHandle"
+    ]
+  },
+  {
+    "name": "sidebar",
+    "path": "layout/sidebar",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\sidebar.tsx",
+    "exports": [
+      "SidebarItem"
+    ]
+  },
+  {
+    "name": "collapsible-sidebar-new",
+    "path": "layout/collapsible-sidebar-new",
+    "category": "layout",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\collapsible-sidebar-new.tsx",
+    "exports": [
+      "SidebarHeader",
+      "SidebarSection"
+    ]
+  },
+  {
+    "name": "device-mockups",
+    "path": "misc/device-mockups",
+    "category": "misc",
+    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\device-mockups.tsx",
+    "exports": [
+      "IPhoneMockup",
+      "MacBookMockup"
+    ]
+  }
+]

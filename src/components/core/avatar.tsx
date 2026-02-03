@@ -85,7 +85,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 Avatar.displayName = "Avatar"
 
 export const AvatarImage = ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-  <img src={src} alt={alt || ""} className="h-full w-full object-cover" {...props} />
+  <img src={src} alt={alt} aria-hidden={!alt} className="h-full w-full object-cover" {...props} />
 )
 
 export const AvatarFallback = ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) => (

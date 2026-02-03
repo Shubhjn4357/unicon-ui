@@ -67,7 +67,7 @@ export function InteractiveGridPattern({
           {squares.map(([x, y], index) => (
             <rect
               strokeWidth="0"
-              key={`grid-square-${x}-${y}-${index}`}
+              key={`grid-square-${x}-${y}`}
               width={width - 1}
               height={height - 1}
               x={x * width + 1}

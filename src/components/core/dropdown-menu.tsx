@@ -53,16 +53,13 @@ export function DropdownMenuTrigger({ children, className, asChild }: DropdownTr
   const { isOpen, setIsOpen } = context
 
   if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(children as React.ReactElement<any>, {
-      onClick: (e: any) => {
-        ;(children as React.ReactElement<any>).props.onClick?.(e)
+    const childElement = children as React.ReactElement<React.HTMLAttributes<HTMLElement>>
+    return React.cloneElement(childElement, {
+      onClick: (e: React.MouseEvent<HTMLElement>) => {
+        childElement.props.onClick?.(e)
         setIsOpen(!isOpen)
       },
-      className: cn(
-        (children as React.ReactElement<any>).props.className,
-        className,
-        "cursor-pointer"
-      ),
+      className: cn(childElement.props.className, className, "cursor-pointer"),
     })
   }
 

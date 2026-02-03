@@ -3,16 +3,16 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
 
-export interface ProgressiveBlurProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ScrollProgressiveBlurProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   blurAmount?: number
   fadeDistance?: number
 }
 
 /**
- * Progressive Blur - Scroll-based or distance-based blur effect
+ * Scroll Progressive Blur - Scroll-based or distance-based blur effect
  */
-export const ProgressiveBlur = React.forwardRef<HTMLDivElement, ProgressiveBlurProps>(
+export const ScrollProgressiveBlur = React.forwardRef<HTMLDivElement, ScrollProgressiveBlurProps>(
   ({ children, blurAmount = 10, fadeDistance = 200, className, ...props }, ref) => {
     const [blur, setBlur] = React.useState(0)
     const elementRef = React.useRef<HTMLDivElement>(null)
@@ -57,4 +57,4 @@ export const ProgressiveBlur = React.forwardRef<HTMLDivElement, ProgressiveBlurP
   }
 )
 
-ProgressiveBlur.displayName = "ProgressiveBlur"
+ScrollProgressiveBlur.displayName = "ScrollProgressiveBlur"

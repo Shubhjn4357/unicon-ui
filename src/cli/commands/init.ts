@@ -1,5 +1,5 @@
-import { promises as fs, existsSync } from "fs" // Use native fs instead of fs-extra for now if possible, but we installed fs-extra
-import path from "path"
+import { promises as fs, existsSync } from "node:fs"
+import path from "node:path"
 import chalk from "chalk"
 import { Command } from "commander"
 import ora from "ora"

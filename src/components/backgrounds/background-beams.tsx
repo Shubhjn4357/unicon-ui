@@ -12,7 +12,7 @@ export const BackgroundBeams = React.forwardRef<HTMLDivElement, BackgroundBeamsP
         className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)}
         {...props}
       >
-        {[...Array(5)].map((_, i) => (
+        {Array.from({ length: 5 }).map((_, i) => (
           <motion.div
             key={`beam-${i}`}
             className="absolute left-1/4 top-0 h-[500px] w-px bg-linear-to-b from-transparent via-brand/50 to-transparent"

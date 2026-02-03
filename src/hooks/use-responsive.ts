@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 /**
  * Hook to detect if the current viewport matches a mobile breakpoint
@@ -185,13 +185,13 @@ export function useToggle(initialValue = false) {
  * @returns Previous value
  */
 export function usePrevious<T>(value: T): T | undefined {
-  const ref = useState<T>()
+  const ref = useRef<T>(value)
 
   useEffect(() => {
-    ref[1](value)
-  }, [value])
+    ref.current = value
+  })
 
-  return ref[0]
+  return ref.current
 }
 
 /**
