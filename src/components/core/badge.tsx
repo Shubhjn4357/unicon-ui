@@ -38,6 +38,7 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
           "inline-flex items-center gap-1.5 rounded-full border font-medium transition-all duration-200",
           badgeVariants[variant],
           sizeStyles[size],
+          "unicorn-badge",
           className
         )}
         whileHover={{ scale: 1.05 }}

@@ -60,6 +60,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               config.width,
               config.height,
               isChecked ? "bg-primary" : "bg-muted-foreground/20",
+              "unicorn-switch",
               className
             )}
             onClick={() => document.getElementById(switchId)?.click()}

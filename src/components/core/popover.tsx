@@ -176,6 +176,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
             ref={contentRef}
             className={cn(
               "fixed z-50 rounded-(--radius) border border-border bg-card p-4 shadow-lg outline-none",
+              "unicorn-popover unicorn-card", // Reuses card/popover styles
               className
             )}
             style={{ top: position.top, left: position.left }}

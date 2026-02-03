@@ -3,7 +3,10 @@ import { cn } from "../../lib/utils"
 
 const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
-    <div className="relative w-full overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-800">
+    <div className={cn(
+      "relative w-full overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-800",
+      "unicorn-card" // Table container gets card styling
+    )}>
       <table
         ref={ref}
         className={cn("w-full caption-bottom text-sm text-left", className)}

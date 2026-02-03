@@ -88,6 +88,7 @@ export function SelectTrigger({ children, className }: SelectTriggerProps) {
       onClick={() => setIsOpen(!isOpen)}
       className={cn(
         "flex h-10 w-full items-center justify-between rounded-md border border-border bg-card px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        "unicorn-input", // Behaves like an input visually
         className
       )}
     >
@@ -132,6 +133,7 @@ export function SelectContent({
           transition={{ duration: 0.15 }}
           className={cn(
             "absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border border-border bg-card p-1 text-foreground shadow-md",
+            "unicorn-card unicorn-select-content", // Uses card styling
             className
           )}
         >

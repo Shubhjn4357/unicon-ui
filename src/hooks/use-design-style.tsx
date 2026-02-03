@@ -43,23 +43,31 @@ export function DesignStyleProvider({
 }: DesignStyleProviderProps) {
   const [designStyle, setDesignStyleState] = React.useState<DesignStyle>(defaultStyle)
 
-  // Load style from localStorage on mount
+  // Load style from localStorage on mount and sync with DOM
   React.useEffect(() => {
     try {
       const stored = localStorage.getItem(storageKey) as DesignStyle
-      if (stored && ["clay", "glass", "liquid-glass", "skeu", "minimal", "none"].includes(stored)) {
-        setDesignStyleState(stored)
-      }
-    } catch (error) {
-      // localStorage might not be available
-      console.warn("Failed to load design style from localStorage:", error)
-    }
-  }, [storageKey])
+      const styleToSet = (stored && ["clay", "glass", "liquid-glass", "skeu", "minimal", "none"].includes(stored))
+        ? stored
+        : defaultStyle
 
-  // Save to localStorage when changed
+      setDesignStyleState(styleToSet)
+      // Sync to DOM immediately
+      document.body.dataset.designStyle = styleToSet
+    } catch (error) {
+      console.warn("Failed to load design style from localStorage:", error)
+      // Fallback
+      document.body.dataset.designStyle = defaultStyle
+    }
+  }, [storageKey, defaultStyle])
+
+  // Save to localStorage when changed and update DOM
   const setDesignStyle = React.useCallback(
     (style: DesignStyle) => {
       setDesignStyleState(style)
+      // Update DOM
+      document.body.dataset.designStyle = style
+
       try {
         localStorage.setItem(storageKey, style)
       } catch (error) {

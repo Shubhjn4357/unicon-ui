@@ -54,6 +54,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               errorStyles,
               leftIcon && "pl-10",
               rightIcon && "pr-10",
+              "unicorn-input",
               className
             )}
             whileFocus={{ scale: 1.01 }}

@@ -76,7 +76,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
     const percentage = ((value[0] - min) / (max - min)) * 100
 
     return (
-      <div ref={ref} className={cn("relative w-full", className)} {...props}>
+      <div ref={ref} className={cn("relative w-full", "unicorn-slider", className)} {...props}>
         <div
           ref={sliderRef}
           onPointerDown={handlePointerDown}

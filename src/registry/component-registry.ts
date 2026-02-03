@@ -1,38 +1,7 @@
 import fs from "node:fs"
 import path from "node:path"
 import * as ts from "typescript"
-
-export interface ComponentMetadata {
-  name: string
-  path: string
-  category: string
-  filePath: string
-  description?: string
-  exports: string[]
-  props?: PropDefinition[]
-  examples?: CodeExample[]
-}
-
-export interface PropDefinition {
-  name: string
-  type: string
-  description?: string
-  required?: boolean
-  defaultValue?: any
-  control?: {
-    type: "text" | "number" | "boolean" | "select" | "color" | "range"
-    options?: string[]
-    min?: number
-    max?: number
-    step?: number
-  }
-}
-
-export interface CodeExample {
-  title: string
-  code: string
-  description?: string
-}
+import { ComponentMetadata, ComponentProp, ChangelogEntry } from "./types"
 
 export class ComponentRegistry {
   private program: ts.Program
@@ -57,11 +26,25 @@ export class ComponentRegistry {
   }
 
   /**
+   * Discover and analyze all components
+   */
+  public generate(): void {
+    console.log("Discovering components...")
+    const components = this.discoverAll()
+
+    // Output to the same directory
+    const outputPath = path.join(__dirname, "component-metadata.json")
+    fs.writeFileSync(outputPath, JSON.stringify(components, null, 2))
+    console.log(`Generated metadata for ${components.length} components at ${outputPath}`)
+  }
+
+  /**
    * Discover all components in the source directory
    */
   discoverAll(): ComponentMetadata[] {
     const components: ComponentMetadata[] = []
 
+    // Adjust these based on actual project structure
     const componentDirs = [
       "core",
       "layout",
@@ -85,10 +68,14 @@ export class ComponentRegistry {
 
       for (const file of files) {
         const componentPath = path.join(dir, file)
-        const metadata = this.analyzeComponent(componentPath, dir)
-        if (metadata) {
-          components.push(metadata)
-          this.metadata.set(`${dir}/${file}`, metadata)
+        try {
+          const metadata = this.analyzeComponent(componentPath, dir)
+          if (metadata) {
+            components.push(metadata)
+            this.metadata.set(metadata.name, metadata)
+          }
+        } catch (e) {
+          console.error(`Error analyzing ${componentPath}:`, e)
         }
       }
     }
@@ -108,17 +95,86 @@ export class ComponentRegistry {
 
     const exports = this.extractExports(sourceFile)
     const props = this.extractProps(sourceFile)
-    const examples = this.extractExamples(sourceFile)
+    const dependencies = this.extractDependencies(sourceFile)
+
+    // Extract JSDoc metadata
+    const jsDocTags = this.extractJSDocMetadata(sourceFile)
 
     return {
       name: path.basename(filePath, ".tsx"),
-      path: filePath.replace(/\\/g, "/"),
       category,
-      filePath: fullPath,
+      filePath: filePath.replace(/\\/g, "/"),
       exports,
       props,
-      examples,
+      dependencies,
+      ...jsDocTags,
+      lastModified: fs.statSync(fullPath).mtime.toISOString(),
+      usageExample: this.extractUsageExample(sourceFile)
     }
+  }
+
+  /**
+   * Extract JSDoc metadata (description, tags, status, etc.)
+   */
+  private extractJSDocMetadata(sourceFile: ts.SourceFile): Partial<ComponentMetadata> {
+    const metadata: Partial<ComponentMetadata> = {}
+
+    const fileText = sourceFile.getFullText()
+    const comments = ts.getLeadingCommentRanges(fileText, 0)
+
+    if (comments && comments.length > 0) {
+      const firstComment = comments[0]
+      const commentText = fileText.substring(firstComment.pos, firstComment.end)
+
+      metadata.description = this.parseJSDocDescription(commentText)
+      // Cast to expected type
+      metadata.status = (this.parseJSDocTag(commentText, "status") as any) || "stable"
+      metadata.author = this.parseJSDocTag(commentText, "author")
+      metadata.version = this.parseJSDocTag(commentText, "version")
+
+      const tagsMatch = commentText.match(/@tags\s+(.*)/)
+      if (tagsMatch) {
+        metadata.tags = tagsMatch[1].split(",").map(t => t.trim())
+      }
+    }
+
+    return metadata
+  }
+
+  private parseJSDocDescription(comment: string): string {
+    return comment
+      .replace(/\/\*\*|\*\/|\*/g, "")
+      .split("\n")
+      .filter(line => !line.trim().startsWith("@"))
+      .map(line => line.trim())
+      .join(" ")
+      .trim()
+  }
+
+  private parseJSDocTag(comment: string, tagName: string): string | undefined {
+    const regex = new RegExp(`@${tagName}\\s+(.*)`)
+    const match = comment.match(regex)
+    return match ? match[1].trim() : undefined
+  }
+
+  /**
+   * Extract dependencies (imports)
+   */
+  private extractDependencies(sourceFile: ts.SourceFile): string[] {
+    const dependencies: Set<string> = new Set()
+
+    ts.forEachChild(sourceFile, (node) => {
+      if (ts.isImportDeclaration(node)) {
+        if (node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier)) {
+          const moduleSpecifier = node.moduleSpecifier.text
+          if (moduleSpecifier.startsWith("@components/") || moduleSpecifier.startsWith("./")) {
+            dependencies.add(moduleSpecifier)
+          }
+        }
+      }
+    })
+
+    return Array.from(dependencies)
   }
 
   /**
@@ -129,23 +185,26 @@ export class ComponentRegistry {
 
     ts.forEachChild(sourceFile, (node) => {
       if (ts.isExportDeclaration(node)) {
-        if (ts.isVariableStatement(node)) {
-          // @ts-ignore - TS compiler API usage
-          const declList = node.declarationList;
-          if (declList) {
-            declList.declarations.forEach((decl: ts.VariableDeclaration) => {
-              if (decl.name && ts.isIdentifier(decl.name)) {
+        if (node.exportClause && ts.isNamedExports(node.exportClause)) {
+          node.exportClause.elements.forEach(element => {
+            exports.push(element.name.text)
+          })
+        }
+      } else if (ts.isClassDeclaration(node) || ts.isFunctionDeclaration(node) || ts.isVariableStatement(node)) {
+        const modifiers = ts.canHaveModifiers(node) ? ts.getModifiers(node) : undefined
+        if (modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword)) {
+          if (ts.isClassDeclaration(node) && node.name) {
+            exports.push(node.name.text)
+          } else if (ts.isFunctionDeclaration(node) && node.name) {
+            exports.push(node.name.text)
+          } else if (ts.isVariableStatement(node)) {
+            node.declarationList.declarations.forEach(decl => {
+              if (ts.isIdentifier(decl.name)) {
                 exports.push(decl.name.text)
               }
             })
           }
-        } else if (ts.isFunctionDeclaration(node)) {
-          // @ts-ignore
-          const name = node.name;
-          if (name && ts.isIdentifier(name)) {
-            exports.push(name.text)
-          }
-        }
+         }
       }
     })
 
@@ -153,26 +212,19 @@ export class ComponentRegistry {
   }
 
   /**
-   * Extract component props from TypeScript interfaces
+   * Extract component props
    */
-  private extractProps(sourceFile: ts.SourceFile): PropDefinition[] {
-    const props: PropDefinition[] = []
+  private extractProps(sourceFile: ts.SourceFile): ComponentProp[] {
+    const props: ComponentProp[] = []
 
-    // Look for interface definitions
     ts.forEachChild(sourceFile, (node) => {
       if (ts.isInterfaceDeclaration(node) && node.name) {
         const interfaceName = node.name.text
-
-        // Check if this looks like a props interface
-        if (
-          interfaceName.includes("Props") ||
-          interfaceName.toLowerCase() === path.basename(this.getFileName(sourceFile)).toLowerCase()
-        ) {
+        if (interfaceName.endsWith("Props")) {
           node.members.forEach((member) => {
             if (ts.isPropertySignature(member)) {
-              const prop = this.extractPropertyFromSignature(member)
-              if (prop) {
-                props.push(prop)
+              if (ts.isIdentifier(member.name)) {
+                props.push(this.mapPropDefinition(member))
               }
             }
           })
@@ -183,64 +235,38 @@ export class ComponentRegistry {
     return props
   }
 
-  /**
-   * Extract examples from JSDoc or demo functions
-   */
-  private extractExamples(sourceFile: ts.SourceFile): CodeExample[] {
-    const examples: CodeExample[] = []
-
-    // Look for JSDoc examples
-    const jsDoc = ts.getJSDocTags(sourceFile)
-    // @ts-ignore - name exists on JSDocTag in this version match
-    const exampleTags = jsDoc.filter((tag) => tag.name?.text === "example")
-
-    exampleTags.forEach((tag) => {
-      if (tag.comment) {
-        examples.push({
-          title: "Example",
-          code: typeof tag.comment === "string" ? tag.comment : Array.isArray(tag.comment) ? (tag.comment as any).map((c: any) => c.text).join("") : "",
-          description: "Usage example",
-        })
-      }
-    })
-
-    return examples
-  }
-
-  /**
-   * Extract property information from TypeScript property signature
-   */
-  private extractPropertyFromSignature(signature: ts.PropertySignature): PropDefinition | null {
-    if (!signature.name || !signature.type) return null
-
-    // @ts-ignore
-    const name = signature.name?.text
-    const typeNode = signature.type
-    const typeString = typeNode ? this.typeNodeToString(typeNode) : "any"
-
-    const isRequired = !signature.questionToken
-
-    // defaultValue is not available on property signatures (interfaces)
-    const defaultValue = undefined
-    const description = this.extractDescription(signature)
-    const control = this.inferControlType(typeNode, defaultValue)
+  private mapPropDefinition(member: ts.PropertySignature): ComponentProp {
+    const name = (member.name as ts.Identifier).text
+    const type = member.type ? this.typeNodeToString(member.type) : "any"
 
     return {
       name,
-      type: typeString,
-      required: isRequired,
-      defaultValue,
-      description,
-      control,
+      type,
+      required: !member.questionToken,
+      description: this.extractDescription(member),
+      control: this.inferControlType(type)
     }
   }
 
-  /**
-   * Convert TypeScript type node to string representation
-   */
+  private extractDescription(node: ts.Node): string | undefined {
+    // Basic JSDoc extraction - would need more robust parsing for production
+    const anyNode = node as any;
+    if (anyNode.jsDoc && anyNode.jsDoc.length > 0) {
+      return anyNode.jsDoc[0].comment
+    }
+    return undefined
+  }
+
+  private inferControlType(type: string): any {
+    if (type === "boolean") return "boolean"
+    if (type === "number") return "number"
+    if (type.includes("|")) return "select"
+    if (type.includes("Color")) return "color"
+    return "text"
+  }
+
   private typeNodeToString(node: ts.TypeNode): string {
     if (ts.isTypeReferenceNode(node) && node.typeName) {
-      // @ts-ignore - TS compiler API usage
       const typeName = node.typeName
       if (ts.isIdentifier(typeName)) {
         return typeName.text
@@ -257,145 +283,29 @@ export class ComponentRegistry {
       return node.literal?.text || "any"
     }
 
-    return this.checker.typeToString(this.checker.getTypeFromTypeNode(node))
+    if (node.kind === ts.SyntaxKind.StringKeyword) return "string"
+    if (node.kind === ts.SyntaxKind.NumberKeyword) return "number"
+    if (node.kind === ts.SyntaxKind.BooleanKeyword) return "boolean"
+
+    return "any"
   }
 
-  /**
-   * Extract default value from property
-   */
-  private extractDefaultValue(initializer?: ts.Expression): any {
-    if (!initializer) return undefined
-
-    if (ts.isStringLiteral(initializer)) {
-      return initializer.text
+  private extractUsageExample(sourceFile: ts.SourceFile): string | undefined {
+    const fullText = sourceFile.getFullText();
+    const exampleMatch = fullText.match(/@example\s+([\s\S]*?)(?=\*\/)/);
+    if (exampleMatch) {
+      return exampleMatch[1].trim();
     }
-
-    if (ts.isNumericLiteral(initializer)) {
-      return Number(initializer.text)
-    }
-
-    if (initializer.kind === ts.SyntaxKind.TrueKeyword) {
-      return true
-    }
-
-    if (initializer.kind === ts.SyntaxKind.FalseKeyword) {
-      return false
-    }
-
-    return undefined
+    return undefined;
   }
+}
 
-  /**
-   * Extract description from JSDoc
-   */
-  private extractDescription(node: ts.Node): string | undefined {
-    // @ts-ignore - name exists
-    const descTag = jsDoc.find((tag) => tag.name?.text === "description")
-    return typeof descTag?.comment === "string" ? descTag.comment : undefined
-  }
-
-  /**
-   * Infer control type for property based on its type
-   */
-  private inferControlType(typeNode: ts.TypeNode, defaultValue?: any): PropDefinition["control"] {
-    const typeString = this.typeNodeToString(typeNode)
-
-    // Boolean controls
-    if (typeString === "boolean") {
-      return { type: "boolean" }
-    }
-
-    // Number controls
-    if (typeString === "number") {
-      return {
-        type: "number",
-        min: defaultValue || 0,
-      }
-    }
-
-    // String controls
-    if (typeString === "string") {
-      return { type: "text" }
-    }
-
-    // Select controls for union types
-    if (typeString.includes(" | ") && typeString.includes('"')) {
-      const options = this.extractUnionOptions(typeNode)
-      return {
-        type: "select",
-        options,
-      }
-    }
-
-    return { type: "text" }
-  }
-
-  /**
-   * Extract options from union type string
-   */
-  private extractUnionOptions(typeNode: ts.TypeNode): string[] {
-    const options: string[] = []
-
-    if (ts.isUnionTypeNode(typeNode)) {
-      typeNode.types.forEach((type) => {
-        if (ts.isLiteralTypeNode(type)) {
-          // @ts-ignore - TS doesn't narrow this correctly for all literal types, but text exists on string/numeric literals
-          const literal = type.literal
-          if (literal && "text" in literal) {
-            options.push((literal as any).text)
-          }
-        }
-      })
-    }
-
-    return options
-  }
-
-  /**
-   * Get file name from source file
-   */
-  private getFileName(sourceFile: ts.SourceFile): string {
-    const filePath = sourceFile.fileName
-    return path.basename(filePath, ".tsx")
-  }
-
-  /**
-   * Get component metadata by slug
-   */
-  getComponentBySlug(slug: string): ComponentMetadata | undefined {
-    return this.metadata.get(slug)
-  }
-
-  /**
-   * Get all components by category
-   */
-  getComponentsByCategory(category: string): ComponentMetadata[] {
-    return Array.from(this.metadata.values())
-      .filter((comp) => comp.category === category)
-      .sort((a, b) => a.name.localeCompare(b.name))
-  }
-
-  /**
-   * Get sidebar navigation data
-   */
-  getSidebarNavigation() {
-    const categories = new Map<string, ComponentMetadata[]>()
-
-    // Group by category
-    Array.from(this.metadata.values()).forEach((comp) => {
-      if (!categories.has(comp.category)) {
-        categories.set(comp.category, [])
-      }
-      categories.get(comp.category)!.push(comp)
-    })
-
-    return Array.from(categories.entries()).map(([category, components]) => ({
-      name: category,
-      items: components.map((comp) => ({
-        title: comp.name,
-        slug: comp.path,
-        description: comp.description,
-      })),
-    }))
+if (require.main === module) {
+  try {
+    const registry = new ComponentRegistry()
+    registry.generate()
+  } catch (error) {
+    console.error("Registry generation failed:", error)
+    process.exit(1)
   }
 }

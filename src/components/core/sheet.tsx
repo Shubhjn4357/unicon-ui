@@ -119,6 +119,7 @@ export function SheetContent({
             className={cn(
               "fixed z-50 bg-background shadow-2xl p-6 transition-all duration-300 ease-in-out",
               positionStyles[side],
+              "unicorn-card", // Semantic class for panel styling
               className
             )}
           >

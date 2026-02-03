@@ -49,6 +49,7 @@ export const TabsList = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
       ref={ref}
       className={cn(
         "inline-flex items-center justify-center rounded-(--radius) bg-muted p-1",
+        "unicorn-tabs-list",
         className
       )}
       {...props}
@@ -82,6 +83,7 @@ export const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>
           "relative inline-flex items-center justify-center whitespace-nowrap rounded-[calc(var(--radius)*0.75)] px-3 py-1.5 text-sm font-medium transition-all",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2",
           "disabled:pointer-events-none disabled:opacity-50",
+          "unicorn-tabs-trigger",
           isActive
             ? "text-[hsl(var(--foreground))] shadow-sm"
             : "text-[hsl(var(--foreground))]-secondary hover:text-[hsl(var(--foreground))]",

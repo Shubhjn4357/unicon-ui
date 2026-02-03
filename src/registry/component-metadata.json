@@ -1,1530 +1,5827 @@
 [
   {
-    "name": "accordion",
-    "path": "core/accordion",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\accordion.tsx",
-    "exports": [
-      "accordion"
-    ]
-  },
-  {
-    "name": "badge",
-    "path": "core/badge",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\badge.tsx",
-    "exports": [
-      "badge"
-    ]
-  },
-  {
-    "name": "button",
-    "path": "core/button",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\button.tsx",
-    "exports": [
-      "button"
-    ]
-  },
-  {
-    "name": "input",
-    "path": "core/input",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\input.tsx",
-    "exports": [
-      "input"
-    ]
-  },
-  {
-    "name": "label",
-    "path": "core/label",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\label.tsx",
-    "exports": [
-      "label"
-    ]
-  },
-  {
-    "name": "modal",
-    "path": "core/modal",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\modal.tsx",
-    "exports": [
-      "modal"
-    ]
-  },
-  {
-    "name": "popover",
-    "path": "core/popover",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\popover.tsx",
-    "exports": [
-      "popover"
-    ]
-  },
-  {
-    "name": "progress",
-    "path": "core/progress",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\progress.tsx",
-    "exports": [
-      "progress"
-    ]
-  },
-  {
-    "name": "slider",
-    "path": "core/slider",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\slider.tsx",
-    "exports": [
-      "slider"
-    ]
-  },
-  {
-    "name": "status-icon",
-    "path": "core/status-icon",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\status-icon.tsx",
-    "exports": [
-      "status-icon"
-    ]
-  },
-  {
-    "name": "switch",
-    "path": "core/switch",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\switch.tsx",
-    "exports": [
-      "switch"
-    ]
-  },
-  {
-    "name": "textarea",
-    "path": "core/textarea",
-    "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\textarea.tsx",
-    "exports": [
-      "textarea"
-    ]
-  },
-  {
-    "name": "animated-list",
-    "path": "layout/animated-list",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\animated-list.tsx",
-    "exports": [
-      "animated-list"
-    ]
-  },
-  {
-    "name": "avatar-circles",
-    "path": "layout/avatar-circles",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\avatar-circles.tsx",
-    "exports": [
-      "avatar-circles"
-    ]
-  },
-  {
-    "name": "collapsible-sidebar",
-    "path": "layout/collapsible-sidebar",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\collapsible-sidebar.tsx",
-    "exports": [
-      "collapsible-sidebar"
-    ]
-  },
-  {
-    "name": "docs-layout",
-    "path": "layout/docs-layout",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\docs-layout.tsx",
-    "exports": [
-      "docs-layout"
-    ]
-  },
-  {
-    "name": "dotted-map",
-    "path": "layout/dotted-map",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\dotted-map.tsx",
-    "exports": [
-      "dotted-map"
-    ]
-  },
-  {
-    "name": "expandable-bento-card",
-    "path": "layout/expandable-bento-card",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\expandable-bento-card.tsx",
-    "exports": [
-      "expandable-bento-card"
-    ]
-  },
-  {
-    "name": "glass-dock",
-    "path": "layout/glass-dock",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\glass-dock.tsx",
-    "exports": [
-      "glass-dock"
-    ]
-  },
-  {
-    "name": "globe",
-    "path": "layout/globe",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\globe.tsx",
-    "exports": [
-      "globe"
-    ]
-  },
-  {
-    "name": "glow-border-card",
-    "path": "layout/glow-border-card",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\glow-border-card.tsx",
-    "exports": [
-      "glow-border-card"
-    ]
-  },
-  {
-    "name": "hero-video-dialog",
-    "path": "layout/hero-video-dialog",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\hero-video-dialog.tsx",
-    "exports": [
-      "hero-video-dialog"
-    ]
-  },
-  {
-    "name": "horizontal-scroll",
-    "path": "layout/horizontal-scroll",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\horizontal-scroll.tsx",
-    "exports": [
-      "horizontal-scroll"
-    ]
-  },
-  {
-    "name": "icon-cloud",
-    "path": "layout/icon-cloud",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\icon-cloud.tsx",
-    "exports": [
-      "icon-cloud"
-    ]
-  },
-  {
-    "name": "ion-cloud",
-    "path": "layout/ion-cloud",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\ion-cloud.tsx",
-    "exports": [
-      "ion-cloud"
-    ]
-  },
-  {
-    "name": "lens",
-    "path": "layout/lens",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\lens.tsx",
-    "exports": [
-      "lens"
-    ]
-  },
-  {
-    "name": "marquee",
-    "path": "layout/marquee",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\marquee.tsx",
-    "exports": [
-      "marquee"
-    ]
-  },
-  {
-    "name": "orbiting-circles",
-    "path": "layout/orbiting-circles",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\orbiting-circles.tsx",
-    "exports": [
-      "orbiting-circles"
-    ]
-  },
-  {
-    "name": "perspective-menu",
-    "path": "layout/perspective-menu",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\perspective-menu.tsx",
-    "exports": [
-      "perspective-menu"
-    ]
-  },
-  {
-    "name": "pixel-image",
-    "path": "layout/pixel-image",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\pixel-image.tsx",
-    "exports": [
-      "pixel-image"
-    ]
-  },
-  {
-    "name": "pointer",
-    "path": "layout/pointer",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\pointer.tsx",
-    "exports": [
-      "pointer"
-    ]
-  },
-  {
-    "name": "progressive-blur",
-    "path": "layout/progressive-blur",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\progressive-blur.tsx",
-    "exports": [
-      "progressive-blur"
-    ]
-  },
-  {
-    "name": "reorderable-list",
-    "path": "layout/reorderable-list",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\reorderable-list.tsx",
-    "exports": [
-      "reorderable-list"
-    ]
-  },
-  {
-    "name": "smooth-cursor",
-    "path": "layout/smooth-cursor",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\smooth-cursor.tsx",
-    "exports": [
-      "smooth-cursor"
-    ]
-  },
-  {
-    "name": "spotlight-card",
-    "path": "layout/spotlight-card",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\spotlight-card.tsx",
-    "exports": [
-      "spotlight-card"
-    ]
-  },
-  {
-    "name": "staggered-grid",
-    "path": "layout/staggered-grid",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\staggered-grid.tsx",
-    "exports": [
-      "staggered-grid"
-    ]
-  },
-  {
-    "name": "terminal",
-    "path": "layout/terminal",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\terminal.tsx",
-    "exports": [
-      "terminal"
-    ]
-  },
-  {
-    "name": "timeline",
-    "path": "layout/timeline",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\timeline.tsx",
-    "exports": [
-      "timeline"
-    ]
-  },
-  {
-    "name": "top-nav",
-    "path": "layout/top-nav",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\top-nav.tsx",
-    "exports": [
-      "top-nav"
-    ]
-  },
-  {
-    "name": "tracing-beam",
-    "path": "layout/tracing-beam",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\tracing-beam.tsx",
-    "exports": [
-      "tracing-beam"
-    ]
-  },
-  {
-    "name": "tweet-card",
-    "path": "layout/tweet-card",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\tweet-card.tsx",
-    "exports": [
-      "tweet-card"
-    ]
-  },
-  {
-    "name": "3d-card",
-    "path": "special/3d-card",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\3d-card.tsx",
-    "exports": [
-      "3d-card"
-    ]
-  },
-  {
-    "name": "animated-beam",
-    "path": "special/animated-beam",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\animated-beam.tsx",
-    "exports": [
-      "animated-beam"
-    ]
-  },
-  {
-    "name": "border-beam",
-    "path": "special/border-beam",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\border-beam.tsx",
-    "exports": [
-      "border-beam"
-    ]
-  },
-  {
-    "name": "canvas-smudge",
-    "path": "special/canvas-smudge",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\canvas-smudge.tsx",
-    "exports": [
-      "canvas-smudge"
-    ]
-  },
-  {
-    "name": "confetti",
-    "path": "special/confetti",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\confetti.tsx",
-    "exports": [
-      "confetti"
-    ]
-  },
-  {
-    "name": "glitch-effect",
-    "path": "special/glitch-effect",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\glitch-effect.tsx",
-    "exports": [
-      "glitch-effect"
-    ]
-  },
-  {
-    "name": "gravity",
-    "path": "special/gravity",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\gravity.tsx",
-    "exports": [
-      "gravity"
-    ]
-  },
-  {
-    "name": "magic-card",
-    "path": "special/magic-card",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\magic-card.tsx",
-    "exports": [
-      "magic-card"
-    ]
-  },
-  {
-    "name": "magnifier",
-    "path": "special/magnifier",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\magnifier.tsx",
-    "exports": [
-      "magnifier"
-    ]
-  },
-  {
-    "name": "meteors",
-    "path": "special/meteors",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\meteors.tsx",
-    "exports": [
-      "meteors"
-    ]
-  },
-  {
-    "name": "noise-overlay",
-    "path": "special/noise-overlay",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\noise-overlay.tsx",
-    "exports": [
-      "noise-overlay"
-    ]
-  },
-  {
-    "name": "parallax-image",
-    "path": "special/parallax-image",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\parallax-image.tsx",
-    "exports": [
-      "parallax-image"
-    ]
-  },
-  {
-    "name": "particle-image",
-    "path": "special/particle-image",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\particle-image.tsx",
-    "exports": [
-      "particle-image"
-    ]
-  },
-  {
-    "name": "particles",
-    "path": "special/particles",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\particles.tsx",
-    "exports": [
-      "particles"
-    ]
-  },
-  {
-    "name": "ripple-effect",
-    "path": "special/ripple-effect",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\ripple-effect.tsx",
-    "exports": [
-      "ripple-effect"
-    ]
-  },
-  {
-    "name": "scene-3d",
-    "path": "special/scene-3d",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\scene-3d.tsx",
-    "exports": [
-      "scene-3d"
-    ]
-  },
-  {
-    "name": "shine-border",
-    "path": "special/shine-border",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\shine-border.tsx",
-    "exports": [
-      "shine-border"
-    ]
-  },
-  {
-    "name": "spotlight-new",
-    "path": "special/spotlight-new",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\spotlight-new.tsx",
-    "exports": [
-      "spotlight-new"
-    ]
-  },
-  {
-    "name": "spotlight",
-    "path": "special/spotlight",
-    "category": "special",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\special\\spotlight.tsx",
-    "exports": [
-      "spotlight"
-    ]
-  },
-  {
-    "name": "animated-grid-pattern",
-    "path": "backgrounds/animated-grid-pattern",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\animated-grid-pattern.tsx",
-    "exports": [
-      "animated-grid-pattern"
-    ]
-  },
-  {
-    "name": "aurora-background",
-    "path": "backgrounds/aurora-background",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\aurora-background.tsx",
-    "exports": [
-      "aurora-background"
-    ]
-  },
-  {
-    "name": "background-beams",
-    "path": "backgrounds/background-beams",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\background-beams.tsx",
-    "exports": [
-      "background-beams"
-    ]
-  },
-  {
-    "name": "dot-pattern",
-    "path": "backgrounds/dot-pattern",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\dot-pattern.tsx",
-    "exports": [
-      "dot-pattern"
-    ]
-  },
-  {
-    "name": "flickering-grid",
-    "path": "backgrounds/flickering-grid",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\flickering-grid.tsx",
-    "exports": [
-      "flickering-grid"
-    ]
-  },
-  {
-    "name": "grid-pattern",
-    "path": "backgrounds/grid-pattern",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\grid-pattern.tsx",
-    "exports": [
-      "grid-pattern"
-    ]
-  },
-  {
-    "name": "interactive-grid-pattern",
-    "path": "backgrounds/interactive-grid-pattern",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\interactive-grid-pattern.tsx",
-    "exports": [
-      "interactive-grid-pattern"
-    ]
-  },
-  {
-    "name": "retro-grid",
-    "path": "backgrounds/retro-grid",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\retro-grid.tsx",
-    "exports": [
-      "retro-grid"
-    ]
-  },
-  {
-    "name": "ripple",
-    "path": "backgrounds/ripple",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\ripple.tsx",
-    "exports": [
-      "ripple"
-    ]
-  },
-  {
-    "name": "shooting-stars",
-    "path": "backgrounds/shooting-stars",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\shooting-stars.tsx",
-    "exports": [
-      "shooting-stars"
-    ]
-  },
-  {
-    "name": "stars",
-    "path": "backgrounds/stars",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\stars.tsx",
-    "exports": [
-      "stars"
-    ]
-  },
-  {
-    "name": "striped-pattern",
-    "path": "backgrounds/striped-pattern",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\striped-pattern.tsx",
-    "exports": [
-      "striped-pattern"
-    ]
-  },
-  {
-    "name": "warp-background",
-    "path": "backgrounds/warp-background",
-    "category": "backgrounds",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\backgrounds\\warp-background.tsx",
-    "exports": [
-      "warp-background"
-    ]
-  },
-  {
-    "name": "animated-gradient-text",
-    "path": "text/animated-gradient-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\animated-gradient-text.tsx",
-    "exports": [
-      "animated-gradient-text"
-    ]
-  },
-  {
-    "name": "animated-number",
-    "path": "text/animated-number",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\animated-number.tsx",
-    "exports": [
-      "animated-number"
-    ]
-  },
-  {
-    "name": "animated-shiny-text",
-    "path": "text/animated-shiny-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\animated-shiny-text.tsx",
-    "exports": [
-      "animated-shiny-text"
-    ]
-  },
-  {
-    "name": "aurora-text",
-    "path": "text/aurora-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\aurora-text.tsx",
-    "exports": [
-      "aurora-text"
-    ]
-  },
-  {
-    "name": "blur-fade",
-    "path": "text/blur-fade",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\blur-fade.tsx",
-    "exports": [
-      "blur-fade"
-    ]
-  },
-  {
-    "name": "box-reveal",
-    "path": "text/box-reveal",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\box-reveal.tsx",
-    "exports": [
-      "box-reveal"
-    ]
-  },
-  {
-    "name": "comic-text",
-    "path": "text/comic-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\comic-text.tsx",
-    "exports": [
-      "comic-text"
-    ]
-  },
-  {
-    "name": "fade-text",
-    "path": "text/fade-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\fade-text.tsx",
-    "exports": [
-      "fade-text"
-    ]
-  },
-  {
-    "name": "flip-text-3d",
-    "path": "text/flip-text-3d",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\flip-text-3d.tsx",
-    "exports": [
-      "flip-text-3d"
-    ]
-  },
-  {
-    "name": "flip-text",
-    "path": "text/flip-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\flip-text.tsx",
-    "exports": [
-      "flip-text"
-    ]
-  },
-  {
-    "name": "gradual-spacing",
-    "path": "text/gradual-spacing",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\gradual-spacing.tsx",
-    "exports": [
-      "gradual-spacing"
-    ]
-  },
-  {
-    "name": "hyper-text",
-    "path": "text/hyper-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\hyper-text.tsx",
-    "exports": [
-      "hyper-text"
-    ]
-  },
-  {
-    "name": "letter-pullup",
-    "path": "text/letter-pullup",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\letter-pullup.tsx",
-    "exports": [
-      "letter-pullup"
-    ]
-  },
-  {
-    "name": "line-shadow-text",
-    "path": "text/line-shadow-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\line-shadow-text.tsx",
-    "exports": [
-      "line-shadow-text"
-    ]
-  },
-  {
-    "name": "morphing-text",
-    "path": "text/morphing-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\morphing-text.tsx",
-    "exports": [
-      "morphing-text"
-    ]
-  },
-  {
-    "name": "number-ticker",
-    "path": "text/number-ticker",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\number-ticker.tsx",
-    "exports": [
-      "number-ticker"
-    ]
-  },
-  {
-    "name": "rotate-text",
-    "path": "text/rotate-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\rotate-text.tsx",
-    "exports": [
-      "rotate-text"
-    ]
-  },
-  {
-    "name": "scroll-based-velocity",
-    "path": "text/scroll-based-velocity",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\scroll-based-velocity.tsx",
-    "exports": [
-      "scroll-based-velocity"
-    ]
-  },
-  {
-    "name": "separate-away",
-    "path": "text/separate-away",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\separate-away.tsx",
-    "exports": [
-      "separate-away"
-    ]
-  },
-  {
-    "name": "sparkles-text",
-    "path": "text/sparkles-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\sparkles-text.tsx",
-    "exports": [
-      "sparkles-text"
-    ]
-  },
-  {
-    "name": "spinning-text",
-    "path": "text/spinning-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\spinning-text.tsx",
-    "exports": [
-      "spinning-text"
-    ]
-  },
-  {
-    "name": "text-animate",
-    "path": "text/text-animate",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\text-animate.tsx",
-    "exports": [
-      "text-animate"
-    ]
-  },
-  {
-    "name": "text-highlighter",
-    "path": "text/text-highlighter",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\text-highlighter.tsx",
-    "exports": [
-      "text-highlighter"
-    ]
-  },
-  {
-    "name": "text-reveal",
-    "path": "text/text-reveal",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\text-reveal.tsx",
-    "exports": [
-      "text-reveal"
-    ]
-  },
-  {
-    "name": "typing-animation",
-    "path": "text/typing-animation",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\typing-animation.tsx",
-    "exports": [
-      "typing-animation"
-    ]
-  },
-  {
-    "name": "velocity-scroll",
-    "path": "text/velocity-scroll",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\velocity-scroll.tsx",
-    "exports": [
-      "velocity-scroll"
-    ]
-  },
-  {
-    "name": "video-text",
-    "path": "text/video-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\video-text.tsx",
-    "exports": [
-      "video-text"
-    ]
-  },
-  {
-    "name": "wavy-text",
-    "path": "text/wavy-text",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\wavy-text.tsx",
-    "exports": [
-      "wavy-text"
-    ]
-  },
-  {
-    "name": "word-rotate",
-    "path": "text/word-rotate",
-    "category": "text",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\text\\word-rotate.tsx",
-    "exports": [
-      "word-rotate"
-    ]
-  },
-  {
-    "name": "animated-button",
-    "path": "buttons/animated-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\animated-button.tsx",
-    "exports": [
-      "animated-button"
-    ]
-  },
-  {
-    "name": "creepy-button",
-    "path": "buttons/creepy-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\creepy-button.tsx",
-    "exports": [
-      "creepy-button"
-    ]
-  },
-  {
-    "name": "glow-button",
-    "path": "buttons/glow-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\glow-button.tsx",
-    "exports": [
-      "glow-button"
-    ]
-  },
-  {
-    "name": "gooey-button",
-    "path": "buttons/gooey-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\gooey-button.tsx",
-    "exports": [
-      "gooey-button"
-    ]
-  },
-  {
-    "name": "interactive-hover-button",
-    "path": "buttons/interactive-hover-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\interactive-hover-button.tsx",
-    "exports": [
-      "interactive-hover-button"
-    ]
-  },
-  {
-    "name": "magnetic-button",
-    "path": "buttons/magnetic-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\magnetic-button.tsx",
-    "exports": [
-      "magnetic-button"
-    ]
-  },
-  {
-    "name": "pulsating-button",
-    "path": "buttons/pulsating-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\pulsating-button.tsx",
-    "exports": [
-      "pulsating-button"
-    ]
-  },
-  {
-    "name": "rainbow-button",
-    "path": "buttons/rainbow-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\rainbow-button.tsx",
-    "exports": [
-      "rainbow-button"
-    ]
-  },
-  {
-    "name": "ripple-button",
-    "path": "buttons/ripple-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\ripple-button.tsx",
-    "exports": [
-      "ripple-button"
-    ]
-  },
-  {
-    "name": "shimmer-button",
-    "path": "buttons/shimmer-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\shimmer-button.tsx",
-    "exports": [
-      "shimmer-button"
-    ]
-  },
-  {
-    "name": "shiny-button",
-    "path": "buttons/shiny-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\shiny-button.tsx",
-    "exports": [
-      "shiny-button"
-    ]
-  },
-  {
-    "name": "social-flip-button",
-    "path": "buttons/social-flip-button",
-    "category": "buttons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\buttons\\social-flip-button.tsx",
-    "exports": [
-      "social-flip-button"
-    ]
-  },
-  {
-    "name": "animated-circular-progress-bar",
-    "path": "misc/animated-circular-progress-bar",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\animated-circular-progress-bar.tsx",
-    "exports": [
-      "animated-circular-progress-bar"
-    ]
-  },
-  {
-    "name": "card-stack",
-    "path": "misc/card-stack",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\card-stack.tsx",
-    "exports": [
-      "card-stack"
-    ]
-  },
-  {
-    "name": "code-comparison",
-    "path": "misc/code-comparison",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\code-comparison.tsx",
-    "exports": [
-      "code-comparison"
-    ]
-  },
-  {
-    "name": "confetti-side-cannons",
-    "path": "misc/confetti-side-cannons",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\confetti-side-cannons.tsx",
-    "exports": [
-      "confetti-side-cannons"
-    ]
-  },
-  {
-    "name": "cool-mode",
-    "path": "misc/cool-mode",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\cool-mode.tsx",
-    "exports": [
-      "cool-mode"
-    ]
-  },
-  {
-    "name": "custom-pointer",
-    "path": "misc/custom-pointer",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\custom-pointer.tsx",
-    "exports": [
-      "custom-pointer"
-    ]
-  },
-  {
-    "name": "file-tree",
-    "path": "misc/file-tree",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\file-tree.tsx",
-    "exports": [
-      "file-tree"
-    ]
-  },
-  {
-    "name": "follower-pointer",
-    "path": "misc/follower-pointer",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\follower-pointer.tsx",
-    "exports": [
-      "follower-pointer"
-    ]
-  },
-  {
-    "name": "neon-gradient-card",
-    "path": "misc/neon-gradient-card",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\neon-gradient-card.tsx",
-    "exports": [
-      "neon-gradient-card"
-    ]
-  },
-  {
-    "name": "pixel-trail",
-    "path": "misc/pixel-trail",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\pixel-trail.tsx",
-    "exports": [
-      "pixel-trail"
-    ]
-  },
-  {
-    "name": "scroll-progress",
-    "path": "misc/scroll-progress",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\scroll-progress.tsx",
-    "exports": [
-      "scroll-progress"
-    ]
-  },
-  {
-    "name": "scroll-progressive-blur",
-    "path": "misc/scroll-progressive-blur",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\scroll-progressive-blur.tsx",
-    "exports": [
-      "scroll-progressive-blur"
-    ]
-  },
-  {
-    "name": "smooth-scroll",
-    "path": "misc/smooth-scroll",
-    "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\smooth-scroll.tsx",
-    "exports": [
-      "smooth-scroll"
-    ]
-  },
-  {
-    "name": "animated-theme-toggler",
-    "path": "feedback/animated-theme-toggler",
-    "category": "feedback",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\animated-theme-toggler.tsx",
-    "exports": [
-      "animated-theme-toggler"
-    ]
-  },
-  {
-    "name": "command-menu",
-    "path": "feedback/command-menu",
-    "category": "feedback",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\command-menu.tsx",
-    "exports": [
-      "command-menu"
-    ]
-  },
-  {
-    "name": "percent-loader",
-    "path": "feedback/percent-loader",
-    "category": "feedback",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\percent-loader.tsx",
-    "exports": [
-      "percent-loader"
-    ]
-  },
-  {
-    "name": "reveal-loader",
-    "path": "feedback/reveal-loader",
-    "category": "feedback",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\reveal-loader.tsx",
-    "exports": [
-      "reveal-loader"
-    ]
-  },
-  {
-    "name": "skeleton",
-    "path": "feedback/skeleton",
-    "category": "feedback",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\skeleton.tsx",
-    "exports": [
-      "skeleton"
-    ]
-  },
-  {
-    "name": "smart-input",
-    "path": "feedback/smart-input",
-    "category": "feedback",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\smart-input.tsx",
-    "exports": [
-      "smart-input"
-    ]
-  },
-  {
-    "name": "theme-toggle",
-    "path": "feedback/theme-toggle",
-    "category": "feedback",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\feedback\\theme-toggle.tsx",
-    "exports": [
-      "theme-toggle"
-    ]
-  },
-  {
-    "name": "custom-cursor",
-    "path": "interaction/custom-cursor",
-    "category": "interaction",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\interaction\\custom-cursor.tsx",
-    "exports": [
-      "custom-cursor"
-    ]
-  },
-  {
-    "name": "hover-reveal-card",
-    "path": "interaction/hover-reveal-card",
-    "category": "interaction",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\interaction\\hover-reveal-card.tsx",
-    "exports": [
-      "hover-reveal-card"
-    ]
-  },
-  {
-    "name": "magnetic-wrapper",
-    "path": "interaction/magnetic-wrapper",
-    "category": "interaction",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\interaction\\magnetic-wrapper.tsx",
-    "exports": [
-      "magnetic-wrapper"
-    ]
-  },
-  {
     "name": "fade-in",
-    "path": "animation/fade-in",
     "category": "animation",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\animation\\fade-in.tsx",
+    "filePath": "animation/fade-in.tsx",
     "exports": [
-      "fade-in"
-    ]
+      "FadeIn"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.521Z"
   },
   {
     "name": "orbiting-dots",
-    "path": "animation/orbiting-dots",
     "category": "animation",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\animation\\orbiting-dots.tsx",
+    "filePath": "animation/orbiting-dots.tsx",
     "exports": [
-      "orbiting-dots"
-    ]
+      "OrbitingDots"
+    ],
+    "props": [
+      {
+        "name": "count",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "dotSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "radius",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-03T03:19:59.658Z"
   },
   {
     "name": "snow",
-    "path": "animation/snow",
     "category": "animation",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\animation\\snow.tsx",
+    "filePath": "animation/snow.tsx",
     "exports": [
-      "snow"
-    ]
+      "Snow"
+    ],
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T17:59:07.635Z"
   },
   {
-    "name": "android",
-    "path": "mocks/android",
-    "category": "mocks",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\mocks\\android.tsx",
+    "name": "animated-grid-pattern",
+    "category": "backgrounds",
+    "filePath": "backgrounds/animated-grid-pattern.tsx",
     "exports": [
-      "android"
-    ]
+      "AnimatedGridPattern"
+    ],
+    "props": [
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "x",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "y",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "strokeDasharray",
+        "type": "string | number",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "numSquares",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "maxOpacity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "repeatDelay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.143Z"
   },
   {
-    "name": "iphone",
-    "path": "mocks/iphone",
-    "category": "mocks",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\mocks\\iphone.tsx",
+    "name": "aurora-background",
+    "category": "backgrounds",
+    "filePath": "backgrounds/aurora-background.tsx",
     "exports": [
-      "iphone"
-    ]
+      "AuroraBackground"
+    ],
+    "props": [
+      {
+        "name": "showRadialGradient",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:07:58.382Z"
   },
   {
-    "name": "safari",
-    "path": "mocks/safari",
-    "category": "mocks",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\mocks\\safari.tsx",
+    "name": "background-beams",
+    "category": "backgrounds",
+    "filePath": "backgrounds/background-beams.tsx",
     "exports": [
-      "safari"
-    ]
+      "BackgroundBeams"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-02-02T17:27:28.013Z"
   },
   {
-    "name": "component-page-skeleton",
-    "path": "skeletons/component-page-skeleton",
-    "category": "skeletons",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\skeletons\\component-page-skeleton.tsx",
+    "name": "dot-pattern",
+    "category": "backgrounds",
+    "filePath": "backgrounds/dot-pattern.tsx",
     "exports": [
-      "component-page-skeleton"
-    ]
+      "DotPattern"
+    ],
+    "props": [
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "x",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "y",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "cx",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "cy",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "cr",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "dotColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "maxDistance",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.527Z"
   },
   {
-    "name": "utils",
-    "path": "components/utils/in-view",
-    "category": "components",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\components\\utils\\in-view.tsx",
+    "name": "flickering-grid",
+    "category": "backgrounds",
+    "filePath": "backgrounds/flickering-grid.tsx",
     "exports": [
-      "InView"
-    ]
+      "FlickeringGrid"
+    ],
+    "props": [
+      {
+        "name": "squareSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "gridGap",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "flickerChance",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "maxOpacity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "interactionRadius",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:30:53.325Z"
+  },
+  {
+    "name": "grid-pattern",
+    "category": "backgrounds",
+    "filePath": "backgrounds/grid-pattern.tsx",
+    "exports": [
+      "GridPattern"
+    ],
+    "props": [
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "x",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "y",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "strokeDasharray",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "strokeWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "strokeColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.530Z"
+  },
+  {
+    "name": "interactive-grid-pattern",
+    "category": "backgrounds",
+    "filePath": "backgrounds/interactive-grid-pattern.tsx",
+    "exports": [
+      "InteractiveGridPattern"
+    ],
+    "props": [
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "squares",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "squaresClassName",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T17:28:39.618Z"
+  },
+  {
+    "name": "retro-grid",
+    "category": "backgrounds",
+    "filePath": "backgrounds/retro-grid.tsx",
+    "exports": [
+      "RetroGrid"
+    ],
+    "props": [
+      {
+        "name": "angle",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.532Z"
+  },
+  {
+    "name": "ripple",
+    "category": "backgrounds",
+    "filePath": "backgrounds/ripple.tsx",
+    "exports": [
+      "Ripple"
+    ],
+    "props": [
+      {
+        "name": "mainCircleSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "mainCircleOpacity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "numCircles",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:13:59.964Z"
+  },
+  {
+    "name": "shooting-stars",
+    "category": "backgrounds",
+    "filePath": "backgrounds/shooting-stars.tsx",
+    "exports": [
+      "ShootingStars"
+    ],
+    "props": [
+      {
+        "name": "minDelay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "maxDelay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "starColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "trailColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "starWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "starHeight",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.151Z"
+  },
+  {
+    "name": "stars",
+    "category": "backgrounds",
+    "filePath": "backgrounds/stars.tsx",
+    "exports": [
+      "Stars"
+    ],
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "count",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "minSpeed",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "maxSpeed",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "starColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.150Z"
+  },
+  {
+    "name": "striped-pattern",
+    "category": "backgrounds",
+    "filePath": "backgrounds/striped-pattern.tsx",
+    "exports": [
+      "StripedPattern"
+    ],
+    "props": [
+      {
+        "name": "stripeWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "stripeColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "angle",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.538Z"
+  },
+  {
+    "name": "warp-background",
+    "category": "backgrounds",
+    "filePath": "backgrounds/warp-background.tsx",
+    "exports": [
+      "WarpBackground"
+    ],
+    "props": [
+      {
+        "name": "perspective",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "beamColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "lineCount",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:09:02.772Z"
+  },
+  {
+    "name": "animated-button",
+    "category": "buttons",
+    "filePath": "buttons/animated-button.tsx",
+    "exports": [
+      "AnimatedButton"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "shimmerColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "borderGradient",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:21:40.152Z"
+  },
+  {
+    "name": "creepy-button",
+    "category": "buttons",
+    "filePath": "buttons/creepy-button.tsx",
+    "exports": [
+      "CreepyButton"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "distortionIntensity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.518Z"
+  },
+  {
+    "name": "glow-button",
+    "category": "buttons",
+    "filePath": "buttons/glow-button.tsx",
+    "exports": [
+      "GlowButton"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "glowColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "glowIntensity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.512Z"
+  },
+  {
+    "name": "gooey-button",
+    "category": "buttons",
+    "filePath": "buttons/gooey-button.tsx",
+    "exports": [
+      "GooeyButton"
+    ],
+    "props": [
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "foregroundColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.547Z"
+  },
+  {
+    "name": "interactive-hover-button",
+    "category": "buttons",
+    "filePath": "buttons/interactive-hover-button.tsx",
+    "exports": [
+      "InteractiveHoverButton"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.157Z"
+  },
+  {
+    "name": "magnetic-button",
+    "category": "buttons",
+    "filePath": "buttons/magnetic-button.tsx",
+    "exports": [
+      "MagneticButton"
+    ],
+    "props": [
+      {
+        "name": "strength",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.551Z"
+  },
+  {
+    "name": "pulsating-button",
+    "category": "buttons",
+    "filePath": "buttons/pulsating-button.tsx",
+    "exports": [
+      "PulsatingButton",
+      "RippleButton"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "pulseColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:07:58.494Z"
+  },
+  {
+    "name": "rainbow-button",
+    "category": "buttons",
+    "filePath": "buttons/rainbow-button.tsx",
+    "exports": [
+      "RainbowButton"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.523Z"
+  },
+  {
+    "name": "ripple-button",
+    "category": "buttons",
+    "filePath": "buttons/ripple-button.tsx",
+    "exports": [
+      "RippleButton"
+    ],
+    "props": [
+      {
+        "name": "rippleColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.556Z"
+  },
+  {
+    "name": "shimmer-button",
+    "category": "buttons",
+    "filePath": "buttons/shimmer-button.tsx",
+    "exports": [
+      "ShimmerButton"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "shimmerColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "shimmerSize",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.557Z"
+  },
+  {
+    "name": "shiny-button",
+    "category": "buttons",
+    "filePath": "buttons/shiny-button.tsx",
+    "exports": [
+      "ShinyButton"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.560Z"
+  },
+  {
+    "name": "social-flip-button",
+    "category": "buttons",
+    "filePath": "buttons/social-flip-button.tsx",
+    "exports": [
+      "SocialFlipButton"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "frontIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "backIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "frontText",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "backText",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.535Z"
+  },
+  {
+    "name": "accordion",
+    "category": "core",
+    "filePath": "core/accordion.tsx",
+    "exports": [
+      "Accordion"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "type",
+        "type": "single | multiple",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string | any",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "collapsible",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.170Z"
   },
   {
     "name": "alert",
-    "path": "core/alert",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\alert.tsx",
+    "filePath": "core/alert.tsx",
     "exports": [
+      "Alert",
       "AlertTitle",
       "AlertDescription"
-    ]
+    ],
+    "props": [
+      {
+        "name": "variant",
+        "type": "default | destructive | success | warning | glass",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "dismissible",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onDismiss",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.170Z"
   },
   {
     "name": "avatar",
-    "path": "core/avatar",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\avatar.tsx",
+    "filePath": "core/avatar.tsx",
     "exports": [
+      "Avatar",
       "AvatarImage",
       "AvatarFallback"
-    ]
+    ],
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "fallback",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "size",
+        "type": "sm | md | lg | xl",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "status",
+        "type": "online | offline | away | busy",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T17:29:18.889Z"
+  },
+  {
+    "name": "badge",
+    "category": "core",
+    "filePath": "core/badge.tsx",
+    "exports": [
+      "badgeVariants",
+      "Badge"
+    ],
+    "props": [
+      {
+        "name": "variant",
+        "type": "default | secondary | outline | destructive | success",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "size",
+        "type": "sm | md | lg",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "dot",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:14:50.531Z"
+  },
+  {
+    "name": "button",
+    "category": "core",
+    "filePath": "core/button.tsx",
+    "exports": [
+      "buttonVariants",
+      "Button"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "variant",
+        "type": "default | secondary | outline | ghost | destructive | link",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "size",
+        "type": "sm | md | lg | icon",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "leftIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "rightIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:14:19.765Z"
   },
   {
     "name": "card",
-    "path": "core/card",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\card.tsx",
+    "filePath": "core/card.tsx",
     "exports": [
+      "Card",
       "CardHeader",
-      "CardFooter",
       "CardTitle",
       "CardDescription",
-      "CardContent"
-    ]
+      "CardContent",
+      "CardFooter"
+    ],
+    "props": [
+      {
+        "name": "hover",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "glass",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.177Z"
   },
   {
     "name": "checkbox",
-    "path": "core/checkbox",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\checkbox.tsx",
+    "filePath": "core/checkbox.tsx",
     "exports": [
-      "CheckboxIndicator"
-    ]
+      "Checkbox"
+    ],
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onCheckedChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "size",
+        "type": "sm | md | lg",
+        "required": false,
+        "control": "select"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T18:50:20.741Z"
   },
   {
     "name": "dialog",
-    "path": "core/dialog",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\dialog.tsx",
+    "filePath": "core/dialog.tsx",
     "exports": [
+      "Dialog",
+      "DialogTrigger",
       "DialogContent",
-      "DialogDescription",
       "DialogHeader",
       "DialogFooter",
       "DialogTitle",
-      "DialogTrigger"
-    ]
+      "DialogDescription"
+    ],
+    "props": [
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": true,
+        "control": "boolean"
+      },
+      {
+        "name": "setIsOpen",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "asChild",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.195Z"
   },
   {
     "name": "dropdown-menu",
-    "path": "core/dropdown-menu",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\dropdown-menu.tsx",
+    "filePath": "core/dropdown-menu.tsx",
     "exports": [
+      "DropdownMenu",
       "DropdownMenuTrigger",
       "DropdownMenuContent",
       "DropdownMenuItem",
-      "DropdownMenuLabel",
-      "DropdownMenuSeparator"
-    ]
+      "DropdownMenuSeparator",
+      "DropdownMenuLabel"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "asChild",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "align",
+        "type": "start | end | center",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "onClick",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "destructive",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T17:18:49.124Z"
+  },
+  {
+    "name": "input",
+    "category": "core",
+    "filePath": "core/input.tsx",
+    "exports": [
+      "Input"
+    ],
+    "props": [
+      {
+        "name": "size",
+        "type": "sm | md | lg",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "leftIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "rightIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:16:53.097Z"
+  },
+  {
+    "name": "label",
+    "category": "core",
+    "filePath": "core/label.tsx",
+    "exports": [
+      "Label"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.565Z"
+  },
+  {
+    "name": "modal",
+    "category": "core",
+    "filePath": "core/modal.tsx",
+    "exports": [
+      "Modal"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "control": "boolean"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "showClose",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:16:55.272Z"
+  },
+  {
+    "name": "popover",
+    "category": "core",
+    "filePath": "core/popover.tsx",
+    "exports": [
+      "Popover",
+      "PopoverTrigger",
+      "PopoverContent"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "align",
+        "type": "start | center | end",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "side",
+        "type": "top | bottom | left | right",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "sideOffset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.197Z"
+  },
+  {
+    "name": "progress",
+    "category": "core",
+    "filePath": "core/progress.tsx",
+    "exports": [
+      "Progress"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "variant",
+        "type": "default | success | warning | error",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "showLabel",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T18:50:45.963Z"
   },
   {
     "name": "radio-group",
-    "path": "core/radio-group",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\radio-group.tsx",
+    "filePath": "core/radio-group.tsx",
     "exports": [
+      "RadioGroup",
       "RadioGroupItem"
-    ]
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "onValueChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T18:50:49.579Z"
   },
   {
     "name": "select",
-    "path": "core/select",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\select.tsx",
+    "filePath": "core/select.tsx",
     "exports": [
-      "SelectGroup",
-      "SelectValue",
+      "Select",
       "SelectTrigger",
+      "SelectValue",
       "SelectContent",
+      "SelectGroup",
       "SelectLabel",
       "SelectItem"
-    ]
+    ],
+    "props": [
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": true,
+        "control": "boolean"
+      },
+      {
+        "name": "setIsOpen",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "value",
+        "type": "string | any",
+        "required": true,
+        "control": "select"
+      },
+      {
+        "name": "setValue",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "optionsMap",
+        "type": "Map",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "onValueChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.201Z"
   },
   {
     "name": "sheet",
-    "path": "core/sheet",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\sheet.tsx",
+    "filePath": "core/sheet.tsx",
     "exports": [
+      "Sheet",
+      "SheetTrigger",
       "SheetContent",
-      "SheetDescription",
       "SheetHeader",
       "SheetTitle",
-      "SheetTrigger"
-    ]
+      "SheetDescription"
+    ],
+    "props": [
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": true,
+        "control": "boolean"
+      },
+      {
+        "name": "setIsOpen",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "side",
+        "type": "left | right | top | bottom",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "overlayClassName",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.203Z"
+  },
+  {
+    "name": "slider",
+    "category": "core",
+    "filePath": "core/slider.tsx",
+    "exports": [
+      "Slider"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "onValueChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "defaultValue",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "step",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "showValue",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.590Z"
+  },
+  {
+    "name": "status-icon",
+    "category": "core",
+    "filePath": "core/status-icon.tsx",
+    "exports": [
+      "StatusIcon"
+    ],
+    "props": [
+      {
+        "name": "status",
+        "type": "success | warning | error | info",
+        "required": true,
+        "control": "select"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "size",
+        "type": "sm | md | lg",
+        "required": false,
+        "control": "select"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.583Z"
+  },
+  {
+    "name": "switch",
+    "category": "core",
+    "filePath": "core/switch.tsx",
+    "exports": [
+      "Switch"
+    ],
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onCheckedChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "size",
+        "type": "sm | md | lg",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T18:50:59.816Z"
   },
   {
     "name": "table",
-    "path": "core/table",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\table.tsx",
+    "filePath": "core/table.tsx",
     "exports": [
+      "Table",
       "TableHeader",
       "TableBody",
       "TableFooter",
-      "TableRow",
       "TableHead",
+      "TableRow",
       "TableCell",
       "TableCaption"
-    ]
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.227Z"
   },
   {
     "name": "tabs",
-    "path": "core/tabs",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\tabs.tsx",
+    "filePath": "core/tabs.tsx",
     "exports": [
+      "Tabs",
       "TabsList",
       "TabsTrigger",
       "TabsContent"
-    ]
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "onValueChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:27:42.301Z"
+  },
+  {
+    "name": "textarea",
+    "category": "core",
+    "filePath": "core/textarea.tsx",
+    "exports": [
+      "Textarea"
+    ],
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.596Z"
   },
   {
     "name": "toast",
-    "path": "core/toast",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\toast.tsx",
+    "filePath": "core/toast.tsx",
     "exports": [
-      "ToastProvider",
-      "ToastViewport",
-      "ToastTitle",
-      "ToastDescription",
-      "ToastAction",
-      "ToastClose",
-      "useToast"
-    ]
+      "useToast",
+      "ToastProvider"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.217Z"
   },
   {
     "name": "tooltip",
-    "path": "core/tooltip",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\tooltip.tsx",
+    "filePath": "core/tooltip.tsx",
     "exports": [
+      "TooltipProvider",
+      "Tooltip",
       "TooltipTrigger",
-      "TooltipContent",
-      "TooltipProvider"
-    ]
+      "TooltipContent"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "control": "boolean"
+      },
+      {
+        "name": "setOpen",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.207Z"
   },
   {
     "name": "unicorn-provider",
-    "path": "core/unicorn-provider",
     "category": "core",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\core\\unicorn-provider.tsx",
+    "filePath": "core/unicorn-provider.tsx",
     "exports": [
-      "UnicornThemeProvider"
-    ]
+      "UnicornProvider"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "config",
+        "type": "UserConfig",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.601Z"
+  },
+  {
+    "name": "animated-theme-toggler",
+    "category": "feedback",
+    "filePath": "feedback/animated-theme-toggler.tsx",
+    "exports": [
+      "AnimatedThemeToggler"
+    ],
+    "props": [
+      {
+        "name": "defaultTheme",
+        "type": "light | dark",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "onThemeChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:25:45.547Z"
+  },
+  {
+    "name": "command-menu",
+    "category": "feedback",
+    "filePath": "feedback/command-menu.tsx",
+    "exports": [
+      "CommandMenu"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "commands",
+        "type": "Array",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.256Z"
+  },
+  {
+    "name": "percent-loader",
+    "category": "feedback",
+    "filePath": "feedback/percent-loader.tsx",
+    "exports": [
+      "PercentLoader"
+    ],
+    "props": [
+      {
+        "name": "onComplete",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.235Z"
+  },
+  {
+    "name": "reveal-loader",
+    "category": "feedback",
+    "filePath": "feedback/reveal-loader.tsx",
+    "exports": [
+      "RevealLoader"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content to reveal",
+        "control": "text"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "description": "Loading state",
+        "control": "boolean"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "description": "Duration of reveal animation in seconds",
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS classes",
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.239Z"
+  },
+  {
+    "name": "skeleton",
+    "category": "feedback",
+    "filePath": "feedback/skeleton.tsx",
+    "exports": [
+      "Skeleton"
+    ],
+    "props": [
+      {
+        "name": "variant",
+        "type": "text | circular | rectangular | rounded",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "animation",
+        "type": "pulse | wave | none",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "width",
+        "type": "string | number",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "height",
+        "type": "string | number",
+        "required": false,
+        "control": "select"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.610Z"
+  },
+  {
+    "name": "smart-input",
+    "category": "feedback",
+    "filePath": "feedback/smart-input.tsx",
+    "exports": [
+      "SmartInput"
+    ],
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "leftIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "onClear",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:25:49.766Z"
+  },
+  {
+    "name": "theme-toggle",
+    "category": "feedback",
+    "filePath": "feedback/theme-toggle.tsx",
+    "exports": [
+      "ThemeToggle"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.247Z"
+  },
+  {
+    "name": "custom-cursor",
+    "category": "interaction",
+    "filePath": "interaction/custom-cursor.tsx",
+    "exports": [
+      "CustomCursor"
+    ],
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.241Z"
+  },
+  {
+    "name": "hover-reveal-card",
+    "category": "interaction",
+    "filePath": "interaction/hover-reveal-card.tsx",
+    "exports": [
+      "HoverRevealCard"
+    ],
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "image",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.245Z"
+  },
+  {
+    "name": "magnetic-wrapper",
+    "category": "interaction",
+    "filePath": "interaction/magnetic-wrapper.tsx",
+    "exports": [
+      "MagneticWrapper"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "range",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-03T03:40:20.513Z"
+  },
+  {
+    "name": "animated-list",
+    "category": "layout",
+    "filePath": "layout/animated-list.tsx",
+    "exports": [
+      "AnimatedList"
+    ],
+    "props": [
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.596Z"
+  },
+  {
+    "name": "avatar-circles",
+    "category": "layout",
+    "filePath": "layout/avatar-circles.tsx",
+    "exports": [
+      "AvatarCircles"
+    ],
+    "props": [
+      {
+        "name": "avatars",
+        "type": "Array",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:17:53.875Z"
   },
   {
     "name": "bento-grid",
-    "path": "layout/bento-grid",
     "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\bento-grid.tsx",
+    "filePath": "layout/bento-grid.tsx",
     "exports": [
+      "BentoGrid",
       "BentoCard"
-    ]
-  },
-  {
-    "name": "dock",
-    "path": "layout/dock",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\dock.tsx",
-    "exports": [
-      "DockIcon"
-    ]
-  },
-  {
-    "name": "resizable-panel",
-    "path": "layout/resizable-panel",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\resizable-panel.tsx",
-    "exports": [
-      "ResizablePanel",
-      "ResizableHandle"
-    ]
-  },
-  {
-    "name": "sidebar",
-    "path": "layout/sidebar",
-    "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\sidebar.tsx",
-    "exports": [
-      "SidebarItem"
-    ]
+    ],
+    "props": [
+      {
+        "name": "variant",
+        "type": "default | featured",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "Icon",
+        "type": "LucideIcon | React.ElementType",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "cta",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "background",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "featured",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:17:56.556Z"
   },
   {
     "name": "collapsible-sidebar-new",
-    "path": "layout/collapsible-sidebar-new",
     "category": "layout",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\layout\\collapsible-sidebar-new.tsx",
+    "filePath": "layout/collapsible-sidebar-new.tsx",
     "exports": [
+      "CollapsibleSidebar",
       "SidebarHeader",
-      "SidebarSection"
-    ]
+      "SidebarSection",
+      "SidebarItem"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "defaultCollapsed",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "collapsedWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "expandedWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "position",
+        "type": "left | right",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "mobileBreakpoint",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "showToggle",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "onCollapsedChange",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.634Z"
+  },
+  {
+    "name": "collapsible-sidebar",
+    "category": "layout",
+    "filePath": "layout/collapsible-sidebar.tsx",
+    "exports": [
+      "SidebarItem",
+      "CollapsibleSidebar"
+    ],
+    "props": [
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "onClick",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "items",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "logo",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "footer",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "defaultCollapsed",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.646Z"
+  },
+  {
+    "name": "dock",
+    "category": "layout",
+    "filePath": "layout/dock.tsx",
+    "exports": [
+      "Dock",
+      "DockIcon"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "magnification",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "distance",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.644Z"
+  },
+  {
+    "name": "docs-layout",
+    "category": "layout",
+    "filePath": "layout/docs-layout.tsx",
+    "exports": [
+      "DocsLayout"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.263Z"
+  },
+  {
+    "name": "dotted-map",
+    "category": "layout",
+    "filePath": "layout/dotted-map.tsx",
+    "exports": [
+      "DottedMap"
+    ],
+    "props": [
+      {
+        "name": "dots",
+        "type": "Array",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "dotColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "dotSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "gridSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.666Z"
+  },
+  {
+    "name": "expandable-bento-card",
+    "category": "layout",
+    "filePath": "layout/expandable-bento-card.tsx",
+    "exports": [
+      "ExpandableBentoCard"
+    ],
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Card title",
+        "control": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": true,
+        "description": "Card description",
+        "control": "text"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Icon or image to display",
+        "control": "text"
+      },
+      {
+        "name": "expandedContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Expanded content",
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS classes",
+        "control": "text"
+      },
+      {
+        "name": "gradient",
+        "type": "string",
+        "required": false,
+        "description": "Card background gradient",
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:18:18.408Z"
+  },
+  {
+    "name": "glass-dock",
+    "category": "layout",
+    "filePath": "layout/glass-dock.tsx",
+    "exports": [
+      "GlassDock"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "Array",
+        "required": true,
+        "description": "Items to display in the dock",
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS classes",
+        "control": "text"
+      },
+      {
+        "name": "magnification",
+        "type": "number",
+        "required": false,
+        "description": "Magnification scale on hover",
+        "control": "number"
+      },
+      {
+        "name": "distance",
+        "type": "number",
+        "required": false,
+        "description": "Distance from hovered item to apply magnification",
+        "control": "number"
+      },
+      {
+        "name": "item",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      },
+      {
+        "name": "hoveredIndex",
+        "type": "number | any",
+        "required": true,
+        "control": "select"
+      },
+      {
+        "name": "setHoveredIndex",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "magnification",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      },
+      {
+        "name": "distance",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.655Z"
+  },
+  {
+    "name": "globe",
+    "category": "layout",
+    "filePath": "layout/globe.tsx",
+    "exports": [
+      "Globe"
+    ],
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "phi",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "theta",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "dark",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "diffuse",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "mapSamples",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "mapBrightness",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "baseColor",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "markerColor",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "glowColor",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "markers",
+        "type": "Array",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.657Z"
+  },
+  {
+    "name": "glow-border-card",
+    "category": "layout",
+    "filePath": "layout/glow-border-card.tsx",
+    "exports": [
+      "GlowBorderCard"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "width",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "height",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "aspectRatio",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "borderRadius",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "animationDuration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "gradientColors",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "borderWidth",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "blurAmount",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "inset",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "colorPreset",
+        "type": "nature | ocean | sunset | aurora | custom",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:15:02.020Z"
+  },
+  {
+    "name": "hero-video-dialog",
+    "category": "layout",
+    "filePath": "layout/hero-video-dialog.tsx",
+    "exports": [
+      "HeroVideoDialog"
+    ],
+    "props": [
+      {
+        "name": "videoSrc",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "thumbnailSrc",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "thumbnailAlt",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.655Z"
+  },
+  {
+    "name": "horizontal-scroll",
+    "category": "layout",
+    "filePath": "layout/horizontal-scroll.tsx",
+    "exports": [
+      "HorizontalScroll"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.274Z"
+  },
+  {
+    "name": "icon-cloud",
+    "category": "layout",
+    "filePath": "layout/icon-cloud.tsx",
+    "exports": [
+      "IconCloud"
+    ],
+    "props": [
+      {
+        "name": "icons",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "radius",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.613Z"
+  },
+  {
+    "name": "ion-cloud",
+    "category": "layout",
+    "filePath": "layout/ion-cloud.tsx",
+    "exports": [
+      "IonCloud"
+    ],
+    "props": [
+      {
+        "name": "icons",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "radius",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.668Z"
+  },
+  {
+    "name": "lens",
+    "category": "layout",
+    "filePath": "layout/lens.tsx",
+    "exports": [
+      "Lens"
+    ],
+    "props": [
+      {
+        "name": "lensSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "magnification",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:18:20.264Z"
+  },
+  {
+    "name": "marquee",
+    "category": "layout",
+    "filePath": "layout/marquee.tsx",
+    "exports": [
+      "Marquee"
+    ],
+    "props": [
+      {
+        "name": "pauseOnHover",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "reverse",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "fade",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "speed",
+        "type": "slow | normal | fast",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "repeat",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.284Z"
+  },
+  {
+    "name": "orbiting-circles",
+    "category": "layout",
+    "filePath": "layout/orbiting-circles.tsx",
+    "exports": [
+      "OrbitingCircles"
+    ],
+    "props": [
+      {
+        "name": "radius",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "reverse",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "icons",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "iconSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:18:27.122Z"
+  },
+  {
+    "name": "perspective-menu",
+    "category": "layout",
+    "filePath": "layout/perspective-menu.tsx",
+    "exports": [
+      "PerspectiveMenu"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "required": true,
+        "control": "boolean"
+      },
+      {
+        "name": "onClose",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.282Z"
+  },
+  {
+    "name": "pixel-image",
+    "category": "layout",
+    "filePath": "layout/pixel-image.tsx",
+    "exports": [
+      "PixelImage"
+    ],
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "pixelSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "onLoad",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.681Z"
+  },
+  {
+    "name": "pointer",
+    "category": "layout",
+    "filePath": "layout/pointer.tsx",
+    "exports": [
+      "Pointer",
+      "PointerGroup"
+    ],
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:27:28.443Z"
+  },
+  {
+    "name": "progressive-blur",
+    "category": "layout",
+    "filePath": "layout/progressive-blur.tsx",
+    "exports": [
+      "ProgressiveBlur"
+    ],
+    "props": [
+      {
+        "name": "direction",
+        "type": "top | bottom | left | right",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "blurIntensity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.670Z"
+  },
+  {
+    "name": "reorderable-list",
+    "category": "layout",
+    "filePath": "layout/reorderable-list.tsx",
+    "exports": [
+      "ReorderableList"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "setItems",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.286Z"
+  },
+  {
+    "name": "resizable-panel",
+    "category": "layout",
+    "filePath": "layout/resizable-panel.tsx",
+    "exports": [
+      "ResizablePanel"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "minWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "maxWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.292Z"
+  },
+  {
+    "name": "sidebar",
+    "category": "layout",
+    "filePath": "layout/sidebar.tsx",
+    "exports": [
+      "Sidebar"
+    ],
+    "props": [],
+    "dependencies": [
+      "./collapsible-sidebar-new"
+    ],
+    "lastModified": "2026-01-31T19:06:54.673Z"
+  },
+  {
+    "name": "smooth-cursor",
+    "category": "layout",
+    "filePath": "layout/smooth-cursor.tsx",
+    "exports": [
+      "SmoothCursor"
+    ],
+    "props": [
+      {
+        "name": "texture",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:19:00.741Z"
+  },
+  {
+    "name": "spotlight-card",
+    "category": "layout",
+    "filePath": "layout/spotlight-card.tsx",
+    "exports": [
+      "SpotlightCard"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "spotlightColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.677Z"
+  },
+  {
+    "name": "staggered-grid",
+    "category": "layout",
+    "filePath": "layout/staggered-grid.tsx",
+    "exports": [
+      "StaggeredGrid"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Grid items to display",
+        "control": "text"
+      },
+      {
+        "name": "columns",
+        "type": "number",
+        "required": false,
+        "description": "Number of columns",
+        "control": "number"
+      },
+      {
+        "name": "gap",
+        "type": "string",
+        "required": false,
+        "description": "Gap between items",
+        "control": "text"
+      },
+      {
+        "name": "staggerDelay",
+        "type": "number",
+        "required": false,
+        "description": "Stagger delay between items in seconds",
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS classes",
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.679Z"
+  },
+  {
+    "name": "terminal",
+    "category": "layout",
+    "filePath": "layout/terminal.tsx",
+    "exports": [
+      "Terminal",
+      "TerminalCommand"
+    ],
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.697Z"
+  },
+  {
+    "name": "timeline",
+    "category": "layout",
+    "filePath": "layout/timeline.tsx",
+    "exports": [
+      "Timeline"
+    ],
+    "props": [
+      {
+        "name": "data",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:07:58.793Z"
+  },
+  {
+    "name": "top-nav",
+    "category": "layout",
+    "filePath": "layout/top-nav.tsx",
+    "exports": [
+      "TopNav"
+    ],
+    "props": [
+      {
+        "name": "brandName",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "brandLogo",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "brandHref",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "links",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "rightContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "showThemeToggle",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "githubHref",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:19:04.646Z"
+  },
+  {
+    "name": "tracing-beam",
+    "category": "layout",
+    "filePath": "layout/tracing-beam.tsx",
+    "exports": [
+      "TracingBeam"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:19:03.324Z"
+  },
+  {
+    "name": "tweet-card",
+    "category": "layout",
+    "filePath": "layout/tweet-card.tsx",
+    "exports": [
+      "TweetCard"
+    ],
+    "props": [
+      {
+        "name": "author",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "username",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "avatar",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "timestamp",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "verified",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:07:58.788Z"
+  },
+  {
+    "name": "animated-circular-progress-bar",
+    "category": "misc",
+    "filePath": "misc/animated-circular-progress-bar.tsx",
+    "exports": [
+      "AnimatedCircularProgressBar"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "strokeWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "showValue",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.630Z"
+  },
+  {
+    "name": "card-stack",
+    "category": "misc",
+    "filePath": "misc/card-stack.tsx",
+    "exports": [
+      "CardStack"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "scaleFactor",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.308Z"
+  },
+  {
+    "name": "code-comparison",
+    "category": "misc",
+    "filePath": "misc/code-comparison.tsx",
+    "exports": [
+      "CodeComparison"
+    ],
+    "props": [
+      {
+        "name": "beforeCode",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "afterCode",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "language",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "filename",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:50:27.527Z"
+  },
+  {
+    "name": "confetti-side-cannons",
+    "category": "misc",
+    "filePath": "misc/confetti-side-cannons.tsx",
+    "exports": [
+      "ConfettiSideCannons"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.697Z"
+  },
+  {
+    "name": "cool-mode",
+    "category": "misc",
+    "filePath": "misc/cool-mode.tsx",
+    "exports": [
+      "CoolMode"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.701Z"
+  },
+  {
+    "name": "custom-pointer",
+    "category": "misc",
+    "filePath": "misc/custom-pointer.tsx",
+    "exports": [
+      "CustomPointer"
+    ],
+    "props": [
+      {
+        "name": "cursorSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "cursorColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "trailLength",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.708Z"
   },
   {
     "name": "device-mockups",
-    "path": "misc/device-mockups",
     "category": "misc",
-    "filePath": "D:\\Code\\unicorn-ui\\src\\components\\misc\\device-mockups.tsx",
+    "filePath": "misc/device-mockups.tsx",
     "exports": [
       "IPhoneMockup",
       "MacBookMockup"
-    ]
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.704Z"
+  },
+  {
+    "name": "file-tree",
+    "category": "misc",
+    "filePath": "misc/file-tree.tsx",
+    "exports": [
+      "FileTree"
+    ],
+    "props": [
+      {
+        "name": "data",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "onFileClick",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "node",
+        "type": "FileNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "level",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      },
+      {
+        "name": "onFileClick",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:24:11.464Z"
+  },
+  {
+    "name": "follower-pointer",
+    "category": "misc",
+    "filePath": "misc/follower-pointer.tsx",
+    "exports": [
+      "FollowerPointer"
+    ],
+    "props": [
+      {
+        "name": "cardContent",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.640Z"
+  },
+  {
+    "name": "neon-gradient-card",
+    "category": "misc",
+    "filePath": "misc/neon-gradient-card.tsx",
+    "exports": [
+      "NeonGradientCard"
+    ],
+    "props": [
+      {
+        "name": "borderSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "borderRadius",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "neonColors",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.721Z"
+  },
+  {
+    "name": "pixel-trail",
+    "category": "misc",
+    "filePath": "misc/pixel-trail.tsx",
+    "exports": [
+      "PixelTrail",
+      "PixelTrailImpl"
+    ],
+    "props": [
+      {
+        "name": "pixelSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "fadeDuration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.713Z"
+  },
+  {
+    "name": "scroll-progress",
+    "category": "misc",
+    "filePath": "misc/scroll-progress.tsx",
+    "exports": [
+      "ScrollProgress"
+    ],
+    "props": [
+      {
+        "name": "position",
+        "type": "top | bottom",
+        "required": false,
+        "control": "select"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:22:09.072Z"
+  },
+  {
+    "name": "scroll-progressive-blur",
+    "category": "misc",
+    "filePath": "misc/scroll-progressive-blur.tsx",
+    "exports": [
+      "ScrollProgressiveBlur"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "blurAmount",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "fadeDistance",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T17:23:29.606Z"
+  },
+  {
+    "name": "smooth-scroll",
+    "category": "misc",
+    "filePath": "misc/smooth-scroll.tsx",
+    "exports": [
+      "SmoothScroll"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.318Z"
+  },
+  {
+    "name": "android",
+    "category": "mocks",
+    "filePath": "mocks/android.tsx",
+    "exports": [
+      "Android"
+    ],
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.645Z"
+  },
+  {
+    "name": "iphone",
+    "category": "mocks",
+    "filePath": "mocks/iphone.tsx",
+    "exports": [
+      "Iphone15Pro"
+    ],
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.648Z"
+  },
+  {
+    "name": "safari",
+    "category": "mocks",
+    "filePath": "mocks/safari.tsx",
+    "exports": [
+      "Safari"
+    ],
+    "props": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "src",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.648Z"
+  },
+  {
+    "name": "component-page-skeleton",
+    "category": "skeletons",
+    "filePath": "skeletons/component-page-skeleton.tsx",
+    "exports": [
+      "ComponentPageSkeleton"
+    ],
+    "props": [],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.724Z"
+  },
+  {
+    "name": "3d-card",
+    "category": "special",
+    "filePath": "special/3d-card.tsx",
+    "exports": [
+      "ThreeDCard"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.727Z"
+  },
+  {
+    "name": "animated-beam",
+    "category": "special",
+    "filePath": "special/animated-beam.tsx",
+    "exports": [
+      "AnimatedBeam"
+    ],
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "containerRef",
+        "type": "RefObject",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "fromRef",
+        "type": "RefObject",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "toRef",
+        "type": "RefObject",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "curvature",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "reverse",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "pathColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "pathWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "pathOpacity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "gradientStartColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "gradientStopColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "startXOffset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "startYOffset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "endXOffset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "endYOffset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.654Z"
+  },
+  {
+    "name": "border-beam",
+    "category": "special",
+    "filePath": "special/border-beam.tsx",
+    "exports": [
+      "BorderBeam"
+    ],
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "colorFrom",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "colorTo",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:25:17.940Z"
+  },
+  {
+    "name": "canvas-smudge",
+    "category": "special",
+    "filePath": "special/canvas-smudge.tsx",
+    "exports": [
+      "CanvasSmudge"
+    ],
+    "props": [
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:24:30.556Z"
+  },
+  {
+    "name": "confetti",
+    "category": "special",
+    "filePath": "special/confetti.tsx",
+    "exports": [
+      "Confetti",
+      "ConfettiButton"
+    ],
+    "props": [
+      {
+        "name": "particleCount",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "spread",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "origin",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "confettiOptions",
+        "type": "ConfettiProps",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:25:55.241Z"
+  },
+  {
+    "name": "glitch-effect",
+    "category": "special",
+    "filePath": "special/glitch-effect.tsx",
+    "exports": [
+      "GlitchEffect"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.739Z"
+  },
+  {
+    "name": "gravity",
+    "category": "special",
+    "filePath": "special/gravity.tsx",
+    "exports": [
+      "Gravity"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:09:02.980Z"
+  },
+  {
+    "name": "magic-card",
+    "category": "special",
+    "filePath": "special/magic-card.tsx",
+    "exports": [
+      "MagicCard"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "spotlightColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "borderColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:03:03.009Z"
+  },
+  {
+    "name": "magnifier",
+    "category": "special",
+    "filePath": "special/magnifier.tsx",
+    "exports": [
+      "Magnifier"
+    ],
+    "props": [
+      {
+        "name": "imgSrc",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "magnifierSize",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "zoomLevel",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:24:35.199Z"
+  },
+  {
+    "name": "meteors",
+    "category": "special",
+    "filePath": "special/meteors.tsx",
+    "exports": [
+      "Meteors"
+    ],
+    "props": [
+      {
+        "name": "number",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.338Z"
+  },
+  {
+    "name": "noise-overlay",
+    "category": "special",
+    "filePath": "special/noise-overlay.tsx",
+    "exports": [
+      "NoiseOverlay"
+    ],
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "opacity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.334Z"
+  },
+  {
+    "name": "parallax-image",
+    "category": "special",
+    "filePath": "special/parallax-image.tsx",
+    "exports": [
+      "ParallaxImage"
+    ],
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "speed",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.336Z"
+  },
+  {
+    "name": "particle-image",
+    "category": "special",
+    "filePath": "special/particle-image.tsx",
+    "exports": [
+      "ParticleImage"
+    ],
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "particleCount",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.664Z"
+  },
+  {
+    "name": "particles",
+    "category": "special",
+    "filePath": "special/particles.tsx",
+    "exports": [
+      "Particles"
+    ],
+    "props": [
+      {
+        "name": "quantity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "staticity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "ease",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "refresh",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.768Z"
+  },
+  {
+    "name": "ripple-effect",
+    "category": "special",
+    "filePath": "special/ripple-effect.tsx",
+    "exports": [
+      "RippleEffect"
+    ],
+    "props": [
+      {
+        "name": "rippleColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.667Z"
+  },
+  {
+    "name": "scene-3d",
+    "category": "special",
+    "filePath": "special/scene-3d.tsx",
+    "exports": [
+      "Scene3D"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.344Z"
+  },
+  {
+    "name": "shine-border",
+    "category": "special",
+    "filePath": "special/shine-border.tsx",
+    "exports": [
+      "ShineBorder"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "color",
+        "type": "string | any",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "borderWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.749Z"
+  },
+  {
+    "name": "spotlight-new",
+    "category": "special",
+    "filePath": "special/spotlight-new.tsx",
+    "exports": [
+      "SpotlightNew"
+    ],
+    "props": [
+      {
+        "name": "gradientFirst",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "gradientSecond",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "gradientThird",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "translateY",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "width",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "smallWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "xOffset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.670Z"
+  },
+  {
+    "name": "spotlight",
+    "category": "special",
+    "filePath": "special/spotlight.tsx",
+    "exports": [
+      "Spotlight"
+    ],
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.351Z"
+  },
+  {
+    "name": "animated-gradient-text",
+    "category": "text",
+    "filePath": "text/animated-gradient-text.tsx",
+    "exports": [
+      "AnimatedGradientText",
+      "AnimatedShinyText"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "shimmerWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:30:55.396Z"
+  },
+  {
+    "name": "animated-number",
+    "category": "text",
+    "filePath": "text/animated-number.tsx",
+    "exports": [
+      "AnimatedNumber"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "description": "The target number to count to",
+        "control": "number"
+      },
+      {
+        "name": "decimals",
+        "type": "number",
+        "required": false,
+        "description": "Number of decimal places",
+        "control": "number"
+      },
+      {
+        "name": "prefix",
+        "type": "string",
+        "required": false,
+        "description": "Prefix to display before the number",
+        "control": "text"
+      },
+      {
+        "name": "suffix",
+        "type": "string",
+        "required": false,
+        "description": "Suffix to display after the number",
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "description": "Duration of the animation in seconds",
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS classes",
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:07:58.911Z"
+  },
+  {
+    "name": "animated-shiny-text",
+    "category": "text",
+    "filePath": "text/animated-shiny-text.tsx",
+    "exports": [
+      "AnimatedShinyText"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "shimmerWidth",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.675Z"
+  },
+  {
+    "name": "aurora-text",
+    "category": "text",
+    "filePath": "text/aurora-text.tsx",
+    "exports": [
+      "AuroraText"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.763Z"
+  },
+  {
+    "name": "blur-fade",
+    "category": "text",
+    "filePath": "text/blur-fade.tsx",
+    "exports": [
+      "BlurFade"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "yOffset",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "blur",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.675Z"
+  },
+  {
+    "name": "box-reveal",
+    "category": "text",
+    "filePath": "text/box-reveal.tsx",
+    "exports": [
+      "BoxReveal"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "width",
+        "type": "fit-content | 100%",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "boxColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:20:09.494Z"
+  },
+  {
+    "name": "comic-text",
+    "category": "text",
+    "filePath": "text/comic-text.tsx",
+    "exports": [
+      "ComicText"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-01T05:20:12.541Z"
+  },
+  {
+    "name": "fade-text",
+    "category": "text",
+    "filePath": "text/fade-text.tsx",
+    "exports": [
+      "FadeText"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "direction",
+        "type": "up | down | left | right",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "framerProps",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.770Z"
+  },
+  {
+    "name": "flip-text-3d",
+    "category": "text",
+    "filePath": "text/flip-text-3d.tsx",
+    "exports": [
+      "FlipText3D"
+    ],
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS classes for the wrapper",
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "string",
+        "required": true,
+        "description": "The text content to animate (will be split by spaces)",
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "description": "Duration of the flip animation in seconds",
+        "control": "number"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "description": "Initial delay before animation starts in seconds",
+        "control": "number"
+      },
+      {
+        "name": "loop",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the animation should loop infinitely",
+        "control": "boolean"
+      },
+      {
+        "name": "separator",
+        "type": "string",
+        "required": false,
+        "description": "Custom separator for splitting text (default is space)",
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.786Z"
+  },
+  {
+    "name": "flip-text",
+    "category": "text",
+    "filePath": "text/flip-text.tsx",
+    "exports": [
+      "FlipText"
+    ],
+    "props": [
+      {
+        "name": "word",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "delayMultiple",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.683Z"
+  },
+  {
+    "name": "gradual-spacing",
+    "category": "text",
+    "filePath": "text/gradual-spacing.tsx",
+    "exports": [
+      "GradualSpacing"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "delayMultiple",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.683Z"
+  },
+  {
+    "name": "hyper-text",
+    "category": "text",
+    "filePath": "text/hyper-text.tsx",
+    "exports": [
+      "HyperText"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.683Z"
+  },
+  {
+    "name": "letter-pullup",
+    "category": "text",
+    "filePath": "text/letter-pullup.tsx",
+    "exports": [
+      "LetterPullup"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.688Z"
+  },
+  {
+    "name": "line-shadow-text",
+    "category": "text",
+    "filePath": "text/line-shadow-text.tsx",
+    "exports": [
+      "LineShadowText"
+    ],
+    "props": [
+      {
+        "name": "shadowColor",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.689Z"
+  },
+  {
+    "name": "morphing-text",
+    "category": "text",
+    "filePath": "text/morphing-text.tsx",
+    "exports": [
+      "MorphingText"
+    ],
+    "props": [
+      {
+        "name": "texts",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.690Z"
+  },
+  {
+    "name": "number-ticker",
+    "category": "text",
+    "filePath": "text/number-ticker.tsx",
+    "exports": [
+      "NumberTicker"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      },
+      {
+        "name": "direction",
+        "type": "up | down",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.794Z"
+  },
+  {
+    "name": "rotate-text",
+    "category": "text",
+    "filePath": "text/rotate-text.tsx",
+    "exports": [
+      "RotateText"
+    ],
+    "props": [
+      {
+        "name": "words",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.690Z"
+  },
+  {
+    "name": "scroll-based-velocity",
+    "category": "text",
+    "filePath": "text/scroll-based-velocity.tsx",
+    "exports": [
+      "ParallaxText",
+      "ScrollBasedVelocity"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "default_velocity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "baseVelocity",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.693Z"
+  },
+  {
+    "name": "separate-away",
+    "category": "text",
+    "filePath": "text/separate-away.tsx",
+    "exports": [
+      "SeparateAway"
+    ],
+    "props": [
+      {
+        "name": "upperText",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "lowerText",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.693Z"
+  },
+  {
+    "name": "sparkles-text",
+    "category": "text",
+    "filePath": "text/sparkles-text.tsx",
+    "exports": [
+      "SparklesText"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "colors",
+        "type": "any",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "sparklesCount",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-02-02T16:37:58.369Z"
+  },
+  {
+    "name": "spinning-text",
+    "category": "text",
+    "filePath": "text/spinning-text.tsx",
+    "exports": [
+      "SpinningText"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "reverse",
+        "type": "boolean",
+        "required": false,
+        "control": "boolean"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "radius",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.695Z"
+  },
+  {
+    "name": "text-animate",
+    "category": "text",
+    "filePath": "text/text-animate.tsx",
+    "exports": [
+      "TextAnimate"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "type",
+        "type": "popIn | slideUp | fadeIn",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "by",
+        "type": "character | word",
+        "required": false,
+        "control": "select"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.695Z"
+  },
+  {
+    "name": "text-highlighter",
+    "category": "text",
+    "filePath": "text/text-highlighter.tsx",
+    "exports": [
+      "TextHighlighter"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "highlight",
+        "type": "string | any",
+        "required": true,
+        "control": "select"
+      },
+      {
+        "name": "highlightClassName",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.800Z"
+  },
+  {
+    "name": "text-reveal",
+    "category": "text",
+    "filePath": "text/text-reveal.tsx",
+    "exports": [
+      "TextReveal"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.698Z"
+  },
+  {
+    "name": "typing-animation",
+    "category": "text",
+    "filePath": "text/typing-animation.tsx",
+    "exports": [
+      "TypingAnimation"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:06:54.768Z"
+  },
+  {
+    "name": "velocity-scroll",
+    "category": "text",
+    "filePath": "text/velocity-scroll.tsx",
+    "exports": [
+      "VelocityScroll"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "defaultVelocity",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      },
+      {
+        "name": "children",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "baseVelocity",
+        "type": "number",
+        "required": true,
+        "control": "number"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.698Z"
+  },
+  {
+    "name": "video-text",
+    "category": "text",
+    "filePath": "text/video-text.tsx",
+    "exports": [
+      "VideoText"
+    ],
+    "props": [
+      {
+        "name": "videoSrc",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T19:08:45.098Z"
+  },
+  {
+    "name": "wavy-text",
+    "category": "text",
+    "filePath": "text/wavy-text.tsx",
+    "exports": [
+      "WavyText"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.703Z"
+  },
+  {
+    "name": "word-rotate",
+    "category": "text",
+    "filePath": "text/word-rotate.tsx",
+    "exports": [
+      "WordRotate"
+    ],
+    "props": [
+      {
+        "name": "words",
+        "type": "any",
+        "required": true,
+        "control": "text"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "control": "number"
+      }
+    ],
+    "dependencies": [],
+    "lastModified": "2026-01-31T09:44:02.704Z"
   }
 ]

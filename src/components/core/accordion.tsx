@@ -52,7 +52,10 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
           return (
             <div
               key={item.id || idx}
-              className="overflow-hidden rounded-(--radius) border border-border"
+              className={cn(
+                "overflow-hidden rounded-(--radius) border border-border",
+                "unicorn-card" // Treat each accordion item like a card for themes
+              )}
             >
               <button
                 type="button"

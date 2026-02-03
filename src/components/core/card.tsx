@@ -20,6 +20,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
         className={cn(
           "rounded-(--radius) border border-border bg-card p-6 shadow-sm transition-all duration-200",
           hover && "hover:shadow-md hover:border-primary/20",
+          "unicorn-card",
           className
         )}
         whileHover={hover ? { y: -2, scale: 1.01 } : undefined}

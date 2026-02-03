@@ -102,6 +102,7 @@ export function DialogContent({ children, className }: DialogContentProps) {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className={cn(
                 "relative w-full max-w-lg rounded-xl border border-border bg-card p-6 shadow-2xl",
+                "unicorn-dialog",
                 className
               )}
             >

@@ -56,7 +56,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={ref}
-        className={cn(baseStyles, buttonVariants[variant], sizeStyles[size], className)}
+        className={cn(baseStyles, buttonVariants[variant], sizeStyles[size], "unicorn-button", className)}
         whileHover={{ scale: disabled || isLoading ? 1 : 1.02 }}
         whileTap={{ scale: disabled || isLoading ? 1 : 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
