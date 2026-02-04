@@ -59,7 +59,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
               "peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
               config.width,
               config.height,
-              isChecked ? "bg-primary" : "bg-muted-foreground/20",
+              isChecked ? "bg-primary" : "bg-input",
               "unicorn-switch",
               className
             )}
@@ -67,7 +67,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           >
             <motion.div
               className={cn(
-                "absolute top-0.5 left-0.5 rounded-full bg-white shadow-sm ring-1 ring-black/5",
+                "absolute top-0.5 left-0.5 rounded-full bg-background shadow-sm ring-0",
                 config.thumb
               )}
               animate={{

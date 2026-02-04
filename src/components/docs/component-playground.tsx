@@ -18,7 +18,7 @@ interface ComponentPlaygroundProps {
 
 export function ComponentPlayground({ doc }: ComponentPlaygroundProps) {
   // Initialize args with default values
-  const defaultArgs = (doc.props || []).reduce(
+  const defaultArgs = (doc?.props || []).reduce(
     (acc, prop) => {
       if (prop.defaultValue !== undefined) {
         acc[prop.name] = prop.defaultValue
@@ -57,13 +57,13 @@ export function ComponentPlayground({ doc }: ComponentPlaygroundProps) {
   // We wrap specific event handlers to update the playground state (args)
   const interactiveArgs = { ...args }
 
-  if (doc.props.some((p) => p.name === "checked")) {
+  if (doc?.props.some((p) => p.name === "checked")) {
     interactiveArgs.onCheckedChange = (checked: boolean) => {
       handleArgChange("checked", checked)
     }
   }
 
-  if (doc.props.some((p) => p.name === "value")) {
+  if (doc?.props.some((p) => p.name === "value")) {
     // For inputs, slider, etc.
     interactiveArgs.onValueChange = (val: any) => {
       handleArgChange("value", val)
@@ -78,7 +78,7 @@ export function ComponentPlayground({ doc }: ComponentPlaygroundProps) {
   }
 
   // Specific for Slider which uses onValueChange with number[]
-  if (doc.slug === "slider") {
+  if (doc?.slug === "slider") {
     interactiveArgs.onValueChange = (val: number[]) => {
       handleArgChange("defaultValue", val) // Slider uses defaultValue in args but onValueChange updates it
       // Wait, if args has defaultValue, we should update that?
@@ -86,13 +86,13 @@ export function ComponentPlayground({ doc }: ComponentPlaygroundProps) {
     }
   }
 
-  const Component = doc.component
+  const Component = doc?.component
 
   return (
     <div className="space-y-8 w-full max-w-7xl mx-auto p-4">
       <div className="flex flex-col gap-2">
-        <h1 className="text-4xl font-bold tracking-tight">{doc.title}</h1>
-        <p className="text-lg text-muted-foreground">{doc.description}</p>
+        <h1 className="text-4xl font-bold tracking-tight">{doc?.title}</h1>
+        <p className="text-lg text-muted-foreground">{doc?.description}</p>
       </div>
 
       <Tabs
@@ -195,16 +195,16 @@ export function ComponentPlayground({ doc }: ComponentPlaygroundProps) {
                 <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">
                   Controls
                 </h3>
-                <ControlPanel props={doc.props || []} values={args} onChange={handleArgChange} />
+                <ControlPanel props={doc?.props || []} values={args} onChange={handleArgChange} />
               </Card>
 
-              {doc.stories && doc.stories.length > 0 && (
+              {doc?.stories && doc?.stories.length > 0 && (
                 <Card className="p-4">
                   <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">
                     Variants
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {doc.stories.map((story) => (
+                    {doc?.stories.map((story) => (
                       <Button
                         key={story.name}
                         size="sm"
@@ -222,11 +222,11 @@ export function ComponentPlayground({ doc }: ComponentPlaygroundProps) {
         </TabsContent>
 
         <TabsContent value="code">
-          <CodeViewer componentName={doc.title} args={args} defaultArgs={defaultArgs} />
+          <CodeViewer componentName={doc?.title} args={args} defaultArgs={defaultArgs} />
         </TabsContent>
 
         <TabsContent value="api">
-          <PropsTable props={doc.props} />
+          <PropsTable props={doc?.props} />
         </TabsContent>
       </Tabs>
     </div>

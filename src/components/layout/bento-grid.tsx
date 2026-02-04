@@ -68,7 +68,7 @@ export const BentoCard = React.forwardRef<HTMLDivElement, BentoCardProps>(
         ref={ref}
         className={cn(
           "group relative flex flex-col justify-between overflow-hidden rounded-(--radius) p-6",
-          "bg-card border border-border transition-all duration-300",
+          "bg-card transition-all duration-300",
           featured ? "md:col-span-2 md:row-span-2" : "col-span-1 row-span-1",
           className
         )}
@@ -84,7 +84,7 @@ export const BentoCard = React.forwardRef<HTMLDivElement, BentoCardProps>(
         <div className="relative z-10 flex flex-col h-full justify-between">
           <div>
             <div className="flex flex-row items-center gap-2">
-              <div className="rounded-lg bg-primary/10 p-2 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+              <div className="rounded-lg bg-primary/10 p-2 text-primary transition-colors group-hover:bg-primary group-hover:text-foreground">
                 {Icon && React.createElement(Icon as React.ElementType, { className: "h-4 w-4" })}
               </div>
               <h3 className="text-lg font-semibold text-foreground">{name || title}</h3>

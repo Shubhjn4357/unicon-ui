@@ -31,7 +31,7 @@ export function HeroVideoDialog({
           alt={thumbnailAlt}
           className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/40">
+        <div className="absolute inset-0 flex items-center justify-center bg-background/20 transition-colors group-hover:bg-background/40">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background/90 text-primary shadow-lg transition-transform group-hover:scale-110">
             <Play className="h-8 w-8 ml-1 fill-current" />
           </div>
@@ -40,12 +40,12 @@ export function HeroVideoDialog({
 
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="relative w-full max-w-5xl aspect-video overflow-hidden rounded-(--radius) shadow-2xl bg-black"
+              className="relative w-full max-w-5xl aspect-video overflow-hidden rounded-(--radius) shadow-2xl bg-card"
             >
               <iframe
                 src={videoSrc}
@@ -54,7 +54,7 @@ export function HeroVideoDialog({
                 allowFullScreen
               />
               <button
-                className="absolute top-4 right-4 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+                className="absolute top-4 right-4 rounded-full bg-background/50 p-2 text-foreground transition-colors hover:bg-background/70"
                 onClick={() => setIsOpen(false)}
               >
                 <X className="h-5 w-5" />

@@ -19,6 +19,8 @@ export const AnimatedList = React.forwardRef<HTMLDivElement, AnimatedListProps>(
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            whileHover={{ opacity: 1, x: 0, scale: 1.05 }}
             transition={{ duration: 0.3, delay: delay + i * 0.1 }}
           >
             {child}

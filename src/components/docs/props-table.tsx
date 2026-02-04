@@ -31,9 +31,7 @@ export function PropsTable({ props }: PropsTableProps) {
               <TableCell>
                 <div className="flex flex-col gap-1">
                   <Badge variant="outline" className="font-mono text-xs w-fit">
-                    {prop.type === "enum" && prop.control?.options
-                      ? prop.control.options.map(o => `"${o}"`).join(" | ")
-                      : prop.type}
+                    {prop.type}
                   </Badge>
                   {prop.type === "enum" && prop.control?.options && (
                     <div className="flex flex-wrap gap-1 mt-1">

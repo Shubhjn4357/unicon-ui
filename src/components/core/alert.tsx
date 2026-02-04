@@ -27,8 +27,8 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
     const variantStyles = {
       default: "bg-primary/10 text-primary border-primary/20",
       destructive: "bg-destructive/10 text-destructive border-destructive/20",
-      success: "bg-green-500/10 text-green-600 border-green-500/20 dark:text-green-400",
-      warning: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20 dark:text-yellow-400",
+      success: "bg-success/10 text-success border-success/20",
+      warning: "bg-warning/10 text-warning border-warning/20",
       glass: "glass backdrop-blur-md bg-background/60 border-border/50 shadow-lg",
     }
 

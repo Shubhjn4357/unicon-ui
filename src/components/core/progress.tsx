@@ -10,6 +10,7 @@ export interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "default" | "success" | "warning" | "error"
   showLabel?: boolean
   animated?: boolean
+  onValueChange?: (value: number) => void
 }
 
 export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
@@ -20,6 +21,7 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
       variant = "default",
       showLabel = false,
       animated = true,
+      onValueChange,
       className,
       ...props
     },
@@ -29,9 +31,9 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
 
     const variantStyles = {
       default: "bg-primary",
-      success: "bg-green-500",
-      warning: "bg-yellow-500",
-      error: "bg-red-500",
+      success: "bg-success",
+      warning: "bg-warning",
+      error: "bg-destructive",
     }
 
     return (

@@ -83,7 +83,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           className={cn(
-            "relative h-2 w-full cursor-pointer touch-none select-none rounded-full bg-muted",
+            "relative h-2 w-full cursor-pointer touch-none select-none rounded-full bg-secondary",
             disabled && "cursor-not-allowed opacity-50"
           )}
         >

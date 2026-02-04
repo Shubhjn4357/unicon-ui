@@ -54,7 +54,7 @@ export const ConfettiButton = React.forwardRef<HTMLButtonElement, ConfettiButton
         ref={ref}
         onClick={handleClick}
         className={cn(
-          "inline-flex items-center justify-center rounded-lg bg-[hsl(var(--primary))] px-4 py-2 font-medium text-white transition-all hover:bg-[hsl(var(--primary))]/90 cursor-pointer",
+          "inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 font-medium text-primary-foreground transition-all hover:bg-primary/90 cursor-pointer",
           className
         )}
         {...props}

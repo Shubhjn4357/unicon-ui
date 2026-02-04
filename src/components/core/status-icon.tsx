@@ -18,10 +18,10 @@ export const StatusIcon = React.forwardRef<HTMLDivElement, StatusIconProps>(
     }
 
     const statusConfig = {
-      success: { bg: "bg-green-500", color: "text-white" },
-      warning: { bg: "bg-yellow-500", color: "text-white" },
-      error: { bg: "bg-red-500", color: "text-white" },
-      info: { bg: "bg-blue-500", color: "text-white" },
+      success: { bg: "bg-success", color: "text-success-foreground" },
+      warning: { bg: "bg-warning", color: "text-warning-foreground" },
+      error: { bg: "bg-destructive", color: "text-destructive-foreground" },
+      info: { bg: "bg-primary", color: "text-primary-foreground" },
     }
 
     const config = statusConfig[status]

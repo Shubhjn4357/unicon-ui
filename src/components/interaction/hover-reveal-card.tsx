@@ -27,12 +27,12 @@ export function HoverRevealCard({
       )}
       whileHover="hover"
     >
-      <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 bg-linear-to-t from-black/80 to-transparent">
-        <h3 className="text-2xl font-bold text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+      <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 bg-linear-to-t from-[hsl(var(--background))]/80 to-transparent">
+        <h3 className="text-2xl font-bold text-[hsl(var(--foreground))] translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
           {title}
         </h3>
         {subtitle && (
-          <p className="text-white/80 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75">
+          <p className="text-[hsl(var(--foreground))]/80 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75">
             {subtitle}
           </p>
         )}
@@ -49,7 +49,7 @@ export function HoverRevealCard({
       />
 
       {children && (
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-[hsl(var(--background))]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           {children}
         </div>
       )}

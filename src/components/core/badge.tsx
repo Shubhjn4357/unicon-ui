@@ -16,11 +16,11 @@ export interface BadgeProps extends HTMLMotionProps<"div"> {
  * Built without shadcn/Radix - pure CSS with Framer Motion
  */
 export const badgeVariants = {
-  default: "bg-primary/10 text-primary border-primary/20",
-  secondary: "bg-secondary text-secondary-foreground border-border",
-  outline: "bg-background text-foreground border-border",
-  destructive: "bg-destructive/10 text-destructive border-destructive/20",
-  success: "bg-green-500/10 text-green-600 border-green-500/20 dark:text-green-400",
+  default: "bg-primary text-primary-foreground hover:bg-primary/80 border-transparent",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent",
+  outline: "text-foreground border-border hover:bg-accent hover:text-accent-foreground",
+  destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent",
+  success: "bg-success text-success-foreground hover:bg-success/80 border-transparent",
 }
 
 export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(

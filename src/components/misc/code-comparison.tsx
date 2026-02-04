@@ -25,23 +25,23 @@ export const CodeComparison = React.forwardRef<HTMLDivElement, CodeComparisonPro
         )}
         <div className="grid grid-cols-2 gap-4">
           <motion.div
-            className="rounded-(--radius) border border-red-500/20 bg-red-950/10 p-4"
+            className="rounded-(--radius) border border-destructive/20 bg-destructive/10 p-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="mb-2 text-xs font-semibold text-red-400">Before</div>
+            <div className="mb-2 text-xs font-semibold text-destructive">Before</div>
             <pre className="overflow-x-auto text-sm">
               <code className={`language-${language}`}>{beforeCode}</code>
             </pre>
           </motion.div>
           <motion.div
-            className="rounded-(--radius) border border-green-500/20 bg-green-950/10 p-4"
+            className="rounded-(--radius) border border-success/20 bg-success/10 p-4"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
           >
-            <div className="mb-2 text-xs font-semibold text-green-400">After</div>
+            <div className="mb-2 text-xs font-semibold text-success">After</div>
             <pre className="overflow-x-auto text-sm">
               <code className={`language-${language}`}>{afterCode}</code>
             </pre>

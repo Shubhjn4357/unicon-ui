@@ -13,14 +13,14 @@ export const Android = React.forwardRef<HTMLDivElement, AndroidProps>(
       <div
         ref={ref}
         className={cn(
-          "relative aspect-9/19 w-[280px] rounded-[36px] bg-black border-8 border-gray-900 overflow-hidden shadow-xl",
+          "relative aspect-9/19 w-[280px] rounded-[36px] bg-foreground border-8 border-muted overflow-hidden shadow-xl",
           className
         )}
         {...props}
       >
         {/* Hole Punch Camera */}
-        <div className="absolute left-1/2 top-4 z-20 h-4 w-4 -translate-x-1/2 rounded-full bg-zinc-900">
-          <div className="absolute inset-1 rounded-full bg-zinc-800/50" />
+        <div className="absolute left-1/2 top-4 z-20 h-4 w-4 -translate-x-1/2 rounded-full bg-muted">
+          <div className="absolute inset-1 rounded-full bg-muted-foreground/20" />
         </div>
 
         {/* Screen Content */}
@@ -33,8 +33,8 @@ export const Android = React.forwardRef<HTMLDivElement, AndroidProps>(
         </div>
 
         {/* Side Buttons (Right side usually for Android/Pixel) */}
-        <div className="absolute -right-[10px] top-32 h-10 w-1 rounded-r-md bg-zinc-800" />
-        <div className="absolute -right-[10px] top-48 h-16 w-1 rounded-r-md bg-zinc-800" />
+        <div className="absolute -right-[10px] top-32 h-10 w-1 rounded-r-md bg-muted" />
+        <div className="absolute -right-[10px] top-48 h-16 w-1 rounded-r-md bg-muted" />
       </div>
     )
   }

@@ -19,7 +19,6 @@ import Link from "next/link"
 
 export default function HomePage() {
   const { designStyle, setDesignStyle } = useDesignStyle()
-
   const features = [
     {
       Icon: Code2,
@@ -30,7 +29,7 @@ export default function HomePage() {
         <Particles
           className="absolute inset-0"
           quantity={100}
-          color="var(--background)"
+          color="var(--foreground)"
           refresh={false}
         />
       ),
@@ -79,7 +78,7 @@ export default function HomePage() {
       <Particles
         className="absolute inset-0 -z-10"
         quantity={50}
-        color="#a855f7"
+        color="var(--foreground)"
         refresh={false}
       />
 
@@ -132,7 +131,7 @@ export default function HomePage() {
             { label: "Design Styles", value: 5 },
             { label: "Hooks", value: 10 },
             { label: "KB (gzip)", value: 236 },
-          ].map((stat) => (
+          ].map((stat, idx) => (
             <Card
               key={stat.label}
               className="relative overflow-hidden p-6 text-center"
@@ -141,7 +140,7 @@ export default function HomePage() {
                 <NumberTicker value={stat.value} />
                 {stat.label === "KB (gzip)" && ""}
               </div>
-              <BorderBeam duration={5 + Math.random() * 5} />
+              <BorderBeam duration={5 + (idx % 5) * 2} />
               <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
             </Card>
           ))}

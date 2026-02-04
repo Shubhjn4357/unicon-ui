@@ -1,5 +1,6 @@
 "use client"
-import { Accordion } from "@unicorn-ui/ui"
+import * as React from "react"
+import { Accordion, AuroraBackground, GridPattern, MorphingText, NumberTicker, ShootingStars, SocialFlipButton, SparklesText, Stars, StatusIcon, TypingAnimation, VelocityScroll, WordRotate, cn } from "@unicorn-ui/ui"
 import { Alert, AlertDescription, AlertTitle } from "@unicorn-ui/ui"
 import { Avatar, AvatarFallback, AvatarImage } from "@unicorn-ui/ui"
 import { Badge } from "@unicorn-ui/ui"
@@ -91,8 +92,13 @@ import {
   Ripple,
   // New Components
   ShimmerButton, RainbowButton, GlowButton, RippleButton, MagneticButton, PulsatingButton, ShinyButton, AnimatedButton, GooeyButton, InteractiveHoverButton, CreepyButton,
-  WavyText, GradualSpacing, LetterPullup, BoxReveal, TextReveal, SeparateAway, RotateText, SpinningText, FlipText3D, TextAnimate, AnimatedNumber, TextHighlighter, ComicText, AuroraText, AnimatedShinyText, BlurFade, LineShadowText, VideoText, ScrollBasedVelocity,
-  Confetti, BorderBeam, Spotlight, AnimatedBeam, ShineBorder, RippleEffect, GlitchEffect, Magnifier, CanvasSmudge, Scene3D, ParticleImage, Gravity,
+  WavyText, GradualSpacing, LetterPullup, BoxReveal, TextReveal, SeparateAway, RotateText, SpinningText, FlipText3D, TextAnimate, AnimatedNumber, TextHighlighter, ComicText, AuroraText, AnimatedShinyText, BlurFade, LineShadowText, VideoText, ScrollBasedVelocity, HyperText, FadeText, FlipText, AnimatedGradientText,
+  Confetti, BorderBeam, Spotlight, SpotlightNew, AnimatedBeam, ShineBorder, RippleEffect, GlitchEffect, Magnifier, CanvasSmudge, Scene3D, ParticleImage, Gravity,
+  BackgroundBeams, FlickeringGrid, InteractiveGridPattern, StripedPattern, WarpBackground,
+  OrbitingDots, Snow, HoverRevealCard, MagneticWrapper, NeonGradientCard, ConfettiSideCannons,
+  // Detailed Feedback & Interaction Imports
+  Skeleton, ThemeToggle, CommandMenu, PercentLoader, RevealLoader, SmartInput,
+  NoiseOverlay, ParallaxImage, AnimatedCircularProgressBar, CardStack, CustomPointer, FollowerPointer, PixelTrail, ScrollProgress, ScrollProgressiveBlur, CustomCursor, DeviceMockups,
 } from "@unicorn-ui/ui"
 import { motion } from "framer-motion"
 import { useState } from "react"
@@ -108,7 +114,7 @@ import { useMouse } from "@unicorn-ui/ui"
 import { useScrollProgress } from "@unicorn-ui/ui"
 // Utils
 import { InView } from "@unicorn-ui/ui"
-import { Home, Settings, User } from "lucide-react"
+import { Home, Settings, User, Globe } from "lucide-react"
 
 
 export function AccordionDemo(props: any) {
@@ -213,13 +219,13 @@ export function DialogDemo() {
             <Label htmlFor="name" className="text-right">
               Name
             </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+            <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
               Username
             </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
+            <Input id="username" defaultValue="@peduarte" className="col-span-3" />
           </div>
         </div>
         <DialogFooter>
@@ -330,6 +336,8 @@ export function SheetDemo() {
 }
 
 export function SliderDemo(props: any) {
+  // Handle both controlled and uncontrolled scenarios or just pass props
+  // ensure value is passed if it exists in props to make it controlled
   return <Slider className="w-[60%]" {...props} />
 }
 
@@ -425,8 +433,8 @@ export function TabsDemo() {
   )
 }
 
-export function TextareaDemo() {
-  return <Textarea placeholder="Type your message here." />
+export function TextareaDemo(props: any) {
+  return <Textarea placeholder="Type your message here." {...props} />
 }
 
 export function ToastDemo() {
@@ -446,10 +454,10 @@ export function ToastDemo() {
 }
 
 // Wrapper for ToastDemo to include provider
-export function ToastDemoWrapper() {
+export function ToastDemoWrapper(props: any) {
   return (
     <ToastProvider>
-      <ToastDemo />
+      <ToastDemo {...props} />
     </ToastProvider>
   )
 }
@@ -471,18 +479,19 @@ export function TooltipDemo() {
 
 export function BentoGridDemo() {
   return (
-    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-      {[1, 2, 3, 4].map((i) => (
+    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto">
+      {[1, 2, 3, 4, 5, 6].map((i) => (
         <BentoCard
           key={i}
           title={`Item ${i}`}
           description="A sleek bento grid item."
+
           background={
-            <div className="flex flex-1 w-full h-full min-h-24 rounded-xl bg-linear-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100" />
+            <div className="flex flex-1 w-full h-full min-h-24 rounded-xl bg-linear-to-br from-purple-500 to-pink-600" />
           }
           className={i === 3 || i === 6 ? "md:col-span-2" : ""}
           cta="Learn More"
-          href="#"
+          href="https://shubham-jain.vercel.app"
           Icon={Home}
           name={`Item ${i}`}
         />
@@ -521,10 +530,10 @@ export function ThreeDCardDemo() {
     <div className="flex items-center justify-center p-10">
       <ThreeDCard className="w-full max-w-sm">
         <div className="flex flex-col gap-2">
-          <h1 className="font-bold text-xl text-neutral-600 dark:text-white">
+          <h1 className="font-bold text-xl text-foreground">
             Make things float in air
           </h1>
-          <p className="text-neutral-500 text-sm mt-2 dark:text-neutral-300">
+          <p className="text-muted-foreground">
             Hover over this card to unleash the power of CSS perspective
           </p>
           <div className="h-40 w-full bg-blue-500 rounded-xl mt-4 shadow-xl" />
@@ -570,7 +579,7 @@ export function AnimatedListDemo() {
         {[1, 2, 3].map((item) => (
           <div
             key={item}
-            className="bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-sm mb-2 w-64"
+            className="bg-card p-4 rounded-lg shadow-sm mb-2 w-64"
           >
             Item {item}
           </div>
@@ -596,22 +605,12 @@ export function SidebarDemo() {
         <SidebarItem icon={<Home className="h-5 w-5" />}>Home</SidebarItem>
         <SidebarItem icon={<User className="h-5 w-5" />}>Profile</SidebarItem>
       </Sidebar>
-      <div className="flex-1 p-4 bg-white dark:bg-neutral-900">Content goes here</div>
+      <div className="flex-1 p-4 bg-background">Content goes here</div>
     </div>
   )
 }
 
-export function AvatarCirclesDemo() {
-  return (
-    <AvatarCircles
-      avatars={[
-        { name: "Shadcn", src: "https://github.com/shadcn.png" },
-        { name: "Vercel", src: "https://github.com/vercel.png" },
-        { name: "User 3" },
-      ]}
-    />
-  )
-}
+
 
 // --- Hook Demos ---
 
@@ -853,10 +852,10 @@ export function MarqueeDemo() {
   )
 }
 
-export function AnimatedGridPatternDemo() {
+export function AnimatedGridPatternDemo(props: React.ComponentProps<typeof AnimatedGridPattern>) {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <AnimatedGridPattern />
+      <AnimatedGridPattern {...props} />
       <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         Grid Pattern
       </span>
@@ -864,10 +863,10 @@ export function AnimatedGridPatternDemo() {
   )
 }
 
-export function RetroGridDemo() {
+export function RetroGridDemo(props: React.ComponentProps<typeof RetroGrid>) {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <RetroGrid />
+      <RetroGrid {...props} />
       <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         Retro Grid
       </span>
@@ -878,7 +877,7 @@ export function RetroGridDemo() {
 export function RippleDemo() {
   return (
     <div className="relative flex h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-black dark:text-white">
+      <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-foreground">
         Ripple
       </p>
       <Ripple />
@@ -886,7 +885,7 @@ export function RippleDemo() {
   )
 }
 
-export function DotPatternDemo() {
+export function DotPatternDemo(props: React.ComponentProps<typeof DotPattern>) {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <DotPattern
@@ -896,6 +895,7 @@ export function DotPatternDemo() {
         cy={1}
         cr={1}
         className="mask-gradient(to_bottom_right,white,transparent,transparent) "
+        {...props}
       />
       <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         Dot Pattern
@@ -906,177 +906,26 @@ export function DotPatternDemo() {
 
 export const SplitLayoutDemo = ResizablePanelDemo
 
-// === BUTTON DEMOS ===
 
-export function ShimmerButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <ShimmerButton>Shimmer Button</ShimmerButton>
-    </div>
-  )
-}
 
-export function RainbowButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <RainbowButton>Rainbow Button</RainbowButton>
-    </div>
-  )
-}
 
-export function GlowButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <GlowButton>Glow Button</GlowButton>
-    </div>
-  )
-}
 
-export function RippleButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <RippleButton>Ripple Button</RippleButton>
-    </div>
-  )
-}
 
-export function MagneticButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <MagneticButton>Magnetic Button</MagneticButton>
-    </div>
-  )
-}
 
-export function PulsatingButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <PulsatingButton>Pulsating Button</PulsatingButton>
-    </div>
-  )
-}
 
-export function ShinyButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <ShinyButton>Shiny Button</ShinyButton>
-    </div>
-  )
-}
 
-export function AnimatedButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <AnimatedButton>Animated Button</AnimatedButton>
-    </div>
-  )
-}
 
-export function GooeyButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <GooeyButton>Gooey Button</GooeyButton>
-    </div>
-  )
-}
 
-export function InteractiveHoverButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <InteractiveHoverButton />
-    </div>
-  )
-}
 
-export function CreepyButtonDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <CreepyButton>Creepy Button</CreepyButton>
-    </div>
-  )
-}
 
-// === TEXT DEMOS ===
 
-export function WavyTextDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <WavyText text="Wavy Text Animation" />
-    </div>
-  )
-}
 
-export function GradualSpacingDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <GradualSpacing text="Gradual Spacing" />
-    </div>
-  )
-}
 
-export function LetterPullupDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <LetterPullup text="Letter Pullup" />
-    </div>
-  )
-}
 
-export function BoxRevealDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <BoxReveal>Box Reveal Content</BoxReveal>
-    </div>
-  )
-}
 
-export function TextRevealDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <TextReveal text="Text Reveal on Scroll" />
-    </div>
-  )
-}
 
-export function SeparateAwayDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <SeparateAway upperText="Separate" lowerText="Away" />
-    </div>
-  )
-}
 
-export function RotateTextDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <RotateText words={["Rotate", "Text", "Animation"]} />
-    </div>
-  )
-}
 
-export function SpinningTextDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <SpinningText>Spinning • Text • Effect •</SpinningText>
-    </div>
-  )
-}
-
-export function FlipText3DDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <FlipText3D>Flip Text 3D</FlipText3D>
-    </div>
-  )
-}
-
-export function TextAnimateDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <TextAnimate text="Text Animate" />
-    </div>
-  )
-}
 
 export function AnimatedNumberDemo() {
   return (
@@ -1086,21 +935,9 @@ export function AnimatedNumberDemo() {
   )
 }
 
-export function TextHighlighterDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <TextHighlighter text="Highlight this text" highlight="Highlight" />
-    </div>
-  )
-}
 
-export function ComicTextDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <ComicText>POW!</ComicText>
-    </div>
-  )
-}
+
+
 
 export function AuroraTextDemo() {
   return (
@@ -1118,13 +955,7 @@ export function AnimatedShinyTextDemo() {
   )
 }
 
-export function BlurFadeDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <BlurFade>Blur Fade Text</BlurFade>
-    </div>
-  )
-}
+
 
 export function LineShadowTextDemo() {
   return (
@@ -1150,122 +981,797 @@ export function ScrollBasedVelocityDemo() {
   )
 }
 
-// === SPECIAL DEMOS ===
+export function BlurFadeDemo() {
+  return (
+    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl p-4">
+      <BlurFade delay={0.25}>
+        <span className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+          Blur Fade
+        </span>
+      </BlurFade>
+    </div>
+  )
+}
+
+export function MorphingTextDemo() {
+  return (
+    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
+      <MorphingText texts={["Morphing", "Text", "Animation"]} />
+    </div>
+  )
+}
+
+export function NumberTickerDemo() {
+  return (
+    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
+      <p className="whitespace-pre-wrap text-8xl font-medium tracking-tighter text-foreground">
+        <NumberTicker value={100} />
+      </p>
+    </div>
+  )
+}
+
+export function SparklesTextDemo() {
+  return (
+    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
+      <SparklesText text="Sparkles Text" />
+    </div>
+  )
+}
+
+export function TypingAnimationDemo() {
+  return (
+    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
+      <TypingAnimation className="text-4xl font-bold text-foreground" text="Typing Animation" />
+    </div>
+  )
+}
+
+export function LetterPullupDemo() {
+  return (
+    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
+      <LetterPullup text="Letter Pull Up" delay={0.05} />
+    </div>
+  )
+}
+
+export function WordRotateDemo() {
+  return (
+    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
+      <WordRotate words={["Rotate", "Words", "Animation"]} />
+    </div>
+  )
+}
+
+export function AuroraBackgroundDemo(props: React.ComponentProps<typeof AuroraBackground>) {
+  return (
+    <div className="h-[300px] w-full overflow-hidden rounded-lg border md:shadow-xl relative">
+      <AuroraBackground {...props}>
+        <div className="relative flex flex-col items-center justify-center gap-4 px-4">
+          <div className="text-3xl font-bold dark:text-white md:text-7xl">
+            Aurora
+          </div>
+        </div>
+      </AuroraBackground>
+    </div>
+  )
+}
+
+export function GridPatternDemo() {
+  return (
+    <div className="relative h-[300px] w-full overflow-hidden rounded-lg border bg-background md:shadow-xl flex items-center justify-center">
+      <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-foreground">
+        Grid Pattern
+      </p>
+      <GridPattern
+        width={30}
+        height={30}
+        x={-1}
+        y={-1}
+        strokeDasharray={"4 2"}
+        className={cn(
+          "mask-[radial-gradient(300px_circle_at_center,white,transparent)]",
+        )}
+      />
+    </div>
+  )
+}
+
+export function ShootingStarsDemo() {
+  return (
+    <div className="relative h-[300px] w-full flex items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl bg-slate-900">
+      <h2 className="relative z-10 text-3xl font-bold text-center text-white md:text-5xl">
+        Shooting Stars
+      </h2>
+      <ShootingStars />
+      <Stars />
+    </div>
+  )
+}
+
+export function StarsDemo() {
+  return (
+    <div className="relative h-[300px] w-full flex items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl bg-black">
+      <span className="pointer-events-none z-10 whitespace-pre-wrap bg-linear-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center text-7xl font-bold leading-none tracking-tighter text-transparent">
+        Stars
+      </span>
+      <Stars />
+    </div>
+  )
+}
+
+export function VelocityScrollDemo() {
+  return (
+    <div className="relative h-[300px] w-full flex items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <VelocityScroll
+        text="Velocity Scroll"
+        defaultVelocity={5}
+        className="font-display text-center text-4xl font-bold tracking-[-0.02em] text-foreground drop-shadow-sm md:text-7xl md:leading-20"
+      />
+    </div>
+  )
+}
+
+export function HyperTextDemo() {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <HyperText text="Hyper Text" />
+    </div>
+  )
+}
+
+export function FadeTextDemo() {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <FadeText text="Fade Text" direction="up" />
+    </div>
+  )
+}
+
+export function FlipTextDemo() {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <FlipText word="Flip Text" />
+    </div>
+  )
+}
+
+export function AnimatedGradientTextDemo() {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <AnimatedGradientText>
+        <span className="inline animate-gradient bg-linear-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-size-[var(--bg-size)_100%] bg-clip-text text-transparent">
+          Animated Gradient Text
+        </span>
+      </AnimatedGradientText>
+    </div>
+  )
+}
+
+export function StripedPatternDemo(props: React.ComponentProps<typeof StripedPattern>) {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <StripedPattern className="opacity-50" {...props} />
+      <p className="z-10 text-5xl font-medium tracking-tighter text-black dark:text-white">
+        Striped Pattern
+      </p>
+    </div>
+  )
+}
+
+export function WarpBackgroundDemo(props: React.ComponentProps<typeof WarpBackground>) {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border md:shadow-xl">
+      <WarpBackground {...props} />
+      <Card className="z-50 w-80">
+        <CardHeader>
+          <CardTitle>Warp Background</CardTitle>
+          <CardDescription>
+            A background that warps the grid behind it.
+          </CardDescription>
+        </CardHeader>
+      </Card>
+    </div>
+  )
+}
+
+export function InteractiveGridPatternDemo(props: React.ComponentProps<typeof InteractiveGridPattern>) {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <InteractiveGridPattern {...props} />
+      <p className="z-10 text-5xl font-medium tracking-tighter text-black dark:text-white">
+        Interactive Grid
+      </p>
+    </div>
+  )
+}
+
+export function FlickeringGridDemo(props: React.ComponentProps<typeof FlickeringGrid>) {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <FlickeringGrid {...props} />
+      <p className="z-10 text-5xl font-medium tracking-tighter text-black dark:text-white">
+        Flickering Grid
+      </p>
+    </div>
+  )
+}
 
 
+
+
+// --- New Button Demos ---
+
+export function ShimmerButtonDemo(props: React.ComponentProps<typeof ShimmerButton>) {
+  return (
+    <div className="z-10 flex h-80 items-center justify-center">
+      <ShimmerButton className="shadow-2xl" {...props}>
+        <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+          Shimmer Button
+        </span>
+      </ShimmerButton>
+    </div>
+  );
+}
+
+export function RainbowButtonDemo(props: React.ComponentProps<typeof RainbowButton>) {
+  return <RainbowButton {...props}>Get Unlimited Access</RainbowButton>;
+}
+
+export function GlowButtonDemo(props: React.ComponentProps<typeof GlowButton>) {
+  return <GlowButton {...props}>Glow Button</GlowButton>;
+}
+
+export function RippleButtonDemo(props: React.ComponentProps<typeof RippleButton>) {
+  return (
+    <div className="flex items-center justify-center h-full">
+      <RippleButton {...props}>Ripple Button</RippleButton>
+    </div>
+  );
+}
+
+export function MagneticButtonDemo() {
+  return (
+    <MagneticButton>
+      <Button>Magnetic Button</Button>
+    </MagneticButton>
+  );
+}
+
+export function PulsatingButtonDemo(props: React.ComponentProps<typeof PulsatingButton>) {
+  return <PulsatingButton {...props}>Pulsating Button</PulsatingButton>;
+}
+
+export function ShinyButtonDemo(props: React.ComponentProps<typeof ShinyButton>) {
+  return <ShinyButton {...props}>Shiny Button</ShinyButton>;
+}
+
+export function AnimatedButtonDemo(props: React.ComponentProps<typeof AnimatedButton>) {
+  return <AnimatedButton {...props}>Animated Button</AnimatedButton>;
+}
+
+export function GooeyButtonDemo(props: React.ComponentProps<typeof GooeyButton>) {
+  return <GooeyButton {...props}>Gooey Button</GooeyButton>;
+}
+
+export function InteractiveHoverButtonDemo({ text = "Hover Me", ...props }: { text?: string } & React.ComponentProps<typeof InteractiveHoverButton>) {
+  return <InteractiveHoverButton {...props}>{text}</InteractiveHoverButton>;
+}
+
+export function CreepyButtonDemo(props: React.ComponentProps<typeof CreepyButton>) {
+  return <CreepyButton {...props}>Creepy Button</CreepyButton>;
+}
+
+export function SocialFlipButtonDemo() {
+  return (
+    <div className="flex flex-col gap-4 items-center justify-center h-80">
+      <SocialFlipButton
+        frontText="GitHub"
+        backText="Follow @unicorn-ui"
+      />
+      <SocialFlipButton
+        frontText="Twitter"
+        backText="Follow @unicorn_ui"
+      />
+    </div>
+  );
+}
+
+// --- Special Effects Demos ---
 
 export function ConfettiDemo() {
   return (
-    <div className="relative h-[300px] w-full flex items-center justify-center border rounded-lg md:shadow-xl bg-background">
-      <Button onClick={() => { }}>Trigger Confetti</Button>
+    <div className="relative flex h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+        Confetti
+      </span>
       <Confetti />
     </div>
-  )
+  );
+}
+
+export function ConfettiSideCannonsDemo() {
+  return (
+    <div className="relative flex h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <ConfettiSideCannons />
+      <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+        Cannons
+      </span>
+    </div>
+  );
+}
+
+export function SpotlightDemo() {
+  return (
+    <div className="h-80 w-full rounded-md flex md:items-center md:justify-center bg-black/96 antialiased bg-grid-white/[0.02] relative overflow-hidden">
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+      />
+      <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-linear-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+          Spotlight <br /> is the new trend.
+        </h1>
+      </div>
+    </div>
+  );
 }
 
 export function BorderBeamDemo() {
   return (
-    <div className="relative h-[200px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
-      <BorderBeam />
-      <span>Border Beam</span>
+    <div className="relative flex h-[200px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+        Border Beam
+      </span>
+      <BorderBeam size={250} duration={12} delay={9} />
     </div>
-  )
+  );
 }
 
-
-
-
-
-export function SpotlightDemo() {
+export function ShineBorderDemo(props: React.ComponentProps<typeof ShineBorder>) {
   return (
-    <div className="relative h-[300px] w-full bg-slate-900 flex items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
-      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" color="white" />
-      <span className="text-white text-4xl font-bold z-10">Spotlight</span>
-    </div>
-  )
-}
-
-export function AnimatedBeamDemo() {
-  return (
-    <div className="h-[200px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
-      Animated Beam Demo
-    </div>
-  )
-}
-
-export function ShineBorderDemo() {
-  return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <ShineBorder className="text-center text-2xl font-bold capitalize p-10 bg-background">
+    <div className="flex items-center justify-center h-[200px]">
+      <ShineBorder className="text-center text-2xl font-bold capitalize" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]} {...props}>
         Shine Border
       </ShineBorder>
     </div>
-  )
+  );
 }
 
-export function RippleEffectDemo() {
+export function RippleEffectDemo(props: React.ComponentProps<typeof RippleEffect>) {
   return (
-    <div className="relative h-[300px] w-full flex items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <RippleEffect />
-      <span className="text-4xl font-bold z-10">Ripple</span>
+    <div className="flex h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <RippleEffect {...props} />
+      <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-foreground">
+        Ripple Effect
+      </p>
     </div>
   )
 }
 
 export function GlitchEffectDemo() {
   return (
+    <div className="flex h-[200px] w-full items-center justify-center">
+      <GlitchEffect text="GLITCH" />
+    </div>
+  );
+}
+
+export function CanvasSmudgeDemo(props: React.ComponentProps<typeof CanvasSmudge>) {
+  return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <GlitchEffect text="Glitch Effect" />
+      <CanvasSmudge {...props} />
+      <p className="pointer-events-none z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-black dark:text-white">
+        Smudge
+      </p>
     </div>
-  )
-}
-
-export function MagnifierDemo() {
-  return (
-    <div className="relative h-[300px] w-full flex items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <div className="text-muted-foreground">Magnifier Demo (Image required)</div>
-    </div>
-  )
-}
-
-export function CanvasSmudgeDemo() {
-  return (
-    <div className="relative h-[300px] w-full flex items-center justify-center overflow-hidden rounded-lg border bg-black md:shadow-xl">
-      <CanvasSmudge>
-        <div className="text-4xl font-bold text-white">Smudge Me</div>
-      </CanvasSmudge>
-    </div>
-  )
+  );
 }
 
 export function Scene3DDemo() {
   return (
-    <div className="h-[300px] w-full border rounded-lg overflow-hidden md:shadow-xl">
+    <div className="relative h-[300px] w-full overflow-hidden rounded-lg border">
       <Scene3D />
+    </div>
+  );
+}
+
+export function GravityDemo() {
+  return (
+    <div className="relative flex h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <Gravity items={[
+        <div key="1" className="text-4xl font-bold bg-white p-4 rounded-xl text-black">Gravity</div>,
+        <div key="2" className="text-2xl font-bold bg-white p-2 rounded-xl text-black">Physics</div>,
+        <div key="3" className="text-xl font-bold bg-white p-2 rounded-xl text-black">Matter</div>
+      ]} />
+    </div>
+  );
+}
+
+// --- Background Demos ---
+
+export function BackgroundBeamsDemo(props: React.ComponentProps<typeof BackgroundBeams>) {
+  return (
+    <div className="h-80 w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+      <div className="max-w-2xl mx-auto p-4">
+        <h1 className="relative z-10 text-lg md:text-7xl  bg-clip-text text-transparent bg-linear-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
+          Background Beams
+        </h1>
+      </div>
+      <BackgroundBeams {...props} />
+    </div>
+  );
+}
+
+export function OrbitingDotsDemo(props: React.ComponentProps<typeof OrbitingDots>) {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <OrbitingDots {...props} />
+    </div>
+  );
+}
+
+export function SnowDemo(props: React.ComponentProps<typeof Snow>) {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-slate-950 md:shadow-xl">
+      <Snow {...props} />
+      <p className="z-10 text-5xl font-medium tracking-tighter text-white">
+        Let it Snow
+      </p>
+    </div>
+  );
+}
+
+export function HoverRevealCardDemo() {
+  return (
+    <div className="flex h-80 w-full items-center justify-center">
+      <HoverRevealCard
+        title="Hover me"
+        subtitle="I reveal secret content when you hover over me."
+        image="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+
+      >
+        <h2 className="text-2xl font-bold">Secret Content Revealed!</h2>
+      </HoverRevealCard>
+    </div>
+  );
+}
+
+export function MagneticWrapperDemo(props: React.ComponentProps<typeof MagneticWrapper>) {
+  return (
+    <div className="flex h-80 w-full items-center justify-center">
+      <MagneticWrapper {...props}>
+        <Button>Magnetic Wrapper</Button>
+      </MagneticWrapper>
+    </div>
+  );
+}
+
+export function NeonGradientCardDemo() {
+  return (
+    <div className="flex h-80 w-full items-center justify-center">
+      <NeonGradientCard className="items-center justify-center text-center" >
+        <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-linear-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-6xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+          Neon Gradient
+        </span>
+      </NeonGradientCard>
+    </div>
+  );
+}
+
+export function MagnifierDemo() {
+  return (
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <Magnifier imgSrc="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" />
     </div>
   )
 }
 
 export function ParticleImageDemo() {
   return (
-    <div className="h-[300px] w-full flex items-center justify-center border rounded-lg bg-background md:shadow-xl">
-      <div className="text-muted-foreground">Particle Image Demo</div>
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <ParticleImage src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop" />
     </div>
   )
 }
 
-export function GravityDemo() {
+export function SpotlightNewDemo() {
   return (
-    <div className="h-[300px] w-full border rounded-lg overflow-hidden relative bg-background md:shadow-xl">
-      <Gravity items={[
-        <div key="1" className="w-10 h-10 bg-red-500 rounded-full" />,
-        <div key="2" className="w-12 h-12 bg-blue-500 rounded-md" />,
-        <div key="3" className="w-8 h-8 bg-green-500 rounded-full" />,
-        <div key="4" className="w-14 h-14 bg-yellow-500 rounded-lg" />,
-      ]} />
-      <div className="absolute top-10 left-10 p-4 bg-white/20 backdrop-blur-md rounded">
-        Gravity Physics
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl bg-slate-950">
+      <SpotlightNew />
+      <p className="z-10 text-5xl font-medium tracking-tighter text-foreground">
+        Spotlight New
+      </p>
+    </div>
+  )
+}
+
+export function AvatarCirclesDemo() {
+  return (
+    <div className="flex h-40 w-full items-center justify-center">
+      <AvatarCircles
+        avatars={[
+          { name: "User 1", src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" },
+          { name: "User 2", src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" },
+          { name: "User 3", src: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop" },
+          { name: "User 4", src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop" },
+          { name: "User 5", src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" },
+        ]}
+
+      />
+    </div>
+  );
+}
+
+export function AnimatedBeamDemo({
+  curvature = 20,
+  pathColor = "hsl(var(--primary))",
+  pathWidth = 2,
+  pathOpacity = 0.2,
+  duration = 3,
+  ...props
+}: any) {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const fromRef = React.useRef<HTMLDivElement>(null);
+  const toRef = React.useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl p-10"
+    >
+      <div className="flex size-full flex-col items-stretch justify-between gap-10">
+        <div className="flex flex-row items-center justify-between">
+          <div ref={fromRef} className="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+            <User className="h-6 w-6 text-black" />
+          </div>
+          <div ref={toRef} className="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+            <Globe className="h-6 w-6 text-black" />
+          </div>
+        </div>
+      </div>
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={fromRef}
+        toRef={toRef}
+        curvature={curvature}
+        pathColor={pathColor}
+        pathWidth={pathWidth}
+        pathOpacity={pathOpacity}
+        duration={duration}
+        {...props}
+      />
+    </div>
+  );
+}
+
+export function BoxRevealDemo({
+  boxColor = "hsl(var(--primary))",
+  duration = 0.5,
+  width = "fit-content",
+  children = "Box Reveal Animation",
+  ...props
+}: React.ComponentProps<typeof BoxReveal>) {
+  return (
+    <div className="h-full w-full max-w-lg items-center justify-center overflow-hidden pt-8">
+      <BoxReveal boxColor={boxColor} duration={duration} width={width as any} {...props}>
+        <p className="text-[3.5rem] font-semibold">
+          Unicorn UI<span className="text-[hsl(var(--primary))]">.</span>
+        </p>
+      </BoxReveal>
+      <BoxReveal boxColor={boxColor} duration={duration} width={width as any} {...props}>
+        <h2 className="mt-[.5rem] text-[1rem]">
+          {children}
+        </h2>
+      </BoxReveal>
+    </div>
+  );
+}
+
+export function ComicTextDemo({ children = "Comic Text", ...props }: React.ComponentProps<typeof ComicText>) {
+  return (
+    <div className="flex h-40 w-full items-center justify-center">
+      <ComicText className="text-6xl" {...props}>{children}</ComicText>
+    </div>
+  );
+}
+
+export function FlipText3DDemo({ children = "Flip Text 3D", ...props }: React.ComponentProps<typeof FlipText3D>) {
+  return (
+    <div className="flex h-40 w-full items-center justify-center">
+      <FlipText3D className="text-6xl font-black" {...props}>{children}</FlipText3D>
+    </div>
+  );
+}
+
+export function GradualSpacingDemo({ text = "Gradual Spacing", ...props }: React.ComponentProps<typeof GradualSpacing>) {
+  return (
+    <div className="flex h-40 w-full items-center justify-center">
+      <GradualSpacing text={text} className="text-4xl font-bold tracking-tighter" {...props} />
+    </div>
+  );
+}
+
+export function RotateTextDemo({ words = ["Rotate", "Text", "Animation"], ...props }: React.ComponentProps<typeof RotateText>) {
+  return (
+    <div className="flex h-40 w-full items-center justify-center text-4xl font-bold">
+      <span className="mr-2">I am</span>
+      <RotateText words={words} className="text-primary" {...props} />
+    </div>
+  );
+}
+
+export function SeparateAwayDemo({ upperText = "Separate", lowerText = "Away", ...props }: React.ComponentProps<typeof SeparateAway>) {
+  return (
+    <div className="flex h-60 w-full items-center justify-center">
+      <SeparateAway
+        upperText={upperText}
+        lowerText={lowerText}
+        className="text-8xl font-black"
+        {...props}
+      >
+        <div className="text-2xl font-bold text-primary">REVEALED</div>
+      </SeparateAway>
+    </div>
+  );
+}
+
+export function SpinningTextDemo({ children = "SPINNING TEXT • ", ...props }: React.ComponentProps<typeof SpinningText>) {
+  return (
+    <div className="flex h-60 w-full items-center justify-center">
+      <SpinningText className="text-xl font-bold" {...props}>
+        {children}
+      </SpinningText>
+    </div>
+  );
+}
+
+export function TextAnimateDemo({ text = "Text Animate", ...props }: React.ComponentProps<typeof TextAnimate>) {
+  return (
+    <div className="flex h-40 w-full items-center justify-center">
+      <TextAnimate text={text} className="text-5xl font-bold" {...props} />
+    </div>
+  );
+}
+
+export function TextRevealDemo({ text = "Text Reveal Animation", ...props }: React.ComponentProps<typeof TextReveal>) {
+  return (
+    <div className="h-[400px] w-full overflow-auto border rounded-lg p-4 bg-background">
+      <div className="h-[200px] flex items-center justify-center text-muted-foreground">
+        Scroll down to reveal...
+      </div>
+      <TextReveal text={text} className="text-6xl font-bold py-20" {...props} />
+      <div className="h-[300px]" />
+    </div>
+  );
+}
+
+export function WavyTextDemo({ text = "Wavy Text", ...props }: React.ComponentProps<typeof WavyText>) {
+  return (
+    <div className="flex h-40 w-full items-center justify-center">
+      <WavyText text={text} className="text-5xl font-bold" {...props} />
+    </div>
+  );
+}
+
+export function TextHighlighterDemo({
+  text = "This is a text highlighter demo highlighting important words.",
+  highlight = "highlighter",
+  ...props
+}: React.ComponentProps<typeof TextHighlighter>) {
+  return (
+    <div className="flex h-40 w-full items-center justify-center px-10">
+      <TextHighlighter
+        text={text}
+        highlight={highlight}
+        className="text-2xl font-medium leading-relaxed"
+        highlightClassName="bg-yellow-200 dark:bg-yellow-800 rounded px-1"
+        {...props}
+      />
+    </div>
+  );
+}
+
+export function StatusIconDemo(props: any) {
+  return (
+    <div className="flex items-center justify-center p-8">
+      <StatusIcon status="success" {...props} />
+    </div>
+  )
+}
+
+// --- Feedback Demos ---
+
+export function SkeletonDemo() {
+  return (
+    <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
       </div>
     </div>
   )
 }
+
+export function ThemeToggleDemo() {
+  return (
+    <div className="flex items-center justify-center p-8">
+      <ThemeToggle />
+    </div>
+  )
+}
+
+export function CommandMenuDemo() {
+  return (
+    <div className="flex items-center justify-center p-8 text-sm text-muted-foreground">
+      Press <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100"><span className="text-xs">⌘</span>J</kbd> to open command menu
+      <CommandMenu />
+    </div>
+  )
+}
+
+export function PercentLoaderDemo(props: any) {
+  return (
+    <div className="flex items-center justify-center p-8">
+      <PercentLoader {...props} />
+    </div>
+  )
+}
+
+export function RevealLoaderDemo(props: any) {
+  return (
+    <div className="flex items-center justify-center p-8">
+      <RevealLoader text="Loading..." {...props} />
+    </div>
+  )
+}
+
+export function SmartInputDemo() {
+  return (
+    <div className="flex w-full max-w-sm items-center justify-center p-8">
+      <SmartInput placeholder="Type something smart..." />
+    </div>
+  )
+}
+
+// --- Special & Misc Demos ---
+
+export function NoiseOverlayDemo() {
+  return (
+    <div className="relative flex h-48 w-full items-center justify-center overflow-hidden rounded-lg border bg-card p-8">
+      <p className="z-10 text-xl font-bold">Noise Overlay</p>
+      <NoiseOverlay />
+    </div>
+  )
+}
+
+export function ParallaxImageDemo() {
+  return (
+    <div className="relative h-64 w-full overflow-hidden rounded-lg">
+      <ParallaxImage src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80" alt="Parallax" />
+    </div>
+  )
+}
+
+export function AnimatedCircularProgressBarDemo(props: any) {
+  return (
+    <div className="flex items-center justify-center p-8">
+      <AnimatedCircularProgressBar max={100} min={0} value={66} gaugePrimaryColor="hsl(var(--primary))" gaugeSecondaryColor="hsl(var(--muted))" {...props} />
+    </div>
+  )
+}
+
+export function CardStackDemo() {
+  return (
+    <div className="flex h-60 items-center justify-center w-full">
+      <CardStack
+        items={[
+          { id: 1, name: "Card 1", designation: "Designer", content: <p>Review the design mocks</p> },
+          { id: 2, name: "Card 2", designation: "Developer", content: <p>Implement the feature</p> },
+          { id: 3, name: "Card 3", designation: "Manager", content: <p>Plan the next sprint</p> },
+        ]}
+      />
+    </div>
+  )
+}
+
