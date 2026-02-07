@@ -1,72 +1,242 @@
 "use client"
-import * as React from "react"
 import {
   // Core
-  Accordion, Alert, AlertDescription, AlertTitle, Avatar, AvatarFallback, AvatarImage, Badge, Button,
-  Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Checkbox,
-  Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, InView,
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
-  Input, Label, Progress, RadioGroup, RadioGroupItem,
-  Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue,
-  Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger,
-  Slider, Switch, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow,
-  Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ToastProvider, useToast,
-  Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, cn,
-
-  // Hooks
-  useTheme, useWindowSize, useCopyToClipboard, useAsync, useClickOutside, useMouse, useScrollProgress,
-
-  // Layout
-  AnimatedList, AvatarCircles, BentoCard, BentoGrid, CollapsibleSidebar, Dock, DockIcon, DottedMap,
-  ExpandableBentoCard, GlassDock, Globe, GlowBorderCard, HeroVideoDialog, HorizontalScroll,
-  IconCloud, IonCloud, Lens, Marquee, OrbitingCircles, PerspectiveMenu, PixelImage, Pointer,
-  ProgressiveBlur, ReorderableList, ResizablePanel, Sidebar, SidebarItem, SmoothCursor,
-  SpotlightCard, StaggeredGrid, Terminal, Timeline, TopNav, TracingBeam, TweetCard,
-  SidebarHeader, SidebarSection, FileTree,
-
-  // Text
-  AnimatedGradientText, AnimatedNumber, AnimatedShinyText, AuroraText, BlurFade, BoxReveal,
-  ComicText, FadeText, FlipText, FlipText3D, GradualSpacing, HyperText, LetterPullup,
-  LineShadowText, MorphingText, NumberTicker, RotateText, ScrollBasedVelocity, SeparateAway,
-  SparklesText, SpinningText, TextAnimate, TextHighlighter, TextReveal, TypingAnimation,
-  VelocityScroll, VideoText, WavyText, WordRotate,
-
-  // Backgrounds
-  AnimatedGridPattern, AuroraBackground, BackgroundBeams, DotPattern, FlickeringGrid,
-  GridPattern, InteractiveGridPattern, RetroGrid, Ripple, ShootingStars, Stars,
-  StripedPattern, WarpBackground,
-
-  // Buttons
-  AnimatedButton, CreepyButton, GlowButton, GooeyButton, InteractiveHoverButton,
-  MagneticButton, PulsatingButton, RainbowButton, RippleButton, ShimmerButton,
-  ShinyButton, SocialFlipButton,
-
-  // Interaction
-  AnimatedCircularProgressBar, CardStack, CustomCursor, CustomPointer, Safari,
-  FollowerPointer, HoverRevealCard, MagneticWrapper, NeonGradientCard, NoiseOverlay,
-  ParallaxImage, PixelTrail, ScrollProgress, ScrollProgressiveBlur,
-
+  Accordion,
+  Alert,
+  AlertDescription,
+  AlertTitle,
   // Special/Misc
-  AnimatedBeam, BorderBeam, CanvasSmudge, Confetti, ConfettiSideCannons, CoolMode,
-  GlitchEffect, Gravity, MagicCard, Magnifier, Meteors, OrbitingDots, ParticleImage,
-  Particles, RippleEffect, Scene3D, ShineBorder, Snow, Spotlight, SpotlightNew,
-  ThreeDCard,
-
+  AnimatedBeam,
+  // Buttons
+  AnimatedButton,
+  // Interaction
+  AnimatedCircularProgressBar,
+  // Text
+  AnimatedGradientText,
+  // Backgrounds
+  AnimatedGridPattern,
+  AriaLiveRegion,
+  // Layout
+  AnimatedList,
+  AnimatedNumber,
+  AnimatedShinyText,
+  AnimatedThemeToggler,
+  AuroraBackground,
+  AuroraText,
+  Avatar,
+  AvatarCircles,
+  AvatarFallback,
+  AvatarImage,
+  BackgroundBeams,
+  Badge,
+  BentoCard,
+  BentoGrid,
+  BlurFade,
+  BorderBeam,
+  BoxReveal,
+  Button,
+  CanvasSmudge,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardStack,
+  CardTitle,
+  Checkbox,
+  CodeComparison,
+  CollapsibleSidebar,
+  Combobox,
+  ComicText,
   // Feedback
-  CommandMenu, PercentLoader, RevealLoader, Skeleton, SmartInput, StatusIcon, ThemeToggle,
-
+  CommandMenu,
   // Skeletons
   ComponentPageSkeleton,
-  FadeIn, CodeComparison, AnimatedThemeToggler,
+  Confetti,
+  ConfettiSideCannons,
+  CoolMode,
+  CreepyButton,
+  CustomCursor,
+  CustomPointer,
+  DataTable,
+  DatePicker,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  Dock,
+  DockIcon,
+  DotPattern,
+  DottedMap,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  ExpandableBentoCard,
+  FadeIn,
+  FadeText,
+  FileTree,
+  FlickeringGrid,
+  FlipText,
+  FlipText3D,
+  FollowerPointer,
+  GlassDock,
+  GlitchEffect,
+  Globe,
+  GlowBorderCard,
+  GlowButton,
+  GooeyButton,
+  GradualSpacing,
+  Gravity,
+  GridPattern,
+  HeroVideoDialog,
+  HorizontalScroll,
+  HoverRevealCard,
+  HyperText,
+  IconCloud,
+  InView,
+  Input,
+  InteractiveGridPattern,
+  InteractiveHoverButton,
+  IonCloud,
+  Label,
+  Lens,
+  LetterPullup,
+  LineShadowText,
+  MagicCard,
+  MagneticButton,
+  MagneticWrapper,
+  Magnifier,
+  Marquee,
+  Meteors,
+  MorphingText,
+  NeonGradientCard,
+  NoiseOverlay,
+  NumberTicker,
+  OrbitingCircles,
+  OrbitingDots,
+  ParallaxImage,
+  ParticleImage,
+  Particles,
+  PercentLoader,
+  PerspectiveMenu,
+  PixelImage,
+  PixelTrail,
+  Pointer,
+  Progress,
+  ProgressiveBlur,
+  PulsatingButton,
+  RadioGroup,
+  RadioGroupItem,
+  RainbowButton,
+  ReorderableList,
+  ResizablePanel,
+  RetroGrid,
+  RevealLoader,
+  Ripple,
+  RippleButton,
+  RippleEffect,
+  RotateText,
+  Safari,
+  Scene3D,
+  ScrollBasedVelocity,
+  ScrollProgress,
+  ScrollProgressiveBlur,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+  SeparateAway,
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  ShimmerButton,
+  ShineBorder,
+  ShinyButton,
+  ShootingStars,
+  Sidebar,
+  SidebarHeader,
+  SidebarItem,
+  SidebarSection,
+  Skeleton,
+  Slider,
+  SmartInput,
+  SmoothCursor,
+  Snow,
+  SocialFlipButton,
+  SparklesText,
+  SpinningText,
+  Spotlight,
+  SpotlightCard,
+  SpotlightNew,
+  StaggeredGrid,
+  Stars,
+  StatusIcon,
+  StripedPattern,
+  Switch,
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Terminal,
+  TextAnimate,
+  TextHighlighter,
+  TextReveal,
+  Textarea,
+  ThemeToggle,
+  ThreeDCard,
+  Timeline,
+  ToastProvider,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+  TopNav,
+  TracingBeam,
+  TweetCard,
+  type ColumnDef,
+  TypingAnimation,
+  useAnnouncer,
+  useAsync,
+  useClickOutside,
+  useCopyToClipboard,
+  useMouse,
+  useScrollProgress,
+  // Hooks
+  useTheme,
+  useToast,
+  useWindowSize,
+  VelocityScroll,
+  VideoText,
+  WarpBackground,
+  WavyText,
+  WordRotate,
+  cn,
 } from "@unicorn-ui/ui"
 import { motion } from "framer-motion"
+import * as React from "react"
 import { useState } from "react"
 
-
 // Utils
-import { Home, Settings, User, Globe as LucideGlobe } from "lucide-react"
-
-
+import { Github, Home, Globe as LucideGlobe, Settings, Twitter, User } from "lucide-react"
 
 export function AccordionDemo(props: any) {
   return (
@@ -96,7 +266,6 @@ export function AccordionDemo(props: any) {
     />
   )
 }
-
 
 export function AlertDemo({ children, ...props }: any) {
   return (
@@ -132,9 +301,7 @@ export function CardDemo({ children, className, ...props }: any) {
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
-      <CardContent>
-        {children}
-      </CardContent>
+      <CardContent>{children}</CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline">Cancel</Button>
         <Button>Deploy</Button>
@@ -158,9 +325,9 @@ export function DialogDemo() {
       <DialogTrigger asChild>
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-106.25">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Edit proand include hofile</DialogTitle>
           <DialogDescription>
             Make changes to your profile here. Click save when you&apos;re done.
           </DialogDescription>
@@ -436,7 +603,6 @@ export function BentoGridDemo() {
           key={i}
           title={`Item ${i}`}
           description="A sleek bento grid item."
-
           background={
             <div className="flex flex-1 w-full h-full min-h-24 rounded-xl bg-linear-to-br from-purple-500 to-pink-600" />
           }
@@ -481,9 +647,7 @@ export function ThreeDCardDemo() {
     <div className="flex items-center justify-center p-10">
       <ThreeDCard className="w-full max-w-sm">
         <div className="flex flex-col gap-2">
-          <h1 className="font-bold text-xl text-foreground">
-            Make things float in air
-          </h1>
+          <h1 className="font-bold text-xl text-foreground">Make things float in air</h1>
           <p className="text-muted-foreground">
             Hover over this card to unleash the power of CSS perspective
           </p>
@@ -523,8 +687,6 @@ export function FileTreeDemo() {
   )
 }
 
-
-
 export function TimelineDemo() {
   const data = [
     { title: "2024", content: <p>Built the library</p> },
@@ -545,8 +707,6 @@ export function SidebarDemo() {
     </div>
   )
 }
-
-
 
 // --- Hook Demos ---
 
@@ -685,11 +845,18 @@ export function MeteorsDemo({ number = 30, ...props }: any) {
 export function ParticlesDemo({ quantity = 100, color = "#000000", ...props }: any) {
   // Use current color if no color prop is passed (or handle dark mode in parent)
   const theme = useTheme()
-  const effectiveColor = color === "#000000" && theme.theme === 'dark' ? "#ffffff" : color
+  const effectiveColor = color === "#000000" && theme.theme === "dark" ? "#ffffff" : color
 
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <Particles className="absolute inset-0" quantity={quantity} ease={80} color={effectiveColor} refresh {...props} />
+      <Particles
+        className="absolute inset-0"
+        quantity={quantity}
+        ease={80}
+        color={effectiveColor}
+        refresh
+        {...props}
+      />
       <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         Particles
       </span>
@@ -821,31 +988,7 @@ export function RippleDemo() {
   )
 }
 
-
-
-
 export const SplitLayoutDemo = ResizablePanelDemo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export function AnimatedNumberDemo() {
   return (
@@ -854,10 +997,6 @@ export function AnimatedNumberDemo() {
     </div>
   )
 }
-
-
-
-
 
 export function AuroraTextDemo() {
   return (
@@ -875,8 +1014,6 @@ export function AnimatedShinyTextDemo() {
   )
 }
 
-
-
 export function LineShadowTextDemo() {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
@@ -888,7 +1025,10 @@ export function LineShadowTextDemo() {
 export function VideoTextDemo() {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <VideoText text="VIDEO" videoSrc="https://cdn.coverr.co/videos/coverr-surfers-at-sunset-4386/1080p.mp4" />
+      <VideoText
+        text="VIDEO"
+        videoSrc="https://cdn.coverr.co/videos/coverr-surfers-at-sunset-4386/1080p.mp4"
+      />
     </div>
   )
 }
@@ -968,9 +1108,7 @@ export function AuroraBackgroundDemo(props: React.ComponentProps<typeof AuroraBa
     <div className="h-[300px] w-full overflow-hidden rounded-lg border md:shadow-xl relative">
       <AuroraBackground {...props}>
         <div className="relative flex flex-col items-center justify-center gap-4 px-4">
-          <div className="text-3xl font-bold dark:text-white md:text-7xl">
-            Aurora
-          </div>
+          <div className="text-3xl font-bold dark:text-white md:text-7xl">Aurora</div>
         </div>
       </AuroraBackground>
     </div>
@@ -989,9 +1127,7 @@ export function GridPatternDemo() {
         x={-1}
         y={-1}
         strokeDasharray={"4 2"}
-        className={cn(
-          "mask-[radial-gradient(300px_circle_at_center,white,transparent)]",
-        )}
+        className={cn("mask-[radial-gradient(300px_circle_at_center,white,transparent)]")}
       />
     </div>
   )
@@ -1051,7 +1187,7 @@ export function FadeTextDemo() {
 export function FlipTextDemo() {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <FlipText word="Flip Text" />
+      <FlipText text="Flip Text" />
     </div>
   )
 }
@@ -1086,16 +1222,16 @@ export function WarpBackgroundDemo(props: React.ComponentProps<typeof WarpBackgr
       <Card className="z-50 w-80">
         <CardHeader>
           <CardTitle>Warp Background</CardTitle>
-          <CardDescription>
-            A background that warps the grid behind it.
-          </CardDescription>
+          <CardDescription>A background that warps the grid behind it.</CardDescription>
         </CardHeader>
       </Card>
     </div>
   )
 }
 
-export function InteractiveGridPatternDemo(props: React.ComponentProps<typeof InteractiveGridPattern>) {
+export function InteractiveGridPatternDemo(
+  props: React.ComponentProps<typeof InteractiveGridPattern>
+) {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <InteractiveGridPattern {...props} />
@@ -1117,9 +1253,6 @@ export function FlickeringGridDemo(props: React.ComponentProps<typeof Flickering
   )
 }
 
-
-
-
 // --- New Button Demos ---
 
 export function ShimmerButtonDemo(props: React.ComponentProps<typeof ShimmerButton>) {
@@ -1131,15 +1264,15 @@ export function ShimmerButtonDemo(props: React.ComponentProps<typeof ShimmerButt
         </span>
       </ShimmerButton>
     </div>
-  );
+  )
 }
 
 export function RainbowButtonDemo(props: React.ComponentProps<typeof RainbowButton>) {
-  return <RainbowButton {...props}>Get Unlimited Access</RainbowButton>;
+  return <RainbowButton {...props}>Get Unlimited Access</RainbowButton>
 }
 
 export function GlowButtonDemo(props: React.ComponentProps<typeof GlowButton>) {
-  return <GlowButton {...props}>Glow Button</GlowButton>;
+  return <GlowButton {...props}>Glow Button</GlowButton>
 }
 
 export function RippleButtonDemo(props: React.ComponentProps<typeof RippleButton>) {
@@ -1147,7 +1280,7 @@ export function RippleButtonDemo(props: React.ComponentProps<typeof RippleButton
     <div className="flex items-center justify-center h-full">
       <RippleButton {...props}>Ripple Button</RippleButton>
     </div>
-  );
+  )
 }
 
 export function MagneticButtonDemo() {
@@ -1155,46 +1288,43 @@ export function MagneticButtonDemo() {
     <MagneticButton>
       <Button>Magnetic Button</Button>
     </MagneticButton>
-  );
+  )
 }
 
 export function PulsatingButtonDemo(props: React.ComponentProps<typeof PulsatingButton>) {
-  return <PulsatingButton {...props}>Pulsating Button</PulsatingButton>;
+  return <PulsatingButton {...props}>Pulsating Button</PulsatingButton>
 }
 
 export function ShinyButtonDemo(props: React.ComponentProps<typeof ShinyButton>) {
-  return <ShinyButton {...props}>Shiny Button</ShinyButton>;
+  return <ShinyButton {...props}>Shiny Button</ShinyButton>
 }
 
 export function AnimatedButtonDemo(props: React.ComponentProps<typeof AnimatedButton>) {
-  return <AnimatedButton {...props}>Animated Button</AnimatedButton>;
+  return <AnimatedButton {...props}>Animated Button</AnimatedButton>
 }
 
 export function GooeyButtonDemo(props: React.ComponentProps<typeof GooeyButton>) {
-  return <GooeyButton {...props}>Gooey Button</GooeyButton>;
+  return <GooeyButton {...props}>Gooey Button</GooeyButton>
 }
 
-export function InteractiveHoverButtonDemo({ text = "Hover Me", ...props }: { text?: string } & React.ComponentProps<typeof InteractiveHoverButton>) {
-  return <InteractiveHoverButton {...props}>{text}</InteractiveHoverButton>;
+export function InteractiveHoverButtonDemo({
+  text = "Hover Me",
+  ...props
+}: { text?: string } & React.ComponentProps<typeof InteractiveHoverButton>) {
+  return <InteractiveHoverButton {...props}>{text}</InteractiveHoverButton>
 }
 
 export function CreepyButtonDemo(props: React.ComponentProps<typeof CreepyButton>) {
-  return <CreepyButton {...props}>Creepy Button</CreepyButton>;
+  return <CreepyButton {...props}>Creepy Button</CreepyButton>
 }
 
 export function SocialFlipButtonDemo() {
   return (
     <div className="flex flex-col gap-4 items-center justify-center h-80">
-      <SocialFlipButton
-        frontText="GitHub"
-        backText="Follow @unicorn-ui"
-      />
-      <SocialFlipButton
-        frontText="Twitter"
-        backText="Follow @unicorn_ui"
-      />
+      <SocialFlipButton href="" icon={<Github />} >Follow @unicorn-ui </SocialFlipButton>
+      <SocialFlipButton href="" icon={<Twitter />} >Follow @unicorn_ui</SocialFlipButton>
     </div>
-  );
+  )
 }
 
 // --- Special Effects Demos ---
@@ -1207,7 +1337,7 @@ export function ConfettiDemo() {
       </span>
       <Confetti />
     </div>
-  );
+  )
 }
 
 export function ConfettiSideCannonsDemo() {
@@ -1218,22 +1348,20 @@ export function ConfettiSideCannonsDemo() {
         Cannons
       </span>
     </div>
-  );
+  )
 }
 
 export function SpotlightDemo() {
   return (
     <div className="h-80 w-full rounded-md flex md:items-center md:justify-center bg-black/96 antialiased bg-grid-white/[0.02] relative overflow-hidden">
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-      />
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" />
       <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
         <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-linear-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
           Spotlight <br /> is the new trend.
         </h1>
       </div>
     </div>
-  );
+  )
 }
 
 export function BorderBeamDemo() {
@@ -1244,17 +1372,21 @@ export function BorderBeamDemo() {
       </span>
       <BorderBeam size={250} duration={12} delay={9} />
     </div>
-  );
+  )
 }
 
 export function ShineBorderDemo(props: React.ComponentProps<typeof ShineBorder>) {
   return (
     <div className="flex items-center justify-center h-[200px]">
-      <ShineBorder className="text-center text-2xl font-bold capitalize" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]} {...props}>
+      <ShineBorder
+        className="text-center text-2xl font-bold capitalize"
+        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+        {...props}
+      >
         Shine Border
       </ShineBorder>
     </div>
-  );
+  )
 }
 
 export function RippleEffectDemo(props: React.ComponentProps<typeof RippleEffect>) {
@@ -1273,7 +1405,7 @@ export function GlitchEffectDemo() {
     <div className="flex h-[200px] w-full items-center justify-center">
       <GlitchEffect text="GLITCH" />
     </div>
-  );
+  )
 }
 
 export function CanvasSmudgeDemo(props: React.ComponentProps<typeof CanvasSmudge>) {
@@ -1284,7 +1416,7 @@ export function CanvasSmudgeDemo(props: React.ComponentProps<typeof CanvasSmudge
         Smudge
       </p>
     </div>
-  );
+  )
 }
 
 export function Scene3DDemo() {
@@ -1292,28 +1424,32 @@ export function Scene3DDemo() {
     <div className="relative h-[300px] w-full overflow-hidden rounded-lg border">
       <Scene3D />
     </div>
-  );
+  )
 }
 
 export function GravityDemo() {
   return (
     <div className="relative flex h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <Gravity items={[
-        <div key="1" className="text-4xl font-bold bg-white p-4 rounded-xl text-black">Gravity</div>,
-        <div key="2" className="text-2xl font-bold bg-white p-2 rounded-xl text-black">Physics</div>,
-        <div key="3" className="text-xl font-bold bg-white p-2 rounded-xl text-black">Matter</div>
-      ]} />
+      <Gravity
+        items={[
+          <div key="1" className="text-4xl font-bold bg-white p-4 rounded-xl text-black">
+            Gravity
+          </div>,
+          <div key="2" className="text-2xl font-bold bg-white p-2 rounded-xl text-black">
+            Physics
+          </div>,
+          <div key="3" className="text-xl font-bold bg-white p-2 rounded-xl text-black">
+            Matter
+          </div>,
+        ]}
+      />
     </div>
-  );
+  )
 }
 
 // --- Background Demos ---
 
 // StarsDemo dupe removed
-
-
-
-
 
 export function DotPatternDemo() {
   return (
@@ -1321,23 +1457,23 @@ export function DotPatternDemo() {
       <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-black dark:text-white">
         Dot Pattern
       </p>
-      <DotPattern width={20} height={20} cx={1} cy={1} cr={1} className={cn("mask-[radial-gradient(300px_circle_at_center,white,transparent)]")} />
+      <DotPattern
+        width={20}
+        height={20}
+        cx={1}
+        cy={1}
+        cr={1}
+        className={cn("mask-[radial-gradient(300px_circle_at_center,white,transparent)]")}
+      />
     </div>
   )
 }
-
-
 
 // StripedPatternDemo dupe removed
 
 // WarpBackgroundDemo dupe removed
 
-
-
 // FlickeringGridDemo dupe removed
-
-
-
 
 export function BackgroundBeamsDemo(props: React.ComponentProps<typeof BackgroundBeams>) {
   return (
@@ -1349,7 +1485,7 @@ export function BackgroundBeamsDemo(props: React.ComponentProps<typeof Backgroun
       </div>
       <BackgroundBeams {...props} />
     </div>
-  );
+  )
 }
 
 export function OrbitingDotsDemo(props: React.ComponentProps<typeof OrbitingDots>) {
@@ -1357,18 +1493,16 @@ export function OrbitingDotsDemo(props: React.ComponentProps<typeof OrbitingDots
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <OrbitingDots {...props} />
     </div>
-  );
+  )
 }
 
 export function SnowDemo(props: React.ComponentProps<typeof Snow>) {
   return (
     <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-slate-950 md:shadow-xl">
       <Snow {...props} />
-      <p className="z-10 text-5xl font-medium tracking-tighter text-white">
-        Let it Snow
-      </p>
+      <p className="z-10 text-5xl font-medium tracking-tighter text-white">Let it Snow</p>
     </div>
-  );
+  )
 }
 
 export function HoverRevealCardDemo() {
@@ -1378,12 +1512,11 @@ export function HoverRevealCardDemo() {
         title="Hover me"
         subtitle="I reveal secret content when you hover over me."
         image="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-
       >
         <h2 className="text-2xl font-bold">Secret Content Revealed!</h2>
       </HoverRevealCard>
     </div>
-  );
+  )
 }
 
 export function MagneticWrapperDemo(props: React.ComponentProps<typeof MagneticWrapper>) {
@@ -1393,24 +1526,24 @@ export function MagneticWrapperDemo(props: React.ComponentProps<typeof MagneticW
         <Button>Magnetic Wrapper</Button>
       </MagneticWrapper>
     </div>
-  );
+  )
 }
 
 export function NeonGradientCardDemo() {
   return (
     <div className="flex h-80 w-full items-center justify-center">
-      <NeonGradientCard className="items-center justify-center text-center" >
+      <NeonGradientCard className="items-center justify-center text-center">
         <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-linear-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-6xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
           Neon Gradient
         </span>
       </NeonGradientCard>
     </div>
-  );
+  )
 }
 
 export function MagnifierDemo() {
   return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="relative flex h-75 w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <Magnifier imgSrc="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" />
     </div>
   )
@@ -1418,7 +1551,7 @@ export function MagnifierDemo() {
 
 export function ParticleImageDemo() {
   return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="relative flex h-75 w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <ParticleImage src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop" />
     </div>
   )
@@ -1426,11 +1559,9 @@ export function ParticleImageDemo() {
 
 export function SpotlightNewDemo() {
   return (
-    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl bg-slate-950">
+    <div className="relative flex h-75 w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl bg-slate-950">
       <SpotlightNew />
-      <p className="z-10 text-5xl font-medium tracking-tighter text-foreground">
-        Spotlight New
-      </p>
+      <p className="z-10 text-5xl font-medium tracking-tighter text-foreground">Spotlight New</p>
     </div>
   )
 }
@@ -1440,29 +1571,43 @@ export function AvatarCirclesDemo() {
     <div className="flex h-40 w-full items-center justify-center">
       <AvatarCircles
         avatars={[
-          { name: "User 1", src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop" },
-          { name: "User 2", src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" },
-          { name: "User 3", src: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop" },
-          { name: "User 4", src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop" },
-          { name: "User 5", src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" },
+          {
+            name: "User 1",
+            src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop",
+          },
+          {
+            name: "User 2",
+            src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+          },
+          {
+            name: "User 3",
+            src: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop",
+          },
+          {
+            name: "User 4",
+            src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop",
+          },
+          {
+            name: "User 5",
+            src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+          },
         ]}
-
       />
     </div>
-  );
+  )
 }
 
 export function AnimatedBeamDemo({
   curvature = 20,
-  pathColor = "hsl(var(--primary))",
+  pathColor = "var(--primary)",
   pathWidth = 2,
   pathOpacity = 0.2,
   duration = 3,
   ...props
 }: any) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const fromRef = React.useRef<HTMLDivElement>(null);
-  const toRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const fromRef = React.useRef<HTMLDivElement>(null)
+  const toRef = React.useRef<HTMLDivElement>(null)
 
   return (
     <div
@@ -1471,10 +1616,16 @@ export function AnimatedBeamDemo({
     >
       <div className="flex size-full flex-col items-stretch justify-between gap-10">
         <div className="flex flex-row items-center justify-between">
-          <div ref={fromRef} className="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+          <div
+            ref={fromRef}
+            className="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+          >
             <User className="h-6 w-6 text-black" />
           </div>
-          <div ref={toRef} className="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+          <div
+            ref={toRef}
+            className="z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+          >
             <Globe className="h-6 w-6 text-black" />
           </div>
         </div>
@@ -1491,11 +1642,11 @@ export function AnimatedBeamDemo({
         {...props}
       />
     </div>
-  );
+  )
 }
 
 export function BoxRevealDemo({
-  boxColor = "hsl(var(--primary))",
+  boxColor = "var(--primary)",
   duration = 0.5,
   width = "fit-content",
   children = "Box Reveal Animation",
@@ -1505,52 +1656,70 @@ export function BoxRevealDemo({
     <div className="h-full w-full max-w-lg items-center justify-center overflow-hidden pt-8">
       <BoxReveal boxColor={boxColor} duration={duration} width={width as any} {...props}>
         <p className="text-[3.5rem] font-semibold">
-          Unicorn UI<span className="text-[hsl(var(--primary))]">.</span>
+          Unicorn UI<span className="text-(--primary)">.</span>
         </p>
       </BoxReveal>
       <BoxReveal boxColor={boxColor} duration={duration} width={width as any} {...props}>
-        <h2 className="mt-[.5rem] text-[1rem]">
-          {children}
-        </h2>
+        <h2 className="mt-[.5rem] text-[1rem]">{children}</h2>
       </BoxReveal>
     </div>
-  );
+  )
 }
 
-export function ComicTextDemo({ children = "Comic Text", ...props }: React.ComponentProps<typeof ComicText>) {
+export function ComicTextDemo({
+  children = "Comic Text",
+  ...props
+}: React.ComponentProps<typeof ComicText>) {
   return (
     <div className="flex h-40 w-full items-center justify-center">
-      <ComicText className="text-6xl" {...props}>{children}</ComicText>
+      <ComicText className="text-6xl" {...props}>
+        {children}
+      </ComicText>
     </div>
-  );
+  )
 }
 
-export function FlipText3DDemo({ children = "Flip Text 3D", ...props }: React.ComponentProps<typeof FlipText3D>) {
+export function FlipText3DDemo({
+  children = "Flip Text 3D",
+  ...props
+}: React.ComponentProps<typeof FlipText3D>) {
   return (
     <div className="flex h-40 w-full items-center justify-center">
-      <FlipText3D className="text-6xl font-black" {...props}>{children}</FlipText3D>
+      <FlipText3D className="text-6xl font-black" {...props}>
+        {children}
+      </FlipText3D>
     </div>
-  );
+  )
 }
 
-export function GradualSpacingDemo({ text = "Gradual Spacing", ...props }: React.ComponentProps<typeof GradualSpacing>) {
+export function GradualSpacingDemo({
+  text = "Gradual Spacing",
+  ...props
+}: React.ComponentProps<typeof GradualSpacing>) {
   return (
     <div className="flex h-40 w-full items-center justify-center">
       <GradualSpacing text={text} className="text-4xl font-bold tracking-tighter" {...props} />
     </div>
-  );
+  )
 }
 
-export function RotateTextDemo({ words = ["Rotate", "Text", "Animation"], ...props }: React.ComponentProps<typeof RotateText>) {
+export function RotateTextDemo({
+  words = ["Rotate", "Text", "Animation"],
+  ...props
+}: React.ComponentProps<typeof RotateText>) {
   return (
     <div className="flex h-40 w-full items-center justify-center text-4xl font-bold">
       <span className="mr-2">I am</span>
       <RotateText words={words} className="text-primary" {...props} />
     </div>
-  );
+  )
 }
 
-export function SeparateAwayDemo({ upperText = "Separate", lowerText = "Away", ...props }: React.ComponentProps<typeof SeparateAway>) {
+export function SeparateAwayDemo({
+  upperText = "Separate",
+  lowerText = "Away",
+  ...props
+}: React.ComponentProps<typeof SeparateAway>) {
   return (
     <div className="flex h-60 w-full items-center justify-center">
       <SeparateAway
@@ -1562,45 +1731,57 @@ export function SeparateAwayDemo({ upperText = "Separate", lowerText = "Away", .
         <div className="text-2xl font-bold text-primary">REVEALED</div>
       </SeparateAway>
     </div>
-  );
+  )
 }
 
-export function SpinningTextDemo({ children = "SPINNING TEXT • ", ...props }: React.ComponentProps<typeof SpinningText>) {
+export function SpinningTextDemo({
+  children = "SPINNING TEXT • ",
+  ...props
+}: React.ComponentProps<typeof SpinningText>) {
   return (
     <div className="flex h-60 w-full items-center justify-center">
       <SpinningText className="text-xl font-bold" {...props}>
         {children}
       </SpinningText>
     </div>
-  );
+  )
 }
 
-export function TextAnimateDemo({ text = "Text Animate", ...props }: React.ComponentProps<typeof TextAnimate>) {
+export function TextAnimateDemo({
+  text = "Text Animate",
+  ...props
+}: React.ComponentProps<typeof TextAnimate>) {
   return (
     <div className="flex h-40 w-full items-center justify-center">
       <TextAnimate text={text} className="text-5xl font-bold" {...props} />
     </div>
-  );
+  )
 }
 
-export function TextRevealDemo({ text = "Text Reveal Animation", ...props }: React.ComponentProps<typeof TextReveal>) {
+export function TextRevealDemo({
+  text = "Text Reveal Animation",
+  ...props
+}: React.ComponentProps<typeof TextReveal>) {
   return (
-    <div className="h-[400px] w-full overflow-auto border rounded-lg p-4 bg-background">
-      <div className="h-[200px] flex items-center justify-center text-muted-foreground">
+    <div className="h-100 w-full overflow-auto border rounded-lg p-4 bg-background">
+      <div className="h-50 flex items-center justify-center text-muted-foreground">
         Scroll down to reveal...
       </div>
       <TextReveal text={text} className="text-6xl font-bold py-20" {...props} />
       <div className="h-[300px]" />
     </div>
-  );
+  )
 }
 
-export function WavyTextDemo({ text = "Wavy Text", ...props }: React.ComponentProps<typeof WavyText>) {
+export function WavyTextDemo({
+  text = "Wavy Text",
+  ...props
+}: React.ComponentProps<typeof WavyText>) {
   return (
     <div className="flex h-40 w-full items-center justify-center">
       <WavyText text={text} className="text-5xl font-bold" {...props} />
     </div>
-  );
+  )
 }
 
 export function TextHighlighterDemo({
@@ -1618,7 +1799,7 @@ export function TextHighlighterDemo({
         {...props}
       />
     </div>
-  );
+  )
 }
 
 export function StatusIconDemo(props: any) {
@@ -1636,8 +1817,8 @@ export function SkeletonDemo() {
     <div className="flex items-center space-x-4">
       <Skeleton className="h-12 w-12 rounded-full" />
       <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
+        <Skeleton className="h-4 w-62.5" />
+        <Skeleton className="h-4 w-50" />
       </div>
     </div>
   )
@@ -1654,7 +1835,11 @@ export function ThemeToggleDemo() {
 export function CommandMenuDemo() {
   return (
     <div className="flex items-center justify-center p-8 text-sm text-muted-foreground">
-      Press <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100"><span className="text-xs">⌘</span>J</kbd> to open command menu
+      Press{" "}
+      <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+        <span className="text-xs">⌘</span>J
+      </kbd>{" "}
+      to open command menu
       <CommandMenu />
     </div>
   )
@@ -1698,7 +1883,10 @@ export function NoiseOverlayDemo() {
 export function ParallaxImageDemo() {
   return (
     <div className="relative h-64 w-full overflow-hidden rounded-lg">
-      <ParallaxImage src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80" alt="Parallax" />
+      <ParallaxImage
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+        alt="Parallax"
+      />
     </div>
   )
 }
@@ -1706,7 +1894,14 @@ export function ParallaxImageDemo() {
 export function AnimatedCircularProgressBarDemo(props: any) {
   return (
     <div className="flex items-center justify-center p-8">
-      <AnimatedCircularProgressBar max={100} min={0} value={66} gaugePrimaryColor="hsl(var(--primary))" gaugeSecondaryColor="hsl(var(--muted))" {...props} />
+      <AnimatedCircularProgressBar
+        max={100}
+        min={0}
+        value={66}
+        gaugePrimaryColor="var(--primary)"
+        gaugeSecondaryColor="var(--muted-color)"
+        {...props}
+      />
     </div>
   )
 }
@@ -1718,7 +1913,10 @@ export function AnimatedListDemo() {
     <div className="relative flex max-h-[400px] min-h-[400px] w-full max-w-lg flex-col overflow-hidden rounded-lg border bg-background p-6 shadow-lg">
       <AnimatedList>
         {Array.from({ length: 5 }).map((_, idx) => (
-          <div key={idx} className="mb-4 flex items-center space-x-4 rounded-md border p-4 shadow-sm">
+          <div
+            key={idx}
+            className="mb-4 flex items-center space-x-4 rounded-md border p-4 shadow-sm"
+          >
             <div className="h-10 w-10 rounded-full bg-primary/20" />
             <div className="space-y-1">
               <p className="text-sm font-medium leading-none">Notification {idx + 1}</p>
@@ -1742,11 +1940,13 @@ export function ExpandableBentoCardDemo() {
 export function GlassDockDemo() {
   return (
     <div className="relative h-[300px] w-full flex items-end justify-center pb-12 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden">
-      <GlassDock items={[
-        { label: "Home", icon: (<div>🏠</div>), href: "#" },
-        { label: "Products", icon: (<div>🛍️</div>), href: "#" },
-        { label: "Settings", icon: (<div>⚙️</div>), href: "#" },
-      ]} />
+      <GlassDock
+        items={[
+          { label: "Home", icon: <div>🏠</div>, href: "#" },
+          { label: "Products", icon: <div>🛍️</div>, href: "#" },
+          { label: "Settings", icon: <div>⚙️</div>, href: "#" },
+        ]}
+      />
     </div>
   )
 }
@@ -1778,7 +1978,10 @@ export function HorizontalScrollDemo() {
   return (
     <HorizontalScroll>
       {Array.from({ length: 10 }).map((_, i) => (
-        <div key={i} className="flex h-40 w-60 shrink-0 items-center justify-center rounded-lg border bg-card shadow-sm mx-2">
+        <div
+          key={i}
+          className="flex h-40 w-60 shrink-0 items-center justify-center rounded-lg border bg-card shadow-sm mx-2"
+        >
           <span className="font-semibold">Item {i + 1}</span>
         </div>
       ))}
@@ -1788,16 +1991,36 @@ export function HorizontalScrollDemo() {
 
 export function IconCloudDemo() {
   const icons = [
-    <span key="1" className="text-4xl">⚛️</span>,
-    <span key="2" className="text-4xl">💻</span>,
-    <span key="3" className="text-4xl">🚀</span>,
-    <span key="4" className="text-4xl">🎨</span>,
-    <span key="5" className="text-4xl">🔧</span>,
-    <span key="6" className="text-4xl">📱</span>,
-    <span key="7" className="text-4xl">🌐</span>,
-    <span key="8" className="text-4xl">🔥</span>,
-    <span key="9" className="text-4xl">⚡</span>,
-    <span key="10" className="text-4xl">🌈</span>,
+    <span key="1" className="text-4xl">
+      ⚛️
+    </span>,
+    <span key="2" className="text-4xl">
+      💻
+    </span>,
+    <span key="3" className="text-4xl">
+      🚀
+    </span>,
+    <span key="4" className="text-4xl">
+      🎨
+    </span>,
+    <span key="5" className="text-4xl">
+      🔧
+    </span>,
+    <span key="6" className="text-4xl">
+      📱
+    </span>,
+    <span key="7" className="text-4xl">
+      🌐
+    </span>,
+    <span key="8" className="text-4xl">
+      🔥
+    </span>,
+    <span key="9" className="text-4xl">
+      ⚡
+    </span>,
+    <span key="10" className="text-4xl">
+      🌈
+    </span>,
   ]
   return (
     <div className="relative flex h-full w-full max-w-lg items-center justify-center overflow-hidden rounded-lg border bg-background px-20 pb-20 pt-8 ">
@@ -1824,7 +2047,10 @@ export function PerspectiveMenuDemo() {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="relative flex items-center justify-center p-20 bg-slate-950 rounded-lg h-[400px]">
-      <button onClick={() => setIsOpen(true)} className="px-4 py-2 bg-primary text-primary-foreground rounded-md z-10">
+      <button
+        onClick={() => setIsOpen(true)}
+        className="px-4 py-2 bg-primary text-primary-foreground rounded-md z-10"
+      >
         Open Menu
       </button>
       <PerspectiveMenu
@@ -1862,7 +2088,6 @@ export function CardStackDemo() {
     </div>
   )
 }
-
 
 export function ComponentPageSkeletonDemo() {
   return (
@@ -1938,8 +2163,6 @@ export function DeviceMockupsDemo() {
   )
 }
 
-
-
 export function CustomCursorDemo() {
   return (
     <div className="relative h-[300px] w-full bg-background border rounded-lg flex items-center justify-center overflow-hidden">
@@ -1952,13 +2175,12 @@ export function CustomCursorDemo() {
 export function StaggeredGridDemo() {
   return (
     <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <StaggeredGrid
-        columns={4}
-        gap="1rem"
-        className="p-4"
-      >
+      <StaggeredGrid columns={4} gap="1rem" className="p-4">
         {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="h-40 w-full rounded-lg bg-primary/10 border flex items-center justify-center">
+          <div
+            key={i}
+            className="h-40 w-full rounded-lg bg-primary/10 border flex items-center justify-center"
+          >
             Item {i + 1}
           </div>
         ))}
@@ -1973,7 +2195,9 @@ export function PointerDemo({ name = "Pointer", color = "#FF3366", ...props }: a
   return (
     <div className="relative h-[300px] w-full flex items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden">
       <Pointer name={name} color={color} {...props} />
-      <div className="absolute bottom-4 text-sm text-gray-500">Move your cursor to see the effect</div>
+      <div className="absolute bottom-4 text-sm text-gray-500">
+        Move your cursor to see the effect
+      </div>
     </div>
   )
 }
@@ -1982,7 +2206,12 @@ export function ProgressiveBlurDemo({ direction = "bottom", blurIntensity = 10, 
   return (
     <div className="relative h-[300px] w-full flex items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1605106702734-205df224ecce?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center" />
-      <ProgressiveBlur direction={direction} blurIntensity={blurIntensity} className="absolute inset-0" {...props} />
+      <ProgressiveBlur
+        direction={direction}
+        blurIntensity={blurIntensity}
+        className="absolute inset-0"
+        {...props}
+      />
       <span className="z-10 text-4xl font-bold text-white drop-shadow-md">Progressive Blur</span>
     </div>
   )
@@ -2006,13 +2235,18 @@ export function SmoothCursorDemo({ texture, ...props }: any) {
   )
 }
 
-export function SpotlightCardDemo({ spotlightColor = "rgba(var(--primary-rgb), 0.15)", ...props }: any) {
+export function SpotlightCardDemo({
+  spotlightColor = "rgba(var(--primary), 0.15)",
+  ...props
+}: any) {
   return (
     <div className="flex h-60 w-full items-center justify-center">
       <SpotlightCard spotlightColor={spotlightColor} className="max-w-sm" {...props}>
         <div className="p-6">
           <h3 className="text-xl font-bold">Spotlight Card</h3>
-          <p className="mt-2 text-muted-foreground">Hover over this card to see the spotlight effect.</p>
+          <p className="mt-2 text-muted-foreground">
+            Hover over this card to see the spotlight effect.
+          </p>
         </div>
       </SpotlightCard>
     </div>
@@ -2062,10 +2296,20 @@ export function TracingBeamDemo() {
   )
 }
 
-export function CustomPointerDemo({ cursorSize = 20, cursorColor = "#6366f1", trailLength = 5, ...props }: any) {
+export function CustomPointerDemo({
+  cursorSize = 20,
+  cursorColor = "#6366f1",
+  trailLength = 5,
+  ...props
+}: any) {
   return (
     <div className="relative h-[300px] w-full bg-background border rounded-lg flex items-center justify-center overflow-hidden">
-      <CustomPointer cursorSize={cursorSize} cursorColor={cursorColor} trailLength={trailLength} {...props} />
+      <CustomPointer
+        cursorSize={cursorSize}
+        cursorColor={cursorColor}
+        trailLength={trailLength}
+        {...props}
+      />
       <p>Hover here (Custom Pointer)</p>
     </div>
   )
@@ -2093,10 +2337,21 @@ export function FollowerPointerDemo() {
   )
 }
 
-export function PixelTrailDemo({ pixelSize = 20, fadeDuration = 500, color = "rgba(99, 102, 241, 0.5)", ...props }: any) {
+export function PixelTrailDemo({
+  pixelSize = 20,
+  fadeDuration = 500,
+  color = "rgba(99, 102, 241, 0.5)",
+  ...props
+}: any) {
   return (
     <div className="relative h-[300px] w-full bg-background border rounded-lg flex items-center justify-center overflow-hidden">
-      <PixelTrail pixelSize={pixelSize} fadeDuration={fadeDuration} color={color} className="block" {...props} />
+      <PixelTrail
+        pixelSize={pixelSize}
+        fadeDuration={fadeDuration}
+        color={color}
+        className="block"
+        {...props}
+      />
       <p>Hover here to see pixel trail</p>
     </div>
   )
@@ -2111,7 +2366,9 @@ export function ScrollProgressiveBlurDemo({ blurAmount = 10, fadeDistance = 200,
             <h1 className="text-4xl font-bold">Scroll Down</h1>
             <p>The content will blur as you scroll.</p>
             {Array.from({ length: 10 }).map((_, i) => (
-              <p key={i} className="text-lg">Content block {i + 1}</p>
+              <p key={i} className="text-lg">
+                Content block {i + 1}
+              </p>
             ))}
           </div>
         </ScrollProgressiveBlur>
@@ -2120,3 +2377,103 @@ export function ScrollProgressiveBlurDemo({ blurAmount = 10, fadeDistance = 200,
   )
 }
 
+// ========== NEW COMPONENTS DEMOS ==========
+
+export function DataTableDemo() {
+  type Person = {
+    id: string
+    name: string
+    email: string
+    status: string
+  }
+
+  const columns: ColumnDef<Person>[] = [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+    },
+  ]
+
+  const data: Person[] = [
+    { id: "1", name: "John Doe", email: "john@example.com", status: "Active" },
+    { id: "2", name: "Jane Smith", email: "jane@example.com", status: "Inactive" },
+    { id: "3", name: "Bob Johnson", email: "bob@example.com", status: "Active" },
+    { id: "4", name: "Alice Williams", email: "alice@example.com", status: "Pending" },
+    { id: "5", name: "Charlie Brown", email: "charlie@example.com", status: "Active" },
+  ]
+
+  return (
+    <DataTable
+      columns={columns}
+      data={data}
+      enableSorting
+      enablePagination
+      pageSize={5}
+    />
+  )
+}
+
+export function DatePickerDemo() {
+  const [date, setDate] = React.useState<Date>()
+
+  return (
+    <DatePicker
+      value={date}
+      onChange={setDate}
+      placeholder="Pick a date"
+    />
+  )
+}
+
+export function ComboboxDemo() {
+  const [value, setValue] = React.useState("")
+
+  const options = [
+    { value: "react", label: "React" },
+    { value: "vue", label: "Vue" },
+    { value: "angular", label: "Angular" },
+    { value: "svelte", label: "Svelte" },
+    { value: "solid", label: "Solid" },
+  ]
+
+  return (
+    <Combobox
+      options={options}
+      value={value}
+      onChange={setValue}
+      placeholder="Select framework..."
+      emptyText="No framework found."
+    />
+  )
+}
+
+export function AriaLiveRegionDemo() {
+  const [message, setMessage] = React.useState("")
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex gap-2">
+        <Button onClick={() => setMessage(`Item saved at ${new Date().toLocaleTimeString()}`)}>
+          Save Item
+        </Button>
+        <Button onClick={() => setMessage(`Item deleted at ${new Date().toLocaleTimeString()}`)}>
+          Delete Item
+        </Button>
+      </div>
+      <AriaLiveRegion mode="polite">
+        {message}
+      </AriaLiveRegion>
+      <div className="text-sm text-muted-foreground">
+        {message && <p>Screen reader announced: "{message}"</p>}
+      </div>
+    </div>
+  )
+}

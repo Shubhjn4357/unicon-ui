@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "../../constants/color-tokens"
 
 export interface BorderBeamProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number
@@ -22,8 +23,8 @@ export const BorderBeam = React.forwardRef<HTMLDivElement, BorderBeamProps>(
       duration = 15,
       anchor = 90,
       borderWidth = 1.5,
-      colorFrom = "#ffaa40",
-      colorTo = "#9c40ff",
+      colorFrom = COLOR_TOKENS.BEAM_START,
+      colorTo = COLOR_TOKENS.BEAM_END,
       delay = 0,
       ...props
     },

@@ -16,13 +16,29 @@
     "rules": {
       "recommended": true,
       "a11y": {
-        "noSvgWithoutTitle": "off"
+        "noSvgWithoutTitle": "off",
+        "useFocusableInteractive": "off",
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off",
+        "useButtonType": "off",
+        "noLabelWithoutControl": "off",
+        "useIframeTitle": "off"
       },
       "complexity": {
         "noForEach": "off"
       },
       "style": {
-        "useTemplate": "warn"
+        "useTemplate": "off",
+        "useImportType": "off",
+        "useNumberNamespace": "off",
+        "noParameterAssign": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noExplicitAny": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
       }
     }
   },

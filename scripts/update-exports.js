@@ -23,18 +23,13 @@ const componentDirs = [
   "skeletons",
 ]
 
+// Components with multiple exports (sub-components)
 const specialExports = {
-  // InView utility
   "components/utils/in-view": "InView",
-  // Core alert sub-components
   "core/alert": ["Alert", "AlertTitle", "AlertDescription"],
-  // Core avatar sub-components
   "core/avatar": ["Avatar", "AvatarImage", "AvatarFallback"],
-  // Core card sub-components
   "core/card": ["Card", "CardHeader", "CardFooter", "CardTitle", "CardDescription", "CardContent"],
-  // Core checkbox sub-components
   "core/checkbox": ["Checkbox"],
-  // Core dialog sub-components
   "core/dialog": [
     "Dialog",
     "DialogContent",
@@ -44,7 +39,6 @@ const specialExports = {
     "DialogTitle",
     "DialogTrigger",
   ],
-  // Core dropdown menu sub-components
   "core/dropdown-menu": [
     "DropdownMenu",
     "DropdownMenuTrigger",
@@ -53,9 +47,7 @@ const specialExports = {
     "DropdownMenuLabel",
     "DropdownMenuSeparator",
   ],
-  // Core radio-group sub-components
   "core/radio-group": ["RadioGroup", "RadioGroupItem"],
-  // Core select sub-components
   "core/select": [
     "Select",
     "SelectGroup",
@@ -65,9 +57,14 @@ const specialExports = {
     "SelectLabel",
     "SelectItem",
   ],
-  // Core sheet sub-components
-  "core/sheet": ["Sheet", "SheetContent", "SheetDescription", "SheetHeader", "SheetTitle", "SheetTrigger"],
-  // Core table sub-components
+  "core/sheet": [
+    "Sheet",
+    "SheetContent",
+    "SheetDescription",
+    "SheetHeader",
+    "SheetTitle",
+    "SheetTrigger",
+  ],
   "core/table": [
     "Table",
     "TableHeader",
@@ -78,16 +75,9 @@ const specialExports = {
     "TableCell",
     "TableCaption",
   ],
-  // Core tabs sub-components
   "core/tabs": ["Tabs", "TabsList", "TabsTrigger", "TabsContent"],
-  // Core toast sub-components
-  "core/toast": [
-    "ToastProvider",
-    "useToast",
-  ],
-  // Core tooltip sub-components
+  "core/toast": ["ToastProvider", "useToast"],
   "core/tooltip": ["Tooltip", "TooltipTrigger", "TooltipContent", "TooltipProvider"],
-  // Core unicorn-provider sub-components
   "core/unicorn-provider": ["UnicornThemeProvider"],
   "layout/bento-grid": ["BentoGrid", "BentoCard"],
   "layout/dock": ["Dock", "DockIcon"],
@@ -97,41 +87,16 @@ const specialExports = {
   "misc/device-mockups": ["IPhoneMockup", "MacBookMockup"],
 }
 
-function generateExportStatement(comp) {
-  if (typeof comp === "string") {
-    const componentName = toPascalCase(comp)
-    const category = comp.category || "unknown"
-    return `export { ${componentName} } from "./components/${category}/${comp}"`
-  }
-  return `export { ${comp.name} } from "./components/${comp.category}/${comp.name}"`
-}
-
 function toPascalCase(str) {
-  // Handle special cases for components with numbers at the start
   if (str.startsWith("3d-")) {
-    return (
-      "ThreeD" + str.slice(3).replace(/(^|[-_])(.)/g, (_, __, char) => char?.toUpperCase() || "")
-    )
+    return `ThreeD${str.slice(3).replace(/(^|[-_])(.)/g, (_, __, char) => char?.toUpperCase() || "")}`
   }
-
-  return str.replace(/(^|[-_])(.)/g, (match, sep, char) => {
-    if (char && /[a-z]/.test(char)) {
-      return char.toUpperCase()
-    }
-    // Handle number followed by lowercase letter (like 3d)
-    if (char && /[0-9]/.test(char) && str[str.indexOf(match) + match.length] === 'd') {
-      return char
-    }
-    return char || ""
-  }).replace(/3d/g, "3D")
-}
-
-function generateSpecialExportStatement(compPath, exports) {
-  const exportList = Array.isArray(exports) ? exports.join(", ") : exports
-  const [category, componentName] = compPath.split("/")
-
-  // Return the full export list without filtering
-  return `export { ${exportList} } from "./components/${compPath}"`
+  return str
+    .replace(/(^|[-_])(.)/g, (match, sep, char) => {
+      if (char && /[a-z]/.test(char)) return char.toUpperCase()
+      return char || ""
+    })
+    .replace(/3d/g, "3D")
 }
 
 function discoverComponents() {
@@ -168,157 +133,78 @@ function generateExports() {
     let exportContent = "// Auto-generated exports - DO NOT EDIT MANUALLY\n"
     exportContent += "// Run 'pnpm update-exports' to regenerate\n\n"
 
-    // Utilities export
+    // Utilities
     exportContent += "// Utilities\n"
     exportContent +=
       'export { cn, getCSSVariable, prefersReducedMotion, generateId } from "./lib/utils"\n'
-
-    // Special utility exports
-    const specialUtilPaths = Object.keys(specialExports).filter((path) => path.startsWith("components/utils/"))
+    const specialUtilPaths = Object.keys(specialExports).filter((p) =>
+      p.startsWith("components/utils/")
+    )
     specialUtilPaths.forEach((compPath) => {
-      // Remove "components/" prefix for generateSpecialExportStatement as it expects path relative to components dir
       const relativePath = compPath.replace("components/", "")
-      exportContent += `${generateSpecialExportStatement(relativePath, specialExports[compPath])}\n`
+      const exports = specialExports[compPath]
+      const exportList = Array.isArray(exports) ? exports.join(", ") : exports
+      exportContent += `export { ${exportList} } from "./components/${relativePath}"\n`
     })
     exportContent += "\n"
 
-    // Hooks export
+    // Hooks
     exportContent += "// Hooks\n"
     exportContent += 'export * from "./hooks"\n\n'
 
-    // Core Components
-    exportContent += "// Core Components\n"
-    const coreComponents = discoverComponents().filter((c) => c.category === "core")
-    coreComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
+    // Generate exports for each category
+    const components = discoverComponents()
+    const categoryMap = new Map()
+
+    componentDirs.forEach((dir) => {
+      categoryMap.set(
+        dir,
+        components.filter((c) => c.category === dir)
+      )
     })
 
-    // Special exports for core components with multiple items
-    const specialCorePaths = Object.keys(specialExports).filter((path) => path.startsWith("core/"))
-    specialCorePaths.forEach((compPath) => {
-      exportContent += `${generateSpecialExportStatement(compPath, specialExports[compPath])}\n`
-    })
-    exportContent += "\n"
+    // Export by category with proper heading
+    const categoryHeadings = {
+      core: "Core Components",
+      layout: "Layout Components",
+      special: "Special Effects Components",
+      backgrounds: "Background Components",
+      text: "Text Components",
+      buttons: "Button Components",
+      misc: "Misc Components",
+      feedback: "Feedback Components",
+      interaction: "Interaction Components",
+      animation: "Animation Components",
+      mocks: "Mock Components",
+      skeletons: "Skeleton Components",
+    }
 
-    // Layout Components
-    exportContent += "// Layout Components\n"
-    const layoutComponents = discoverComponents().filter((c) => c.category === "layout")
-    layoutComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
+    for (const [category, heading] of Object.entries(categoryHeadings)) {
+      const comps = categoryMap.get(category) || []
+      if (comps.length === 0) continue
 
-    // Special layout exports (sub-components only)
-    const specialLayoutPaths = Object.keys(specialExports).filter((path) =>
-      path.startsWith("layout/")
-    )
-    specialLayoutPaths.forEach((compPath) => {
-      exportContent += `${generateSpecialExportStatement(compPath, specialExports[compPath])}\n`
-    })
-    exportContent += "\n"
-
-    // Feedback Components
-    exportContent += "// Feedback Components\n"
-    const feedbackComponents = discoverComponents().filter((c) => c.category === "feedback")
-    feedbackComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
-
-    // Interaction Components
-    exportContent += "// Interaction Components\n"
-    const interactionComponents = discoverComponents().filter((c) => c.category === "interaction")
-    interactionComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
-
-    // Animation Components
-    exportContent += "// Animation Components\n"
-    const animationComponents = discoverComponents().filter((c) => c.category === "animation")
-    animationComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
-
-    // Special Effects Components
-    exportContent += "// Special Effects Components\n"
-    const specialComponents = discoverComponents().filter((c) => c.category === "special")
-    specialComponents.forEach((comp) => {
-      if (!specialExports[`special/${comp.name}`]) {
+      exportContent += `// ${heading}\n`
+      comps.forEach((comp) => {
         const pascalName = toPascalCase(comp.name)
-        exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-      }
-    })
-    exportContent += "\n"
+        // Skip if handled in specialExports
+        if (!specialExports[`${category}/${comp.name}`]) {
+          exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
+        }
+      })
 
-    // Background Components
-    exportContent += "// Background Components\n"
-    const backgroundComponents = discoverComponents().filter((c) => c.category === "backgrounds")
-    backgroundComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
+      // Add special exports for this category
+      const specialForCategory = Object.keys(specialExports).filter((p) =>
+        p.startsWith(`${category}/`)
+      )
+      specialForCategory.forEach((compPath) => {
+        const exports = specialExports[compPath]
+        const exportList = Array.isArray(exports) ? exports.join(", ") : exports
+        exportContent += `export { ${exportList} } from "./components/${compPath}"\n`
+      })
+      exportContent += "\n"
+    }
 
-    // Text Components
-    exportContent += "// Text Components\n"
-    const textComponents = discoverComponents().filter((c) => c.category === "text")
-    textComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
-
-    // Button Components
-    exportContent += "// Button Components\n"
-    const buttonComponents = discoverComponents().filter((c) => c.category === "buttons")
-    buttonComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
-
-    // Misc Components
-    exportContent += "// Misc Components\n"
-    const miscComponents = discoverComponents().filter((c) => c.category === "misc")
-    miscComponents.forEach((comp) => {
-      if (!specialExports[`misc/${comp.name}`]) {
-        const pascalName = toPascalCase(comp.name)
-        exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-      }
-    })
-
-    // Special misc exports
-    const specialMiscPaths = Object.keys(specialExports).filter((path) => path.startsWith("misc/"))
-    specialMiscPaths.forEach((compPath) => {
-      exportContent += `${generateSpecialExportStatement(compPath, specialExports[compPath])}\n`
-    })
-    exportContent += "\n"
-
-    // Mock Components
-    exportContent += "// Mock Components\n"
-    const mockComponents = discoverComponents().filter((c) => c.category === "mocks")
-    mockComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
-
-    // Skeleton Components
-    exportContent += "// Skeleton Components\n"
-    const skeletonComponents = discoverComponents().filter((c) => c.category === "skeletons")
-    skeletonComponents.forEach((comp) => {
-      const pascalName = toPascalCase(comp.name)
-      exportContent += `export { ${pascalName} } from "./components/${comp.category}/${comp.name}"\n`
-    })
-    exportContent += "\n"
-
-    // Types export
+    // Types
     exportContent += "// Types\n"
     exportContent += 'export type { AsyncState } from "./hooks/use-async"\n'
     exportContent += 'export type { Theme, ThemeContextType } from "./hooks/use-theme"\n'
@@ -327,25 +213,16 @@ function generateExports() {
     exportContent += 'export type { Toast } from "./components/core/toast"\n'
     exportContent += "\n"
 
-    // Design Style Hook
-    exportContent += "// Design Style Hook\n"
+    // Additional hooks and utilities
+    exportContent += "// Additional Hooks\n"
     exportContent +=
-      'export { useDesignStyle, DesignStyleProvider } from "./hooks/use-design-style"\n\n'
-
-    // New Hooks export
-    exportContent += "// New Hooks\n"
+      'export { useDesignStyle, DesignStyleProvider } from "./hooks/use-design-style"\n'
     exportContent += 'export { useClipboard } from "./hooks/use-clipboard"\n'
     exportContent += 'export { useClickOutside } from "./hooks/use-click-outside"\n'
     exportContent += 'export { useMouse } from "./hooks/use-mouse"\n'
     exportContent += 'export { useScrollProgress } from "./hooks/use-scroll-progress"\n'
-
-    // Registry System export
-    exportContent += "// Registry System\n"
-    exportContent += 'export { ComponentRegistry } from "./registry/component-registry"\n'
-
-    // Theme Generator export
-    exportContent += "// Theme Generator\n"
     exportContent += 'export { useThemeGenerator } from "./hooks/use-theme-generator"\n'
+    // ComponentRegistry is a server-side utility; do not re-export it for client bundles.
 
     // Write to src/index.ts
     const indexPath = path.join(__dirname, "..", "src", "index.ts")
@@ -353,10 +230,10 @@ function generateExports() {
 
     console.log("✅ Exports updated successfully")
     console.log(
-      `📊 Generated exports for ${discoverComponents().length + Object.keys(specialExports).length} components/hooks`
+      `📊 Generated exports for ${components.length + Object.keys(specialExports).length} components`
     )
 
-    // Generate component metadata for documentation system
+    // Generate component metadata
     generateComponentMetadata()
   } catch (error) {
     console.error("❌ Error updating exports:", error.message)
@@ -370,7 +247,7 @@ function generateComponentMetadata() {
     name: comp.name,
     path: comp.path,
     category: comp.category,
-    filePath: path.join(__dirname, "..", "src", "components", comp.path + ".tsx"),
+    filePath: path.join(__dirname, "..", "src", "components", `${comp.path}.tsx`),
     exports: [comp.name],
   }))
 
@@ -381,7 +258,7 @@ function generateComponentMetadata() {
       name: componentName,
       path: compPath,
       category,
-      filePath: path.join(__dirname, "..", "src", "components", compPath + ".tsx"),
+      filePath: path.join(__dirname, "..", "src", "components", `${compPath}.tsx`),
       exports: Array.isArray(exports) ? exports : [exports],
     })
   })

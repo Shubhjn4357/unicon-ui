@@ -147,7 +147,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
         window.removeEventListener("resize", updatePosition)
         window.removeEventListener("scroll", updatePosition, true)
       }
-    }, [context?.open, side, align, sideOffset])
+    }, [context, context?.open, side, align, sideOffset])
 
     React.useEffect(() => {
       const handleClickOutside = (e: MouseEvent) => {
@@ -175,7 +175,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
           <motion.div
             ref={contentRef}
             className={cn(
-              "fixed z-50 rounded-(--radius) border border-border bg-card p-4 shadow-lg outline-none",
+              "fixed z-50 rounded border border-border bg-card p-4 shadow-lg outline-none",
               "unicorn-popover unicorn-card", // Reuses card/popover styles
               className
             )}

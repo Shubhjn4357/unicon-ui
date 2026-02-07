@@ -1,8 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { type RefObject, useEffect, useId, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import React, { type RefObject, useEffect, useId, useState } from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "@/constants/color-tokens"
 
 export interface AnimatedBeamProps {
   className?: string
@@ -33,11 +34,11 @@ export const AnimatedBeam = ({
   reverse = false,
   duration = Math.random() * 3 + 4,
   delay = 0,
-  pathColor = "var(--border)",
-  pathWidth = 2,
+  pathColor = "hsl(var(--border))",
+  pathWidth = 1,
   pathOpacity = 0.2,
-  gradientStartColor = "#ffaa40",
-  gradientStopColor = "#9c40ff",
+  gradientStartColor = COLOR_TOKENS.BEAM_START,
+  gradientStopColor = COLOR_TOKENS.BEAM_END,
   startXOffset = 0,
   startYOffset = 0,
   endXOffset = 0,
@@ -50,14 +51,7 @@ export const AnimatedBeam = ({
   // Calculate the bezier path
   useEffect(() => {
     const updatePath = () => {
-      if (
-        containerRef &&
-        containerRef.current &&
-        fromRef &&
-        fromRef.current &&
-        toRef &&
-        toRef.current
-      ) {
+      if (containerRef?.current && fromRef && fromRef.current && toRef && toRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect()
         const rectA = fromRef.current.getBoundingClientRect()
         const rectB = toRef.current.getBoundingClientRect()

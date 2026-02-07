@@ -2,6 +2,7 @@
 
 import React, { type MouseEvent, useEffect, useState } from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS, RGBA_TOKENS } from "@/constants/color-tokens"
 
 interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rippleColor?: string
@@ -13,7 +14,7 @@ const RippleButton = React.forwardRef<HTMLButtonElement, RippleButtonProps>(
     {
       className,
       children,
-      rippleColor = "rgba(255, 255, 255, 0.5)",
+      rippleColor = RGBA_TOKENS.WHITE_50,
       duration = "600ms",
       onClick,
       ...props

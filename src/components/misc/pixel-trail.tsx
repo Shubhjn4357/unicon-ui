@@ -19,7 +19,7 @@ export const PixelTrail = React.forwardRef<HTMLDivElement, PixelTrailProps>(
     {
       pixelSize = 20,
       fadeDuration = 500,
-      color = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.5)",
+      color = "rgba(var(--color-brand, 99, 102, 241), 0.5)",
       className,
       ...props
     },

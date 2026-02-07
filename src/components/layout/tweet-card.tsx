@@ -32,8 +32,8 @@ export const TweetCard = React.forwardRef<HTMLDivElement, TweetCardProps>(
       <motion.div
         ref={ref}
         className={cn(
-          "group relative flex flex-col gap-4 overflow-hidden rounded-(--radius) p-6",
-          "rounded-(--radius) border border-border bg-card p-4 transition-all hover:shadow-md",
+          "group relative flex flex-col gap-4 overflow-hidden rounded p-6",
+          "rounded border border-border bg-card p-4 transition-all hover:shadow-md",
           "hover:shadow-lg hover:shadow-primary/5",
           className
         )}

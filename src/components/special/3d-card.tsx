@@ -68,7 +68,9 @@ export function ThreeDCard({ children, className, ...props }: ThreeDCardProps) {
         }}
         className="group relative flex h-96 w-80 flex-col rounded-xl bg-card border border-border shadow-xl transition-all duration-200 ease-linear"
       >
-        <div style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}>{children}</div>
+        <div style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}>
+          {children}
+        </div>
       </motion.div>
     </div>
   )

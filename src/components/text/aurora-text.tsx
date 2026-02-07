@@ -1,8 +1,9 @@
 "use client"
 
-import { type HTMLMotionProps, motion } from "framer-motion"
+import { HTMLMotionProps, motion, type Variants } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "../../constants/color-tokens"
 
 export interface AuroraTextProps extends HTMLMotionProps<"span"> {
   children: React.ReactNode
@@ -26,7 +27,7 @@ export const AuroraText = React.forwardRef<HTMLSpanElement, AuroraTextProps>(
           ease: "linear",
         }}
         style={{
-          backgroundImage: "linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6)",
+          backgroundImage: COLOR_TOKENS.GRADIENT_RAINBOW,
           backgroundSize: "200% auto",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",

@@ -70,7 +70,7 @@ export const Modal: React.FC<ModalProps> = ({
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
               className={cn(
-                "relative w-full max-w-lg rounded-(--radius) border border-border bg-card p-6 shadow-lg",
+                "relative w-full max-w-lg rounded border border-border bg-card p-6 shadow-lg",
                 "max-h-[90vh] overflow-y-auto",
                 className
               )}

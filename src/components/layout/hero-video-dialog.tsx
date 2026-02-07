@@ -23,7 +23,7 @@ export function HeroVideoDialog({
   return (
     <div className={cn("relative", className)}>
       <div
-        className="group relative cursor-pointer overflow-hidden rounded-(--radius) border border-border bg-card shadow-sm transition-all hover:shadow-md"
+        className="group relative cursor-pointer overflow-hidden rounded border border-border bg-card shadow-sm transition-all hover:shadow-md"
         onClick={() => setIsOpen(true)}
       >
         <img
@@ -45,7 +45,7 @@ export function HeroVideoDialog({
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="relative w-full max-w-5xl aspect-video overflow-hidden rounded-(--radius) shadow-2xl bg-card"
+              className="relative w-full max-w-5xl aspect-video overflow-hidden rounded shadow-2xl bg-card"
             >
               <iframe
                 src={videoSrc}

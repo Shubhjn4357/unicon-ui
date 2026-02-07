@@ -1,6 +1,6 @@
 # 🦄 Unicorn UI
 
-A modern, production-ready React component library with **131 components** featuring advanced design styles including Claymorphism, Liquid Glass, Glassmorphism, Skeuomorphism, and Minimalism. Built with TypeScript, Tailwind CSS v4, and Framer Motion.
+A modern, production-ready React component library with **134+ components** featuring advanced design styles including Claymorphism, Liquid Glass, Glassmorphism, Skeuomorphism, and Minimalism. Fully accessible with WCAG 2.1 AA compliance. Built with TypeScript, Tailwind CSS v4, and Framer Motion.
 
 [![npm version](https://img.shields.io/npm/v/@unicorn-ui/ui.svg)](https://www.npmjs.com/package/@unicorn-ui/ui)
 [![License](https://img.shields.io/npm/l/@unicorn-ui/ui.svg)](https://github.com/Shubhjn4357/unicorn-ui/blob/main/LICENSE)
@@ -10,9 +10,10 @@ A modern, production-ready React component library with **131 components** featu
 
 - 🎨 **5 Design Styles** - Claymorphism, Liquid Glass, Glassmorphism, Skeuomorphism, Minimalism
 - 📱 **Mobile-First** - Responsive utilities, touch-friendly (44px targets), safe area support
-- 🎭 **131 Components** - Buttons, layouts, animations, backgrounds, text effects, and more
+- 🎭 **134+ Components** - Buttons, layouts, animations, backgrounds, text effects, data tables, and more
+- ♿ **Accessibility-First** - WCAG 2.1 AA compliant with screen reader support, ARIA labels, keyboard navigation
 - 🌙 **Dark Mode** - Built-in theme support with next-themes
-- ⚡ **Performance** - Optimized animations, tree-shakeable, minimal bundle size
+- ⚡ **Performance** - React.memo optimizations, tree-shakeable, minimal bundle size
 - 🔒 **Type-Safe** - Full TypeScript support with declarations
 - 🎯 **Tailwind v4** - Latest Tailwind CSS with CSS variables
 - 🎬 **Multi-Library Animations** - Framer Motion, GSAP, Three.js, Lenis
@@ -134,6 +135,8 @@ Essential building blocks:
 - `Accordion`, `Alert`, `Avatar`, `Badge`, `Button`, `Card`
 - `Checkbox`, `Dialog`, `Input`, `Popover`, `Progress`, `RadioGroup`
 - `Select`, `Slider`, `Switch`, `Table`, `Tabs`, `Textarea`
+- `DataTable`, `DatePicker`, `Combobox` (NEW)
+- `AriaLiveRegion`, `FocusTrap`, `VisuallyHidden` (Accessibility)
 
 </details>
 
@@ -307,11 +310,28 @@ pnpm format           # Format code
 pnpm test             # Run tests
 pnpm check            # Lint + typecheck + build
 
-# Publishing
+### Publishing
 pnpm changeset        # Create a changeset
 pnpm version-packages # Bump versions
 pnpm release          # Publish to npm
-```
+\`\`\`
+
+## 🛠️ CLI
+
+Unicorn UI comes with a powerful CLI to manage components.
+
+\`\`\`bash
+# Initialize project
+npx @unicorn-ui/ui init
+
+# Add specific component
+npx @unicorn-ui/ui add button
+
+# Create new component template
+npx @unicorn-ui/ui create my-component
+\`\`\`
+
+See [Documentation](https://unicorn-ui.vercel.app/docs/cli) for full CLI reference.
 
 ## 📚 Documentation
 
@@ -355,8 +375,9 @@ MIT © [Shubhjn4357](https://github.com/Shubhjn4357)
 
 ## 📊 Stats
 
-- **131 Components** across 10 categories
+- **134+ Components** across 10 categories
 - **5 Design Styles** fully implemented
+- **WCAG 2.1 AA** accessibility compliance
 - **236 KB** ESM bundle (gzipped)
 - **251 KB** CJS bundle (gzipped)
 - **59 KB** CSS bundle

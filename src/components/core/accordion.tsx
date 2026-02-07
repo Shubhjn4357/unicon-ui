@@ -14,35 +14,62 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   items: AccordionItem[]
   type?: "single" | "multiple"
   defaultValue?: string | string[]
+  value?: string | string[]
+  onValueChange?: (value: string | string[]) => void
   collapsible?: boolean
 }
 
 export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
-  ({ items, type = "single", defaultValue, collapsible = true, className, ...props }, ref) => {
-    const [openItems, setOpenItems] = React.useState<Set<string>>(() => {
+  (
+    {
+      items,
+      type = "single",
+      defaultValue,
+      value,
+      onValueChange,
+      collapsible = true,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const [uncontrolledOpenItems, setUncontrolledOpenItems] = React.useState<Set<string>>(() => {
       if (defaultValue) {
         return new Set(Array.isArray(defaultValue) ? defaultValue : [defaultValue])
       }
       return new Set()
     })
 
-    const toggleItem = (id: string) => {
-      setOpenItems((prev) => {
-        const newSet = new Set(prev)
-        const isOpen = newSet.has(id)
+    const isControlled = value !== undefined
+    const openItems = React.useMemo(() => {
+      if (isControlled && value) {
+        return new Set(Array.isArray(value) ? value : [value])
+      }
+      return uncontrolledOpenItems
+    }, [isControlled, value, uncontrolledOpenItems])
 
-        if (type === "single") {
-          newSet.clear()
-          if (!isOpen) newSet.add(id)
-        } else {
-          if (isOpen && collapsible) {
-            newSet.delete(id)
-          } else if (!isOpen) {
-            newSet.add(id)
-          }
+    const toggleItem = (id: string) => {
+      const newSet = new Set(openItems)
+      const isOpen = newSet.has(id)
+
+      if (type === "single") {
+        newSet.clear()
+        if (!isOpen) newSet.add(id)
+      } else {
+        if (isOpen && collapsible) {
+          newSet.delete(id)
+        } else if (!isOpen) {
+          newSet.add(id)
         }
-        return newSet
-      })
+      }
+
+      const newValue = Array.from(newSet)
+
+      if (!isControlled) {
+        setUncontrolledOpenItems(newSet)
+      }
+
+      onValueChange?.(type === "single" ? newValue[0] || "" : newValue)
     }
 
     return (
@@ -53,7 +80,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
             <div
               key={item.id || idx}
               className={cn(
-                "overflow-hidden rounded-(--radius) border border-border",
+                "overflow-hidden rounded border border-border",
                 "unicorn-card" // Treat each accordion item like a card for themes
               )}
             >

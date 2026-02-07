@@ -62,7 +62,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
               />
             </>
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-[hsl(var(--primary))]/10 font-medium text-[hsl(var(--primary))]">
+            <div className="flex h-full w-full items-center justify-center bg-[rgba(var(--primary),0.1)] font-medium text-[var(--primary)]">
               {fallback || alt?.charAt(0).toUpperCase() || "?"}
             </div>
           ))}

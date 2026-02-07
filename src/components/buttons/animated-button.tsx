@@ -3,6 +3,7 @@
 import { type HTMLMotionProps, motion } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { RGBA_TOKENS } from "../../constants/color-tokens" // Assuming path based on existing cn import
 
 export interface AnimatedButtonProps extends HTMLMotionProps<"button"> {
   children?: React.ReactNode
@@ -21,7 +22,7 @@ export const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButton
     {
       children = "Browse Components",
       className,
-      shimmerColor = "rgba(255, 255, 255, 0.66)",
+      shimmerColor = RGBA_TOKENS.WHITE_70,
       borderGradient,
       duration = 1,
       delay = 1,
@@ -36,7 +37,7 @@ export const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButton
           "group relative inline-flex h-11 items-center justify-center overflow-hidden rounded-md border px-8 font-medium transition-all duration-200",
           "border-border bg-background text-foreground",
           "dark:border-border dark:bg-background dark:text-foreground",
-          "[--shine:rgba(0,0,0,.66)] dark:[--shine:rgba(255,255,255,.66)]",
+          "[--shine:rgba(0,0,0,0.7)] dark:[--shine:rgba(255,255,255,0.7)]",
           className
         )}
         whileTap={{ scale: 0.97 }}

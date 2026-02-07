@@ -3,6 +3,7 @@
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "../../constants/color-tokens"
 
 export interface SpotlightProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number
@@ -15,7 +16,7 @@ export interface SpotlightProps extends React.HTMLAttributes<HTMLDivElement> {
  - Mouse-following spotlight beam
  */
 export const Spotlight = React.forwardRef<HTMLDivElement, SpotlightProps>(
-  ({ size = 600, color = "hsl(var(--primary) / 0.15)", className, ...props }, ref) => {
+  ({ size = 600, color = COLOR_TOKENS.SPOTLIGHT_DEFAULT, className, ...props }, ref) => {
     const mouseX = useMotionValue(0)
     const mouseY = useMotionValue(0)
 

@@ -1,7 +1,8 @@
 import fs from "node:fs"
 import path from "node:path"
 import * as ts from "typescript"
-import { ComponentMetadata, ComponentProp, ChangelogEntry } from "./types"
+import { componentMetadataSchema } from "./schema"
+import { ChangelogEntry, type ComponentMetadata, type ComponentProp } from "./types"
 
 export class ComponentRegistry {
   private program: ts.Program
@@ -68,11 +69,16 @@ export class ComponentRegistry {
 
       for (const file of files) {
         const componentPath = path.join(dir, file)
+
         try {
-          const metadata = this.analyzeComponent(componentPath, dir)
-          if (metadata) {
-            components.push(metadata)
-            this.metadata.set(metadata.name, metadata)
+          const rawMetadata = this.analyzeComponent(componentPath, dir)
+          if (rawMetadata) {
+            const result = componentMetadataSchema.safeParse(rawMetadata)
+            if (result.success) {
+              this.metadata.set(result.data.name, result.data)
+            } else {
+              console.error(`Validation failed for ${componentPath}:`, result.error.format())
+            }
           }
         } catch (e) {
           console.error(`Error analyzing ${componentPath}:`, e)
@@ -87,6 +93,8 @@ export class ComponentRegistry {
    * Analyze a component file and extract metadata
    */
   private analyzeComponent(filePath: string, category: string): ComponentMetadata | null {
+    // The function signature was malformed and has been corrected to its original state.
+    // If a new `validateProps` method was intended, please provide it as a separate, correctly formed method.
     const fullPath = path.join(process.cwd(), "src", "components", filePath)
     if (!fs.existsSync(fullPath)) return null
 
@@ -109,7 +117,7 @@ export class ComponentRegistry {
       dependencies,
       ...jsDocTags,
       lastModified: fs.statSync(fullPath).mtime.toISOString(),
-      usageExample: this.extractUsageExample(sourceFile)
+      usageExample: this.extractUsageExample(sourceFile),
     }
   }
 
@@ -128,13 +136,14 @@ export class ComponentRegistry {
 
       metadata.description = this.parseJSDocDescription(commentText)
       // Cast to expected type
-      metadata.status = (this.parseJSDocTag(commentText, "status") as any) || "stable"
+      metadata.status =
+        (this.parseJSDocTag(commentText, "status") as ComponentMetadata["status"]) || "stable"
       metadata.author = this.parseJSDocTag(commentText, "author")
       metadata.version = this.parseJSDocTag(commentText, "version")
 
       const tagsMatch = commentText.match(/@tags\s+(.*)/)
       if (tagsMatch) {
-        metadata.tags = tagsMatch[1].split(",").map(t => t.trim())
+        metadata.tags = tagsMatch[1].split(",").map((t) => t.trim())
       }
     }
 
@@ -145,8 +154,8 @@ export class ComponentRegistry {
     return comment
       .replace(/\/\*\*|\*\/|\*/g, "")
       .split("\n")
-      .filter(line => !line.trim().startsWith("@"))
-      .map(line => line.trim())
+      .filter((line) => !line.trim().startsWith("@"))
+      .map((line) => line.trim())
       .join(" ")
       .trim()
   }
@@ -186,25 +195,29 @@ export class ComponentRegistry {
     ts.forEachChild(sourceFile, (node) => {
       if (ts.isExportDeclaration(node)) {
         if (node.exportClause && ts.isNamedExports(node.exportClause)) {
-          node.exportClause.elements.forEach(element => {
+          node.exportClause.elements.forEach((element) => {
             exports.push(element.name.text)
           })
         }
-      } else if (ts.isClassDeclaration(node) || ts.isFunctionDeclaration(node) || ts.isVariableStatement(node)) {
+      } else if (
+        ts.isClassDeclaration(node) ||
+        ts.isFunctionDeclaration(node) ||
+        ts.isVariableStatement(node)
+      ) {
         const modifiers = ts.canHaveModifiers(node) ? ts.getModifiers(node) : undefined
-        if (modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword)) {
+        if (modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword)) {
           if (ts.isClassDeclaration(node) && node.name) {
             exports.push(node.name.text)
           } else if (ts.isFunctionDeclaration(node) && node.name) {
             exports.push(node.name.text)
           } else if (ts.isVariableStatement(node)) {
-            node.declarationList.declarations.forEach(decl => {
+            node.declarationList.declarations.forEach((decl) => {
               if (ts.isIdentifier(decl.name)) {
                 exports.push(decl.name.text)
               }
             })
           }
-         }
+        }
       }
     })
 
@@ -244,20 +257,20 @@ export class ComponentRegistry {
       type,
       required: !member.questionToken,
       description: this.extractDescription(member),
-      control: this.inferControlType(type)
+      control: this.inferControlType(type),
     }
   }
 
   private extractDescription(node: ts.Node): string | undefined {
     // Basic JSDoc extraction - would need more robust parsing for production
-    const anyNode = node as any;
-    if (anyNode.jsDoc && anyNode.jsDoc.length > 0) {
-      return anyNode.jsDoc[0].comment
+    const nodeWithJsDoc = node as { jsDoc?: { comment: string }[] }
+    if (nodeWithJsDoc.jsDoc && nodeWithJsDoc.jsDoc.length > 0) {
+      return nodeWithJsDoc.jsDoc[0].comment
     }
     return undefined
   }
 
-  private inferControlType(type: string): any {
+  private inferControlType(type: string): ComponentProp["control"] {
     if (type === "boolean") return "boolean"
     if (type === "number") return "number"
     if (type.includes("|")) return "select"
@@ -271,7 +284,7 @@ export class ComponentRegistry {
       if (ts.isIdentifier(typeName)) {
         return typeName.text
       }
-      return (typeName as any).getText() || "any"
+      return (typeName as { getText?: () => string }).getText?.() || "any"
     }
 
     if (ts.isUnionTypeNode(node)) {
@@ -291,12 +304,12 @@ export class ComponentRegistry {
   }
 
   private extractUsageExample(sourceFile: ts.SourceFile): string | undefined {
-    const fullText = sourceFile.getFullText();
-    const exampleMatch = fullText.match(/@example\s+([\s\S]*?)(?=\*\/)/);
+    const fullText = sourceFile.getFullText()
+    const exampleMatch = fullText.match(/@example\s+([\s\S]*?)(?=\*\/)/)
     if (exampleMatch) {
-      return exampleMatch[1].trim();
+      return exampleMatch[1].trim()
     }
-    return undefined;
+    return undefined
   }
 }
 

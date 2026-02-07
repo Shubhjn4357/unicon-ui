@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { useLocalStorage } from "../../hooks/use-async"
 
 export interface CollapsibleSidebarProps {
   children: React.ReactNode
@@ -16,6 +17,7 @@ export interface CollapsibleSidebarProps {
   className?: string
   contentClassName?: string
   onCollapsedChange?: (collapsed: boolean) => void
+  storageKey?: string
 }
 
 export function CollapsibleSidebar({
@@ -29,8 +31,28 @@ export function CollapsibleSidebar({
   className,
   contentClassName,
   onCollapsedChange,
+  storageKey,
 }: CollapsibleSidebarProps) {
-  const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed)
+  // Use local storage if key is provided, otherwise local state
+  const [storedCollapsed, setStoredCollapsed] = useLocalStorage<boolean>(
+    storageKey || "temp-sidebar-state",
+    defaultCollapsed
+  )
+
+  // If no storage key, we just use the state as is (useLocalStorage handles non-persistence if window is undefined, but for logic separation:)
+  // Actually easiest is to trust useLocalStorage or alias it.
+
+  const [internalCollapsed, setInternalCollapsed] = useState(defaultCollapsed)
+
+  const isCollapsed = storageKey ? storedCollapsed : internalCollapsed
+  const setIsCollapsed = (value: boolean) => {
+    if (storageKey) {
+      setStoredCollapsed(value)
+    } else {
+      setInternalCollapsed(value)
+    }
+  }
+
   const [isMobile, setIsMobile] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
@@ -100,7 +122,7 @@ export function CollapsibleSidebar({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-40 bg-black/50"
+                className="fixed inset-0 z-30 bg-background/50"
                 onClick={() => setIsMobileOpen(false)}
               />
               <motion.div
@@ -140,7 +162,7 @@ export function CollapsibleSidebar({
         <button
           onClick={toggleCollapse}
           className={cn(
-            "absolute top-4 z-10 rounded-full bg-background p-1.5 shadow-md border border-border hover:bg-accent transition-colors",
+            "absolute top-4 z-10 rounded-full bg-primary p-1.5 shadow-md border border-border hover:bg-accent transition-colors",
             position === "left" ? "-right-3" : "-left-3"
           )}
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}

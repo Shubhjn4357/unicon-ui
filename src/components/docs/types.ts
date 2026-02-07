@@ -1,4 +1,14 @@
-export type ControlType = "text" | "number" | "boolean" | "select" | "color" | "object" | "json"
+export type ControlType =
+  | "text"
+  | "number"
+  | "boolean"
+  | "select"
+  | "radio"
+  | "color"
+  | "object"
+  | "json"
+  | "icon"
+  | "none"
 
 export interface PropDefinition {
   name: string
@@ -29,4 +39,31 @@ export interface ComponentDoc {
   component: React.ComponentType<any>
   props: PropDefinition[]
   stories?: ComponentStory[]
+  examples?: {
+    title: string
+    description?: string
+    code: string
+  }[]
 }
+
+export interface HookDoc {
+  slug: string
+  title: string
+  description: string
+  data: {
+    title: string
+    description: string
+    examples: {
+      title: string
+      preview?: React.ComponentType<any>
+      code: string
+    }[]
+    props: {
+      name: string
+      type: string
+      description: string
+      default?: string
+    }[]
+  }
+}
+

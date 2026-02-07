@@ -13,14 +13,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Selection styles */
+/* Selection styles - using proper HSL syntax */
 ::selection {
-  background-color: var(--primary) / 0.2;
-  color: var(--primary-foreground);
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--primary-foreground));
 }
 
-/* Focus visible */
-:focus-visible {
+/* Focus visible - using proper HSL syntax */
+.focus-visible:focus {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }

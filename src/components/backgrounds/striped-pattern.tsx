@@ -15,7 +15,7 @@ export const StripedPattern = React.forwardRef<HTMLDivElement, StripedPatternPro
   (
     {
       stripeWidth = 40,
-      stripeColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.05)",
+      stripeColor = "rgba(var(--color-brand, 99, 102, 241), 0.05)",
       angle = 45,
       animated = true,
       speed = 20,

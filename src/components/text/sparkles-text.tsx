@@ -18,7 +18,7 @@ export const SparklesText = React.forwardRef<HTMLSpanElement, SparklesTextProps>
   (
     {
       text,
-      colors = { first: "hsl(var(--primary))", second: "hsl(var(--secondary))" },
+      colors = { first: "var(--primary)", second: "var(--secondary)" },
       sparklesCount = 10,
       className,
       ...props

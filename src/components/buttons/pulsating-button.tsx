@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS, RGBA_TOKENS } from "../../constants/color-tokens"
 
 import { type HTMLMotionProps, motion } from "framer-motion"
 
@@ -19,7 +20,7 @@ export const PulsatingButton = React.forwardRef<HTMLButtonElement, PulsatingButt
     {
       children,
       className,
-      pulseColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.7)",
+      pulseColor = COLOR_TOKENS.GLOW_DEFAULT,
       duration = "1.5s",
       ...props
     },
@@ -44,7 +45,7 @@ export const PulsatingButton = React.forwardRef<HTMLButtonElement, PulsatingButt
             boxShadow: `0 0 0 0 ${pulseColor}`,
           }}
           animate={{
-            boxShadow: [`0 0 0 0 ${pulseColor}`, "0 0 0 20px rgba(0, 0, 0, 0)"],
+            boxShadow: [`0 0 0 0 ${pulseColor}`, `0 0 0 20px ${RGBA_TOKENS.BLACK_10}`],
           }}
           transition={{
             duration: Number.parseFloat(duration),

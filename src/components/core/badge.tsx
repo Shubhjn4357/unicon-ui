@@ -19,7 +19,8 @@ export const badgeVariants = {
   default: "bg-primary text-primary-foreground hover:bg-primary/80 border-transparent",
   secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent",
   outline: "text-foreground border-border hover:bg-accent hover:text-accent-foreground",
-  destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent",
+  destructive:
+    "bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent",
   success: "bg-success text-success-foreground hover:bg-success/80 border-transparent",
 }
 
@@ -48,7 +49,7 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         {dot && (
           <motion.div
             className={cn("h-1.5 w-1.5 rounded-full", {
-              "bg-[hsl(var(--primary))]": variant === "default",
+              "bg-primary": variant === "default",
               "bg-foreground": variant === "secondary" || variant === "outline",
               "bg-red-600": variant === "destructive",
               "bg-green-600": variant === "success",

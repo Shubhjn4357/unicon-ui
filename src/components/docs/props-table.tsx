@@ -15,9 +15,9 @@ export function PropsTable({ props }: PropsTableProps) {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[200px]">Prop</TableHead>
-            <TableHead className="w-[200px]">Type</TableHead>
-            <TableHead className="w-[150px]">Default</TableHead>
+            <TableHead className="w-50">Prop</TableHead>
+            <TableHead className="w-50">Type</TableHead>
+            <TableHead className="w-37.5">Default</TableHead>
             <TableHead>Description</TableHead>
           </TableRow>
         </TableHeader>

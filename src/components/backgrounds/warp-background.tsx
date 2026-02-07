@@ -17,7 +17,7 @@ export const WarpBackground = React.forwardRef<HTMLDivElement, WarpBackgroundPro
   (
     {
       perspective = 100,
-      beamColor = "rgba(var(--primary-rgb), 0.5)",
+      beamColor = "rgba(var(--primary), 0.5)",
       lineCount = 30,
       className,
       ...props

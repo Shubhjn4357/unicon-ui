@@ -51,7 +51,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           />
           <motion.div
             className={cn(
-              "flex cursor-pointer items-center justify-center rounded-(--radius) border-2 border-border bg-card transition-colors duration-200",
+              "flex cursor-pointer items-center justify-center rounded border-2 border-border bg-card transition-colors duration-200",
               "peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2",
               "peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
               isChecked && "border-primary bg-primary",

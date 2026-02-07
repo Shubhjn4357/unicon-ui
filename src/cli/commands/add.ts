@@ -15,6 +15,7 @@ const BASE_URL = "https://raw.githubusercontent.com/Shubhjn4357/unicorn-ui/main"
 interface ComponentMetadata {
   name: string
   files: string[] // legacy registry had 'files', metadata has 'filePath' (single?) or we need to derive?
+  filePath?: string
   // The 'generate' command in component-registry.ts outputs 'filePath' (singular) for the main file.
   // Dependencies are listed in 'dependencies'.
   dependencies?: string[]
@@ -25,10 +26,10 @@ export const add = new Command()
   .name("add")
   .description("Add a component to your project")
   .argument("[components...]", "The components to add")
+  .option("-b, --block", "Install a block (complex component composition)")
   .action(async (components, opts) => {
     try {
       // Load registry from the generated JSON
-      // We assume the CLI is run from project root or we can find it.
       const metadataPath = path.join(process.cwd(), "src", "registry", "component-metadata.json")
 
       let registry: ComponentMetadata[] = []
@@ -36,12 +37,11 @@ export const add = new Command()
         const data = await fs.readFile(metadataPath, "utf-8")
         registry = JSON.parse(data)
       } else {
-        console.warn(chalk.yellow("Local registry metadata not found. Run 'pnpm unicorn-ui sync' first."))
+        console.warn(
+          chalk.yellow("Local registry metadata not found. Run 'pnpm unicorn-ui sync' first.")
+        )
         return
       }
-
-      // Map legacy registry structure if needed or adapt logic
-      // The new metadata has a list of objects.
 
       let componentsToAdd = components
 
@@ -64,7 +64,26 @@ export const add = new Command()
       }
 
       for (const componentName of componentsToAdd) {
-        const entry = registry.find(c => c.name === componentName)
+        let entry = registry.find((c) => c.name === componentName)
+
+        // If --block flag is used, we might look for it differently or it might just be in the registry 
+        // but we handle the path differently. 
+        // For now, let's assume blocks are just components that reside in src/components/blocks
+        // OR we can explicitly look for a "blocks" type in metadata if we had it.
+        // Given current metadata structure, we'll trust the registry entry.
+        // usage: pnpm unicorn-ui add my-block --block
+
+        if (!entry && opts.block) {
+          // Fallback: Try to construct an entry if not found in local registry but requested as block
+          // This assumes the user knows the block exists remotely.
+          entry = {
+            name: componentName,
+            files: [`blocks/${componentName}.tsx`],
+            filePath: `blocks/${componentName}.tsx`,
+            dependencies: []
+          }
+        }
+
         if (!entry) {
           console.warn(chalk.yellow(`Component '${componentName}' not found in registry.`))
           continue
@@ -72,49 +91,61 @@ export const add = new Command()
 
         const spinner = ora(`Installing ${componentName}...`).start()
 
-        // The metadata 'filePath' is like "core/button.tsx" or "src/components/core/button.tsx"
-        // We probably want to download the file from the repo.
-        // Let's assume metadata.filePath is relative to src/components if it's short, or full.
-        // Looking at ComponentRegistry.analyzeComponent: 
-        // filePath: filePath.replace(/\\/g, "/") -> which was passed as "core/accordion.tsx"
-        // So it is "core/accordion.tsx".
+        // Determine remote path based on flag or entry
+        // If opts.block is true, force looking into 'blocks/' if the entry path doesn't already allow it.
+        // However, standard components have filePath like 'core/button.tsx'.
+        // Blocks might contain multiple files.
 
-        // We need to fetch from src/components/{entry.filePath}
-        const fileUrl = `${BASE_URL}/src/components/${entry.files ? entry.files[0] : (entry as any).filePath}`
-        // Note: The new metadata schema might not have 'files' array, but 'filePath' string. 
-        // We should check the metadata format.
-        // Assuming 'filePath' exists on the new metadata based on component-registry.ts
+        const filesToDownload = entry.files || (entry.filePath ? [entry.filePath] : [])
 
-        // Fix: logic to support both/either or strictly use new metadata
-        const remotePath = (entry as any).filePath
-          ? `src/components/${(entry as any).filePath}`
-          : (entry.files && entry.files[0]) // Fallback
-
-        const url = `${BASE_URL}/${remotePath}`
-
-        try {
-          const response = await fetch(url)
-          if (!response.ok) {
-            // Try without src/components prefix if it failed? 
-            // Or maybe the BASE_URL already points somewhere?
-            // "https://raw.githubusercontent.com/Shubhjn4357/unicorn-ui/main/src/components/core/accordion.tsx"
-            throw new Error(`Failed to fetch ${url}: ${response.statusText}`)
-          }
-          const content = await response.text()
-
-          const fileName = path.basename(remotePath)
-          const targetDir = path.join(process.cwd(), "components", "ui")
-
-          if (!existsSync(targetDir)) {
-            await fs.mkdir(targetDir, { recursive: true })
-          }
-
-          const targetPath = path.join(targetDir, fileName)
-          await fs.writeFile(targetPath, content)
-        } catch (err) {
-          spinner.fail(`Failed to install ${componentName}`)
-          console.error(err)
+        if (filesToDownload.length === 0) {
+          spinner.fail(`No files defined for ${componentName}`)
           continue
+        }
+
+        for (const file of filesToDownload) {
+        // If it's a block, source might be src/components/blocks/... or just src/blocks/...
+        // We'll standardise on src/components/ for now as per `update-exports.js` discovery.
+        // If the file path in metadata is relative to src/components, we are good.
+
+          // Construct URL
+          // If it starts with src/, use it, otherwise prepend src/components/
+          let remotePath = file
+          if (!file.startsWith("src/")) {
+            remotePath = `src/components/${file}`
+          }
+
+          const url = `${BASE_URL}/${remotePath}`
+
+          try {
+            const response = await fetch(url)
+            if (!response.ok) {
+                 throw new Error(`Failed to fetch ${url}: ${response.statusText}`)
+               }
+               const content = await response.text()
+
+               // Determine target directory
+               // Default: components/ui
+               // If block: components/blocks
+
+               let targetDir = path.join(process.cwd(), "components", "ui")
+               if (opts.block || file.includes("blocks/")) {
+                 targetDir = path.join(process.cwd(), "components", "blocks")
+               }
+
+               if (!existsSync(targetDir)) {
+                 await fs.mkdir(targetDir, { recursive: true })
+               }
+
+               const fileName = path.basename(file)
+               const targetPath = path.join(targetDir, fileName)
+               await fs.writeFile(targetPath, content)
+             } catch (err) {
+               spinner.fail(`Failed to download ${file}`)
+               console.error(err)
+               // Don't continue to next file if one fails? Or try best effort?
+               // Best effort for now.
+             }
         }
 
         spinner.succeed(chalk.green(`Installed ${componentName}`))

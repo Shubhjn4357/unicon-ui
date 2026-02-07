@@ -53,37 +53,44 @@ export function ComponentPlayground({ doc }: ComponentPlaygroundProps) {
     setKey((prev) => prev + 1)
   }
 
-  // Heuristic to make components interactive in preview
-  // We wrap specific event handlers to update the playground state (args)
+  // Generic event handler proxy
+  // We wrap specific event handlers to update the playground state (args) or log actions
   const interactiveArgs = { ...args }
 
-  if (doc?.props.some((p) => p.name === "checked")) {
-    interactiveArgs.onCheckedChange = (checked: boolean) => {
-      handleArgChange("checked", checked)
-    }
-  }
-
-  if (doc?.props.some((p) => p.name === "value")) {
-    // For inputs, slider, etc.
-    interactiveArgs.onValueChange = (val: any) => {
-      handleArgChange("value", val)
-    }
-    interactiveArgs.onChange = (e: any) => {
-      if (e && e.target && e.target.value !== undefined) {
-        handleArgChange("value", e.target.value)
-      } else {
-        // handleArgChange("value", e) // dangerous if e is event object
+  // Automatically hook into common event handlers if they exist in props
+  if (doc?.props) {
+    doc.props.forEach(prop => {
+      if (prop.name.startsWith("on") && typeof args[prop.name] !== "function") {
+        // If it's a state change handler (e.g. onCheckedChange, onValueChange), try to update local state
+        if (prop.name === "onCheckedChange" || (prop.name === "onChange" && args.checked !== undefined)) {
+          interactiveArgs[prop.name] = (val: any) => {
+            // Handle checkbox standard event or direct boolean
+            const newValue = (val && typeof val === 'object' && 'target' in val) ? val.target.checked : val;
+            handleArgChange("checked", newValue)
+          }
+        } else if (prop.name === "onValueChange") {
+          interactiveArgs[prop.name] = (val: any) => {
+            // For Slider/Select
+            handleArgChange("value", val)
+                 // If it has defaultValue, update that too if value isn't controlled (heuristic)
+                 if (doc.props.find(p => p.name === "defaultValue")) {
+                   handleArgChange("defaultValue", val)
+                   }
+          }
+        } else if (prop.name === "onChange" && args.value !== undefined) {
+          interactiveArgs[prop.name] = (e: any) => {
+            if (e?.target) {
+              handleArgChange("value", e.target.value)
+                 }
+               }
+        } else {
+          // Generic logger for other actions
+          interactiveArgs[prop.name] = (...funcArgs: any[]) => {
+            console.log(`Action: ${prop.name}`, funcArgs)
+          }
+        }
       }
-    }
-  }
-
-  // Specific for Slider which uses onValueChange with number[]
-  if (doc?.slug === "slider") {
-    interactiveArgs.onValueChange = (val: number[]) => {
-      handleArgChange("defaultValue", val) // Slider uses defaultValue in args but onValueChange updates it
-      // Wait, if args has defaultValue, we should update that?
-      // The story uses defaultValue.
-    }
+    })
   }
 
   const Component = doc?.component

@@ -14,7 +14,7 @@ export const ComicText = ({ children, className, ...props }: ComicTextProps) => 
     <motion.span
       className={cn(
         "relative inline-block font-black uppercase text-foreground transition-all duration-300 hover:-translate-y-1 hover:translate-x-1",
-        "drop-shadow-[2px_2px_0px_hsl(var(--primary)/0.5)]",
+        "drop-shadow-[2px_2px_0px_rgba(var(--primary),0.5)]",
         className
       )}
       {...props}

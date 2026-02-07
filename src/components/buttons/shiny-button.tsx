@@ -1,38 +1,58 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import * as React from "react"
-import { cn } from "../../lib/utils"
+import React from "react";
+import { motion } from "framer-motion";
+import { cn } from "../../lib/utils";
 
-export interface ShinyButtonProps
-  extends Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
-  > {}
+interface ShinyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
 
-/**
- * Native ShinyButton - Metallic shine reflection effect
- */
-export const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <motion.button
-        ref={ref}
-        className={cn(
-          "group relative inline-flex h-11 items-center justify-center overflow-hidden rounded-lg bg-linear-to-r from-brand to-accent px-8 font-medium text-white shadow-lg transition-transform",
-          className
-        )}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        {...props}
+export const ShinyButton = ({ children, className, ...props }: ShinyButtonProps) => {
+  return (
+    <motion.button
+      initial={{ "--x": "100%", scale: 1 } as any}
+      animate={{ "--x": "-100%" } as any}
+      whileTap={{ scale: 0.97 }}
+      transition={{
+        repeat: Infinity,
+        repeatType: "loop",
+        repeatDelay: 1,
+        type: "spring",
+        stiffness: 20,
+        damping: 15,
+        mass: 2,
+        scale: {
+          type: "spring",
+          stiffness: 10,
+          damping: 5,
+          mass: 0.1,
+        },
+      }}
+      className={cn(
+        "relative rounded-lg px-6 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out hover:shadow",
+        "bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary),0.1)_0%,transparent_60%)] hover:shadow-[0_0_20px_rgba(var(--primary),0.1)]",
+        className
+      )}
+      {...props as any}
+    >
+      <span
+        className="relative block size-full text-sm uppercase tracking-wide text-muted-foreground"
+        style={{
+          maskImage:
+            "linear-gradient(-75deg,var(--primary) calc(var(--x) + 20%),transparent calc(var(--x) + 30%),var(--primary) calc(var(--x) + 100%))",
+        }}
       >
-        <span className="relative z-10">{children}</span>
-        <div className="absolute inset-0 -translate-x-full transform-gpu opacity-0 transition-all duration-700 ease-out group-hover:translate-x-full group-hover:opacity-100">
-          <div className="h-full w-full bg-linear-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-        </div>
-      </motion.button>
-    )
-  }
-)
-
-ShinyButton.displayName = "ShinyButton"
+        {children}
+      </span>
+      <span
+        style={{
+          mask: "linear-gradient(rgb(0,0,0), rgb(0,0,0)) content-box,linear-gradient(rgb(0,0,0), rgb(0,0,0))",
+          maskComposite: "exclude",
+        }}
+        className="absolute inset-0 z-10 block rounded-[inherit] bg-[linear-gradient(-75deg,rgba(var(--primary),0.1)_calc(var(--x)+20%),rgba(var(--primary),0.5)_calc(var(--x)+25%),rgba(var(--primary),0.1)_calc(var(--x)+100%))] p-px"
+      />
+    </motion.button>
+  );
+};
+ShinyButton.displayName = "ShinyButton";

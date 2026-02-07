@@ -15,7 +15,7 @@ export interface AsyncState<T> {
  * Hook for managing async operations
  * @returns { execute, data, error, loading, reset }
  */
-export function useAsync<T = any, Args extends any[] = any[]>(
+export function useAsync<T = unknown, Args extends unknown[] = unknown[]>(
   asyncFunction: (...args: Args) => Promise<T>
 ) {
   const [state, setState] = useState<AsyncState<T>>({
@@ -58,19 +58,20 @@ export function useAsync<T = any, Args extends any[] = any[]>(
  * @returns [value, setValue, remove]
  */
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = useState<T>(() => {
-    if (typeof window === "undefined") {
-      return initialValue
-    }
+  // Initialize with initialValue so Server and Client Hydration match
+  const [storedValue, setStoredValue] = useState<T>(initialValue)
 
+  useEffect(() => {
+  // Run on client mount
     try {
       const item = window.localStorage.getItem(key)
-      return item ? JSON.parse(item) : initialValue
+      if (item) {
+        setStoredValue(JSON.parse(item))
+      }
     } catch (error) {
       console.error(`Error reading localStorage key "${key}":`, error)
-      return initialValue
     }
-  })
+  }, [key])
 
   const setValue = (value: T | ((val: T) => T)) => {
     try {
@@ -106,19 +107,20 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
  * @returns [value, setValue, remove]
  */
 export function useSessionStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = useState<T>(() => {
-    if (typeof window === "undefined") {
-      return initialValue
-    }
+  // Initialize with initialValue so Server and Client Hydration match
+  const [storedValue, setStoredValue] = useState<T>(initialValue)
 
+  useEffect(() => {
+  // Run on client mount
     try {
       const item = window.sessionStorage.getItem(key)
-      return item ? JSON.parse(item) : initialValue
+      if (item) {
+        setStoredValue(JSON.parse(item))
+      }
     } catch (error) {
       console.error(`Error reading sessionStorage key "${key}":`, error)
-      return initialValue
     }
-  })
+  }, [key])
 
   const setValue = (value: T | ((val: T) => T)) => {
     try {

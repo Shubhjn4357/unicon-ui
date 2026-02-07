@@ -36,7 +36,7 @@ export interface ComponentProp {
   type: string
   description?: string
   required?: boolean
-  defaultValue?: any
+  defaultValue?: unknown
   control?: "text" | "number" | "boolean" | "select" | "color" | "range"
   options?: string[]
   validation?: PropValidation

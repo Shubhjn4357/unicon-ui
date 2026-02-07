@@ -3,6 +3,7 @@
 import { motion, useAnimation } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "../../constants/color-tokens"
 
 export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
@@ -11,7 +12,7 @@ export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement>
 
 export function SpotlightCard({
   children,
-  spotlightColor = "rgba(var(--primary-rgb), 0.15)",
+  spotlightColor = COLOR_TOKENS.SPOTLIGHT_DEFAULT,
   className,
   ...props
 }: SpotlightCardProps) {

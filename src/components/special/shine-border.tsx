@@ -14,7 +14,7 @@ export interface ShineBorderProps {
 export function ShineBorder({
   children,
   className,
-  color = "hsl(var(--primary))",
+  color = "var(--primary)",
   borderWidth = 1,
   duration = 14,
 }: ShineBorderProps) {

@@ -13,7 +13,7 @@ export interface BoxRevealProps {
 export const BoxReveal = ({
   children,
   width = "fit-content",
-  boxColor = "hsl(var(--primary))",
+  boxColor = "var(--primary)",
   duration = 0.5,
 }: BoxRevealProps) => {
   const mainControls = useAnimation()

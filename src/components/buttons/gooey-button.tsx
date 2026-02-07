@@ -13,7 +13,7 @@ export interface GooeyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonE
  */
 export const GooeyButton = React.forwardRef<HTMLButtonElement, GooeyButtonProps>(
   (
-    { children, className, backgroundColor = "#3b82f6", foregroundColor = "#ffffff", ...props },
+    { children, className, backgroundColor = "hsl(var(--primary))", foregroundColor = "hsl(var(--primary-foreground))", ...props },
     ref
   ) => {
     return (

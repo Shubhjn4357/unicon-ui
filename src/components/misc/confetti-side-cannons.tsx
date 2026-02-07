@@ -1,20 +1,18 @@
 "use client"
 
 import confetti from "canvas-confetti"
-import * as React from "react"
+import { COLOR_TOKENS } from "@/constants/color-tokens"
 import { Button } from "../core/button"
 
-export function ConfettiSideCannons() {
+export function ConfettiSideCannons({numberOfPieces = 100, colors = [COLOR_TOKENS.NEON_ACCENT, COLOR_TOKENS.NEON_PRIMARY, COLOR_TOKENS.NEON_SECONDARY, COLOR_TOKENS.BEAM_END]}: {numberOfPieces?: number, colors?: string[]}) {
   const handleConfetti = () => {
     const end = Date.now() + 3 * 1000 // 3 seconds
 
-    const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]
-
     const frame = () => {
       if (Date.now() > end) return
-
+      const devideParticleEqually = numberOfPieces / 2
       confetti({
-        particleCount: 2,
+        particleCount: devideParticleEqually,
         angle: 60,
         spread: 55,
         startVelocity: 60,
@@ -22,7 +20,7 @@ export function ConfettiSideCannons() {
         colors: colors,
       })
       confetti({
-        particleCount: 2,
+        particleCount: devideParticleEqually,
         angle: 120,
         spread: 55,
         startVelocity: 60,

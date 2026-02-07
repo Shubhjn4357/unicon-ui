@@ -1,69 +1,39 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import React, { useEffect, useState } from "react"
+import { Moon, Sun } from "lucide-react"
+import * as React from "react"
+import { useTheme } from "../../hooks/use-theme"
 
-interface ThemeToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface ThemeToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  showLabel?: boolean
+}
 
 /**
- * Animated theme toggle using View Transitions API
- * Features circular reveal animation and persistent theme storage
+ * Unified theme toggle using useTheme hook
+ * Features View Transitions API animation and proper theme context integration
  */
 export const ThemeToggle = React.forwardRef<HTMLButtonElement, ThemeToggleProps>(
-  ({ className, ...props }, ref) => {
-    const [theme, setTheme] = useState<"light" | "dark">("light")
-    const [mounted, setMounted] = useState(false)
-
-    // Initialize theme
-    useEffect(() => {
-      setMounted(true)
-      const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-
-      const initialTheme = savedTheme || (prefersDark ? "dark" : "light")
-      setTheme(initialTheme)
-      document.documentElement.classList.toggle("dark", initialTheme === "dark")
-    }, [])
+  ({ className, showLabel = false, ...props }, ref) => {
+    const { theme, setTheme, resolvedTheme } = useTheme()
 
     const toggleTheme = () => {
-      const newTheme = theme === "light" ? "dark" : "light"
+      const newTheme = theme === "dark" ? "light" : theme === "light" ? "dark" : "dark"
 
       // Check if View Transitions API is supported
       if (
-        (document as any).startViewTransition &&
+        typeof document !== "undefined" &&
+        "startViewTransition" in document &&
         !window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ) {
-        ;(document as any).startViewTransition(() => {
+        const transition = (document as Document & { startViewTransition: (callback: () => void) => void })
+        transition.startViewTransition(() => {
           setTheme(newTheme)
-          document.documentElement.classList.toggle("dark", newTheme === "dark")
-          localStorage.setItem("theme", newTheme)
         })
       } else {
         // Fallback without animation
         setTheme(newTheme)
-        document.documentElement.classList.toggle("dark", newTheme === "dark")
-        localStorage.setItem("theme", newTheme)
       }
-    }
-
-    // Prevent hydration mismatch
-    if (!mounted) {
-      return (
-        <button
-          ref={ref}
-          className={cn(
-            "rounded-lg p-2",
-            "text-muted-foreground",
-            "hover:bg-[hsl(var(--card))]",
-            "transition-colors duration-(--duration-fast)",
-            "cursor-pointer",
-            className
-          )}
-          {...props}
-        >
-          <div className="h-5 w-5" />
-        </button>
-      )
     }
 
     return (
@@ -71,55 +41,28 @@ export const ThemeToggle = React.forwardRef<HTMLButtonElement, ThemeToggleProps>
         ref={ref}
         onClick={toggleTheme}
         className={cn(
+          "inline-flex items-center justify-center gap-2",
           "rounded-lg p-2",
           "text-muted-foreground",
-          "hover:bg-[hsl(var(--card))]",
-          "hover:text-[hsl(var(--foreground))]",
-          "transition-colors duration-(--duration-fast)",
-          "cursor-pointer",
+          "hover:bg-card hover:text-foreground",
+          "transition-colors duration-150",
+          "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          "disabled:pointer-events-none disabled:opacity-50",
           className
         )}
-        aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+        aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} theme`}
         {...props}
       >
-        {theme === "light" ? (
-          // Moon icon
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-          </svg>
+        {resolvedTheme === "dark" ? (
+          <>
+            <Sun className="h-5 w-5" />
+            {showLabel && <span className="text-sm">Light</span>}
+          </>
         ) : (
-          // Sun icon
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2" />
-            <path d="M12 20v2" />
-            <path d="m4.93 4.93 1.41 1.41" />
-            <path d="m17.66 17.66 1.41 1.41" />
-            <path d="M2 12h2" />
-            <path d="M20 12h2" />
-            <path d="m6.34 17.66-1.41 1.41" />
-            <path d="m19.07 4.93-1.41 1.41" />
-          </svg>
+            <>
+              <Moon className="h-5 w-5" />
+              {showLabel && <span className="text-sm">Dark</span>}
+            </>
         )}
       </button>
     )

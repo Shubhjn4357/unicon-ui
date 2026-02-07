@@ -31,7 +31,7 @@ export const TextHighlighter = React.forwardRef<HTMLSpanElement, TextHighlighter
                   <motion.span
                     key={`${word}-${i}`}
                     className={cn(
-                      "bg-[hsl(var(--primary))]/20 px-1 font-semibold text-[hsl(var(--primary))]",
+                      "bg-[rgba(var(--primary),0.2)] px-1 font-semibold text-[var(--primary)]",
                       highlightClassName
                     )}
                     initial={{ opacity: 0, y: -5 }}

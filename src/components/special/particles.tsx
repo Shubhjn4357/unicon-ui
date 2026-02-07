@@ -4,6 +4,7 @@ import { useTheme } from "next-themes"
 import * as React from "react"
 
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "../../constants/color-tokens"
 
 export interface ParticlesProps extends React.HTMLAttributes<HTMLDivElement> {
   quantity?: number
@@ -18,7 +19,18 @@ export interface ParticlesProps extends React.HTMLAttributes<HTMLDivElement> {
  * Optimized with requestAnimationFrame
  */
 export const Particles = React.forwardRef<HTMLDivElement, ParticlesProps>(
-  ({ quantity = 30, staticity = 50, ease = 50, refresh = false, color = "#000000", className, ...props }, _ref) => {
+  (
+    {
+      quantity = 30,
+      staticity = 50,
+      ease = 50,
+      refresh = false,
+      color = COLOR_TOKENS.PARTICLE_LIGHT,
+      className,
+      ...props
+    },
+    _ref
+  ) => {
     const canvasRef = React.useRef<HTMLCanvasElement>(null)
     const canvasContainerRef = React.useRef<HTMLDivElement>(null)
     const context = React.useRef<CanvasRenderingContext2D | null>(null)
@@ -33,11 +45,17 @@ export const Particles = React.forwardRef<HTMLDivElement, ParticlesProps>(
         if (color.startsWith("var(--")) {
           const variableName = color.match(/var\(([^)]+)\)/)?.[1]
           if (variableName) {
-            const computedColor = getComputedStyle(document.documentElement).getPropertyValue(variableName).trim()
+            const computedColor = getComputedStyle(document.documentElement)
+              .getPropertyValue(variableName)
+              .trim()
             if (computedColor) {
               // Handle HSL values that might be returned as "0 0% 100%" or "0, 0%, 100%"
               // If it looks like numbers/percents without function, assume HSL or RGB provided by Tailwind variables
-              if (!computedColor.startsWith("#") && !computedColor.startsWith("rgb") && !computedColor.startsWith("hsl")) {
+              if (
+                !computedColor.startsWith("#") &&
+                !computedColor.startsWith("rgb") &&
+                !computedColor.startsWith("hsl")
+              ) {
                 // Assume it's an HSL variable value (common in Shadcn/Tailwind)
                 return `hsl(${computedColor})`
               }
@@ -94,7 +112,11 @@ export const Particles = React.forwardRef<HTMLDivElement, ParticlesProps>(
 
     const hexToHsl = (hex: string): string => {
       hex = hex.replace(/^#/, "")
-      if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("")
+      if (hex.length === 3)
+        hex = hex
+          .split("")
+          .map((c) => c + c)
+          .join("")
       const r = Number.parseInt(hex.substring(0, 2), 16) / 255
       const g = Number.parseInt(hex.substring(2, 4), 16) / 255
       const b = Number.parseInt(hex.substring(4, 6), 16) / 255
@@ -138,7 +160,6 @@ export const Particles = React.forwardRef<HTMLDivElement, ParticlesProps>(
         }
 
         context.current.fillStyle = fillStyle
-      
 
         if (resolvedColor.startsWith("#")) {
           const hsl = hexToHsl(resolvedColor)

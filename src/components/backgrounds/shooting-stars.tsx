@@ -4,6 +4,7 @@ import * as React from "react"
 import { cn } from "../../lib/utils"
 // @ts-ignore
 import Sparkles from "../special/meteors" // Reusing meteors for shared logic if needed, but here we build native
+import { COLOR_TOKENS } from "@/constants"
 
 export interface ShootingStarsProps extends React.HTMLAttributes<HTMLDivElement> {
   minDelay?: number
@@ -22,8 +23,8 @@ export const ShootingStars = React.forwardRef<HTMLDivElement, ShootingStarsProps
     {
       minDelay = 1200,
       maxDelay = 4200,
-      starColor = "#9E00FF",
-      trailColor = "#2EB9DF",
+      starColor = COLOR_TOKENS.NEON_PRIMARY,
+      trailColor = COLOR_TOKENS.NEON_SECONDARY,
       starWidth = 10,
       starHeight = 1,
       className,

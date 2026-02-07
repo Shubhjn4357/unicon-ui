@@ -47,9 +47,10 @@ export function DesignStyleProvider({
   React.useEffect(() => {
     try {
       const stored = localStorage.getItem(storageKey) as DesignStyle
-      const styleToSet = (stored && ["clay", "glass", "liquid-glass", "skeu", "minimal", "none"].includes(stored))
-        ? stored
-        : defaultStyle
+      const styleToSet =
+        stored && ["clay", "glass", "liquid-glass", "skeu", "minimal", "none"].includes(stored)
+          ? stored
+          : defaultStyle
 
       setDesignStyleState(styleToSet)
       // Sync to DOM immediately

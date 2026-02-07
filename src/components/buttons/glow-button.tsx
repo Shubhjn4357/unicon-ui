@@ -3,6 +3,7 @@
 import { type HTMLMotionProps, motion } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "../../constants/color-tokens"
 
 export interface GlowButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
   children?: React.ReactNode
@@ -15,7 +16,7 @@ export interface GlowButtonProps extends Omit<HTMLMotionProps<"button">, "childr
  * Features pulsing glow animation with customizable color and intensity
  */
 export const GlowButton = React.forwardRef<HTMLButtonElement, GlowButtonProps>(
-  ({ children, className, glowColor = "#22c55e", glowIntensity = 20, ...props }, ref) => {
+  ({ children, className, glowColor = COLOR_TOKENS.GLOW_SUCCESS, glowIntensity = 20, ...props }, ref) => {
     return (
       <motion.button
         ref={ref}

@@ -54,11 +54,7 @@ const FileTreeItem: React.FC<FileTreeItemProps> = ({ node, level, onFileClick })
           </motion.span>
         )}
         {!isFolder && <span className="w-3" />}
-        <span
-          className={cn(
-            isFolder ? "font-medium text-[hsl(var(--primary))]" : "text-[hsl(var(--foreground))]"
-          )}
-        >
+        <span className={cn(isFolder ? "font-medium text-primary" : "text-foreground")}>
           {node.name}
         </span>
       </motion.div>
@@ -92,10 +88,7 @@ export const FileTree = React.forwardRef<HTMLDivElement, FileTreeProps>(
     return (
       <div
         ref={ref}
-        className={cn(
-          "rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4",
-          className
-        )}
+        className={cn("rounded-lg border border-border bg-card p-4", className)}
         {...props}
       >
         {data.map((node, idx) => (

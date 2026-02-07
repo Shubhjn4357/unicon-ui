@@ -69,7 +69,7 @@ export const ExpandableBentoCard = React.forwardRef<HTMLDivElement, ExpandableBe
         <div className="flex items-start gap-4">
           {icon && (
             <motion.div
-              className="flex h-12 w-12 items-center justify-center rounded-xl bg-[hsl(var(--primary))]/10 text-[hsl(var(--primary))]"
+              className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
             >
@@ -79,14 +79,14 @@ export const ExpandableBentoCard = React.forwardRef<HTMLDivElement, ExpandableBe
 
           <div className="flex-1">
             <h3 className="text-xl font-semibold">{title}</h3>
-            <p className="mt-1 text-sm text-[hsl(var(--foreground))]-secondary">{description}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{description}</p>
           </div>
 
           {/* Expand indicator */}
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
-            className="text-[hsl(var(--foreground))]-secondary"
+            className="text-muted-foreground"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +114,7 @@ export const ExpandableBentoCard = React.forwardRef<HTMLDivElement, ExpandableBe
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="rounded-lg border border-[hsl(var(--border))]/50 bg-[hsl(var(--card))]/50 p-4">
+              <div className="rounded-lg border border-border/50 bg-card/50 p-4">
                 {expandedContent}
               </div>
             </motion.div>

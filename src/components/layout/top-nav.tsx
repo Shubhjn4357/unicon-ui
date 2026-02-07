@@ -28,8 +28,10 @@ export function TopNav({
   brandHref = "/",
   links = [
     { label: "Docs", href: "/docs" },
-    { label: "Components", href: "/components" },
-    { label: "Hooks", href: "/hooks" },
+    { label: "Components", href: "/docs/components" },
+    { label: "Hooks", href: "/docs/hooks" },
+    { label: "Showcase", href: "/showcase" },
+    { label: "Theme Generator", href: "/theme-generator" },
     { label: "CLI", href: "/docs/cli" },
   ],
   rightContent,

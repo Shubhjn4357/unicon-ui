@@ -51,7 +51,7 @@ export const Timeline = React.forwardRef<HTMLDivElement, TimelineProps>(
                 <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-muted-foreground/50">
                   {item.title}
                 </h3>
-                <div className="bg-card/50 backdrop-blur-sm border border-border p-6 rounded-(--radius)">
+                <div className="bg-card/50 backdrop-blur-sm border border-border p-6 rounded">
                   {item.content}
                 </div>
               </div>

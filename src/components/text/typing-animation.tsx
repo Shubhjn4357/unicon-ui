@@ -9,7 +9,11 @@ export interface TypingAnimationProps {
   className?: string
 }
 
-export const TypingAnimation = ({ text = "Typing Animation", duration = 200, className }: TypingAnimationProps) => {
+export const TypingAnimation = ({
+  text = "Typing Animation",
+  duration = 200,
+  className,
+}: TypingAnimationProps) => {
   const [displayedText, setDisplayedText] = useState("")
   const [i, setI] = useState(0)
 

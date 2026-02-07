@@ -33,7 +33,7 @@ export const CardStack = React.forwardRef<HTMLDivElement, CardStackProps>(
           return (
             <motion.div
               key={card.id}
-              className="absolute h-60 w-60 md:h-60 md:w-96 rounded-3xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] p-4 shadow-xl flex flex-col justify-between"
+              className="absolute h-60 w-60 md:h-60 md:w-96 rounded-3xl bg-card border border-border p-4 shadow-xl flex flex-col justify-between"
               style={{
                 transformOrigin: "top center",
               }}
@@ -44,8 +44,8 @@ export const CardStack = React.forwardRef<HTMLDivElement, CardStackProps>(
               }}
             >
               <div className="group flex h-full w-full flex-col">
-                <p className="text-lg font-bold text-[hsl(var(--foreground))]">{card.name}</p>
-                <div className="mt-2 text-sm font-normal text-[hsl(var(--muted-foreground))] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <p className="text-lg font-bold text-foreground">{card.name}</p>
+                <div className="mt-2 text-sm font-normal text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {card.content}
                 </div>
               </div>

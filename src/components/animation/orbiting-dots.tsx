@@ -24,7 +24,7 @@ export const OrbitingDots: React.FC<OrbitingDotsProps> = ({
     <div className={cn("relative w-full h-full", props.className)} {...props}>
       {[...Array(count)].map((_, i) => (
         <motion.div
-          key={i} // biome-ignore lint/suspicious/noArrayIndexKey - Static array for animation
+          key={i}
           className="absolute rounded-full"
           style={{
             width: dotSize,

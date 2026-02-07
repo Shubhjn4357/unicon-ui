@@ -38,11 +38,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
           <motion.div
             ref={ref}
             role="alert"
-            className={cn(
-              "relative rounded-(--radius) border p-4",
-              variantStyles[variant],
-              className
-            )}
+            className={cn("relative rounded border p-4", variantStyles[variant], className)}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, x: 100 }}

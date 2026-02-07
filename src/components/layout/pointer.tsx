@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "../../constants/color-tokens"
 
 export interface PointerProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string
@@ -9,7 +10,7 @@ export interface PointerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Pointer = React.forwardRef<HTMLDivElement, PointerProps>(
-  ({ name, color = "#FF3366", className, ...props }, ref) => {
+  ({ name, color = COLOR_TOKENS.NEON_ACCENT, className, ...props }, ref) => {
     return (
       <div ref={ref} className={cn("relative", className)} {...props}>
         <svg

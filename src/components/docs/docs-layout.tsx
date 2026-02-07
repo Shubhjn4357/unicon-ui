@@ -23,36 +23,48 @@ import { usePathname } from "next/navigation"
 
 import { getSidebarData } from "@/data/component-docs"
 
+import { useLocalStorage } from "../../hooks/use-async"
+
 export function DocsLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-
   const sidebarData = getSidebarData()
 
-  const componentAccordionItems = sidebarData.map((category: { name: string; items: { title: string; slug: string }[] }) => ({
-    id: category.name,
-    title: category.name,
-    content: (
-      <div className="flex flex-col space-y-1 pl-2">
-        {category.items.map((item: { title: string; slug: string }) => {
-          const href = `/docs/components/${item.slug}`
-          return (
-            <Link key={item.slug} href={href} className="block">
-              <SidebarItem
-                active={pathname === href}
-                className="text-sm py-1.5 h-auto text-muted-foreground aria-[current=page]:text-foreground"
-              >
-                {item.title}
-              </SidebarItem>
-            </Link>
-          )
-        })}
-      </div>
-    ),
-  }))
+  // Persist opened accordion items
+  const [openedCategories, setOpenedCategories] = useLocalStorage<string[]>(
+    "docs-accordion-state",
+    ["Getting Started", "Components"]
+  )
+
+  const componentAccordionItems = sidebarData.map(
+    (category: { name: string; items: { title: string; slug: string }[] }) => ({
+      id: category.name,
+      title: category.name,
+      content: (
+        <div className="flex flex-col space-y-1 pl-2">
+          {category.items.map((item: { title: string; slug: string }) => {
+            const href = `/docs/components/${item.slug}`
+            return (
+              <Link key={item.slug} href={href} className="block">
+                <SidebarItem
+                  active={pathname === href}
+                  className="text-sm py-1.5 h-auto text-muted-foreground aria-[current=page]:text-foreground"
+                >
+                  {item.title}
+                </SidebarItem>
+              </Link>
+            )
+          })}
+        </div>
+      ),
+    })
+  )
 
   return (
-    <div className="flex h-[calc(100vh-3.5rem)] overflow-hidden">
-      <CollapsibleSidebar className="w-64 border-r bg-background/50 backdrop-blur-xl">
+    <div className="flex items-start">
+      <CollapsibleSidebar
+        className="sticky top-14 h-[calc(100vh-3.5rem)] w-64 border-r bg-background/50 backdrop-blur-xl"
+        storageKey="docs-sidebar-collapsed"
+      >
         <div className="py-4 px-2 space-y-6">
           <SidebarSection title="Getting Started">
             <Link href="/docs" className="block">
@@ -109,13 +121,14 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
             <Accordion
               items={componentAccordionItems}
               type="multiple"
-              defaultValue={[]}
+              value={openedCategories}
+              onValueChange={(val) => setOpenedCategories(val as string[])}
               className="w-full space-y-1"
             />
           </div>
         </div>
       </CollapsibleSidebar>
-      <main className="flex-1 overflow-y-auto bg-background">{children}</main>
+      <main className="flex-1 min-w-0 bg-background">{children}</main>
     </div>
   )
 }

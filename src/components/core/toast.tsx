@@ -102,6 +102,7 @@ function ToastItem({ toast, onClose }: { toast: Toast; onClose: () => void }) {
         )}
       </div>
       <button
+        type="button"
         onClick={onClose}
         className="text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 transition-colors"
       >

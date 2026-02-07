@@ -18,6 +18,9 @@
     "README.md",
     "CHANGELOG.md"
   ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "concurrently \"next dev\" \"tsup --watch\"",
     "dev:docs": "next dev",
@@ -31,19 +34,19 @@
     "typecheck": "tsc --noEmit",
     "format": "biome format --write .",
     "clean": "rm -rf dist .next",
-    "clean:src": "node scripts/clean-src.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "check": "pnpm lint && pnpm typecheck && pnpm build:package",
-    "create-component": "node scripts/create-component.js",
-    "update-exports": "node scripts/update-exports.js",
-    "verify": "node scripts/verify-build.js",
-    "generate-docs": "node scripts/generate-docs.js",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build:package",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm build:package && changeset publish",
-    "prepublishOnly": "pnpm build:package"
+    "prepublishOnly": "pnpm build:package",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --write"
+    ]
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -52,13 +55,16 @@
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
+    "@tanstack/react-table": "^8.21.3",
     "@types/three": "^0.182.0",
     "canvas-confetti": "^1.9.4",
     "chalk": "^5.6.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
     "cobe": "^0.6.5",
     "commander": "^12.1.0",
+    "date-fns": "^4.1.0",
     "framer-motion": "^12.29.2",
     "fs-extra": "^11.3.3",
     "gsap": "^3.14.2",
@@ -68,6 +74,7 @@
     "ora": "^8.2.0",
     "pnpm": "^10.28.2",
     "prompts": "^2.4.2",
+    "react-day-picker": "^9.13.1",
     "tailwind-merge": "^2.6.1",
     "three": "^0.182.0"
   },
@@ -94,6 +101,9 @@
     "@vitest/coverage-v8": "^4.0.18",
     "autoprefixer": "^10.4.24",
     "concurrently": "^9.2.1",
+    "husky": "^9.1.7",
+    "jsdom": "^28.0.0",
+    "lint-staged": "^16.2.7",
     "next": "^16.1.6",
     "playwright": "^1.58.1",
     "postcss": "^8.5.6",
@@ -101,10 +111,12 @@
     "react-dom": "^19.2.4",
     "storybook": "^10.2.3",
     "tailwindcss": "^4.1.18",
+    "ts-node": "^10.9.2",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
-    "vitest": "^4.0.18"
+    "vitest": "^4.0.18",
+    "zod": "^4.3.6"
   },
   "bin": {
     "unicorn-ui": "./dist/cli/index.js"

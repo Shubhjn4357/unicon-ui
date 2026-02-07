@@ -18,7 +18,7 @@ export const DottedMap = React.forwardRef<HTMLDivElement, DottedMapProps>(
   (
     {
       dots = [],
-      dotColor = "rgba(var(--color-brand-rgb, 99, 102, 241), 0.6)",
+      dotColor = "rgba(var(--color-brand, 99, 102, 241), 0.6)",
       dotSize = 4,
       gridSize = 20,
       className,
@@ -87,7 +87,7 @@ export const DottedMap = React.forwardRef<HTMLDivElement, DottedMapProps>(
               cx={dot.x}
               cy={dot.y}
               r={0.15}
-              fill="rgba(var(--color-foreground-rgb, 0, 0, 0), 0.2)"
+              fill="rgba(var(--color-foreground, 0, 0, 0), 0.2)"
               className="transition-opacity hover:opacity-100"
             />
           ))}

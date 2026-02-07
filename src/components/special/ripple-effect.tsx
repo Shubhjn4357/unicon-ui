@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { RGBA_TOKENS } from "../../constants/color-tokens"
 
 export interface RippleEffectProps extends React.HTMLAttributes<HTMLDivElement> {
   rippleColor?: string
@@ -12,7 +13,7 @@ export interface RippleEffectProps extends React.HTMLAttributes<HTMLDivElement> 
  * Native RippleEffect - Interactive click ripple container
  */
 export const RippleEffect = React.forwardRef<HTMLDivElement, RippleEffectProps>(
-  ({ children, rippleColor = "rgba(255, 255, 255, 0.3)", className, ...props }, ref) => {
+  ({ children, rippleColor = RGBA_TOKENS.WHITE_30, className, ...props }, ref) => {
     const [ripples, setRipples] = React.useState<{ x: number; y: number; id: number }[]>([])
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {

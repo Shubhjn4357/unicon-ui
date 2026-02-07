@@ -36,8 +36,8 @@ export const RetroGrid = React.forwardRef<HTMLDivElement, RetroGridProps>(
             className="bg-repeat bg-size-[60px_60px] h-[300vh] inset-[0%_0px] ml-[-50%] origin-[100%_0_0] w-[600vw]"
             style={{
               backgroundImage: `
-                  linear-gradient(to right, rgba(var(--color-brand-rgb, 99, 102, 241), 0.3) 1px, transparent 0),
-                  linear-gradient(to bottom, rgba(var(--color-brand-rgb, 99, 102, 241), 0.3) 1px, transparent 0)
+                  linear-gradient(to right, rgba(var(--color-brand, 99, 102, 241), 0.3) 1px, transparent 0),
+                  linear-gradient(to bottom, rgba(var(--color-brand, 99, 102, 241), 0.3) 1px, transparent 0)
                  
 `,
               animation: `retro-grid-wave ${speed}s linear infinite`,

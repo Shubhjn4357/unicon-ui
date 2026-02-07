@@ -1,95 +1,58 @@
 "use client"
 
-import { motion } from "framer-motion"
-import * as React from "react"
+import { useInView, useMotionValue, useSpring } from "framer-motion"
+import React, { useEffect, useRef } from "react"
 import { cn } from "../../lib/utils"
 
-export interface AnimatedNumberProps {
-  /**
-   * The target number to count to
-   */
+export const AnimatedNumber = ({
+  value,
+  className,
+  format = (v) => Math.round(v).toString(),
+}: {
   value: number
-  /**
-   * Number of decimal places
-   * @default 0
-   */
-  decimals?: number
-  /**
-   * Prefix to display before the number
-   */
-  prefix?: string
-  /**
-   * Suffix to display after the number
-   */
-  suffix?: string
-  /**
-   * Duration of the animation in seconds
-   * @default 2
-   */
-  duration?: number
-  /**
-   * Additional CSS classes
-   */
   className?: string
+  format?: (value: number) => string
+}) => {
+  const ref = useRef<HTMLSpanElement>(null)
+  const motionValue = useMotionValue(0)
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 100,
+  })
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value)
+    }
+  }, [isInView, value, motionValue])
+
+  useEffect(() => {
+    return springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = format(latest)
+      }
+    })
+  }, [springValue, format])
+
+  return <span ref={ref} className={cn("inline-block tabular-nums", className)} />
 }
 
-/**
- * AnimatedNumber - Count-up number animation with spring physics
- * Features smooth counting animation with decimal support and prefix/suffix options
- */
-export const AnimatedNumber = React.forwardRef<HTMLSpanElement, AnimatedNumberProps>(
-  ({ value, decimals = 0, prefix = "", suffix = "", duration = 2, className }, ref) => {
-    const [displayValue, setDisplayValue] = React.useState(0)
-
-    React.useEffect(() => {
-      const controls = {
-        from: 0,
-        to: value,
-      }
-
-      let startTime: number
-      let animationFrame: number
-
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp
-        const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
-
-        // Easing function (ease-out)
-        const easeOut = 1 - (1 - progress) ** 3
-        const current = controls.from + (controls.to - controls.from) * easeOut
-
-        setDisplayValue(current)
-
-        if (progress < 1) {
-          animationFrame = requestAnimationFrame(animate)
-        }
-      }
-
-      animationFrame = requestAnimationFrame(animate)
-
-      return () => {
-        if (animationFrame) {
-          cancelAnimationFrame(animationFrame)
-        }
-      }
-    }, [value, duration])
-
-    const formattedValue = displayValue.toFixed(decimals)
-
-    return (
-      <motion.span
-        ref={ref}
-        className={cn("tabular-nums", className)}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {prefix}
-        {formattedValue}
-        {suffix}
-      </motion.span>
-    )
-  }
-)
-
+export const AnimatedScore = ({ value, className }: { value: number; className?: string }) => {
+  const isPositive = value >= 0
+  return (
+    <span
+      className={cn(
+        "font-bold transition-colors duration-500",
+        isPositive ? "text-success" : "text-destructive",
+        className
+      )}
+    >
+      <AnimatedNumber
+        value={value}
+        format={(v) => (v > 0 ? `+${v.toFixed(2)}%` : `${v.toFixed(2)}%`)}
+      />
+    </span>
+  )
+}
 AnimatedNumber.displayName = "AnimatedNumber"

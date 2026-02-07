@@ -1,39 +1,32 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
-import * as React from "react"
+import type React from "react"
 import { cn } from "../../lib/utils"
 
-export interface FlipTextProps extends React.HTMLAttributes<HTMLDivElement> {
-  word: string
-  duration?: number
-  delayMultiple?: number
+export const FlipText = ({
+  text,
+  className,
+}: {
+  text: string
+  className?: string
+}) => {
+  return (
+    <div className={cn("flex overflow-hidden text-4xl font-bold leading-tight", className)}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          data-char={char}
+          className="flip-char relative inline-block whitespace-pre"
+          style={
+            {
+              "--flip-delay": `${i * 0.05}s`,
+            } as React.CSSProperties
+          }
+        >
+          {char}
+        </span>
+      ))}
+    </div>
+  )
 }
-
-/**
- * Native FlipText - Flip text animation
- */
-export const FlipText = React.forwardRef<HTMLDivElement, FlipTextProps>(
-  ({ word = "Flip Text", duration = 0.5, delayMultiple = 0.08, className, ...props }, ref) => {
-    return (
-      <div ref={ref} className={cn("flex justify-center space-x-2", className)} {...props}>
-        <AnimatePresence mode="wait">
-          {word.split("").map((char, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, rotateX: -90 }}
-              animate={{ opacity: 1, rotateX: 0 }}
-              exit={{ opacity: 0, rotateX: 90 }}
-              transition={{ duration, delay: i * delayMultiple }}
-              className="origin-center drop-shadow-sm"
-            >
-              {char}
-            </motion.span>
-          ))}
-        </AnimatePresence>
-      </div>
-    )
-  }
-)
-
 FlipText.displayName = "FlipText"

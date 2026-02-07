@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import * as React from "react"
 import { cn } from "../../lib/utils"
+import { COLOR_TOKENS } from "@/constants/color-tokens"
 
 export interface NeonGradientCardProps extends React.HTMLAttributes<HTMLDivElement> {
   borderSize?: number
@@ -23,8 +24,8 @@ export const NeonGradientCard = React.forwardRef<HTMLDivElement, NeonGradientCar
       borderSize = 2,
       borderRadius = 20,
       neonColors = {
-        firstColor: "#ff00aa",
-        secondColor: "#00FFF1",
+        firstColor: COLOR_TOKENS.NEON_ACCENT,
+        secondColor: COLOR_TOKENS.NEON_SECONDARY,
       },
       className,
       ...props
@@ -55,9 +56,7 @@ export const NeonGradientCard = React.forwardRef<HTMLDivElement, NeonGradientCar
             ease: "linear",
           }}
         />
-        <div className="relative z-10 h-full rounded-[inherit] bg-[hsl(var(--card))] p-6">
-          {children}
-        </div>
+        <div className="relative z-10 h-full rounded-[inherit] bg-card p-6">{children}</div>
       </div>
     )
   }

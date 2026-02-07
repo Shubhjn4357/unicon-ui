@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { ComponentMetadata } from "../../registry/types"
+import type { ComponentMetadata } from "../../registry/types"
 import { ComponentPlayground } from "./component-playground"
-import { ComponentDoc, PropDefinition, ComponentStory } from "./types"
+import type { ComponentDoc, ComponentStory, PropDefinition } from "./types"
 
 export interface DynamicDocumentationProps {
   component: ComponentMetadata
@@ -16,10 +16,12 @@ export default function DynamicDocumentation({ component }: DynamicDocumentation
     // Note: React.lazy expects a default export or we need to handle named exports
     const Component = React.lazy(async () => {
       try {
-        const module = await import(`../components/${component.filePath.split('src/components/')[1]}`)
+        const module = await import(
+          `../components/${component.filePath.split("src/components/")[1]}`
+        )
 
         // Try to find the component by name, or fallback to default or first export
-        if (component.exports && component.exports.includes(component.name)) {
+        if (component.exports?.includes(component.name)) {
           // @ts-ignore
           return { default: module[component.name] }
         }
@@ -32,26 +34,30 @@ export default function DynamicDocumentation({ component }: DynamicDocumentation
             <div className="p-4 border border-destructive/50 text-destructive rounded bg-destructive/10">
               Error loading component: {component.name}
             </div>
-          )
+          ),
         }
       }
     })
 
     // Map props
-    const props: PropDefinition[] = (component.props || []).map(p => ({
+    const props: PropDefinition[] = (component.props || []).map((p) => ({
       name: p.name,
       type: p.type,
       defaultValue: p.defaultValue,
       description: p.description,
-      control: mapControl(p)
+      control: mapControl(p),
     }))
 
     // Map examples to stories if possible, or create a default story
-    const stories: ComponentStory[] = component.usageExample ? [{
-      name: "Default",
-      args: {},
-      description: "Default usage"
-    }] : []
+    const stories: ComponentStory[] = component.usageExample
+      ? [
+          {
+            name: "Default",
+            args: {},
+            description: "Default usage",
+          },
+        ]
+      : []
 
     return {
       slug: component.name.toLowerCase(),
@@ -60,7 +66,7 @@ export default function DynamicDocumentation({ component }: DynamicDocumentation
       description: component.description || "",
       component: Component,
       props,
-      stories
+      stories,
     }
   }, [component])
 
@@ -68,7 +74,9 @@ export default function DynamicDocumentation({ component }: DynamicDocumentation
     return (
       <div className="p-8 text-center">
         <h1 className="text-2xl font-bold mb-4">Component Not Found</h1>
-        <p className="text-muted-foreground">The requested component was not found in the registry.</p>
+        <p className="text-muted-foreground">
+          The requested component was not found in the registry.
+        </p>
       </div>
     )
   }
@@ -83,25 +91,27 @@ export default function DynamicDocumentation({ component }: DynamicDocumentation
 
 function mapControl(prop: any): PropDefinition["control"] {
   // Heuristic mapping
-  if (prop.control && typeof prop.control === 'object') {
-    return prop.control as any;
+  if (prop.control && typeof prop.control === "object") {
+    return prop.control as any
   }
 
-  if (prop.control === 'text') return { type: 'text' }
-  if (prop.control === 'number') return { type: 'number' }
-  if (prop.control === 'boolean') return { type: 'boolean' }
-  if (prop.control === 'select') return { type: 'select', options: prop.options || [] }
-  if (prop.control === 'color') return { type: 'color' }
+  if (prop.control === "text") return { type: "text" }
+  if (prop.control === "number") return { type: "number" }
+  if (prop.control === "boolean") return { type: "boolean" }
+  if (prop.control === "select") return { type: "select", options: prop.options || [] }
+  if (prop.control === "color") return { type: "color" }
 
   // Fallback inference
-  if (prop.type === 'boolean') return { type: 'boolean' }
-  if (prop.type === 'number') return { type: 'number' }
-  if (typeof prop.type === 'string' && prop.type.includes('|')) {
+  if (prop.type === "boolean") return { type: "boolean" }
+  if (prop.type === "number") return { type: "number" }
+  if (typeof prop.type === "string" && prop.type.includes("|")) {
     return {
-      type: 'select',
-      options: prop.type.split('|').map((s: string) => s.trim().replace(/"/g, '').replace(/'/g, ''))
+      type: "select",
+      options: prop.type
+        .split("|")
+        .map((s: string) => s.trim().replace(/"/g, "").replace(/'/g, "")),
     }
   }
 
-  return { type: 'text' }
+  return { type: "text" }
 }

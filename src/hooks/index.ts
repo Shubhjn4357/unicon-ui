@@ -27,5 +27,10 @@ export {
 // Theme Hook
 export { useTheme, ThemeProvider } from "./use-theme"
 
+// Accessibility Hooks
+export { useReducedMotion } from "./use-reduced-motion"
+export { useFocusManager } from "./use-focus-manager"
+export { useId } from "./use-id-new"
+
 // Type exports
 export type { AsyncState } from "./use-async"

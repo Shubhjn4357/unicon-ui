@@ -4,8 +4,8 @@ import { Check, Eye, Lock } from "lucide-react"
 import * as React from "react"
 import { useTheme } from "../../hooks/use-theme"
 import { BackgroundBeams } from "../backgrounds/background-beams"
-import { ThemeEditor } from "./theme-editor"
 import { SpotlightCard } from "../layout/spotlight-card"
+import { ThemeEditor } from "./theme-editor"
 
 export default function ThemeGeneratorPage() {
   const { theme, setTheme } = useTheme()
@@ -24,10 +24,12 @@ export default function ThemeGeneratorPage() {
         <BackgroundBeams />
         <div className="container mx-auto py-12 px-4 relative z-10">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-4 text-foreground tracking-tight">Theme Generator</h1>
+            <h1 className="text-5xl font-bold mb-4 text-foreground tracking-tight">
+              Theme Generator
+            </h1>
             <p className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
-              Create beautiful, accessible themes for your Unicorn UI components.
-              Choose from our curated presets or build your own custom palette.
+              Create beautiful, accessible themes for your Unicorn UI components. Choose from our
+              curated presets or build your own custom palette.
             </p>
           </div>
         </div>

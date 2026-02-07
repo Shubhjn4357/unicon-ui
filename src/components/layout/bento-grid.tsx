@@ -67,7 +67,7 @@ export const BentoCard = React.forwardRef<HTMLDivElement, BentoCardProps>(
       <motion.div
         ref={ref}
         className={cn(
-          "group relative flex flex-col justify-between overflow-hidden rounded-(--radius) p-6",
+          "group relative flex flex-col justify-between overflow-hidden rounded p-6",
           "bg-card transition-all duration-300",
           featured ? "md:col-span-2 md:row-span-2" : "col-span-1 row-span-1",
           className
